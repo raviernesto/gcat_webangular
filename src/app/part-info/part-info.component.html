@@ -1,0 +1,493 @@
+<!-- <div style="margin-top:3% ;background-image: url('assets/3.jpg');">
+    <br>
+    <h2 class="test" style="text-align: center;">Part Info</h2>
+    <br>
+  </div> -->
+  <div class="container">
+    <!-- <h4 class="color" style="margin-top:3%">Selection Criteria</h4>
+<div class="inner-container container-border Selection-criteria column gap-4">
+    <div class="column-flex ">
+        <div>
+            <input type="radio" name="vehicle" ng-model="vehicle" value="car" style="margin-right:1%;"
+                 (click)="partnerRadio('engineer')"><b>Engineering Part:</b>
+             <input type="text" id="fname" name="fname" [(ngModel)]="SelectedEngineeringPart" maxlength="20"><br>
+        </div> -->
+
+    <!-- <div class="row-flex justify-content-start">
+            <p class="Origin">Origin:
+                <input type="text" name="origin" list="originName" />
+                <datalist id="originName">
+                    <option value="America">America</option>
+                    <option value="India">India</option>
+                    <option value="London">London</option>
+                </datalist>
+            </p>
+        </div> -->
+    <!-- <div>
+            <label>Origin:</label>
+            <input type="text" id="fname" name="fname" [(ngModel)]="Origin" readonly>
+        </div> -->
+    <!-- <div class="row-flex justify-content-start">
+            <p class="Origin">Sequence:
+                <input type="text" name="sequence" list="sequenceName" />
+                <datalist id="sequenceName">
+                    <option value="Pen">Pen</option>
+                    <option value="Pencil">Pencil</option>
+                    <option value="Paper">Paper</option>
+                </datalist>
+            </p>
+        </div> -->
+    <!-- <div style="margin-top: 2%;">
+            <label>Sequence:</label>
+            <input type="text" id="fname" name="fname" [(ngModel)]="Sequence" readonly>
+        </div>
+
+    </div> -->
+    <!-- <div class="column-flex justify-content-between ">
+        <div>
+            <input type="radio" name="vehicle" ng-model="vehicle" value="car" style="margin-right:1%;"
+                (click)="partnerRadio('service')"><b>Service Part:</b>
+        
+        <div class="row-flex " style="margin-top:5%;">
+            <div class="checkbox" style="display:flex">
+                <input class="form-check-input" type="checkbox"  id="gridCheck1">
+                <label>&nbsp; Service</label>
+            </div>
+            <div style="display:flex" class="checkbox">
+
+                <input class="form-check-input" type="checkbox" checked id="gridCheck1">
+
+                <label style="margin-top:1%">&nbsp; Finis</label>
+            </div>
+        </div>
+        <div>
+            <label>Service Part:</label>
+            <input type="text" id="fname" name="fname" [(ngModel)]="SelectedServicePart" maxlength="20">
+        </div>
+
+        </div>
+       
+        
+
+        
+    </div>
+    <div class="column-flex justify-content-between">
+        <div>
+            <input type="radio" name="vehicle" ng-model="vehicle" value="car" style="margin-right:1%;"
+                (click)="partnerRadio('partner')" ><b>Partner Part:</b>
+
+            <br>
+            <div>
+                
+                <input type="text" id="fname" name="fname" [(ngModel)]="SelectedPartnerPart" maxlength="20">
+            </div>
+        </div>
+        <div>
+            <button class="button" style="margin-left:40%; margin-bottom:20%" type="button" (click)="getEngineeringPart()">Select</button>
+        </div>
+    </div>
+
+</div>
+<br> -->
+    <!-- <div class="inner-container container-border eng-and-service-info">
+    <div>
+        <h5 class="color">Engineering information</h5>
+        <div class="column-flex-list">
+            <div>
+                <label>Not service released:</label>
+                <input type="text" id="fname" name="fname" [(ngModel)]="epdtk" readonly>
+            </div>
+            <div>
+                <label>Rationalized to nbr:</label>
+                <input type="text" id="fname" name="fname" [(ngModel)]="Rational" readonly>
+            </div>
+            <div>
+                <label>Engineering description: </label>
+                <input type="text" id="fname" name="fname" [(ngModel)]="engrdes" readonly>
+            </div>
+            <div>
+                <label>shown on drawing:</label>
+                <input type="text" id="fname" name="fname" [(ngModel)]="bluepart" readonly>
+            </div>
+            <div>
+                <label>Part material content:</label>
+                <input type="text" id="fname" name="fname" [(ngModel)]="materialcontent" readonly>
+            </div>
+            <div>
+                <label>Kit:</label>
+                <input type="text" id="fname" name="fname"[(ngModel)]="kit" readonly>
+            </div>
+            <div>
+                <label>Colour description: </label>
+                <input type="text" id="fname" name="fname" [(ngModel)]="desc" readonly>
+            </div>
+            <div>
+                <label>Regulated Part:</label>
+                <input type="text" id="fname" name="fname" [(ngModel)]="regulatedpart" readonly> 
+            </div>
+        </div>
+    </div>
+    <div>
+        <h5 class="color">Service Information</h5>
+        <div class="column-flex-list">
+            <div>
+                <label>Service Description(SERVICE):</label>
+                <input type="text" id="fname" name="fname"  readonly>
+            </div>
+            <div>
+                <label>Service Description(FINIS):</label>
+                <input type="text" id="fname" name="fname" [(ngModel)]="lexi" readonly>
+            </div>
+            <div>
+                <label>Motocraft:</label>
+                <input type="text" id="fname" name="fname" [(ngModel)]="motorcraft" readonly>
+            </div>
+            <div>
+                <label>Standard Part locator:</label>
+                <input type="text" id="fname" name="fname" [(ngModel)]="partlocator" readonly>
+            </div>
+            <div>
+                <label>Industry/NAGS:</label>
+                <input type="text" id="fname" name="fname" [(ngModel)]="nags" readonly>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+    <!-- <br> -->
+
+
+    <div class="accordion3" style="margin-bottom:10px">
+        <div class="header" (click)="showCenterPart3()" [style.border-radius]="br2"
+            style="width:100%;margin-left:0%;padding:2px;padding-left:10px;padding-right:10px; background-color: #102B4E;display:inline-block;border-radius: 5px;margin-top: -10px;">
+            <span style="font-size: 11px;float:left;color:white;font-weight: bold;">Part Information
+                </span>
+            <i class="fa-solid fa-plus" [style.transform]="rotate2" aria-hidden="true"
+                style="float:right;font-size: 20px;color: red; "></i>
+
+
+        </div>
+        <div class="centerpart" [style.display]="display2"
+            style="width:100%;margin-left:0%;height:135px;background:white;top:65px;z-index: 100;margin-top:-21px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+            <div class="partcol1" style="width:32%;float: left;">
+                <div class="row" style="width:100%">
+                    <label for="supname"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:8px;padding-right:10px">
+                        <input type="radio" name="vehicle" ng-model="vehicle" value="car"
+                            (click)="engPart()">
+                        Engineering Part :</label>
+                    <!-- <p-dropdown [style]="{ 'width': '50%%','margin-top':'8px','border-radius':'5px','height':'38px','color':'black','border':'2px solid black'}" 
+                                    scrollHeight="200px" placeholder=" " [options]="engineeringDrop"   [(ngModel)]="SelectedEngineeringPart"  optionLabel="value" optionValue="value"></p-dropdown> -->
+                    <input type="text" style="width: 50%;margin-top:8px;height: 25px;font-size: 11px;"
+                        [(ngModel)]="SelectedEngineeringPart" maxlength="20">
+                </div>
+                <div class="row" style="margin-top: -4px;width:100%">
+                    <label for="supname"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:8px;padding-right:10px">Origin:</label>
+                    <input type="text" style="width: 50%;margin-top:8px;height: 25px;font-size: 11px;"
+                        [(ngModel)]="Origin" readonly>
+                </div>
+                <div class="row" style="margin-top: -10px;width:100%;display: inline-block;">
+                    <label for="address"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:16px;padding-right:10px ">Sequence
+                        :</label>
+                    <input type="text" style="width:50%;margin-top:16px;height: 25px;font-size: 11px;"
+                        [(ngModel)]="Sequence" readonly>
+                </div>
+            </div>
+            <div class="partcol1" style="width:33%;float: left;">
+                
+                
+                <div class="row" style="width: 100%">
+                    <label for="pincode"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px ">
+                        <input type="radio" name="vehicle" ng-model="vehicle" value="car"  style="margin-right:1%;"
+                            (click)="part()"> Service Part :</label>
+                            <div style="width:50%;float:left;margin-top:1%" [style.display]="ref1">
+                    <input type="text" style="width:100%;margin-left:-13%;height: 25px;font-size: 11px;"
+                        [(ngModel)]="SelectedServicePart" maxlength="20"></div>
+                        <div style="width:50%;float: left;margin-top:1%;" [style.display]="ref2">
+                        <p-dropdown [options]="serviceAll" optionLabel="spartPartNbr" autoWidth="false"
+                        [(ngModel)]="service" 
+                        [style]="{ 'width': '100%','margin-left':'-13%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black','font-size':'11px'}"
+                        [filter]="true" filterBy="spartPartNbr"  scrollHeight="200px" placeholder="--Select--"[virtualScroll]="true" > 
+                    </p-dropdown>
+                    </div>
+          
+                </div>
+                <div class="row" style="margin-top: -4px;width: 100%;">
+                    <div class="checkbox" style="display:flex;margin-left: 47%;">
+                        <!-- <input type="checkbox" style="margin-left: 0px;
+                        margin-top: -13px;" id=vehicleLinecheck ng-Model="checked" (change)="vlcheck($event)"
+                              [checked]="checkvl" /> -->
+                        <label
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;;text-align:right;margin-top:8px;padding-right:10px "><input
+                                class="form-check-input" type="checkbox" id="gridCheck1"  [(ngModel)]="checked1" 
+                                 (change)="getServicePartAll()" > &nbsp; Service </label>
+                        &nbsp;
+                        <span style="margin-left: 20%;">
+                            <label
+                                style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;;text-align:right;margin-top:8px;padding-right:10px;margin-left: -50px;"><input
+                                    class="form-check-input" type="checkbox" id="gridCheck2" value="F" [(ngModel)]="checked2" 
+                                     (change)="getServicePartAll()"> &nbsp; Finis </label>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="partcol1" style="width:32%;float: left;">
+                <div class="row" style="width: 100%;">
+                    <label for="city"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px ">
+                        <input type="radio" name="vehicle" ng-model="vehicle" value="car" style="margin-right:1%;"
+                            (click)="partnerPart()"> Partner Part:</label>
+                            <div style="width:50%;float:left;margin-top:1%" [style.display]="ref3">
+                    <input type="text" style="width:100%;margin-left:-13%;height: 25px;font-size: 11px;"
+                        [(ngModel)]="SelectedPartnerPart" maxlength="20"></div>
+                        <div style="width:50%;float: left;margin-top:1%;" [style.display]="ref4">
+                            <p-dropdown [options]="parts" optionLabel="d20PartR" autoWidth="false"
+                            [(ngModel)]="partner" 
+                            [style]="{ 'width': '100%','margin-left':'-13%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black','font-size':'11px'}"
+                            [filter]="true" filterBy="d20PartR"  scrollHeight="200px" placeholder="--Select--"  [virtualScroll]="true" > 
+                        </p-dropdown>
+                        </div>
+                        <!-- <div style="width:50%;float:left;margin-top:1%" [style.display]="ref1">
+                            <input type="text" style="width:100%;margin-left:-13%;height: 25px;font-size: 11px;"
+                                [(ngModel)]="SelectedServicePart" maxlength="20"></div>
+                                <div style="width:50%;float: left;margin-top:1%;" [style.display]="ref2">
+                                <p-dropdown [options]="serviceAll" optionLabel="spartPartNbr" autoWidth="false"
+                                [(ngModel)]="service" 
+                                [style]="{ 'width': '100%','margin-left':'-13%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black','font-size':'11px'}"
+                                [filter]="true" filterBy="spartPartNbr"  scrollHeight="200px" placeholder="--Select--"[virtualScroll]="true" > 
+                            </p-dropdown>
+                            </div> -->
+                </div>
+                <div class="row" style="margin-top: 10px;width:100%;display: inline-block;margin-left: 57%;">
+
+
+                    <button id="btn" style="padding-right: 8%;" type="button" (click)="getEngineeringPart()">Select
+                    </button>
+                </div>
+
+            </div>
+            <div style="clear:both"></div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="accordion1" style="margin-bottom:10px">
+        <div class="header" (click)="showCenterPart()" [style.border-radius]="br"
+            style="width:100%;margin-left:0%;padding:2px;padding-left:10px;padding-right:10px; background-color: #102B4E;display:inline-block;border-radius: 5px;">
+            <span style="font-size: 11px;float:left;color:white;font-weight: bold;">Engineering information</span>
+            <i class="fa-solid fa-plus" [style.transform]="rotate" aria-hidden="true"
+                style="float:right;font-size: 20px;color: red; "></i>
+
+
+        </div>
+        <div class="centerpart" [style.display]="display"
+            style="width:100%;margin-left:0%;height:135px;background:white;top:65px;z-index: 100;margin-top:-21px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+            <div class="partcol1" style="width:32%;float: left;">
+                <div class="row" style="width:100%">
+                    <label for="suppcode"
+                        style=" color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align: right;margin-top:8px;padding-right:10px">Not
+                        Service released:</label>
+                    <input type="text" style="width: 50%;margin-top:8px;height: 25px;font-size: 11px;"
+                        [(ngModel)]="epdtk" readonly>
+                </div>
+                <div class="row" style="margin-top: -4px;width:100%">
+                    <label for="supname"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:8px;padding-right:10px">Rationalized
+                        to nbr:</label>
+                    <input type="text" style="width: 50%;margin-top:8px;height: 25px;font-size: 11px;"
+                        [(ngModel)]="Rational" readonly>
+                </div>
+                <div class="row" style="margin-top: -4px;width:100%;display: inline-block;">
+                    <label for="address"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px ">Engineering
+                        Description :</label>
+                    <input type="text" style="width:50%;margin-top:8px;height: 25px;font-size: 11px;"
+                        [(ngModel)]="engrdes" readonly>
+                </div>
+            </div>
+            <div class="partcol1" style="width:32%;float: left;">
+                <div class="row" style="width: 100%;">
+                    <label for="pincode"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px ">Shown
+                        On Drawing:</label>
+                    <input type="text" style="width: 50%;margin-top:8px;height: 25px;font-size: 11px;"
+                        [(ngModel)]="bluepart" readonly>
+                </div>
+                <div class="row" style="margin-top: -4px;width: 100%;">
+                    <label for="city"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px ">Part
+                        Material Content:</label>
+                    <input type="text" style="width: 50%;margin-top:8px;height: 25px;font-size: 11px;"
+                        [(ngModel)]="materialcontent" readonly>
+                </div>
+                <div class="row" style="margin-top: -4px;width: 100%;">
+                    <label for="city"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px ">Kit:</label>
+                    <input type="text" style="width: 50%;margin-top:8px;height: 25px;font-size: 11px;" [(ngModel)]="kit"
+                        readonly>
+                </div>
+
+            </div>
+
+
+            <div class="partcol1" style="width:32%;float: left;">
+                <div class="row" style="width: 100%;">
+                    <label for="city"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px ">Colour
+                        Description:</label>
+                    <input type="text" style="width: 50%;margin-top:8px;height: 25px;font-size: 11px;"
+                        [(ngModel)]="desc" readonly>
+                </div>
+                <div class="row" style="width: 100%;">
+                    <label for="city"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px ">Regulated
+                        Part:</label>
+                    <input type="text" style="width: 50%;margin-top:8px;height: 25px;font-size: 11px;"
+                        [(ngModel)]="regulatedpart" readonly>
+                </div>
+
+            </div>
+            <div style="clear:both"></div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="accordion2" style="margin-bottom:10px">
+        <div class="header" (click)="showCenterPart2()" [style.border-radius]="br1"
+            style="width:100%;margin-left:0%;padding:2px;padding-left:10px;padding-right:10px; background-color: #102B4E;display:inline-block;border-radius: 5px;">
+            <span style="font-size: 11px;float:left;color:white;font-weight: bold;">Service Information</span>
+            <i class="fa-solid fa-plus" [style.transform]="rotate1" aria-hidden="true"
+                style="float:right;font-size: 20px;color: red; "></i>
+
+
+        </div>
+        <div class="centerpart" [style.display]="display1"
+            style="width:100%;margin-left:0%;height:130px;background:white;top:65px;z-index: 100;margin-top:-21px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+            <div class="partcol1" style="width:32%;float: left;">
+                <div class="row" style="width:100%">
+                    <label for="suppcode"
+                        style=" color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align: right;margin-top:8px;padding-right:10px">Service
+                        Description (SERVICE) :</label>
+                    <input type="text" style="width: 50%;margin-top:8px;height: 25px;font-size: 11px;"
+                        [(ngModel)]="lexi" readonly>
+                </div>
+                <div class="row" style="margin-top: -4px;width:100%">
+                    <label for="supname"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:8px;padding-right:10px">Service
+                        Description (FINIS) :</label>
+                    <input type="text" style="width: 50%;margin-top:8px;height: 25px;font-size: 11px;" readonly>
+                </div>
+
+            </div>
+            <div class="partcol1" style="width:32%;float: left;">
+                <div class="row" style="width: 100%;">
+                    <label for="pincode"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px ">Standard
+                        Part Locator :</label>
+                    <input type="text" style="width: 50%;margin-top:8px;height: 25px;font-size: 11px;"
+                        [(ngModel)]="partlocator" readonly>
+                </div>
+                <div class="row" style="margin-top: -4px;width: 100%;">
+                    <label for="city"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px ">Industry
+                        / NAGS :</label>
+                    <input type="text" style="width: 50%;margin-top:8px;height: 25px;font-size: 11px;"
+                        [(ngModel)]="nags" readonly>
+                </div>
+
+
+            </div>
+
+
+            <div class="partcol1" style="width:32%;float: left;">
+                <div class="row" style="margin-top: -4px;width:100%;display: inline-block;">
+                    <label for="address"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px ">Motocraft
+                        :</label>
+                    <input type="text" style="width:50%;margin-top:8px;height: 25px;font-size: 11px;"
+                        [(ngModel)]="motorcraft" readonly>
+                </div>
+
+            </div>
+            <div style="clear:both"></div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="partrow2" style="width:86%;margin-left:7%;">
+
+        <button id="btn" (click)="context()">
+            In context
+        </button> 
+        <button id="btn" disabled>
+            Cross Ref
+        </button>
+        <a href="part-work"><button id="btn">
+                WQ
+            </button></a>
+        <button id="btn" style="width: auto;" (click)="deletePopuptrue()">
+            Delete service part
+        </button>
+        <button id="btn" style="width: auto;" onclick="recoverInactivatedPart()" disabled>
+            Recover Inactivated Part
+        </button>
+        <a href="part-info"><button id="btn" type="button">
+                Reset
+            </button></a>
+        <button type="button" id="btn" (click)="closeClick()" style="background-color: #215a8f;">
+            Close
+        </button>
+    </div>
+
+    <p-dialog header="Part Information" [(visible)]="alert.flag" [style]="{'max-width':'50%', height: 'auto'}" [modal]="true">
+        <br>
+       <p style="text-align: center;color:#000080;font-size: 11px;font-family:Ford Antenne !important;"> {{alert.msg}}</p>
+       <button style="margin-left:27%;" id="btn" (click)="alertpop()">OK</button>
+    </p-dialog>
+
+    <p-dialog header="Part Information" [(visible)]="deletepop" [style]="{'width':'30%',height:'30%','padding-bottom':'0%'}"
+        position="center" [modal]="true" [closeOnEscape]=true><br>
+        <p style="text-align: center;color:#000080;font-size: 11px;font-family:Ford Antenne !important;">Are you Sure you want to delete?</p>
+        <div style="margin-top:-1%;margin-bottom: 0;">
+            <button style="margin-left:20%;" id="btn" (click)="deletePart();deletepop=false">OK</button>
+            <button style="margin-left:10%;" id="btn" (click)="deletepop=false">Cancel</button>
+        </div>
+    </p-dialog>
+
+</div>

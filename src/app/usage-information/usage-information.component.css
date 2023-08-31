@@ -1,0 +1,16 @@
+h4 {
+    color: white;
+    background-color: #2f51a7;
+    padding-left: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: medium;
+}
+
+.col-lg-1 {
+    display: flex;
+}
+
+.col-lg-2 {
+    display: flex;
+}

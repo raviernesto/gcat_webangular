@@ -1,0 +1,453 @@
+
+<!-- <h1>Hi Hari lets start the screen design</h1> -->
+<div style="clear:both"></div>
+
+<div class="maincontainer1" style="width:100%;">
+
+    <div style="width:100%;margin-left:0% ;display:inline-flex;border-radius: 5px;">
+        <div style="width:32%;float:left;margin-left: -2%;">
+            <label id="label">IRP Number :</label> 
+            <input type="text" disabled style="width:50%;height:25px" [(ngModel)]="filterIrp.irpNo">
+        </div>
+        <div style="width:32%;float:left;">
+            <label id="label">Illustration ID :</label> 
+            <input type="text" disabled style="width:50%;height:25px" [(ngModel)]="filterIrp.illusId">
+        </div>
+        <!-- <div style="clear:both"></div>
+        <br> -->
+        <div style="width:32%;float:left;">
+            <label id="label">Status :</label> 
+            <input type="text" disabled style="width:50%;height:25px" [(ngModel)]="filterIrp.status">
+        </div>
+        <div style="width:32%;float:right;margin-right:2%">
+            <label id="label">Unit Type :</label> 
+            <input type="text" disabled style="width:50%;height:25px" [(ngModel)]="filterIrp.unitType">
+        </div>
+        <div style="display: none;">
+            <label id="label">Publication Date:</label> 
+            <p-calendar dateFormat="dd-M-yy" [showIcon]="true" disabled 
+             [(ngModel)]="filterIrp.publicationDate" style="width: 50%;height:25px !important"
+                                        dataType="string" ></p-calendar>
+        </div>
+    </div>
+
+
+    <div style="clear:both"></div>
+   
+    <div class="accordion1"  >
+        <div class="header" (click)="showCenterPart()"  [style.border-radius]="br"  style="width:96%;margin-left:2%;padding:0px 10px; background-color: #102B4E;display:inline-block;border-radius: 5px;">
+             <span style="font-size: 11px;float:left;color:white;font-weight: bold !important;">Review IRP</span>
+         <i class="fa-solid fa-plus" aria-hidden="true" style="float:right;font-size: 20px;color: red; "></i>
+         
+         
+        </div>
+        <!-- [style.display]="display" -->
+        <div class="centerpart" [style.display]="display" style="width:96%;height:auto;background:white !important;margin-top:-5px;z-index: 100;margin-left:2%;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75); border-radius: 0px 0px 5px 5px;">
+           
+            <div style="width:25%;float:left;margin-left:-4%;margin-top: 1%;">
+                <label id="label">Section :</label> 
+                <input type="text" disabled style="width:50%;height:25px" [(ngModel)]="filterIrp.section">
+            </div>
+            <div style="width:25%;float:left;margin-top: 1%;">
+                <label id="label">VL/Prefix :</label> 
+                <input type="text" disabled style="width:50%;height:25px" [(ngModel)]="filterIrp.prefix">
+            </div>
+            <!-- <div style="clear:both"></div> -->
+            <!-- <br> -->
+            <div style="width:25%;float:left;margin-top: 1%;">
+                <label id="label">Effective In :</label> 
+                <p-calendar disabled dateFormat="dd-M-yy" [showIcon]="true" 
+                 [(ngModel)]="filterIrp.effIn" style="width: 50%;height:25px"
+                                            dataType="string" ></p-calendar>
+            </div>
+            <div style="width:25%;float:left;margin-top: 1%;">
+                <label id="label">Effective out :</label> 
+                <p-calendar disabled dateFormat="dd-M-yy" [showIcon]="true" 
+                 [(ngModel)]="filterIrp.effOut" style="width: 50%;height:25px"
+                                            dataType="string" ></p-calendar>
+            </div>
+            
+            <div style="clear:both"></div>
+            <br>
+            <!-- <br> -->
+            <div class="flex" style="width:100%" id="printareaDiv">
+                <div class="table"  style="width:100%;height:auto;background:white !important;margin-top:-5px;z-index: 100;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+                <p-table [value]="gcatIllustratedList" styleClass="p-datatable-sm" scrollDirection="both"
+                    [paginator]="false" [rows]="500" [showCurrentPageReport]="true"  responsiveLayout="scroll"  scrollHeight="200px"
+                    [rowHover]="true">
+                    <ng-template pTemplate="header">
+                        <tr style="background-color:#000080">
+                            <th  >Commodity</th>
+                            <th  >Suffix</th>
+                            <th >Part No</th>
+                            <th >CPSC(s)</th>
+                            <th >BluPrt(s)</th>
+                            <th  >Nxt Ass(s)</th>
+                            <th  >Commodity</th>
+                            <th  >Part Analyst</th>
+                            <th  >Done</th>
+                            <th style="  width:5%">Commodity Status</th>
+            
+                            
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-comm let-ri="rowIndex">
+                        <tr> 
+                            <td style="font-size: 11px;font-weight:bold;text-align: center;" >{{ comm.engpCommodityC }}</td>
+                            <td  style="font-size: 11px;font-weight:bold;text-align: center;" >{{ comm.cmdtsufSuffixC}}</td>
+                            <td  (click)="nextassclick2(ri)" style="font-size: 11px;font-weight:bold;text-align: center;" >{{ comm.engpEngnrgPartR}}</td>
+                            <td  class="ellipsis" (click)="nextassclick1(ri)" style="font-size: 11px;font-weight:bold;text-align: center;" >{{ comm.funcKey}}</td>
+                            <td  style="font-size: 11px;font-weight:bold;text-align: center;" >{{ comm.engpBluprtPrtR}}</td>
+                            <td  class="ellipsis" (click)="nextassclick(ri)">{{ comm.finascEngPartR}}</td>
+                            <td  style="font-size: 11px;font-weight:bold;text-align: center;"  >{{ comm.lexcDescShrtX}}</td>
+                            <td  style="font-size: 11px;font-weight:bold;text-align: center;" >{{ comm.plastIdC}}</td>
+                            <td  style="font-size: 11px;font-weight:bold;text-align: center;" >{{ comm.illcmdtIllDoneF}}</td>
+                            <td  style="font-size: 11px;font-weight:bold;text-align: center;" >{{ comm.cmdtyAvailF=='A'?'ORIGINAL': comm.cmdtyAvailF=='U'?'APPENDED': comm.cmdtyAvailF=='D'?'DELETED':''}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            
+            </div>
+                
+            </div>
+
+        </div>
+    </div>
+
+    <div style="clear:both"></div>
+
+    <div class="accordion1">
+        <div class="header" (click)="showCenterPart1()"  [style.border-radius]="br2"  style="width:96%;margin-left:2%;padding:0px 10px; background-color: #102B4E;display:inline-block;border-radius: 5px;margin-top:9px">
+             <span style="font-size: 11px;float:left;color:white;font-weight: bold !important;">Attach Files</span>
+         <i class="fa-solid fa-plus" aria-hidden="true" style="float:right;font-size: 20px;color: red; "></i>
+         
+         
+        </div>
+        <div class="centerpart" [style.display]="display1" style="width:96%;background:white !important;margin-top:-5px;z-index: 100;margin-left:2%;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75); border-radius: 0px 0px 5px 5px;">
+               
+                <div class="flex" style="width:100%;">
+                    <!-- <div class="table"  style="width:60%;height:auto;background:white !important;margin-top:-5px;z-index: 100;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);margin-left:20%"> -->
+                    <p-table [value]="gcatIrpFileList" styleClass="p-datatable-sm" scrollDirection="both"
+                    dataKey="id" [(selection)]="selectedIrpFile" 
+                        [paginator]="false" [rows]="500" [showCurrentPageReport]="true"  responsiveLayout="scroll"  scrollHeight="200px"
+                        [rowHover]="true">
+                        <ng-template pTemplate="header">
+                            <tr style="background-color:#000080">
+                                <th scope="col" style="min-width: 50px !important;"></th>
+                                <th  >File Name</th>
+                                <th  >Status</th>
+                                <th style="  width:5%">Type</th>
+                                <th style="  width:7%">Size(Bytes)</th>    
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-file let-ri="rowIndex">
+                            <tr [pSelectableRow]="file" >
+                                <td>
+                                    <p-tableRadioButton [value]="file"></p-tableRadioButton>
+                                  </td>
+                                <td  style="font-size:11px;font-weight:bold;text-align: center;" >{{ file.reqfileNameX }}</td>
+                                <td style="font-size:11px;font-weight:bold;text-align: center;">{{ file.reqfileMarkedF}}</td>
+                                <td  style="font-size:11px;font-weight:bold;text-align: center;" >{{ file.reqfileTypeC}}</td>
+                                <td style="font-size:11px;font-weight:bold;text-align: center;">{{ file.reqfileSizeR}}</td>
+                              
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                
+                <!-- </div> -->
+                  
+                </div>
+                <div style="clear:both"></div>
+                <div class="row" >
+       
+                    <div  style="width:100%;margin-left:15%;margin-top: -1%;">
+                        <!-- <button id="btn" class="btn ">Attach File </button> -->
+                            <!-- <label class="button" for="upload" >Attach File</label>
+                            <input id="btn" type="file" (change)="upload($event)" [disabled]="isAttachDis">  -->
+                            <!-- <label class="button" for="upload" >Attach File </label>
+                            <input id="upload" type="file"(change)="upload($event)"> -->
+                            <div style="width:100px;display:flex">
+                            <div *ngIf="isAttachDis" class="button-wrap" [attr.disabled]="isAttachDis?'':null">
+                                <button id="btn" class="btn2" [disabled]="true">Attach File </button>
+                              </div>
+                            <div 
+                            *ngIf="!isAttachDis" class="button-wrap" [attr.disabled]="isAttachDis?'':null">
+                                <label class="button" for="upload" >Attach File </label>
+                                <input id="upload" type="file"(change)="upload($event)" style="visibility: hidden;">
+                              </div>
+                            </div>
+                        <button   id="btn" class="bt1" (click)="delGCATReqFile()" [disabled]="isDelDis">Delete File</button>
+                        <button  id="btn" class="bt1" (click)="isEditorClick()" [disabled]="isNotesDis">Notes</button>
+                        <button style="width:200px" id="btn" class="bt1" (click)="download()" [disabled]="isDownDis">Download IRP Files</button>
+                    </div>
+            
+                </div>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+
+    <div class="accordion1"  >
+        <div class="header" (click)="showCenterPart2()"  [style.border-radius]="br3"  style="width:96%;margin-left:2%;padding:0px 10px; background-color: #102B4E;display:inline-block;border-radius: 5px;margin-top:9px">
+             <span style="font-size: 11px;float:left;color:white;font-weight: bold !important;">Tracking</span>
+         <i class="fa-solid fa-plus" aria-hidden="true" style="float:right;font-size: 20px;color: red; "></i>
+         
+         
+        </div>
+        <div class="centerpart" [style.display]="display2"  style="width:96%;height:auto;background:white !important;margin-top:-5px;z-index: 100;margin-left:2%;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75); border-radius: 0px 0px 5px 5px;padding:20px">
+        
+            <div class="heading" style="width:100%;">
+                <label id="label" style="width:100%;text-align:left;border-bottom:2px solid #102B4E"> Illustrator</label>
+            </div>
+            <div style="clear:both"></div>
+            <div style="width:25%;float:left;">
+                <label id="label">Internal Illustrator :</label> 
+                <p-dropdown [disabled]="intIllDis" [options]="IntIllustratorList" optionLabel="userIdC" autoWidth="false" [(ngModel)]="tracking.intIllustrator"
+                                    [style]="{ 'width': '50%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}" [filter]="true"
+                                    filterBy="userIdC" [showClear]="true" placeholder=" ">
+                                            <ng-template let-ill pTemplate="selectedItem">
+                                                {{ill.userIdC}}
+                                            </ng-template>
+                                            <ng-template let-ill pTemplate="item">
+                                                <div class="vehicleLine-item">
+                                                    <div>{{ill.userIdC}}</div>
+                                                </div>
+                                            </ng-template>
+                                    </p-dropdown>
+            </div>
+            <div style="width:25%;float:left">
+                <label id="label">Date Sent :</label> 
+                <p-calendar dateFormat="dd-M-yy" [showIcon]="true" [(ngModel)]="tracking.dateIntSent" disabled
+                    style="width: 50%;height:25px" dataType="string"></p-calendar>
+            </div>
+            <!-- <div style="clear:both"></div>
+            <br> -->
+            <div style="width:25%;float:left;">
+                <label id="label">External Illustrator :</label> 
+                <p-dropdown [disabled]="extIllDis" [options]="extIllustratorList"  optionLabel="userIdC" autoWidth="false" [(ngModel)]="tracking.extIllustrator"
+                [virtualScroll]="true" 
+                [style]="{ 'width': '50%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                 [filter]="true" filterBy="userIdC" [showClear]="true" placeholder=" " #extIll>
+                                            <ng-template let-ext pTemplate="selectedItem">
+                                                {{ext.userIdC}}
+                                            </ng-template>
+                                            <ng-template let-ext pTemplate="item">
+                                                <div class="vehicleLine-item">
+                                                    <div>{{ext.userIdC}}</div>
+                                                </div>
+                                            </ng-template>
+                                    </p-dropdown>
+            </div>
+            <div style="width:25%;float:left">
+                <label id="label">Date Sent :</label> 
+                <p-calendar dateFormat="dd-M-yy" [showIcon]="true" [(ngModel)]="tracking.dateExtSent" disabled
+                    style="width: 50%;height:25px" dataType="string"></p-calendar>
+            </div>
+
+            <div style="clear:both"></div>
+            <!-- <br> -->
+            <div style="width:25%;float:left;">
+                <label id="label"  style="text-align: left;">Return To Illustration Coordinator :</label>   
+                <p-calendar dateFormat="dd-M-yy" [showIcon]="true" [(ngModel)]="tracking.retIllusCoordDate" disabled
+                    style="width: 50%;height:25px" dataType="string"></p-calendar>
+            </div>
+            <div style="width:25%;float:left">
+                <label id="label">Requested Return Date:</label> 
+                <p-calendar dateFormat="dd-M-yy" [showIcon]="true" [(ngModel)]="tracking.reqRetDate" [disabled]="isReqRetDis"
+                    style="width: 50%;height:25px" dataType="string"></p-calendar>
+            </div>
+            <!-- <div style="clear:both"></div> -->
+            <!-- <br> -->
+            <div style="width:25%;float:left;">
+                <label id="label">Actual Return Date :</label> 
+                <p-calendar dateFormat="dd-M-yy" [showIcon]="true" [(ngModel)]="tracking.actRetDate" disabled
+                style="width: 50%;height:25px" dataType="string"></p-calendar>
+            </div>
+            <div style="width:25%;float:left">
+                <label id="label">Art House :</label> 
+                <input type="text" style="width:50%;height:25px" [(ngModel)]="tracking.artHouse" disabled>
+            </div>
+            <div style="clear:both"></div>
+            <!-- <br> -->
+            <div style="width:25%;float:left;">
+                <label id="label">Effective Date :</label> 
+                <p-calendar dateFormat="dd-M-yy"    [showIcon]="true" [disabled]="isEffDtDis"
+                [(ngModel)]="tracking.effectDt" style="width: 50%;height:25px"
+                                            dataType="string" ></p-calendar>
+            </div>
+            <div style="width:5%;float:left;margin-left:2%;">
+                <button id="btn" class="bt1" [disabled]="isEffDtDis" (click)="updateEffectiveDt()">
+                    update
+                </button>
+            </div>
+            <div style="clear:both"></div>
+           
+            <div class="heading" style="width:100%;">
+                <label id="label" style="width:100%;text-align:left;border-bottom:2px solid #102B4E"> Requester</label>
+            </div>
+            <div style="clear:both"></div>
+            <!-- <br> -->
+            <div style="width:25%;float:left;">
+                <label id="label">Requester :</label> 
+                <input type="text" style="width:50%;height:25px" *ngIf="isRequester" [(ngModel)]="tracking.requester" disabled>
+                <p-dropdown [options]="requesterList" *ngIf="!isRequester" #reqId  optionLabel="userIdC" autoWidth="false"
+                [(ngModel)]="tracking.dropdownRequester" [disabled]="isRequester"   (onChange)="onRequester($event)"
+                [style]="{ 'width': '50%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [filter]="true" filterBy="userIdC" [showClear]="true" placeholder=" ">
+                <ng-template let-requester pTemplate="selectedItem">
+                    {{requester.userIdC}}
+                </ng-template>
+                <ng-template let-requester pTemplate="item">
+                    <div class="vehicleLine-item">
+                        <div>{{requester.userIdC}}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+            </div>
+            <div style="width:25%;float:left">
+                <label id="label">Create Date:</label>
+                <p-calendar dateFormat="dd-M-yy" [showIcon]="true"  [(ngModel)]="tracking.reqDate" disabled
+                    style="width: 50%;height:25px" dataType="string"></p-calendar>
+            </div>
+            <div style="width:25%;float:left">
+                <label id="label">Completed Date:</label> 
+                <p-calendar dateFormat="dd-M-yy" [showIcon]="true" [(ngModel)]="tracking.completeDate" disabled
+                    style="width: 50%;height:25px" dataType="string"></p-calendar>
+            </div>
+           
+            <div style="width:25%;float:left;">
+                <label id="label">Closed Date :</label> 
+                <p-calendar dateFormat="dd-M-yy" [showIcon]="true"  [(ngModel)]="tracking.closeDate" disabled
+                    style="width: 50%;height:25px" dataType="string"></p-calendar>
+            </div>
+            <div style="clear:both"></div>
+            <div style="width:25%;float:left">
+                <label id="label">Rejected Date :</label> 
+                <p-calendar dateFormat="dd-M-yy" [showIcon]="true" [(ngModel)]="tracking.rejectDate" disabled
+                    style="width: 50%;height:25px" dataType="string"></p-calendar>
+            </div>
+            <div style="width:25%;float:right;">
+                <label id="label">Current Owner :</label> 
+                <input type="text" style="width:50%;height:25px" [(ngModel)]="filterIrp.currentOwner" disabled>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+</div>
+<div style="clear:both"></div>
+<br>
+<!-- <div  style="width:100%;">
+    <button id="btn" class="bt1"(click)="sendIrp()" [disabled]="isSendDis" >Send IRP </button>
+    <button   id="btn" class="bt1" (click)="approve()" [disabled]="isApproveDis">Approve</button>
+    <button  id="btn" class="bt1" (click)="reject()" [disabled]="isRejectDis">Reject</button>
+    <button  id="btn" class="bt1" (click)="cancelIrp()" [disabled]="isCancelDis">Cancel</button>
+
+    <button   id="btn" class="bt1" (click)="irpClick()" [disabled]="isIrpDis">IRP</button>
+    <button  id="btn" class="bt1" (click)="wbsClick()" [disabled]="isWbsDis">WBS</button>
+    <button style="width:150px" id="btn" class="bt1" (click)="illClick()" [disabled]="isIllSerDis">Illustration Search</button>
+</div>
+<div style="clear:both"></div>
+<br>
+<div  style="width:100%;">
+    <button style="width:160px" id="btn" class="btn " (click)="viewTiff()" [disabled]="isTifDis">View TIF For Appr</button>
+    <button style="width:160px" id="btn" class="btn " (click)="viewCgm()" [disabled]="isCgmDis">View CGM For Appr</button>
+    <button style="width:120px" id="btn" class="btn " (click)="sectSetupClick()" [disabled]="isSecSetDis">Section Setup</button>
+    <button style="width:140px" id="btn" class="btn " (click)='onPreview("printareaDiv")' [disabled]="isPrintDis">Print Cmdty List</button>
+    <button style="width:140px" id="btn" class="btn " (click)="browse()" [disabled]="isBrowseDis">Browse Graphic</button>
+    <button  id="btn" class="btn " [disabled]="isPropDis" (click)="sectionproperty();sectionProperty1()">Property</button>
+    <button  id="btn" class="btn " (click)="close()">Colse</button>
+
+</div> -->
+<div  style="width:100%;">
+    <button id="btn" class="bt1"(click)="sendIrp()" [disabled]="isSendDis" >Send IRP </button>
+    <button   id="btn" class="bt1" (click)="approve()" [disabled]="isApproveDis">Approve</button>
+    <button  id="btn" class="bt1" (click)="reject()" [disabled]="isRejectDis">Reject</button>
+    <button  id="btn" class="bt1" (click)="cancelIrp()" [disabled]="isCancelDis">Cancel</button>
+
+    <button   id="btn" class="bt1" (click)="irpClick()" [disabled]="isIrpDis">IRP</button>
+    <button  id="btn" class="bt1" (click)="wbsClick()" [disabled]="isWbsDis">WBS</button>
+    <button style="width:150px" id="btn" class="bt1" (click)="illClick()" [disabled]="isIllSerDis">Illustration Search</button>
+    <button style="width:160px" id="btn" class="bt1" (click)="viewTiff()" [disabled]="isTifDis">View TIF For Appr</button>
+    <button style="width:160px" id="btn" class="bt1" (click)="viewCgm()" [disabled]="isCgmDis">View CGM For Appr</button>
+    <button style="width:120px" id="btn" class="bt1" (click)="sectSetupClick()" [disabled]="isSecSetDis">Section Setup</button>
+    <button style="width:140px" id="btn" class="bt1" (click)='onPreview("printareaDiv")' [disabled]="isPrintDis">Print Cmdty List</button>
+    <button style="width:140px" id="btn" class="bt1" (click)="browse()" [disabled]="isBrowseDis">Browse Graphic</button>
+
+</div>
+<div style="clear:both"></div>
+<br>
+<div  style="width:100%;text-align: center;">
+    <button  id="btn" class="bt1" [disabled]="isPropDis" (click)="sectionproperty();sectionProperty1()">Property</button>
+    <button  id="btn" class="bt1" (click)="close()">Close</button>
+</div>
+
+<p-dialog header="IRP Review" [(visible)]="alert.flag" [style]="{'max-width':'50%', height: 'auto'}" [modal]="true">
+    <br>
+    {{alert.msg}} <div class="text-center">
+        <button style="width: 4%;min-width: 80px;margin-top: 8%;margin-left: -1%;"
+        class="btn" id="btn" (click)="popupOk()">OK</button>
+    </div>
+  </p-dialog>
+
+  <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10111113" rejectButtonStyleClass="p-button-text">
+</p-confirmDialog>
+<p-dialog header="IRP Review" [(visible)]="isEditor" [closable]="false" [baseZIndex]="10111113" [style]="{'min-width':'70%', height: '500px'}" [modal]="true">
+    <br>
+    <!-- <p-editor *ngIf="isEditor" [(ngModel)]="text1"  [style]="{'height':'500px'}"></p-editor> -->
+    <textarea  *ngIf="isEditor" (change)="notesChanges()" [(ngModel)]="text1" [style]="{'width': '100%;','height':'500px','font-size':'19px'}">
+
+    </textarea>
+    <ng-template pTemplate="footer">
+        <p-button (click)="confirmalert1()" label="Close"></p-button>
+        <p-button (click)="expFile()" label="Save"></p-button>
+      </ng-template>
+  </p-dialog>
+  <p-dialog header="IRP Review" [(visible)]="alert1.flag" [style]="{'max-width':'50%', height: 'auto'}" [modal]="true">
+    <br>
+    {{alert1.msg}}
+    <div class="partrow2" style="display: inline-block;width: 100%;">
+        <button (click)="expFile();cancelpop()" id="btn" class="bt1" style="margin-left:26%;width:19%;margin-top:7px">Yes</button>
+        <button (click)="cancelpop()" id="btn" class="bt1"  style="width:19%">No</button>
+    </div>
+  </p-dialog>
+  <p-dialog header="IRP Review" [(visible)]="isnextass" [style]="{'max-width':'50%', height: 'auto'}" [modal]="true">
+    <br>
+    <p
+    style="color:#00095B;margin-top: 9px;font-family:Ford Antenna;font-size :16px !important ;font-weight:bold !important;">
+    {{isnextass1.msg}}</p><br>
+    <ng-template pTemplate="footer">
+        <p-button (click)="cancelpop1()" label="Close"></p-button>
+      </ng-template>
+  </p-dialog>
+
+  <p-dialog [(visible)]="section" [style]="{'width':'50%','margin-top':'6%', height:'auto','font-size':'4px !important'}"
+  header="IRP Review-Section Properties" [modal]="true">
+  <div Style="width:60%;margin-left: 17px;">
+      <p
+          style="color:#00095B;margin-top: 9px;font-family:Ford Antenna;font-size :16px !important ;font-weight:bold !important;">
+          IIUS ID - Rev Num : {{filterIrp.illusId}}</p>
+  </div>
+  <div class="container2" style="width:90%;margin-left:4%;margin-top:8%">
+      <div id="tablepart">
+          <p-table [value]="table" scrollDirection="both" [paginator]="false" [rows]="50" scrollHeight="270px"
+              responsiveLayout="scroll" [showCurrentPageReport]="false" [rowHover]="false">
+              <ng-template pTemplate="header">
+                  <tr style="position: sticky !important;top: 0 !important;">
+                      <th scope="col">Property</th>
+                      <th scope="col">Property Code</th>
+                      <th scope="col">Description</th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-irps>
+                  <tr>
+                      <td>{{irps.propCodeC}}</td>
+                      <td>{{irps.propCodeValueC}}</td>
+                      <td>{{irps.lexcDescLongX}}</td>
+                  </tr>
+              </ng-template>
+
+          </p-table>
+      </div>
+  </div>
+  <button style="width: 20%;margin-left: 74%;margin-top:5%" class="btn" id="btn"
+      (click)="section=false">Close</button>
+</p-dialog>

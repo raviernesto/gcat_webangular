@@ -1,0 +1,101 @@
+<div style="clear:both"></div>
+<div class="maincontainer" style="width:100%;height:450px;">
+    <div class="container1"
+        style="width:18%;float:left;height:75%;box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.75);margin-right: 1%;margin-left: 1%;">
+        <div class="heading" style="width:100%;">
+            <label id="label" style="width:90%;text-align:left;border-bottom:2px solid #102B4E;margin-left: 5%;margin-right: 6%;"> Illustration ID
+                :</label>
+        </div>
+        <div style="clear:both"></div>
+        <div class="flex" style="width:100%">
+            <div class="table"
+                style="width:100%;height:auto;background:white !important;margin-top:-5px;z-index: 100;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+                <p-table [value]="illList" styleClass="p-datatable-sm p-datatable-gridlines" scrollDirection="both" 
+                    [rows]="1000" responsiveLayout="scroll" scrollHeight="390px" [rowHover]="true"
+                    selectionMode="single" [(selection)]="selectedRow">
+
+                    <ng-template pTemplate="body" let-ill let-rowIndex="rowIndex">
+                        <tr [pSelectableRow]="ill" [pSelectableRowIndex]="rowIndex">
+                            <td (click)="selected(ill)">{{ill.illusId}} - {{ill.illusRev}}</td>
+
+                        </tr>
+                    </ng-template>
+                </p-table>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="container1"
+        style="width:78%;height:96.8%;float:left;padding:10px;box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.75);">
+        <div class="heading" style="width:100%;height:100%">
+            <label id="label" style="width:100%;text-align:left;border-bottom:2px solid #102B4E;margin-top: -2px;"> Illustration View
+                :</label>
+            <div *ngIf="show">
+                <iframe [src]="pdf" id="title toolbar" title="Illustration" style="width: 100%;height: 375px;"></iframe>
+            </div>
+            <div *ngIf="!show">
+                <div *ngIf="spinner" class="centerpart" id="center" style="height: 500px;">
+                    <div  class="spinner-border" role="status"
+                  style="color: #000080;margin-top: 15%;margin-left: 48%;">
+                  <span class="sr-only"></span>
+                </div>   
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div style="width:100%;text-align: center;">
+    <button style="width:140px" id="btn" class="btn " (click)="download()" [disabled]="buttonEnable"
+    style="width: 10%;">Download TIF</button>
+    <button style="width:150px" id="btn" class="btn " (click)="downloadPdf()" [disabled]="buttonEnable"
+    style="width: 11%;">Download PDF</button>
+    <button style="width:80px" id="btn" class="btn " [disabled]="buttonEnable" (click)="irp()"
+    >IRP</button>
+    <button style="width:140px" id="btn" class="btn " [disabled]="buttonEnable" (click)="wbs()"
+    style="width: 13%;">Assign To Section</button>
+    <button style="width:140px" id="btn" class="btn " (click)="close()" style="width: 7%;"
+    >Close</button>
+</div>
+
+<p-dialog header="Illustration Search" [(visible)]="alert.flag" [style]="{'max-width':'35%', height: 'auto'}"
+        [modal]="true" [closeOnEscape]=true [focusOnShow]=true [dismissableMask]="true">
+        <br>
+        <p style="text-align: center;padding-left:5%;padding-right: 5%;">{{alert.msg}}</p>
+        <div class="text-center">
+            <button style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 1%;margin-left: -1%;margin-bottom: 1%;"
+                class="btn btn-primary btn-block" id="btn" (click)="popupOk()">OK</button>
+        </div>
+</p-dialog>
+
+<p-dialog [(visible)]="irpView" [style]="{'width':'auto',height:'auto','padding-bottom':'0%'}"
+        position="center" header="IRP Review" [focusTrap]="true" [modal]="true">
+        <div class="container" style="background-color:white;padding-bottom: 0%;">
+            <p>Multiple Open IRPs exist for this Illustration. Please Select One.</p>
+            <div
+                style="align-items: center;border:1px solid black;margin-top: 1%;border-radius: 3px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+                <p-table [value]="irpList" selectionMode="single" [(selection)]="irpSelected" scrollHeight="405px"
+                    scrollDirection="both"  styleClass="p-datatable-sm p-datatable-gridlines"
+                    responsiveLayout="scroll" [style]="{'font-size':'12px','margin-top':'0'}" scrollHeight="220px"
+                    (onRowSelect)="clickedIrp($event)" (onRowUnselect)="unSelectIrp()">
+                    <ng-template pTemplate="header">
+                        <tr style="position: sticky;top: 0;">
+                            <th scope="col">Illustration ID</th>
+                            <th scope="col">Ill Rev no</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                        <tr [pSelectableRow]="list" [pSelectableRowIndex]="rowIndex">
+                           <td>{{list.illstrIdR}}</td>
+                           <td>{{list.illstrRevIdR}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+
+            </div>
+            <button class="btn btn-primary btn-block" id="btn"
+                style="width: 15%;margin-left:31%;margin-right:6%;margin-top: 2%;" (click)="selectIrp()">OK</button>
+            <button class="btn btn-primary btn-block" id="btn" style="width: 15%;margin-right:20%;margin-top: 2%;"
+                (click)="cancelIrp()">Cancel</button>
+        </div>
+    </p-dialog>

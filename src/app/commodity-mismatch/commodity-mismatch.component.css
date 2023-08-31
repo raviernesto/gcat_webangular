@@ -1,0 +1,228 @@
+.details {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inline {
+    display: inline;
+}
+
+.show_report {
+    border-radius: 3px;
+    border: 1px;
+    background-color: #2f51a7;
+    color: white;
+}
+
+.color {
+    color: #2f51a7;
+}
+
+.container {
+    margin-top: 10px;
+    width: 50%;
+    padding-bottom: 70px;
+    margin-left: 25%;
+    border-radius: 20px;
+    padding-top: 10px;
+    border: 1px solid black;
+}
+.vehicle{
+    border-radius: 10px;
+    font-size: 20px;
+    margin-left: 33%;
+    background-color: #000080;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.view{
+    width:60%;
+    border-radius: 10px;
+    font-size: 17px;
+    margin-top: -3%;
+    margin-left: 20%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+
+#head{
+    width:86%;
+    margin-left:7%;
+    padding:0px 10px;
+     background-color: #102B4E;
+    display:inline-block;
+     border-radius: 5px
+
+}
+#headerName{
+    font-size: 11px;
+    float:left;
+    color:white;
+    font-weight: bold;
+}
+#center{
+    width:86%;
+    margin-left:7%;
+    margin-top:-6px;
+    padding:1% 0%;
+    box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+    border-radius: 0px 0px 5px 5px;
+}
+
+#label{
+    color:#00095B;
+     font-family:Ford Antenna;
+     font-size :11px;
+     font-weight:bold;
+     width:90%;
+     margin-top:0px;
+     text-align: right;
+     /* padding-right: 20px; */
+
+}
+#colon{
+    color:#00095B;
+    font-family:Ford Antenna;
+    font-size :11px;
+    font-weight:bold;
+    width: 2%;
+    text-align: right;
+}
+.col1{
+   float:left;
+   margin-left:1%;
+}
+
+#btn{
+   
+    height:25px;
+    /* width:106px; */
+    border-radius:20px;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    font-size: 13px !important;
+    white-space: nowrap;
+    border:none !important;
+    /* margin-top:20px;
+    margin-left: 8%; */
+    
+}
+#tablepart{
+    width:86%;
+   
+    margin-left:7%;
+    margin-top:-6px;
+    padding:1% 0%;
+}
+#th{
+    font-size:15px !important;
+text-align:center !important;
+white-space:nowrap;
+border-right: 1px solid #bdbdbd !important;
+padding:10px;
+font-weight:bold !important;
+
+}
+tr:nth-child(even){ background-color:#f5f5f5 !important; } tr:nth-child(odd){ background-color:#ffff; }
+td{
+    border-right: 1px solid #bdbdbd !important;
+  }
+:host ::ng-deep .p-datatable-wrapper {
+    margin-top: -13px;
+}
+
+:host ::ng-deep .p-datatable{
+    box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+}
+
+div{
+    margin:0;
+    padding:0;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+    text-align: left;
+    padding: 1rem 1rem;
+    border: 1px solid #e9ecef;
+    border-width: 0 0 1px 0;
+    font-weight: 600;
+    color: #495057;
+    background: #f8f9fa;
+    transition: box-shadow 0.2s;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size:11px;
+    font-weight:bold;
+}
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+    padding-bottom: 0px;
+    text-align: left;
+    border: 1px solid #e9ecef;
+    border-width: 0 0 1px 0;
+    padding: 1rem 1rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size:11px;
+    font-weight:bold;
+}
+:host ::ng-deep .p-dropdown .p-dropdown-label.p-placeholder {
+    color: #6c757d;
+    margin-top: -7px;
+}
+:host ::ng-deep span#pr_id_1_label {
+    margin-top: -7px !important;
+    font-size: 13px !important;
+}
+:host ::ng-deep span#pr_id_2_label {
+    margin-top: -7px !important;
+    font-size: 13px !important;
+}
+:host ::ng-deep span#pr_id_3_label {
+    margin-top: -7px !important;
+    font-size: 13px !important;
+}
+:host ::ng-deep .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    margin: 0;
+    font-size: 11px !important;
+    padding: 0.5rem 1rem;
+    border: 0 none;
+    color: #495057;
+    background: transparent;
+    transition: box-shadow 0.2s;
+    border-radius: 0;
+}
+.required:after {
+    content:"*";
+    color:#e32;
+    font-size :13px;
+    text-align: right; 
+    font-weight:bolder;
+  }
+:host ::ng-deep .p-dropdown-panel .p-dropdown-header .p-dropdown-filter {
+    padding-right:
+    1.5rem
+    ;
+    margin-right:
+    -1.5rem
+    ;
+    height:
+    25px !important;
+    }
+    tr:nth-child(even){ background-color:#f5f5f5 !important; } tr:nth-child(odd){ background-color:#ffff; }
+    a:hover {
+        color: rgb(99, 180, 247);
+        background-color: transparent;
+        text-decoration: underline;
+      }
+      a:link {
+        color: rgb(77, 50, 107);
+        background-color: transparent;
+        text-decoration: underline;
+      }

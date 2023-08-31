@@ -1,0 +1,625 @@
+<div style="clear:both;"></div>
+<div class="accordion1" style="height:1500px;margin-top:-10px">
+    <form>
+        <div class="header" (click)="showCenterPart()" [style.border-radius]="br"
+            style="width:94%;margin-left:3%;padding:2px;padding-right:10px;font-weight: bold; background-color: #102B4E;display:inline-block;border-radius: 5px;">
+            <span style="font-size: 11px;font-weight:bold;float:left;margin-left: 1%;">Lexicon Code Report</span>
+            <i class="fa-solid fa-plus" [style.transform]="rotate" aria-hidden="true"
+                style="float:right;font-size: 20px;color: red; "></i>
+        </div>
+        <div class="centerpart" [style.display]="display"
+            style="width:94%;height:70px;background:white !important;margin-top:-5px;z-index: 100;margin-left:3% !important;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75) !important;border-radius:0px 0px 5px 5px">
+            <div class="part123" style="width:100%;height:100%;">
+                <div class="partcol1" style="width:100%;float: left;">
+                    <div class="col=" style="width:32%;float: left;margin-left: 0%;">
+                        <label for="suppcode"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align:right;width:42%;margin-top:1px;padding-right:10px;float:left">Lexicon
+                            Code :<sup style="color: crimson;">*</sup></label>
+                        <p-dropdown [options]="lexc" optionLabel="lexcC" name="dropDown"
+                            (onChange)="changeLexc(lexVal.lexcC)"
+                            [style]="{ 'width': '50%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                            [(ngModel)]="binding" [filter]="true" filterBy="lexcC" [filterMatchMode]=startsWith
+                            [virtualScroll]="true" [itemSize]="30" placeholder="--Select--">
+                            <ng-template pTemplate="selectedItem">
+                                <div>{{lexVal.lexcC}}</div>
+                                <!-- <div>{{binding}}</div> -->
+                            </ng-template>
+                        </p-dropdown>
+
+                    </div>
+                    <div class="col" style="width: 32%;float: left;margin-right: -2%;">
+                        <label for="pincode"
+                        style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: right;width:42%;margin-top:1px;padding-right:10px;float:left">Search
+                            :</label>
+                        <select class="form-select"
+                        [style]="{ 'width': '50%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                            name="dropdown" style="width:50%;float: left;padding-top:2px;padding-left: 10px;font-family:Ford Antenna;font-size :11px !important;
+                     font-size: 1rem;
+                     color: #495057;" [(ngModel)]="selectedValue">
+                            <option value="0" selected>All</option>
+                            <option value="1" disabled>Sections</option>
+                            <option value="2" disabled>Usages</option>
+                            <option value="3">Spec Comment</option>
+                            <option value="4">Group-Single AVS</option>
+                            <option value="5">Single-Group AVS</option>
+                            <option value="6">Calibration</option>
+                            <option value="7">WorkQueue</option>
+                            <option value="8">Part Description</option>
+                            <option value="9">Commodities</option>
+                        </select>
+
+                    </div>
+            
+                                  <div class="col" style="width: 32%;float: left;margin-top: -6%;">
+                        <br><br>
+                        <button class="btn" type="submit" (click)="showReport()" style="width: 103px;margin-left:39%;text-align: initial;"
+                            >Show
+                            Report</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div *ngIf="showTable" class="container">
+        <form>
+            <div class="row g-3" style="margin-left: -1%; ">
+                <div class="col-lg-4" style="display:flex;">
+                    <label for="pincode"
+                    style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">Lexicon
+                        Type :
+                    </label>
+                    <!-- <span class="details"><b style="vertical-align: -8px"> Lexicon Type: </b></span> -->
+                    <input type="text" style="width: 50%;height:38px;margin-left:-16%;font-size :11px ;font-family:Ford Antenna;height:25px;" [(ngModel)]="type" name="type" readonly>
+                </div>
+                <div class="col-lg-4" style="display:flex;margin-left:-8%;">
+                    <label for="pincode"
+                    style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">Lexicon
+                        Desc :
+                    </label>
+                    <!-- <span class="details"><b style="vertical-align: -8px">Lexicon Desc: </b></span> -->
+                    <input type="text" style="width: 50%;height:38px;margin-left:-15%;font-size :11px ;font-family:Ford Antenna;height:25px;" [(ngModel)]="desc" name="desc" readonly>
+                </div>
+            </div>
+        </form>
+
+
+        <!-- <div  *ngIf="value1" class="table">
+        <h5 style="font-size:20px">Section: (See Comments below)</h5>
+        <p-table [value]="part" styleClass="p-datatable-customers" scrollDirection="both" [paginator]="true" [rows]="3"
+            [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowHover]="true">
+            <ng-template pTemplate="header">
+                <tr style="background-color:#000080;">
+                    <th style="font-size:15px !important">Section/Suffix</th>
+                    <th style="font-size:15px !important">Prefix/Vehicle Line</th>
+                    <th style="text-align:center !important;font-size:15px !important">Description</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-parts>
+                <tr>
+                    <td>{{ parts.engPart}}</td>
+                    <td>{{ parts.svcPart}}</td>
+                    <td style="text-align:center !important">{{ parts.prodType}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+
+
+
+    <div *ngIf="value2" class="table">
+        <h5 style="font-size:20px">Usages: (See Comments below)</h5>
+        <p-table [value]="part" styleClass="p-datatable-customers" scrollDirection="both" [paginator]="true" [rows]="3"
+            [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowHover]="true">
+            <ng-template pTemplate="header">
+                <tr style="background-color:#000080;">
+                    <th style="font-size:15px !important">Eng Part</th>
+                    <th style="font-size:15px !important">Svc Part</th>
+                    <th style="text-align:center !important;font-size:15px !important">Prod Type</th>
+                    <th style="text-align:center !important;font-size:15px !important">Prod Type Orig</th>
+                    <th style="text-align:center !important;font-size:15px !important">vehicle line</th>
+
+                    <th style="font-size:15px !important">Usage#</th>
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-parts>
+                <tr>
+                    <td>{{ parts.engPart}}</td>
+                    <td>{{ parts.svcPart}}</td>
+                    <td style="text-align:center !important">{{ parts.prodType}}</td>
+                    <td style="text-align:center !important">{{ parts.prodTypeOrig}}</td>
+                    <td style="text-align:center !important"> {{ parts.vehicleLine}}</td>
+                    <td>{{ parts.usage}}</td>
+
+                </tr>
+            </ng-template>
+        </p-table>
+    </div> -->
+
+        <div *ngIf="spec.length!==0 && value3" class="table">
+            <p style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold">Spec Comment: (See
+                Comments below)</p>
+            <p-table [value]="spec" styleClass="p-datatable-sm" scrollDirection="both" [paginator]="false" [rows]="500"
+                responsiveLayout="scroll" scrollHeight="300px" [rowsPerPageOptions]="[500,1000]"
+                 [rowHover]="true">
+                <ng-template pTemplate="header">
+                    <tr style="background-color:#000080;">
+                        <th pSortableColumn="engPart"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px !important;font-weight:bold">
+                            Eng Part<p-sortIcon field="engPart">
+                            </p-sortIcon>
+                        </th>
+                        <th pSortableColumn="orig"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px !important;font-weight:bold">
+                            Orig<p-sortIcon field="orig">
+                            </p-sortIcon>
+                        </th>
+                        <th pSortableColumn="seqType"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Seq
+                            Type<p-sortIcon field="seqType"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="property"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Property<p-sortIcon field="property"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="commType"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Comm
+                            Type<p-sortIcon field="commType"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="commCode"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :16px;font-weight:bold;">
+                            Comm Code<p-sortIcon field="commCode"></p-sortIcon>
+                        </th>
+                    </tr>
+                    <!-- <tr>
+                        <th>
+                            <p-columnFilter type="text" field="engPart"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="orig"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="seqType"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="property"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="commType"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="commCode"></p-columnFilter>
+                        </th>
+                    </tr> -->
+                </ng-template>
+                <ng-template pTemplate="body" let-spec>
+                    <tr>
+                        <td style="color:black; font-family:Ford Antenna;font-size :11px;">
+                            {{ spec.engPart}}</td>
+                        <td style="color:black; font-family:Ford Antenna;font-size :11px;">
+                            {{ spec.orig}}</td>
+                        <td style="color:black; font-family:Ford Antenna;font-size :11px;">
+                            {{ spec.seqType}}</td>
+                        <td style="color:black; font-family:Ford Antenna;font-size :11px;">
+                            {{ spec.property}}</td>
+                        <td style="color:black; font-family:Ford Antenna;font-size :11px;">
+                            {{ spec.commType}}</td>
+                        <td style="color:black; font-family:Ford Antenna;font-size :11px;">
+                            {{ spec.commCode}}</td>
+
+                    </tr>
+                </ng-template>
+            </p-table>
+            <button type="button" style="width:100px;margin-left: 85%;
+            margin-top: 1%;margin-bottom: -3%;" (click)="downloadSpecCommentData()"> Download</button><br><br>
+        </div>
+
+        <div *ngIf="spec.length==0 && value3" style="height:150px">
+            <p style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">Spec Comment: (See
+                Comments below)</p>
+            <p style="color:red">No Records Available</p>
+        </div>
+
+        <div *ngIf="grp.length!==0 && value4" class="table">
+            <p style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">Group-Single AVS: (See
+                Comments below)</p>
+            <p-table [value]="grp" styleClass="p-datatable-sm" scrollDirection="both" [paginator]="false
+            " [rows]="500"
+                responsiveLayout="scroll" scrollHeight="300px" [rowsPerPageOptions]="[500,1000]" [rowHover]="true">
+                <ng-template pTemplate="header">
+                    <tr style="background-color:#000080;">
+                        <th pSortableColumn="lexcC"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Group AVS<p-sortIcon field="lexcC">
+                            </p-sortIcon>
+                        </th>
+                        <th pSortableColumn="lexcDescLongX"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Description<p-sortIcon field="lexcDescLongX"></p-sortIcon>
+                        </th>
+                    </tr>
+                    <!-- <tr>
+                        <th>
+                            <p-columnFilter type="text" field="lexcC"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="lexcDescLongX"></p-columnFilter>
+                        </th>
+
+                    </tr> -->
+                </ng-template>
+                <ng-template pTemplate="body" let-grp>
+                    <tr>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ grp.groupAVS}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ grp.desc}}</td>
+
+
+                    </tr>
+                </ng-template>
+            </p-table>
+            <button type="button" style="width:100px;margin-left: 85%;
+             margin-top: 1%;margin-bottom: -3%;" (click)="downloadGroupAvsData()"> Download</button><br><br>
+        </div>
+        <div *ngIf="grp.length==0 && value4" style="height:150px">
+            <p style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">Group-Single AVS: (See
+                Comments below)</p>
+            <p style="color:red">No Records Available</p>
+        </div>
+
+        <div *ngIf="si.length!==0 && value5" class="table">
+            <p style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">Single-Group AVS: (See
+                Comments below)</p>
+            <p-table [value]="si" styleClass="p-datatable-sm" scrollDirection="both" [paginator]="false" [rows]="500"
+                responsiveLayout="scroll" scrollHeight="300px" [rowsPerPageOptions]="[500,1000]" [rowHover]="true">
+                <ng-template pTemplate="header">
+                    <tr style="background-color:#000080;">
+                        <th pSortableColumn="SingleAVS"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Single AVS<p-sortIcon field="SingleAVS"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="desc"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Description<p-sortIcon field="desc">
+                            </p-sortIcon>
+                        </th>
+                    </tr>
+                    <!-- <tr>
+                        <th>
+                            <p-columnFilter type="text" field="SingleAVS"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="desc"></p-columnFilter>
+                        </th>
+
+                    </tr> -->
+                </ng-template>
+                <ng-template pTemplate="body" let-si>
+                    <tr>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ si.singleAVS}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ si.desc}}</td>
+
+
+                    </tr>
+                </ng-template>
+            </p-table>
+            <button type="button" style="width:100px;margin-left: 85%;
+             margin-top: 1%;margin-bottom: -3%;" (click)="downloadSingleAvsData()"> Download</button> <br><br>
+        </div>
+        <div *ngIf="si.length==0 && value5" style="height:150px">
+            <p style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">Single-Group AVS: (See
+                Comments below)</p>
+            <p style="color:red">No Records Available</p>
+        </div>
+
+        <div *ngIf="calib.length!==0 && value6" class="table">
+            <p style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">Calibration: (See
+                Comments below)</p>
+            <p-table [value]="calib" styleClass="p-datatable-sm" scrollDirection="both" [paginator]="false" [rows]="500"
+                [rowsPerPageOptions]="[500,1000]" responsiveLayout="scroll" scrollHeight="300px" [rowHover]="true">
+                <ng-template pTemplate="header">
+                    <tr style="background-color:#000080;">
+                        <th pSortableColumn="vehicleType"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Vehicle Type<p-sortIcon field="vehicleType"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="calibNo"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Calibration Number
+                            <p-sortIcon field="calibNo"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="calibList"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Calibration List<p-sortIcon field="calibList"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="catchCode"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Catch Code<p-sortIcon field="catchCode"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="engCode"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Engine Code<p-sortIcon field="engCode"></p-sortIcon>
+                        </th>
+                    </tr>
+                    <!-- <tr>
+                        <th>
+                            <p-columnFilter type="text" field="vehicleType"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="calibNo"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="calibList"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="catchCode"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="engCode"></p-columnFilter>
+                        </th>
+                    </tr> -->
+                </ng-template>
+                <ng-template pTemplate="body" let-calib>
+                    <tr>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ calib.vehicleType}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ calib.calibNo}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ calib.calibList}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ calib.catchCode}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ calib.engCode}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            <button type="button" style="width:100px;margin-left: 85%;
+              margin-top: 1%;margin-bottom: -3%;" (click)="downloadCalibrationData()"> Download</button> <br><br>
+        </div>
+        <div *ngIf="calib.length==0 && value6" style="height:150px">
+            <p style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">Calibration: (See
+                Comments below)</p>
+            <p style="color:red">No Records Available</p>
+        </div>
+
+
+        <div *ngIf="work.length!==0 && value7" class="table">
+            <p style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">WorkQueue: (See
+                Comments below)</p>
+            <p-table [value]="work" styleClass="p-datatable-sm" scrollDirection="both" [paginator]="false" [rows]="500"
+                [showCurrentPageReport]="true" [rowsPerPageOptions]="[500,1000]" responsiveLayout="scroll"
+                scrollHeight="300px" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [rowHover]="true">
+                <ng-template pTemplate="header">
+                    <tr style="background-color:#000080;">
+                        <th pSortableColumn="reasonCode"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Reason Code<p-sortIcon field="reasonCode"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="userId"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            User Id<p-sortIcon field="userId">
+                            </p-sortIcon>
+                        </th>
+                        <th pSortableColumn="creationDate"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Creation Date<p-sortIcon field="creationDate"></p-sortIcon>
+                        </th>
+
+                    </tr>
+                    <!-- <tr>
+                        <th>
+                            <p-columnFilter type="text" field="reasonCode"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="userId"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="creationDate"></p-columnFilter>
+                        </th>
+
+                    </tr> -->
+                </ng-template>
+                <ng-template pTemplate="body" let-work>
+                    <tr>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ work.reasonCode}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ work.userId}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ work.creationDate}}</td>
+
+
+                    </tr>
+                </ng-template>
+            </p-table>
+            <button type="button"style="width:100px;margin-left: 85%;
+            margin-top: 1%;margin-bottom: -3%;" (click)="downloadWorkQueueData()"> Download</button> <br><br>
+        </div>
+        <div *ngIf="work.length==0 && value7" style="height:150px">
+            <p style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">WorkQueue: (See
+                Comments below)</p>
+            <p style="color:red">No Records Available</p>
+        </div>
+
+        <div *ngIf="pDesc.length !==0 && value8" class="table">
+            <p style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">Part Description: (See
+                Comments below)</p>
+            <p-table [value]="pDesc" styleClass="p-datatable-sm" scrollDirection="both" [paginator]="false" [rows]="500"
+                [rowsPerPageOptions]="[500,1000]" responsiveLayout="scroll" scrollHeight="300px" [rowHover]="true">
+                <ng-template pTemplate="header">
+                    <tr style="background-color:#000080;">
+                        <th pSortableColumn="engPart"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Eng Part<p-sortIcon field="engPart">
+                            </p-sortIcon>
+                        </th>
+                        <th pSortableColumn="prodTypeOrigin"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Prod Type Origin
+                            <p-sortIcon field="prodTypeOrigin"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="cmmdty"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Commodity<p-sortIcon field="cmmdty"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="prodType"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Prod Type<p-sortIcon field="prodType"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="vehLine"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Vehicle Line<p-sortIcon field="vehLine"></p-sortIcon>
+                        </th>
+                    </tr>
+                    <!-- <tr>
+                        <th>
+                            <p-columnFilter type="text" field="engPart"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="prodTypeOrigin"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="cmmdty"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="prodType"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter type="text" field="vehLine"></p-columnFilter>
+                        </th>
+                    </tr> -->
+                </ng-template>
+                <ng-template pTemplate="body" let-pDesc>
+                    <tr>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ pDesc.engPart}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ pDesc.prodTypeOrigin}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ pDesc.cmmdty}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ pDesc.prodType}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ pDesc.vehLine}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            <button type="button"  style="width:100px;margin-left: 85%;
+              margin-top: 1%;margin-bottom: -3%;" (click)="downloadPartDescData()"> Download</button><br><br>
+        </div>
+
+        <div *ngIf="pDesc.length==0 && value8" style="height:150px">
+            <p style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">Part Description: (See
+                Comments below)</p>
+            <p style="color:red">No Records Available</p>
+        </div>
+
+        <div *ngIf="commdty.length!==0 && value9" class="table">
+            <p style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">Commodities: (See
+                Comments below)</p>
+
+
+            <p-table #dt [value]="commdty" styleClass="p-datatable-sm" scrollDirection="both" [paginator]="false"
+                [rows]="500" [rowsPerPageOptions]="[500,1000]" scrollHeight="300px" [rowHover]="true"
+                responsiveLayout="scroll">
+
+                <ng-template pTemplate="header">
+                    <tr style="background-color:#000080;">
+
+                        <th pSortableColumn="engpCommodityC"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Commodity
+                            <p-sortIcon field="engpCommodityC"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="cmdtyTypeC"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Commodity Type
+                            <p-sortIcon field="cmdtyTypeC"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="vehLine"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Vehicle
+                            Line <p-sortIcon field="vehLine"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="sectionIdR"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Section
+                            <p-sortIcon field="sectionIdR"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="prefix"
+                            style="color:#00095B; font-family:Ford Antenna;text-align:center;font-size :11px;font-weight:bold;">
+                            Prefix
+                            <p-sortIcon field="prefix"></p-sortIcon>
+                        </th>
+                    </tr>
+                    <!-- <tr>
+                        <th>
+                            <p-columnFilter  type="text" field="engpCommodityC"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter  type="text" field="cmdtyTypeC"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter  type="text" field="vehLine"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter  type="text" field="sectionIdR"></p-columnFilter>
+                        </th>
+                        <th>
+                            <p-columnFilter  type="text" field="prefix"></p-columnFilter>
+                        </th>
+                    </tr> -->
+                </ng-template>
+                <ng-template pTemplate="body" let-commdty>
+                    <tr>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ commdty.engpCommodityC}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ commdty.cmdtyTypeC}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ commdty.vehLine}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ commdty.sectionIdR}}</td>
+                        <td style="color:black; font-family:Ford Antenna;text-align:left;font-size :11px;">
+                            {{ commdty.prefix}}</td>
+                    </tr>
+
+                </ng-template>
+
+            </p-table>
+            <button type="button" style="width:100px;margin-left: 85%;
+             margin-top: 1%;margin-bottom: -3%;" (click)="downloadCommodityData()"> Download</button><br><br>
+
+        </div>
+        <div *ngIf="commdty.length==0 && value9" style="height:150px">
+            <p style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">Commodities: (See
+                Comments below)</p>
+            <p style="color:red">No Records Available</p>
+        </div>
+    </div>
+</div>
+<hr>
+<br><br><br><br><br>
+<!-- <div style="margin-top: -33px;">
+    <h6 class="end" style="  margin-left: 48%;">End of Report</h6>
+    <a class="class" href="" style="  margin-left: 48%;color:rgb(0, 110, 255)">GCAT Home</a>
+</div> -->
+<p-dialog header="Lexicon Code Report" [(visible)]="alert.flag" [style]="{'max-width':'50%', height: 'auto'}"
+    [modal]="true">
+    <br>
+    {{alert.msg}}
+    <div class="cancelpop" style="margin-top: 20px;margin-left: 25%;">
+        <button (click)="popupOk()" >OK</button>
+    </div>
+    <!-- <button class="btn" style="width: 15%;margin-left:42%;margin-right:43%;margin-top: 2%;text-align: initial" (click)="popupOk()">OK</button> -->
+</p-dialog>

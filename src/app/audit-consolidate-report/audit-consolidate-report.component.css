@@ -1,0 +1,163 @@
+.vehicle{
+    border-radius: 10px;
+    font-size: 20px;
+    margin-left: 2%;
+    background-color: rgb(230, 227, 227);
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.view{
+    width:70%;
+    border-radius: 10px;
+    font-size: 17px;
+    margin-top: -3%;
+    margin-left: 16%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.report{
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+
+
+#head{
+    width:86%;
+    margin-left:7%;
+    padding:1%;
+     background-color: #102B4E;
+    display:inline-block;
+     border-radius: 5px
+
+}
+#headerName{
+    font-size: 16px;
+    float:left;
+    color:white;
+    font-weight: bold;
+}
+#center{
+    width:86%;
+    margin-left:7%;
+    margin-top:-6px;
+    padding:1% 0%;
+    box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+    border-radius: 0px 0px 5px 5px;
+}
+
+#label{
+    color:#00095B;
+    margin-top: -3%;
+     font-family:Ford Antenna;
+     font-size :11px;
+     font-weight:bold;
+     width:90%;
+     text-align: right;
+     padding-right: 20px;
+
+}
+.p-dropdown .p-dropdown-label.p-placeholder{
+    margin-top:-3%;
+    font-size:11px;
+}
+.p-dropdown .p-dropdown-panel{
+    font-size: 11px;
+  }
+  .p-dropdown .p-dropdown-label{
+    font-size: 11px;
+    margin-top: -8px;
+  }
+#colon{
+    color:hsl(234, 100%, 18%);
+    margin-top: -3%;
+    font-family:Ford Antenna;
+    font-size :11px;
+    font-weight:bold;
+    width: 2%;
+    text-align: right;
+}
+.col1{
+   float:left;
+   margin-left:1%;
+}
+
+#btn{
+   
+    height: 30px;
+    width: 10%;
+    border-radius:20px;
+    font-size: 11px;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    border:none !important;
+    /* margin-top:20px;
+    margin-left: 8%; */
+    
+}
+.p-dropdown-items-wrapper {
+    overflow: auto;
+    width:250px;
+    /* width: 100%;;; */
+  }
+#tablepart{
+    width:86%;
+    box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+    margin-left:7%;
+    margin-top:-6px;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item{
+    padding-top: 0rem;
+    padding-left: 0.4rem;
+}
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter{
+    height:30px;
+}
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter-icon{
+    margin-top:-4px;
+    font-size: 11px;
+}
+.p-datatable .p-datatable-thead > tr > th{
+    padding-top:0rem;
+    padding-left:1rem;
+    padding-bottom: 0rem;
+    font-size:12px;
+    font-family:"Ford Antenne Cond" !important;
+}
+.p-datatable .p-datatable-tbody > tr > td {
+    padding-top:0rem;
+    padding-left:1rem;
+    padding-bottom: 0rem;
+    font-size:11px;
+    font-family:"Ford Antenne Cond" !important;
+}
+#th{
+    font-size:12px !important;
+text-align:center !important;
+white-space:nowrap;
+border-right: 1px solid #bdbdbd !important;
+padding:4px;
+font-weight: bold !important;
+font-family:"Ford Antenne Cond" !important;
+}
+tr:nth-child(even){ background-color:#f5f5f5 !important; } tr:nth-child(odd){ background-color:#ffff; }
+td{
+    border-right: 1px solid #bdbdbd !important;
+  }
+:host ::ng-deep .p-datatable-wrapper {
+    
+    width:208px;
+}
+.p-datatable-wrapper{
+    margin-top: -1%;
+}
+:host ::ng-deep .p-datatable{
+    box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+}

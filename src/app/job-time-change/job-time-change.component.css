@@ -1,0 +1,101 @@
+.btn{
+   
+  height:41px;
+  width:106px;
+  border-radius:20px;
+  background-color:#00095B;
+  box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+  font-family:"Ford Antenne Cond" !important;
+  white-space: nowrap;
+  margin-top:5px;
+  border: none;
+  
+}
+::ng-deep .ng-trigger .ng-trigger-overlayAnimation .ng-tns-c69-1 .p-datepicker .p-component .ng-star-inserted{
+  width: 300% !important; 
+  
+}
+
+::ng-deep .p-datepicker table td {
+  padding: 0%;
+}
+
+::ng-deep .p-calendar-w-btn .p-inputtext {
+  height: 38px;
+}
+.required:after {
+  content:" *";
+  color:#e32;
+  font-size: 16px; 
+  font-weight:bolder;
+}
+.p-datepicker table td {
+  padding: 0%;
+}
+.p-calendar-w-btn .p-inputtext {
+  height: 30px;
+}
+.p-datepicker table td > span {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  transition: box-shadow 0.2s;
+  border: 1px solid transparent;
+}
+
+ 
+:host ::ng-deep .p-datepicker.p-component.ng-star-inserted {
+  /* z-index: 1001; */
+  transform-origin: center bottom;
+  margin-top: -400px !important;
+  margin-left: 170px !important;
+}
+/* dynamic */
+/* :host ::ng-deep .ng-trigger.ng-trigger-overlayAnimation.ng-tns-c71-17.p-datepicker.p-component.ng-star-inserted {
+  margin-top: -600px !important;
+} */
+
+:host ::ng-deep .p-calendar-w-btn .p-inputtext {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  font-size: 10px;
+}
+:host ::ng-deep .p-calendar-w-btn .p-datepicker-trigger {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  height: 25px;
+}
+:host ::ng-deep .p-calendar-w-btn .p-inputtext {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  height: 25px;
+}
+.p-dropdown .p-dropdown-panel{
+  font-size: 11px;
+}
+.p-dropdown .p-dropdown-label{
+  font-size: 11px;
+  margin-top: -8px;
+}
+:host ::ng-deep .p-inputtext {
+  font-size: 11px;
+  margin-top: -7px;
+}
+:host ::ng-deep .p-dropdown-item {
+  font-size: 11px;
+}
+ :host::ng-deep .p-calendar-w-btn .p-inputtext {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  height: 25px;
+  margin-top: 0px !important;
+}
+:host::ng-deep span.ng-tns-c71-0.p-calendar.p-calendar-w-btn.p-calendar-disabled {
+  margin-top: 0px !important;
+}
+:host::ng-deep .ng-trigger.ng-trigger-overlayAnimation.p-datepicker.p-component.ng-star-inserted {
+  z-index: 1001;
+    transform-origin: center bottom;
+    top: 442.719px !important;
+    left: -125px !important;
+}

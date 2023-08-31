@@ -1,0 +1,25 @@
+.vehicle {
+        background-color: rgb(255, 255, 255);
+        border: 2px solid black;
+    }
+    
+.vehicle:hover {
+        background-color: aqua;
+    }
+    .header{
+        background-color: #ffff;
+    padding-left: 5%;
+    padding-top: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+        height:70%;
+        width:70%;
+      
+    }
+    
+ 
+
+  
+    
+        
+ 

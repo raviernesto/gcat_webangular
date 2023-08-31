@@ -1,0 +1,277 @@
+
+
+
+  <div style="clear:both"></div>
+<div class="topcontainer" style="height: 500px;">
+  <div class="accordion1" style="width:100%;height:auto;margin-top: -1%;">
+      <div class="header" id="head"  (click)="showCenterPart()" [style.border-radius]="br1" style="height:25px;padding-left:5px;padding-top:1px" >
+          <span id="headerName" style="font-size: 12px;">Audit Consolidate Report</span>
+      <i class="fa-solid fa-plus" [style.transform]="rotate"  aria-hidden="true" style="float:right;font-size: 15px;margin-top:4px;color: red; "></i>
+      
+      
+     </div>
+      <div class="centerpart" id="center" [style.display]="display" style="height:82px;">
+          <div class="row1" style="width:100%;margin-left: -2%;">
+                  <div class="col1" style="width:32%">
+                              <div style="float:left;width:50%;">
+                                  <label id="label"  style="float:left">Vehicle Type<span Style=" color:#e32;font-size: 20px; font-weight:bolder;">*</span></label>
+                                  <span id="colon"  style="float:left">:</span>
+  
+                              </div>
+                              <div style="float:left;width:50%;">
+                                <p-dropdown [options]="VehicleTypes" optionLabel="type" autoWidth="false"
+                                [style]="{ 'width': '80%','margin-top':'-8px','border-radius':'5px','height':'28px','color':'black','border':'2px solid black'}" [filter]="true"
+                                filterBy="type"  [filterMatchMode]=startsWith
+                                 placeholder="--Select--" [(ngModel)]="vehicleType">
+                                        
+                                </p-dropdown>
+                              
+                              </div>
+                      
+                  
+                  </div>
+                  <div class="col1" style="width:32%">
+                      <div style="float:left;width:50%;">
+                          <label id="label"  style="  float:left">Lead Region<span Style=" color:#e32;font-size: 20px; font-weight:bolder;">*</span></label>
+                          <span id="colon"  style="  float:left">:</span>
+  
+                      </div>
+                      <div style="float:left;width:50%;">
+                          <p-dropdown [options]="LeadRegionList" optionLabel="leadRegions" autoWidth="false"
+                          [style]="{ 'width': '80%','margin-top':'-8px','border-radius':'5px','height':'28px','color':'black','border':'2px solid black'}" [filter]="true"
+                          filterBy="leadRegions"  [filterMatchMode]=startsWith
+                           placeholder="--Select--" [(ngModel)]="leadregion" >
+                                  
+                          </p-dropdown>
+                      
+                      </div>
+              
+          
+                  </div>
+  
+                  <div class="col1" style="width:32%">
+                    <div style="float:left;width:50%;">
+                        <label id="label"  style="float:left">Market Code<span Style=" color:#e32;font-size: 20px; font-weight:bolder;">*</span> </label>
+                        <span id="colon"  style="float:left">:</span>
+        
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <p-dropdown [options]="MarketCodeList" optionLabel="marketCodes" autoWidth="false"
+                        [style]="{ 'width': '80%','margin-top':'-8px','border-radius':'5px','height':'28px','color':'black','border':'2px solid black'}" [filter]="true"
+                        filterBy="marketCodes"  [filterMatchMode]=startsWith
+                         placeholder="--Select--" [(ngModel)]="marketcode">
+                                
+                        </p-dropdown>
+                    
+                    </div>
+              
+          
+                  </div>
+  
+  
+          </div>
+          <div style="clear:both"></div>
+
+          <div class="row2" style="width:100%;margin-left: -2%;">
+
+            <div class="col1" style="width:32%;margin-top: 1%;">
+                <div class="row" style="display: flex;">
+                <div  id="" style="float:left;width:50%;">
+                    <label id="label"  style="  float:left;margin-left: 6%;">Model</label>
+                    <span id="colon"  style=" float:left">:</span>
+
+                </div>
+                <div style="float:left;width:50%;">
+                    <p-dropdown [options]="ModelList" optionLabel="prtpeioDescX" autoWidth="false"
+                    [style]="{ 'width': '86%','margin-top':'-8px','margin-left':'-7%','border-radius':'5px','height':'28px','color':'black','border':'2px solid black'}" [filter]="true"
+                    filterBy="prtpeioDescX"  [filterMatchMode]=startsWith
+                     placeholder="ALL" [(ngModel)]="vehicleline">
+                            
+                    </p-dropdown>
+                </div></div>
+  
+          </div>
+          <button id="btn" style="float:left;margin-top: 5px;margin-left: -20px;width: auto !important;"
+           (click)="getModel()">
+            Load Model
+        </button>
+          <div class="col1" style="width: 23%;margin-top: 1%;margin-left: 5.8%;">
+              <div  id="" style="float: left;margin-left: -4%;width: 28%;">
+                  <label id="label"  style="float:left">Group</label> 
+                  <span id="colon"  style=" float:left">:</span>
+  
+              </div>
+              <div style="float: left;width: 69%;margin-left: 4%;">
+                  <p-dropdown [options]="GroupList" optionLabel="groups" autoWidth="false"
+                  [style]="{ 'width': '80%','margin-top':'-8px','border-radius':'5px','height':'28px','color':'black','border':'2px solid black'}" [filter]="true"
+                  filterBy="groups"  [filterMatchMode]=startsWith
+                   placeholder="ALL" [(ngModel)]="group">
+                          
+                  </p-dropdown>
+              
+              </div>
+      
+  
+          </div>
+          <div class="col1" style="width:32%;margin-top: 1%;">
+            <div class="btnnn" style="width:100%;margin-left: 10%;margin-top: -2%;">
+            <button id="btn" style="width:25%;" (click)="showReportdata()">
+                Show Report
+            </button>
+            <button  id="btn" (click)="onRefresh()"
+            style="width:20%;margin-left:1%;" >
+                        <em class="fa fa-refresh"></em> Refresh </button>
+            <button id="btn" style="width:46%;margin-left:1%;" (click)="showReportdata()">
+                Download Excel Spread Sheet
+            </button>
+        </div>
+
+        </div>
+          
+            
+    
+  
+        </div>
+
+          
+  
+      </div>
+  
+  </div>
+  <div style="clear:both"></div>
+<br>
+
+<div class="container3" style="width:100%;margin-top: -15px;  " >
+    <div id="tablepart" *ngIf="showData">
+
+
+        
+
+
+
+
+
+        <p-table [value]="showReportData"  styleClass="p-datatable" scrollDirection="both" scrollHeight="400px"
+          [showCurrentPageReport]="true"  
+        [rowHover]="true" responsiveLayout="scroll" scrollHeight="333px"> 
+        <ng-template pTemplate="caption">
+            <div class="table-header" style="padding-top: 1px;padding-left: 2px;padding-bottom:1px;margin-top: -13px; color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">
+                Error Report , {{vtype}} - {{vline}}
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr style="position: sticky;top:0">         
+
+                <th pSortableColumn="value" id="th" >Section
+                    <p-sortIcon field="value"></p-sortIcon>
+                 </th>
+
+                 <th pSortableColumn="value" id="th" >Vehicle Line
+                    <p-sortIcon field="value"></p-sortIcon>
+                 </th>
+
+                 <th pSortableColumn="value" id="th" >Commodity
+                    <p-sortIcon field="value"></p-sortIcon>
+                 </th>
+
+                 <th pSortableColumn="value" id="th" >Analyst Code
+                    <p-sortIcon field="value"></p-sortIcon>
+                 </th>
+
+                 <th pSortableColumn="value" id="th" >Error Type
+                    <p-sortIcon field="five"></p-sortIcon>
+                 </th>
+
+                 <th pSortableColumn="value" id="th" >Error Description
+                    <p-sortIcon field="value"></p-sortIcon>
+                 </th>
+
+                 
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-d let-ri="rowIndex">
+          <tr>
+              <td><u><span style="font-size:11px;color: blue;">
+                <a (click)="getSection(ri)">{{d.section}}</a></span></u></td>
+              <td>{{d.vhLine}}</td>
+              <td>{{d.commodity}}</td>
+              <td>{{d.analystCode}}</td>
+              <td>{{d.errorType}}</td>
+              <td>{{d.errorDisc}}</td>
+          </tr>
+        </ng-template>
+    </p-table>
+    <div class="col1" style="width:32%;margin-top: 1%;margin-left:30%;">
+        <div class="btnnn" style="width:100%;margin-left: 18%;margin-top: -2%;">
+        <button id="btn" style="width:25%;" (click)="showReportdata()">
+            Print Report
+        </button>
+        <button id="btn" style="width:51%;margin-left:4%;" (click)="showReportdata()">
+            Download Excel Spread Sheet
+        </button>
+    </div>
+
+    </div>
+
+
+    </div>
+    
+</div>
+</div>
+<p-dialog header="Audit Consolidate Report" [(visible)]="alert.flag" [style]="{'width':'auto', height: 'auto'}" [modal]="true">
+    <p style="text-align: center;margin-top:15px;font-size:14px;">{{alert.msg}}</p>
+    <div class="cancelpop" style="margin-left: 34px;"> 
+        <button (click)="cancelpop()" id="btn" style="width:32%;" class="dialogbutton" style="height:24px;width:30%;margin-left:24%">OK</button>
+    </div>
+ </p-dialog>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

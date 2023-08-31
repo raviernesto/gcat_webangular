@@ -1,0 +1,308 @@
+
+<div style="height:650px">
+    <div class="container1" style="width:100%;height:auto;position: sticky;">
+        <div class="accordion1" style="width:90%; margin-left:5%; ">
+            <div class="header" (click)="showCenterPart()" [style.border-radius]="br1"
+                style="font-size: 11px; background-color:  #102B4E !important ;color: #ffff; padding-top:0%;padding-bottom: 0%;padding-right: 1%; margin-top:-1%">
+                <span style="margin-left: 1%;font-weight:bold; font-size:11px;margin-top:2%;"> Illustration Status</span>
+                <i class="fa-solid fa-plus" [style.transform]="rotate" aria-hidden="true"
+                    style="float:right;font-size: 20px;color: red; "></i>
+
+            </div>
+
+        </div>
+        <div class="centerpart" [style.display]="display"
+        style="margin-top:0;width:90%;margin-left:5%;float: left;border-radius: 0px 0px 5px 5px;background-color: white;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);padding-bottom: 1%;">
+        <div class="partcol1" style="margin-top:1%">
+            <div class="row1" style="width:100%;">
+                <div class="col1" style="width:18%;margin-left:1%">
+                    <div style="float:left;width:50%;">
+                        <label id="label" style=" margin-top:8px;float:left">Vehicle Type</label>
+                        <span id="colon" style=" margin-top:8px;float:left">:</span>
+
+                    </div>
+                    <div style="float:left;width:50%;display:flex;margin-top: 10px;">
+                        <input style="margin-right:1%;margin-top:-20px" type="radio" name="vehicletype"
+                            (click)="changeVehicleType('C')" value='C' [(ngModel)]="vehicletype">&nbsp;Car
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input style="margin-right:1%;margin-top:-20px" type="radio" name="vehicletype"
+                            (click)="changeVehicleType('T')" value='T' [(ngModel)]="vehicletype">&nbsp;Truck
+                    </div>
+
+
+                </div>
+                <div class="col1" style="width:23%">
+                    <div style="float:left;width:40%;">
+                        <label id="label" style=" margin-top:8px;float:left;">Group</label>
+                        <span id="colon" style=" margin-top:8px;float:left">:</span>
+
+                    </div>
+                    <div style="float:left;width:60%;">
+                        <p-dropdown appendTo="body" [options]="group" optionLabel="value" autoWidth="false"
+                            [style]="{ 'width': '100%','margin-top':'6px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                            [filter]="true" scrollHeight="200px" filterBy="value" [(ngModel)]="groups"
+                            (click)="changeGroup()" value="groups" [filterMatchMode]=startsWith placeholder="ALL">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row2" style="width:100%;">
+                <div class="col1" style="width:23%;margin-left:3%">
+                    <div style="float:left;width:40%;">
+                        <label id="label" style=" margin-top:8px;float:left">Vehicle Line</label>
+                        <span id="colon" style=" margin-top:8px;float:left">:</span>
+
+                    </div>
+                    <div style="float:left;width:60%;">
+                        <p-dropdown appendTo="body" [options]="vehicleLine" optionLabel="prtpeioDescX"
+                            autoWidth="false"
+                            [style]="{ 'width': '100%','margin-top':'6px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black','z-index':'1000123'}"
+                            [filter]="true" scrollHeight="200px" filterBy="prtpeioDescX" [(ngModel)]="vehicleDrop"
+                            (click)="changeVehicleLine()" [filterMatchMode]=startsWith value="vehicleDrop"
+                            placeholder="Select">
+                        </p-dropdown>
+                    </div>
+                </div>
+
+                <div class="col1" style="display: flex;width:4%;">
+                    <div class="or"><label
+                            style="color:red;margin-top: 9px;margin-left: 25px;white-space: nowrap;">- OR -
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col1" style="width:23%">
+                    <div id="" style="float:left;width:40%;">
+                        <label id="label" style=" margin-top:8px;float:left">Prefix</label>
+                        <span id="colon" style=" margin-top:8px;float:left">:</span>
+
+                    </div>
+                    <div style="float:left;width:60%;">
+                        <p-dropdown appendTo="body" [options]="prefixDropdown" optionLabel="famprfxPrefixC"
+                            autoWidth="false"
+                            [style]="{ 'width': '100%','margin-top':'6px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                            [filter]="true" scrollHeight="200px" filterBy="famprfxPrefixC" [(ngModel)]="prefix"
+                            (click)="changePrefix()" [filterMatchMode]=startsWith value="prefix"
+                            placeholder="Select">
+                        </p-dropdown>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row3" style="width:100%;text-align:center;clear:both">
+
+                <button id="btn" (click)="showReport()">
+                    Show Report
+                </button>
+                <button (click)="onRefresh()" id="btn" style="margin-left: 4px;"><em class="fa fa-refresh"></em>
+                    Refresh</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div style="clear:both"></div>
+<br>
+
+<!-- <h2  style=font-weight:bolder; style="font-size:28px;text-align: center;">
+    Illustration Status Report</h2>
+
+
+<h3  style="text-align: center;font-size:20px">Illustration Status Report Of:</h3>  -->
+<div class="row" style="margin-left:2%">
+    <div *ngIf="showData">
+        <h3 style="text-align:center;font-weight:bold;color:#00095B;font-size:12px">Illustration Status Report Of:</h3>
+        <div class="row" style="margin-left:5%;margin-top:-2%">
+            <div class="col lg 3">
+                <h3 style="font-family:Ford Antenna;font-size:11px;margin-left:2px;color:#00095B;font-weight:bold;">
+                    {{vehtype1}}</h3>
+            </div>
+    
+    <div class="col lg 3" *ngIf="show1">
+        <h3 style="font-family:Ford Antenna;font-size:11px;margin-left:-35px;color:#00095B;font-weight:bold;">
+           {{vehLine1}}</h3>
+    </div>
+    <div class="col lg 3" *ngIf="show2">
+        <h3 style="font-family:Ford Antenna;font-size:11px;color:#00095B;font-weight:bold;">
+            {{prefix1}}</h3>
+    </div>
+    <div class="col lg 3" *ngIf="show3">
+        <h3 style="font-family:Ford Antenna;font-size:11px;color:#00095B;font-weight:bold;margin-left: 41px;">
+           {{group2}}</h3>
+    </div>
+        </div>
+    </div>
+
+
+</div>
+<!-- <div *ngIf="showData"> -->
+<div class="container2" style="width:100%;  ">
+    <div id="tablepart">
+
+        <p-table [value]=part *ngIf="showData" styleClass="p-datatable-customers" scrollDirection="both"
+            [paginator]="true" [rows]="50" scrollHeight="430px" [rowsPerPageOptions]="[500]"
+            [showCurrentPageReport]="true" responsiveLayout="scroll" [rowHover]="true">
+            <ng-template pTemplate="body" let-parts>
+
+
+                <tr>
+                    <td> Number Of Section</td>
+                    <td>{{ parts.noOfSecCount}}</td>
+                </tr>
+                <tr>
+                    <td>Section With Completed Illustrations</td>
+                    <td Style="font-weight:bold;font-size:11px">
+                        <div *ngIf="parts.secWithComplIlluCount!=0">
+                            <a (click)="complTable()" style="text-decoration: underline;color:#00095B">{{parts.secWithComplIlluCount}}</a>
+                        </div>
+                        <div *ngIf="parts.secWithComplIlluCount==0">
+                            {{parts.secWithComplIlluCount}}
+                        </div>
+                    </td>
+                    <!-- <td>{{ parts.secWithComplIlluCount}}</td> -->
+                </tr>
+                <tr>
+                    <td> Rejected IRPs</td>
+                    <td Style="font-weight:bold;font-size:11px">
+                        <div *ngIf="parts.rejectedIrpsCount!=0">
+                            <a (click)="rejTable()" style="text-decoration: underline;color:#00095B">{{parts.rejectedIrpsCount}}</a>
+                        </div>
+                        <div *ngIf="parts.rejectedIrpsCount==0">
+                            {{parts.rejectedIrpsCount}}
+                        </div>
+                    </td>
+                    <!-- <td>{{ parts.rejectedIrpsCount}}</td> -->
+                </tr>
+                <tr>
+                    <td> Section With Open IRPs</td>
+                    <td Style="font-weight:bold;font-size:11px">
+                        <div *ngIf="parts.secWithOpenIrpsCount!=0">
+                            <a (click)="openTable()" style="text-decoration: underline;color:#00095B">{{parts.secWithOpenIrpsCount}}</a>
+                        </div>
+                        <div *ngIf="parts.secWithOpenIrpsCount==0">
+                            {{parts.secWithOpenIrpsCount}}
+                        </div>
+                    </td>
+                    <!-- <td>{{ parts.secWithOpenIrpsCount}}</td> -->
+                </tr>
+                <tr>
+                    <td> Illustration With The Coordinator</td>
+                    <td Style="font-weight:bold;font-size:11px">
+                        <div *ngIf="parts.illusWithCoordCount!=0">
+                            <a (click)="coorTable()" style="text-decoration: underline;color:#00095B">{{ parts.illusWithCoordCount}}</a>
+                        </div>
+                        <div *ngIf="parts.illusWithCoordCount==0">
+                            {{ parts.illusWithCoordCount}}
+                        </div>
+                    </td>
+                    <!-- <td>{{ parts.illusWithCoordCount}}</td> -->
+                </tr>
+                <tr>
+                    <td>Illustration With The Art Houses</td>
+                    <td Style="font-weight:bold;font-size:11px">
+                        <div *ngIf="parts.illusWithArtHouseCount!=0">
+                            <a (click)="artHouseTable()" style="text-decoration: underline;color:#00095B">{{ parts.illusWithArtHouseCount}}</a>
+                        </div>
+                        <div *ngIf="parts.illusWithArtHouseCount==0">
+                            {{ parts.illusWithArtHouseCount}}
+                        </div>
+                    </td>
+                    <!-- <td>{{ parts.illusWithArtHouseCount}}</td> -->
+                </tr>
+                <tr>
+                    <td>Illustration With The Analyst</td>
+                    <td Style="font-weight:bold;font-size:11px">
+                        <div *ngIf=" parts.illusWithAlystCount!=0">
+                            <a (click)="analystTable()" style="text-decoration: underline;color:#00095B">{{ parts.illusWithAlystCount}}</a>
+                        </div>
+                        <div *ngIf=" parts.illusWithAlystCount==0">
+                            {{ parts.illusWithAlystCount}}
+                        </div>
+                    </td>
+                    <!-- <td>{{ parts.illusWithAlystCount}}</td> -->
+                </tr>
+                <tr>
+                    <td>Section Without Illustrations</td>
+                    <td Style="font-weight:bold;font-size:11px">
+                        <div *ngIf="parts.secWithOutIlluCount!=0">
+                            <a (click)="witOutTable()"  style="text-decoration: underline;color:#00095B">{{parts.secWithOutIlluCount}}</a>
+                        </div>
+                        <div *ngIf="parts.secWithOutIlluCount==0">
+                            {{ parts.secWithOutIlluCount}}
+                        </div>
+                    </td>
+                    <!-- <td>{{ parts.secWithOutIlluCount}}</td> -->
+                </tr>
+
+            </ng-template>
+        </p-table>
+
+
+    </div>
+
+</div>
+
+<div style="clear:both"></div>
+
+<h3 *ngIf="showData"  style="text-align:center;font-weight:bold;color:#00095B;font-size:12px">Open IRP Percentage Completed</h3>
+<div class="container3" style="width:100%;  ">
+    <div id="tablepart1">
+
+
+
+        <p-table [value]="percent" *ngIf="showData" styleClass="p-datatable" scrollDirection="both" scrollHeight="100px"
+            [paginator]="true" [rows]="50" [showCurrentPageReport]="true" [rowsPerPageOptions]="[50,100,500]"
+            [rowHover]="true" responsiveLayout="scroll"  [style]="{'height':'80px'}">
+            <ng-template pTemplate="header">
+                <tr style="position: sticky;top:0">
+
+
+
+
+                    <th pSortableColumn="first" id="th">0-15%
+                        <p-sortIcon field="first"></p-sortIcon>
+                    </th>
+
+                    <th pSortableColumn="second" id="th">16-30%
+                        <p-sortIcon field="second"></p-sortIcon>
+                    </th>
+
+                    <th pSortableColumn="third" id="th">31-50%
+                        <p-sortIcon field="third"></p-sortIcon>
+                    </th>
+
+                    <th pSortableColumn="four" id="th">51-70%
+                        <p-sortIcon field="four"></p-sortIcon>
+                    </th>
+
+                    <th pSortableColumn="five" id="th">71-90%
+                        <p-sortIcon field="five"></p-sortIcon>
+                    </th>
+
+                    <th pSortableColumn="six" id="th">91-100%
+                        <p-sortIcon field="six"></p-sortIcon>
+                    </th>
+
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-percentage>
+                <tr>
+
+                    <td>{{ percentage.first}}</td>
+                    <td>{{ percentage.second}}</td>
+                    <td>{{ percentage.third}}</td>
+                    <td>{{ percentage.fourth}}</td>
+                    <td>{{ percentage.fivth}}</td>
+                    <td>{{ percentage.sixth}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+
+
+    </div>
+
+</div>
+</div>
+<!-- </div> -->

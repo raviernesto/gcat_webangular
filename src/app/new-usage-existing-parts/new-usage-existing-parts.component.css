@@ -1,0 +1,64 @@
+#btn{
+ 
+    height:25px;
+    width:96px;
+    border-radius:21px !important;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    margin-top:20px;
+    margin-left:10px;
+    font-size: 11px !important;
+    
+    }
+    .btn1{
+
+        height:25px;
+        width:206px;
+        border-radius:20px;
+        background-color:#00095B;
+        box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+        font-family:"Ford Antenne Cond" !important;
+        white-space: nowrap;
+        margin-top:20px;
+        margin-left:10px;
+        font-size: 11px !important;
+        
+        }
+         .btn2{
+
+        height:25px;
+        width:96px;
+        border-radius:20px;
+        background-color:#00095B;
+        box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+        font-family:"Ford Antenne Cond" !important;
+        white-space: nowrap;
+        margin-top:20px;
+        margin-left:10px;
+        font-size: 11px !important;
+        
+        }
+        .form-control:disabled {
+            background-color: #e9ecef;
+            opacity: 1;
+            font-size: 9px !important;
+            margin-top: 0px !important;
+        }
+        :host::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+            text-align: left;
+            border: 1px solid #e9ecef;
+            border-width: 0 0 1px 0;
+            /* padding: 1rem 1rem; */
+            padding: 0px 2px !important;
+            font-size: 9px !important;
+            font-weight: bold !important;
+            padding-left: 40px !important;
+        }
+        tr{ background-color:#ffff ; } 
+        tr{ background-color:#ffff; }
+        :host ::ng-deep .p-datatable .p-datatable-tbody > tr.p-highlight {
+            background: #E3F2FD !important;
+            color: #495057;
+        }

@@ -1,0 +1,365 @@
+<div class="row">
+    <div class="accordion1" style="width: 100% ;height:auto;">
+        <div class="header" (click)="showCenterPart()" [style.border-radius]="br1"
+            style="width:94%;margin-left:3%;padding:2px;padding-left:10px;padding-right:10px; background-color: #102B4E;display:inline-block;border-radius: 5px;margin-top: -10px;">
+            <span style="font-size: 11px;float:left;color:white;font-weight: bold;">Part In Context
+                </span>
+            <i class="fa-solid fa-plus" aria-hidden="true" [style.transform]="rotate"
+                style="float:right;font-size: 20px;color: red; "></i>
+        </div>
+        <div class="centerpart" [style.display]="display"
+            style="width:94%;height:auto;background:white !important;margin-top:-5px;z-index: 100;margin-left:3%;">
+            <div class="partcol1"
+                style="width:100%;float: left;background-color: white;padding-top:2%;;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius:0px 0px 5px 5px">
+                <div class="row pb-3" style="width:100%;margin-top: -10px;">
+                    <div class="col-md-4" style="display: flex;width:26%">
+                        <label for="engpart"
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:8px;padding-right:10px">
+                            <input type="radio" value="engpart" [(ngModel)]="engPart.engPartCheck"
+                                (change)="changeRadio($event)" class="form-check-input" />
+                            Eng Part Nbr :</label>
+                        <input type="text" id="engpart" [(ngModel)]="engPart.engPartNo" (click)="changeEngPart()"
+                            style="width: 50%;height: 25px;font-size: 11px;">
+                    </div>
+                    <div class="col-md-4" style="display: flex;width:22%">
+                        <label for="finbr"
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:8px;padding-right:10px">
+                            <input type="radio" [(ngModel)]="engPart.engPartCheck" (change)="changeRadio($event)"
+                                value="finis" class="form-check-input" />
+                            Finish Nbr :</label>
+                        <input type="text" id="finis" [(ngModel)]="engPart.finis" (click)="changeFinis()"
+                            style="width: 50%;height: 25px;font-size: 11px;" disabled>
+                    </div>
+                    <div class="col-md-4" style="display: flex;width: 26%">
+                        <label for="sernbr"
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:8px;padding-right:10px">
+                            <input type="radio" [(ngModel)]="engPart.engPartCheck" (change)="changeRadio($event)"
+                                value="serv" class="form-check-input" />
+                            Serv Part Nbr :</label>
+                        <input type="text" id="serv" [(ngModel)]="engPart.service" (click)="changeServ()"
+                            style="width: 50%;height: 25px;font-size: 11px;" disabled>
+                    </div>
+                    <div class="col-md-4" style="display: flex;width:25%">
+                        <label for="parnbr"
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:8px;padding-right:10px">
+                            <input type="radio" [(ngModel)]="engPart.engPartCheck" (change)="changeRadio($event)"
+                                value="partner" class="form-check-input" />
+                            Partner Part Nbr:</label>
+                        <input type="text" id="partner" [(ngModel)]="engPart.partner" (click)="changePartner()"
+                            style="width: 50%;height: 25px;font-size: 11px;" disabled>
+                    </div>
+                </div>
+                <div class="row pb-3" style="width:100%">
+
+                    <div class="col-md-4" style="display: flex;width:26%">
+                        <label for="enbase"
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:-4px;padding-right:10px">
+                            <input type="radio" [(ngModel)]="engPart.engPartCheck" (change)="changeRadio($event)"
+                                value="enbase" class="form-check-input" />
+                            Eng Base:</label>
+                        <input type="text" id="enbase" [(ngModel)]="engPart.engBase" (click)="changeEnBase()"
+                            style="width: 50%;height: 25px;font-size: 11px;margin-top:-8px" disabled>
+                    </div>
+                    <div class="col-md-4" style="display: flex;width:22%">
+                        <label for="ordcode"
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:-4px;padding-right:10px">
+                            Origin:</label>
+                        <input type="text" id="origin" [(ngModel)]="engPart.origin" readonly
+                            style="width: 50%;margin-top:-8px;height: 25px;font-size: 11px;" disabled>
+
+                    </div>
+                    <div class="col-md-4" style="display: flex;width:26%">
+                        <label for="seqnbr"
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:-4px;padding-right:10px">
+                            Seq:</label>
+                        <input type="text" id="seq" [(ngModel)]="engPart.seq" readonly
+                            style="width: 50%;margin-top:-8px;height: 25px;font-size: 11px;" disabled>
+                    </div>
+                    <div class="col-md-4" style="display: flex;" style="width:25%; display: flex;">
+                        <label for="comtype"
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:-4px;padding-right:10px">
+                            Commodity :<em *ngIf="flag1==true" style="color: red;font-size :15px">*</em></label>
+                        <div class="" style="width: 50%;">
+                            <p-dropdown [options]="vehicleType" optionLabel="name" autoWidth="false"
+                                [style]="{ 'width': '100%','margin-top':'-8px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                placeholder=" " (onChange)="changeCommodityType()" [(ngModel)]="commodityType">
+                                <ng-template pTemplate="selectedItem">
+                                    {{vehicleType1.name}}
+                                </ng-template>
+                                <ng-template let-vehicle pTemplate="item">
+                                    <div class="vehicle-item">
+                                        <div>{{vehicle.name}}</div>
+                                    </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row pb-3" style=" margin-top: 1%;" style="width:100%;">
+
+                    <div class="col-md-4" style="width:26%; display: flex;">
+                        <label for="comcode"
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:-4px;padding-right:10px">
+                            Commodity Code:<em *ngIf="flag1==true" style="color: red;font-size :15px">*</em></label>
+                        <div class="dropdown" style="width: 50%;">
+                            <p-dropdown [options]="commodityCodeList" optionLabel="commodityCode"
+                                (onClick)="clickComm()" value="selectedCommodity.commodityCode"
+                                (onChange)="commodityChange()"
+                                [style]="{ 'width': '100%','margin-top':'-8px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                [(ngModel)]="commodity" [filter]="true" filterBy="commodityCode" [virtualScroll]="true"
+                                [itemSize]="20" placeholder=" ">
+                                <ng-template pTemplate="selectedItem">
+                                    <div>{{selectedCommodity.commodityCode}}</div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="width:22%; display: flex;">
+                        <label for="vehline"
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:-4px;padding-right:10px">
+                            <input type="checkbox" value="vehline" id="vehCheck" class="form-check-input" />
+                            Vehicle Line:<em *ngIf="flag==true" style="color: red;font-size :15px">*</em></label>
+                        <div class="dropdown" style="width: 50%;">
+                            <p-dropdown [options]="vehicleLine" optionLabel="prtpeioDescX" autoWidth="false"
+                                [style]="{ 'width': '100%','margin-top':'-8px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                [filter]="true" filterBy="evlVehicleLineC" [(ngModel)]="vehicleDrop"
+                                (onChange)="changeVehicleLine()" value="vehicleDrop" scrollHeight="200px"
+                                [virtualScroll]="true" [itemSize]="20" placeholder=" ">
+                            </p-dropdown>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-4" style="display: flex;width:26%">
+                        <label for="vehicleLine"
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:-4px;padding-right:10px">
+                            <input type="checkbox" value="s4p" id="effCodeCheck" class="form-check-input" />
+                            S4P Eff In Code :</label>
+                        <div class="dropdown" style="width: 50%;">
+                            <p-dropdown [options]="spList" optionLabel="spCode" autoWidth="false"
+                                [style]="{ 'width': '100%','margin-top':'-8px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                [filter]="true" filterBy="spCode" [(ngModel)]="s4p" scrollHeight="200px"
+                                [virtualScroll]="true" [itemSize]="20" (onChange)="changeSp()" value="s4p"
+                                placeholder=" ">
+                            </p-dropdown>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4" style="display: flex;width:25%">
+                        <label for="vehicleLine"
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:-4px;padding-right:10px">
+                            <input type="checkbox" value="eff" id="effDateCheck" class="form-check-input" />
+                            Eff In Date :</label>
+                        <p-calendar dateFormat="dd-M-yy" [(ngModel)]="date" [showIcon]="true" (onSelect)="changeDate()"
+                            (onInput)="changeDate()" style="width: 45%;height:25px;margin-left: 0px;margin-top: -8px;height: 25px;" dataType="string">
+                        </p-calendar>
+                    </div>
+                </div>
+                    <div class="row pb-3" style=" margin-top: 3%;" style="width:100%;margin-left: -13.9%">
+
+                        <div class="col-md-4" style="display: flex;width:50%;">
+                            <label for="vehicleLine"
+                                style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align:right;margin-top:-4px;padding-right:10px">
+                                Catlogue Status : </label>
+                            <div style="display: flex;margin-top:-5px;">
+                                <div class="form-check form-check-inline" style="margin-left: 10px;">
+                                    <input type="checkbox" class="form-check-input" id="H"
+                                        name="inlineMaterialRadiosButton" mdbInput checked>
+                                    <label class="form-check-label" for="materialInline10">H</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" class="form-check-input" id="P"
+                                        name="inlineMaterialRadiosButton" mdbInput checked>
+                                    <label class="form-check-label" for="materialInline11">P</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" class="form-check-input" id="X"
+                                        name="inlineMaterialRadiosButton" mdbInput checked>
+                                    <label class="form-check-label" for="materialInline12">X</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="display: flex;width:50%;">
+                            <div style="display: flex;margin-top:-9px;margin-left: 39px;">
+                                <button id="btn" (click)="submit()">Select
+                                </button>
+                                <button id="btn" (click)="reset()">Reset
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row" *ngIf="showTable" style="width:94%;margin-left: 3% !important;display: block;
+    box-shadow: 0px 13px 27px -5px rgb(0 0 0 / 75%);margin-top: -1%;">
+        <div style="width:100%;align-items: center;box-shadow: 0px 13px 27px -5px rgb(0 0 0 / 75%);">
+            <p-table [value]="part" *ngIf="showTable" scrollDirection="both"  [rows]="500"
+            scrollHeight="240px"  (onRowSelect)="clickedRows($event)"
+                 responsiveLayout="scroll" 
+                [(selection)]="selectedBase" selectionMode="single" styleClass="p-datatable-sm">
+                <ng-template pTemplate="header">
+                    <tr
+                        style="white-space: nowrap;min-width: 5% !important;position: sticky !important;top: 0 !important;">
+
+                        <th scope="col" pSortableColumn="vehtypeCode" style="font-size:11px !important">PT
+                            <p-sortIcon field="vehtypeCode"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="evlVehicleLineC" style="font-size:11px !important">VL
+                            <p-sortIcon field="evlVehicleLineC"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="evaCatlgstsc" style="font-size:11px !important">ST
+                            <p-sortIcon field="evaCatlgstsc"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="engpEngnrgPartR" style="font-size:11px !important">Engg Part
+                            Nbr
+                            <p-sortIcon field="engpEngnrgPartR"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="base" style="font-size:11px !important">
+                            Service/Finis/Partner Part Nbr
+                            <p-sortIcon field="base"></p-sortIcon>
+                        </th>
+                        <th scope="col" style="text-align:center !important ;" pSortableColumn="motorCraft"
+                            style="font-size:11px !important">Motorcraft
+                            <p-sortIcon field="motorCraft"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="osi" style=" font-size:11px !important;white-space: nowrap;text-align:center !important;">OSI
+                            <p-sortIcon field="osi"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="evaPerUsage" style=" font-size:11px !important;white-space: nowrap;text-align:center !important;">Qty
+                            <p-sortIcon field="evaPerUsage"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="my" style=" font-size:11px !important;white-space: nowrap;text-align:center !important;">MY
+                            <p-sortIcon field="my"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="effIn" style=" font-size:11px !important;white-space: nowrap;text-align:center !important;">Eff In
+                            <p-sortIcon field="effIn"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="effOut" style=" font-size:11px !important;white-space: nowrap;text-align:center !important;">Eff Out
+                            <p-sortIcon field="effOut"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="app" style=" font-size:11px !important;white-space: nowrap;text-align:center !important;">App Cmts
+                            <p-sortIcon field="app"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="spec" style=" font-size:11px !important;white-space: nowrap;text-align:center !important;">Spec Cmts
+                            <p-sortIcon field="spec"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="primary" style=" font-size:11px !important;white-space: nowrap;text-align:center !important;">Primary Ftrs
+                            <p-sortIcon field="primary"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="minor" style=" font-size:11px !important;white-space: nowrap;text-align:center !important;">Minor Ftrs
+                            <p-sortIcon field="minor"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="unitmsrCode" style=" font-size:11px !important;white-space: nowrap;text-align:center !important;">UOM
+                            <p-sortIcon field="unitmsrCode"></p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="nusageC" style=" font-size:11px !important;white-space: nowrap;text-align:center !important;">Usage Nbr
+                            <p-sortIcon field="nusageC"></p-sortIcon>
+                        </th>
+
+                    </tr>
+                   
+                </ng-template>
+                <ng-template pTemplate="body" let-parts>
+                    <tr [pSelectableRow]="parts" style="white-space:nowrap;">
+                        <td (click)="copyMessage1($event)" value="click to copy">{{ parts.vehtypeCode}}</td>
+                        <td (click)="copyMessage2($event)" value="click to copy">{{ parts.evlVehicleLineC}}</td>
+                        <td (click)="copyMessage3($event)" value="click to copy">{{ parts.evaCatlgstsc}}</td>
+                        <td (click)="copyMessage($event)" value="click to copy">{{ parts.engpEngnrgPartR}}</td>
+                        <td (click)="copyMessage4($event)" value="click to copy">{{ parts.base}}</td>
+                        <td (click)="copyMessage5($event)" value="click to copy">{{ parts.motorCraft}}</td>
+                        <td (click)="copyMessage6($event)" value="click to copy">{{ parts.osi}}</td>
+                        <td (click)="copyMessage7($event)" value="click to copy">{{ parts.evaPerUsage}}</td>
+                        <td (click)="copyMessage8($event)" value="click to copy">{{ parts.my}}</td>
+                        <td (click)="copyMessage9($event)" value="click to copy">{{ parts.effIn}}</td>
+                        <td (click)="copyMessage10($event)" value="click to copy">{{ parts.effOut}}</td>
+                        <td (click)="copyMessage11($event)" value="click to copy">{{ parts.app}}</td>
+                        <td (click)="copyMessage12($event)" value="click to copy">{{ parts.spec}}</td>
+                        <td (click)="copyMessage13($event)" value="click to copy">{{ parts.primary}}</td>
+                        <td (click)="copyMessage14($event)" value="click to copy">{{ parts.minor}}</td>
+                        <td (click)="copyMessage15($event)" value="click to copy">{{ parts.unitmsrCode}}</td>
+                        <td (click)="copyMessage16($event)" value="click to copy">{{ parts.nusageC}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <!-- <label style="margin-left: -3%;font-size: 12px;">Total record: {{totalCount}}</label> -->
+    </div>
+
+    <div className="row" style="text-align: center;margin-bottom: 3%;margin-right: 2.3%;">
+        <div *ngIf="showTable" style="margin-top:1%;">
+        <label  style="text-align: left;font-size: 11px">Total record: {{totalCount}}</label>
+    </div>
+        <button id="btn" [disabled]="buttonEnable" (click)="wbs()">Catlg/Assign
+        </button>
+
+        <button id="btn" [disabled]="buttonEnable" (click)="usage()">Usage
+        </button>
+
+        <button id="btn" [disabled]="buttonEnable" (click)="dev()">Ill Search
+        </button>
+
+        <button id="btn" [disabled]="buttonEnable" (click)="dev()">Add to IRP
+        </button>
+
+        <button id="btn" [disabled]="buttonEnable" (click)="wbs()">WBS
+        </button>
+
+        <button id="btn" [disabled]="buttonEnable" (click)="partinfo()">Part Info
+        </button>
+
+        <button id="btn" (click)="recover()" style="width: auto;">Recover Part
+        </button>
+
+        <button id="btn" (click)="close()">Close
+        </button>
+
+    </div>
+
+    <p-dialog header="Part In Context" [(visible)]="alert.flag" [style]="{'max-width':'40%', height: 'auto'}"
+        [modal]="true">
+        <br>
+        <br>
+        <p style="text-align: center;padding-left:5%;padding-right: 5%;font-size: 11px;">{{alert.msg}}</p>
+        <div class="text-center">
+            <button 
+                 id="btn" (click)="popupOk()">OK</button>
+        </div>
+    </p-dialog>
+
+
+    <div *ngIf="spinner" style="margin-top: 3%;" class="d-flex justify-content-center">
+        <div class="spinner-border text-primary " role="status">
+            <span class="sr-only"></span>
+        </div>
+    </div>
+
+
+    <p-dialog header="Recover Inactivated Part" [(visible)]="inactivePartVis" [modal]="true" [style]="{width: '45vW','padding':'0px 10px'}"
+        [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+        <div class="row pb-3" style=" margin-top: 3%;width:100%;">
+            <div class="col-md-12" style="display: flex;">
+                <label
+                    style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:55%;float:left">
+                    Inactived Engineering Part :</label>
+                <div style="width: 110%;">
+                    <input type="text"
+                        [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                        [(ngModel)]="inactivePart" />
+                </div>
+            </div>
+
+        </div>
+        <ng-template pTemplate="footer">
+            <p-button (click)="inactivePartOk()" label="Submit"></p-button>
+            <p-button (click)="inactivePartVis=false" label="Cancel"></p-button>
+        </ng-template>
+    </p-dialog>

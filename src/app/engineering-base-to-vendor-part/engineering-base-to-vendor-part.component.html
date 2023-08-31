@@ -1,0 +1,316 @@
+<div class="container2" style="width: 100%;margin:0;padding: 0;">
+    <div class="accordion1" style="width:90%; margin-left:5%; ">
+        <div class="header" [style.border-radius]="br1" (click)="showCenterPart()"
+            style="font-size: 11px; background-color:  #102B4E !important ;color: #ffff; padding-top:0%;padding-bottom: 0%;padding-right: 1%; margin-top:-1%">
+            <span style="margin-left: 1%;font-weight:bold; font-size:11px;margin-top:2%;">Vendor Part Management&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Selection Criteria </span>
+            <i class="fa-solid fa-plus"  [style.transform]="rotate" aria-hidden="true"
+                style="float:right;font-size: 20px;color: red; "></i>
+                <!-- <i class="fa-solid fa-minus"  *ngIf="count==1" [style.transform]="rotate" aria-hidden="true"
+                style="float:right;font-size: 20px;color: red; "></i> -->
+        </div>
+        <div class="centerpart" [style.display]="display"
+            style="margin-top:0;width:100%;float: left;border-radius: 0px 0px 5px 5px;background-color: white;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);padding-bottom: 1%;">
+            <div class="partcol1">
+                <div class="row" style=" margin-top: 1.5%; " style="width:100%;">
+                    <div class="col-lg-4" style="display:flex;width:50%; margin-top: 1%;">
+                        <label 
+                            style="color:#00095B; text-align:right; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;margin-top:8px;padding-right:10px;margin-left: 4%; ">
+                            View Vendor Parts<span class="required"></span> :</label>
+                        <div style="display: flex; width:50%;margin-top:1.5%;">
+                            <div class="form-check form-check-inline" style="margin-left:1%;">
+                                <input class="form-check-input" type="radio" [(ngModel)]="radioValues"
+                                    name="inlineRadioOptions" id="inlineRadio1" value="Assigned"
+                                    (click)="Vendordropdown()">
+                                <label class="form-check-label"
+                                    style=" font-size: 11px; font-weight: bold;color:#00095B;"
+                                    for="inlineRadio1">Assigned</label>
+                            </div>
+                            <div class="form-check form-check-inline" style="margin-left:10px;">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                    value="Wrkqueue" (click)="VendordropdownWq()">
+                                <label class="form-check-label" for="inlineRadio2"
+                                    style="width:50%; font-size: 11px; font-weight: bold;color:#00095B;">WorkQueue</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" style="display: flex;width:50%;margin-top:1%;">
+                        <label
+                            style="color:#00095B;float: left; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;;margin-top:8px;padding-right:10px;margin-left:3% ">
+                            Vendor Parts<span class="required"></span> :</label>
+                        <div class="dropdown" style="width: 40%;margin-top:1%">
+                            <p-dropdown [options]="dropdownvalue" (onChange)="type()" [(ngModel)]="SelectedParts" autoWidth="false"
+                                placeholder="--Select--" [virtualScroll]="true" [itemSize]="30"
+                                [style]="{ 'width': '100%','margin-bottom':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}">
+                            </p-dropdown>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div style="clear:both"></div>
+<div class="container3" style="width: 90%;margin:0;padding-bottom: -3%;margin-left: 5%;">
+    <div class="accordion2" style="width:100%; margin-left:0%; margin-top: -2%; ">
+        <div class="header" [style.border-radius]="br2" (click)="showCenterPart2()"
+            style="font-size: 11px; background-color:  #102B4E !important ;color: #ffff; padding-top:0%;padding-bottom: 0%;padding-right: 1%; margin-top:3%">
+            <span style="margin-left: 1%;font-weight:bold;margin-top:2%;font-size:11px;">Base Selection Criteria </span>
+            <i class="fa-solid fa-plus"  [style.transform]="rotate1" aria-hidden="true"
+                style="float:right;font-size: 20px;color: red; "></i>
+                <!-- <i class="fa-solid fa-minus"  *ngIf="counts==1" [style.transform]="rotate" aria-hidden="true"
+                style="float:right;font-size: 20px;color: red; "></i> -->
+        </div>
+        <div class="centerpart" [style.display]="display1"
+            style="margin-top:0;width:100%;float: left;border-radius: 0px 0px 5px 5px;background-color: white;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+          <div class="partcol1">
+              
+            <div class="row" style="margin-top:0%;margin-left: -1%;">
+                <div class="col-lg-4" style="width:50%;">
+                    <label 
+                        style="color:#00095B;float: left; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;margin-top:8px;padding-right:10px ">
+                        Base selection criteria<span class="required"></span> :</label>
+                    <input type="text" name="baseCriteria" [(ngModel)]="baseCriteria" maxlength="8" id="baseCriteria"
+                        value={{baseCriteria}} style="margin-left:11%; width:35%;height:25px;margin-top:1%;" (click)="baseCritClick()">
+                    </div> <div class="col-lg-4" style="width:50%;">
+                        <label 
+                        style="color:#00095B;float: left; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px ">
+                        Engineering Base View<span class="required"></span> :</label>
+                       
+                            
+                            <div style="display: flex; width:50%; margin-top:1.5%;">
+                            <div class="form-check form-check-inline" style="margin-left: 4%;">
+                                <input class="form-check-input" type="radio" [(ngModel)]="baseView" name="baseView"
+                                    id="newBase" (click)="changeBaseNew()" value="New">
+                                <label class="form-check-label"
+                                    style="text-align: right; font-size: 11px; font-weight: bold;color:#00095B;"
+                                    for="inlineRadio1">New Bases</label>
+                            </div>
+                            <div class="form-check form-check-inline" style="margin-left: 10px;">
+                                <input class="form-check-input" type="radio" [(ngModel)]="baseView" name="baseView"
+                                    id="allBase" value="All" (click)="changeBaseAll()">
+                                <label class="form-check-label" 
+                                    style="text-align: right; font-size: 11px; font-weight: bold;color:#00095B;">All
+                                    Bases</label>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+               
+          
+          
+            <div class="row" style="margin-top:0.6%;margin-left: 6%;">
+                <!-- <div class="col-lg-6" style="width:50%;margin-left:5%; margin-bottom: 10%;"> -->
+                    <div class="col">
+                    <div style="border: 1px solid grey ;height: 250px;overflow-x:auto;border-radius:4px;width:410px;margin-left:-6%; ">
+                        <p-table [value]="newBaseDetails" selectionMode="multiple" [metaKeySelection]="true"
+                                [(selection)]="baseSelectedDetails"  styleClass="p-datatable-sm"
+                                (onRowSelect)="clickedRow($event)" [style]="{'font-size':'12px','margin-top':'0'}">
+                                <ng-template pTemplate="header">
+                                    <tr style="background-color:#000080; " >
+                                        <th pSortableColumn="base" style="font-size:12px !important;font-weight: bold !important" scope="col">Base #
+                                            <p-sortIcon field="base">
+                                            </p-sortIcon>
+                                        </th>
+                                        <th pSortableColumn="engbasenewf" style="font-size:12px !important;font-weight: bold !important;" scope="col">
+                                            EngBase<p-sortIcon field="engbasenewf">
+                                            </p-sortIcon>
+                                        </th>
+                                        <th pSortableColumn="engbasedescx" style="font-size:12px !important;font-weight: bold !important;"
+                                            scope="col">Description<p-sortIcon field="engbasedescx">
+                                            </p-sortIcon>
+                                        </th>
+                                        <th pSortableColumn="engbaseeioorigc" style="font-size:12px !important;font-weight: bold !important;"
+                                            scope="col">Origin<p-sortIcon field="engbaseeioorigc">
+                                            </p-sortIcon>
+                                        </th>
+                                    </tr>
+                                    
+                                </ng-template>
+                                <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                                    <tr [pSelectableRow]="list" [pSelectableRowIndex]="rowIndex">
+                                        <td style="min-width: 20px !important;font-weight: bold;">{{list.base}}</td>
+                                        <td  style="min-width: 20px !important;font-weight: bold;">{{list.engbasenewf}}</td>
+                                        <td  style="min-width: 20px !important;font-weight: bold;">{{list.engbasedescx}}</td>
+                                        <td  style="min-width: 20px !important;font-weight: bold;">{{list.engbaseeioorigc}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                
+
+                <!-- <div class="col-md-2" style="margin-top:15%"> -->
+                    <div class="col">
+                    <button style="background-color: rgb(183, 181, 181);margin-top:28%;margin-left:-2% !important; " class="btn"
+                        (click)="transferSelectedBase() "><b style="font-size:40px;color:white;">➔</b></button>
+                <!-- </div> -->
+            </div>
+                <div class="col">
+                <!-- <div class="col-lg-6" style="margin-left:5%; margin-top:2%;"> -->
+                    <div class="card"
+                        style="background-color: white;width:150%;margin-left:-70%;padding-bottom:13.5%;font-weight: bold;">
+                        <div class="card-header"
+                            style="font-size: 11px; background-color:  #000080;color: #ffff; padding-top:1%; padding-bottom:0%;">
+                            <p style="margin-left: 1%;"> Vendor Part</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row" style="margin-top:2%;">
+                                <div class="col-lg-6" style="margin-left:-8%;">
+                                    <label class="form-check-label" for="gridCheck1" style="  padding-left: 12px; margin-top:0.8% ; margin-left:21%; color:#00095B;font-family:Ford Antenna;font-size :11px;
+                                    font-weight:bold;">
+                                        Eng. Part #:
+                                    </label>
+                                    <input type="text" class="form-control" name="part" id="part"
+                                        style="margin-left:25%; height:25px; width:89%;font-size: 11px;"
+                                        [(ngModel)]="vendorPartDetails.engpengnrgpartr" readonly>
+                                        <br>
+                                    <label class="form-check-label" for="gridCheck1" style="  padding-left: 12px; margin-top:0.8% ; margin-left:21%; color:#00095B;font-family:Ford Antenna;font-size :11px;
+                                    font-weight:bold;">
+                                        Origin:
+                                    </label>
+                                    <input type="text" class="form-control" name="origin" id="origin"
+                                        style="margin-left:25%; height:25px; width:89%;font-size: 11px;"
+                                        [(ngModel)]="vendorPartDetails.eiooriginc" readonly>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="form-check-label" for="gridCheck1" style="  padding-left: 12px; margin-top:0.8% ; margin-left:16%; color:#00095B;font-family:Ford Antenna;font-size :11px;
+                                    font-weight:bold;">
+                                        Eng. Part Seq:
+                                    </label>
+                                    <input type="text" class="form-control" name="seq" id="seq"
+                                        style="margin-left:20%; height:25px; width:89%;font-size: 11px;"
+                                        [(ngModel)]="vendorPartDetails.engpseqr" readonly>
+                                        <br>
+                                    <label class="form-check-label" for="gridCheck1" style="  padding-left: 12px; margin-top:0.8% ; margin-left:16%; color:#00095B;font-family:Ford Antenna;font-size :11px;
+                                    font-weight:bold;">
+                                        Base #:
+                                    </label>
+                                    <input type="text" class="form-control" name="base" id="base"
+                                        style="margin-left:20%; height:25px; width:89%;font-size: 11px;"
+                                        [(ngModel)]="vendorPartDetails.engpbaser" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                </div>
+                </div>
+            </div>
+
+
+            
+
+<div class="row" style="margin-top:-3%;">
+            <div class="col" style="margin-bottom: 1.5%;margin-left: 23.5%;margin-top:4%">
+                <div class="lastrow">
+                    <button style="margin-left: 10%;background-color: rgb(183, 181, 181);" class="btnlast"
+                        (click)="saveVendorPartDetails()" [disabled]="disable">Save</button>
+                    <button style="margin-left: 20px;background-color: rgb(183, 181, 181); " class="btnlast"
+                        (click)="gocmdty();">Cmdty </button>
+                    <button style="margin-left: 20px;background-color: rgb(183, 181, 181); " class="btnlast"
+                        (click)="gowrk();">WQ </button>
+                        <button style="margin-left: 20px;background-color: rgb(183, 181, 181); " class="btnlast"
+                        (click)="onReset()">Reset</button>
+                    <button style="margin-left: 20px;background-color: rgb(183, 181, 181); " class="btnlast"
+                    (click)="goclose();">Close</button>
+
+                </div>
+            </div>
+        </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+        
+    
+
+
+<div style="clear:both"></div>
+
+
+
+
+
+
+<p-dialog header="Vendor Part Management" [(visible)]="alert.flag" [style]="{'max-width':'50%', height: 'auto'}"
+    [modal]="true">
+    <br>
+    <p style="text-align: center;  font-size: 11px;color:#000080;font-family:Ford Antenna;"> {{alert.msg}} </p>
+</p-dialog>
+<p-dialog header="Vendor Part Management" [(visible)]="base.flag" [style]="{'max-width':'50%', height: 'auto'}"
+    [modal]="true">
+    <br>
+    <p style="text-align: center;  font-size: 11px;color:#000080;font-family:Ford Antenna;"> {{base.msg}}</p>
+</p-dialog>
+<p-dialog header="Vendor Part Management" [(visible)]="save.flag" [style]="{'max-width':'50%', height: 'auto'}"
+    [modal]="true">
+    <br>
+    <p style="text-align: center;  font-size: 11px;color:#000080;font-family:Ford Antenna;"> {{save.msg}}</p>
+    <div class="text-center">
+        <button
+            style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 1%;margin-left: -1%;margin-bottom: 1%; border-radius:20px;"
+            class="btn btn-primary btn-block" id="btn" (click)="popupOk()">OK</button>
+    </div>
+</p-dialog>
+<p-dialog header="Vendor Part Management" [(visible)]="navwrk.flag" [style]="{'max-width':'70%', height: 'auto'}"
+    [modal]="true">
+    <br>
+    <br>
+    <p style="text-align: center;  font-size: 11px;color:#000080;font-family:Ford Antenna;"> {{navwrk.msg}}</p>
+
+    <div class="text-center" style="margin-top:2%; ">
+        <button class="btn btn-primary btn-blockol btn"
+            style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 1%;margin-left: -1%;margin-bottom: 1%; border-radius:20px;"
+            (click)="savePopwrk()">Yes</button>
+        <button class="btn btn-primary btn-block"
+            style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 1%;margin-left: 3%;margin-bottom: 1%; border-radius:20px;"
+            (click)="gotowrkque()">No</button>
+
+    </div>
+</p-dialog>
+<p-dialog header="Vendorpart Management" [(visible)]="navcmdty.flag" [style]="{'max-width':'70%', height: 'auto'}"
+    [modal]="true">
+    <br>
+    <br>
+    <p style="text-align: center;  font-size: 11px;color:#000080;font-family:Ford Antenna;"> {{navcmdty.msg}}</p>
+
+    <div class="text-center" style="margin-top:2%; ">
+        <button class="btn btn-primary btn-blockol btn"
+            style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 1%;margin-left: -1%;margin-bottom: 1%; border-radius:20px;"
+            (click)="savePopcmdty()">Yes</button>
+        <button class="btn btn-primary btn-block"
+            style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 1%;margin-left: 3%;margin-bottom: 1%; border-radius:20px;"
+            (click)="gotocommodity()">No</button>
+
+    </div>
+</p-dialog>
+<p-dialog header="Vendorpart Management" [(visible)]="navclose.flag" [style]="{'max-width':'70%', height: 'auto'}"
+    [modal]="true">
+    <br>
+    <br>
+    <p style="text-align: center;  font-size: 11px;color:#000080;font-family:Ford Antenna;"> {{navclose.msg}}</p>
+
+    <div class="text-center" style="margin-top:2%; ">
+        <button class="btn btn-primary btn-blockol btn"
+            style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 1%;margin-left: -1%;margin-bottom: 1%; border-radius:20px;"
+            (click)="close()">Yes</button>
+        <button class="btn btn-primary btn-block"
+            style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 1%;margin-left: 3%;margin-bottom: 1%; border-radius:20px;"
+            (click)="gotoclose()">No</button>
+
+    </div>
+</p-dialog>

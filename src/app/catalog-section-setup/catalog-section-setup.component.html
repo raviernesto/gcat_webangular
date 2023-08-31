@@ -1,0 +1,619 @@
+<div>
+    <div class="accordion1 container" 
+        style="margin-bottom:10px;width: 100%;font-family:Ford Antenna !important;">
+        <div class="header" (click)="showCenterPart()" [style.border-radius]="br1"
+            style="width:100%;padding:0 20px; background-color: #102B4E;color:white;display:inline-block;border-radius:5px 5px 0px 0px;">
+            <span style="font-size: 11px;float:left;font-family: Ford Antenna;font-weight: bold !important;">Create/Manage Section</span>
+            <i class="fa-solid fa-plus" [style.transform]="rotate" aria-hidden="true"
+                style="float:right;font-size: 20px;color: red; "></i>
+        </div>
+        <div class="centerpart" [style.display]="display" style="width:100%;height:100%;background:white;top:65px;z-index: 100;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);margin-top:-5px;border-radius: 0px 0px 5px 5px;">
+            <div class="container" (ngInit)="setRegion()" style="width: 100%;padding-top: 1%;padding-bottom: 0.5%;border-radius: 5px;margin-top: 0;margin-bottom: 1%;font-family:Ford Antenna !important;">
+                <div class="container" style="margin-left: 0%;width:100%">
+                    <div class="row" style="margin-bottom: 1%;width:100%;">
+                        <div class="col-sm-6" style="width:100%">
+
+                            <div class="row" style="font-family:Ford Antenna !important;width:25%;float:left;margin-left:8%">
+                                <div class="col-sm-5" style="text-align: left;width:50%;float:left">
+                                    <label> System Section ID :</label>
+                                </div>
+                                <div class="col-sm-7" style="text-align: left;width:50%;float:left;margin-left: -20px;">
+                                    <input type="text" name="sysSectID" id="sysSectID"
+                                        style="height:25px;font-family:Ford Antenna !important;font-size: 11px;" [(ngModel)]="sectionId"
+                                        readonly>
+                                </div>
+                            </div>
+
+                            <div class="row" style="font-family:Ford Antenna !important;width: 25%;float:left;">
+                                <div class="col-sm-5" style="width: 25%;">
+                                    <label style="text-align: left;width:100%">Region :</label>
+                                </div>
+                                <div class="col-sm-7" style="display:inline-flex;vertical-align:middle;margin-left: -25px !important;">
+                                    <input type="checkbox" name="E" id="E" value="E" (change)="changeE()"
+                                        [(ngModel)]="checkE" 
+                                        class="radio-align1 checkbox-inline"> 
+                                        <label> E</label>
+                                    <input type="checkbox" name="N" id="N" value="N" (change)="changeN()"
+                                        [(ngModel)]="checkN" class="radio-align1 checkbox-inline">
+                                        <label> N</label>
+                                    <input type="checkbox" name="S" id="S" value="S" (change)="changeS()"
+                                        [(ngModel)]="checkS" class="radio-align1 checkbox-inline">
+                                        <label> S</label>
+                                    <input type="checkbox" name="A" id="A" value="A" (change)="changeA()"
+                                        [(ngModel)]="checkA" class="radio-align1 checkbox-inline"> 
+                                        <label> A</label>
+                                </div>
+                            </div>
+                            <div class="row" style="font-family:Ford Antenna !important;float: left;width:25%">
+                                <div class="col-sm-5" style="width:20%;padding:0px;margin:0px" >
+                                    <label style="text-align: left;width:100%">Section :</label>
+                                </div>
+                                <div class="col-sm-7"  style="width:50%;padding:0px;margin:0px">
+                                    <input type="text" name="section" id="section"
+                                        style="height:25px;font-family:Ford Antenna !important;font-size:11px"
+                                        [(ngModel)]="section.tempId" readonly>
+                                </div>
+                            </div>
+
+                            <div class="row" style="font-family:Ford Antenna !important;float: left;width:25%;margin-left: -6%;">
+                                <div class="col-sm-5" style="width: 25%;">
+                                    <label style="text-align: left;">Suffix :</label>
+                                </div>
+                                <div class="col-sm-7" style="width: 50%;padding:0px;margin:0px">
+                                    <input type="text" name="suffix" id="suffix"
+                                        style="height:25px;text-transform: uppercase;font-family:Ford Antenna !important;"
+                                        (change)="enableSave()" [(ngModel)]="section.suffix">
+                                </div>
+                            </div>
+                        </div>
+                            <div style="clear:both"></div>
+                        <div class="col-sm-6" style="width:100%">
+                            <div class="row" style="font-family:Ford Antenna !important;float:left;width:25%;float:left;margin-left:8%">
+                                <div class="col-sm-5" style="width:50%">
+                                    <label style="text-align: left;padding-left: 16%;">Section Name :</label>
+                                </div>
+                                <div class="col-sm-7" style="text-align: left;width:50%;float:left;margin-left: -20px;">
+                                    <input type="text" name="sectName" id="sectName" 
+                                    style="height:25px;font-family:Ford Antenna !important;font-size: 11px;"
+                                        [(ngModel)]="section.lexcDesc" readonly>
+                                </div>
+                            </div>
+                            <div class="row" style="font-family:Ford Antenna !important;float:left;width:25%;float:left">
+                                <div class="col-sm-5" style="width:24%">
+                                    <label style="text-align: right;">Type :</label>
+                                </div>
+                                <div class="col-sm-7" style="text-align: left;width:50%;float:left;margin-left: -20px;">
+                                    <input type="text" style="height:25px;font-family:Ford Antenna !important;font-size: 11px;margin-left: 8%;"
+                                        name="type" id="type" [(ngModel)]="section.tempTypeDesc" readonly>
+                                </div>
+                            </div>
+                            <div class="row" style="font-family:Ford Antenna !important;width:25%;float:left;margin-left: -8%;">
+                                <div class="col-sm-5" style="width:42%">
+                                    <label style="text-align: right;width:100%">
+                                        Product
+                                        Type :</label>
+                                </div>
+                                <div class="col-sm-7" style="width:50%;margin-left: -6%;display:inline-flex">
+                                    <input type="radio" name="vehicle" value="C" id="C"
+                                        style="margin-right:4%;vertical-align: 1%;margin-left: 1%;margin-top: -8%;"
+                                        [(ngModel)]="section.commodity" readonly>
+                                        <label>Car</label>
+                                    <input type="radio" name="vehicle" value="T" id="T"
+                                        style="margin-left:10%;margin-right:1%;margin-top: -8%;" [(ngModel)]="section.commodity"
+                                        readonly>
+                                        <label>Truck</label>
+                                </div>
+                            </div>
+
+                            <div class="row" style="font-family:Ford Antenna !important;width: 25%;float:left;margin-left:-7% !important">
+                                <div class="col-sm-5" *ngIf="vehOrPrefix" style="width:50%">
+                                    <label style="text-align: right;">Vehicle Line :</label>
+                                </div>
+                                <div class="col-sm-7" *ngIf="vehOrPrefix" style="width: 50%;padding:0px;margin:0px">
+                                    <input type="text" style="height:25px;font-family:Ford Antenna !important;font-size: 11px;margin-left: 6%;"
+                                        name="buildVehLine" id="buildVehLine" [(ngModel)]="section.vehDesc" readonly>
+                                </div>
+                                <div class="col-sm-5" *ngIf="vehOrPrefix==false" style="width:50%">
+                                    <label style="text-align: right;">Prefix :</label>
+                                </div>
+                                <div class="col-sm-7" *ngIf="vehOrPrefix==false" style="width: 50%;padding:0px;margin:0px">
+                                    <input type="text" name="buildVehLine" id="buildVehLine"
+                                    style="height:25px;font-family:Ford Antenna !important;font-size: 11px;margin-left: 6%;"
+                                        [(ngModel)]="section.prefixDesc" readonly>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                        </div>
+                       
+<div style="clear:both"></div>
+
+                        <div class="col-sm-6" style="padding: 0px 20px;width: 100%;">
+                            <div class="card" style="width: 30%;float: left;margin-left:21%">
+                                <div class="card-header"
+                                    style="font-size: 11px; font-weight: bold;font-family: Ford Antenna;background-color: #000080;color: #ffff;height:20px !important;padding:0px 20px;width: 100%">
+                                    Effective In
+                                </div>
+                                <div class="card-body" style="width: 100%;">
+                                    <div class="row" style="width: 120%;">
+                                        <div class="col-sm-6" style="width: 40%;float: left;">
+                                            <p-dropdown #cc [options]="spList" optionLabel="spCode" autoWidth="false" [filterMatchMode]=startsWith
+                                                [style]="{'height':'25px','border-color':'black','width':'100%','border':'2px solid black','border-radius':'5px','font-family':'Ford Antenna !important;'}"
+                                                [filter]="true" filterBy="spCode" [(ngModel)]="s4pIn"
+                                                [virtualScroll]="true" [itemSize]="20" (onChange)="changeSpIn()"
+                                                value="s4pIn" placeholder={{this.section.effIncode}}>
+                                            </p-dropdown>
+                                        </div>
+                                        <div class="col-sm-6" style="width: 45%;float: left;">
+                                            <p-calendar dateFormat="dd-M-yy" [(ngModel)]="effIn" [showIcon]="true" (onSelect)="changeSpInCal()" (onInput)="changeSpInCal()" 
+                                            dataType="string"></p-calendar>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- cardstarts -->
+                            <div class="card" style="width: 30%; float: left;margin-left:6%">
+                                <div class="card-header"
+                                style="font-size: 11px; font-weight: bold;font-family: Ford Antenna;background-color: #000080;color: #ffff;height:20px !important;padding:0px 20px;width: 100%">
+                                    Effective Out
+                                </div>
+                                <div class="card-body" style="width: 100%;">
+                                    <div class="row" style="width: 120%;">
+                                        <div class="col-sm-6" style="width: 40%;float: left;">
+                                            <p-dropdown [options]="spList" optionLabel="spCode" autoWidth="false" [filterMatchMode]=startsWith
+                                                [style]="{'height':'25px','border-color':'black','width':'100%','border':'2px solid black','border-radius':'5px'}"
+                                                [filter]="true" filterBy="spCode" [(ngModel)]="s4pOut" 
+                                                [virtualScroll]="true" [itemSize]="20" (onChange)="changeSpOut()"
+                                                value="s4pOut" placeholder={{this.section.effOutcode}}>
+                                            </p-dropdown>
+                                        </div>
+                                        <div class="col-sm-6" style="width: 45%;float: left;">
+                                            <p-calendar dateFormat="dd-M-yy" [(ngModel)]="effOut"  [showIcon]="true" (onSelect)="changeSpOutCal();" (onInput)="changeSpOutCal()" 
+                                            ></p-calendar>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- card ends -->
+                        <div style="clear:both"></div>  <br>                      
+                            <div class="row" style="width: 100%;margin-left:15px">
+                                <div class="col-sm-9" style="width:85%;float:left">
+                                    <label style="width:15%;float:left;text-align: right;margin-left:6%;"> Notes :</label>
+                                    <input type="text" name="notes" id="notes"
+                                        style="width: 30%;height: 25px;font-family:Ford Antenna !important;float:left;font-size: 11px;margin-left: 5px;"
+                                        (change)="enableSave()" [(ngModel)]="section.notes">
+                                    <label style="width:15%;float:left;text-align: right;margin-left: 2%;"> Help Text :</label>
+                                    <input type="text" name="helpText" id="helpText"
+                                        style="width: 30%;height:25px;font-family:Ford Antenna !important;float:left;font-size: 11px;margin-left: 5px"
+                                        [(ngModel)]="section.help" readonly>
+                                </div>
+                                <div class="col-sm-3" style="float:left;height: 50px !important;width: 15%;margin-top: -1%;">
+                                    <button
+                                        style="background-color: rgb(183, 181, 181)  !important; width: 50%;height: 50px;border:2px solid black;"
+                                        (click)="getLexDesc()" class="btn fa"><img src="assets/binocular-solid.png" alt="Search"
+                                            style="width: 45px;margin-bottom: 1%;"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+<!-- next row -->
+                    <div class="row">
+                        <div class="col-sm-6" >
+                            <p  style="text-align: center;font-size: 13px;margin-bottom: 1%;font-family: Ford Antenna;color: #000080;">
+                                Features Inherited from Section
+                                Prefix</p>
+                            <div
+                                style="border-radius: 3px;border: 1px solid black;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);margin-left: 4%;">
+                                <p-table [value]="prefix" selectionMode="single" [(selection)]="selectedPrefix"
+                                    scrollHeight="200px" scrollDirection="both" [paginator]="false" [rows]="5"
+                                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,25,50,100,500,1000]"
+                                    styleClass="p-datatable-sm p-datatable-gridlines" responsiveLayout="scroll"
+                                    [style]="{'font-size':'12px','margin-top':'0'}"
+                                    (onRowSelect)="clickedRowPre($event)">
+                                    <ng-template pTemplate="header">
+                                        <tr style="position: sticky;top: 0;">
+                                            <th scope="col">Exclude</th>
+                                            <th scope="col">Type</th>
+                                            <th scope="col">Property</th>
+                                            <th scope="col">Value</th>
+                                            <th scope="col">Src</th>
+                                            <th scope="col">Description</th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                                        <tr [pSelectableRow]="list" [pSelectableRowIndex]="rowIndex">
+                                            <td>
+                                                <div *ngIf="list.exclude==true"
+                                                    style="display: flex;justify-content: center;"
+                                                    class="fa center hoverColor">X</div>
+                                                <div *ngIf="list.exclude==false" class="fa center"> </div>
+                                            </td>
+                                            <td>{{list.lexcType}}</td>
+                                            <td>{{list.propCode}}</td>
+                                            <td>{{list.value}}</td>
+                                            <td>{{list.source}}</td>
+                                            <td>{{list.lexcDesc}}</td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                            <div *ngIf="exclude==1" style="display: flex;justify-content: flex-end;margin-top: 1%;">
+                                <button id="btn"
+                                    style="margin-top: 0%;" (click)="excludes()">Select a Feature</button>
+                            </div>
+                            <div *ngIf="exclude==2" style="display: flex;justify-content: flex-end;margin-top: 1%;">
+                                <button id="btn"
+                                    style="margin-top: 0%;" (click)="excludes()">Include</button>
+                            </div>
+                            <div *ngIf="exclude==3" style="display: flex;justify-content: flex-end;margin-top: 1%;">
+                                <button id="btn"
+                                    style="margin-top: 0%;" (click)="excludes()">Exclude</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" style="padding-left: 1%;padding-right: 2%;">
+                            <p
+                                style="text-align: center;font-size: 13px;margin-bottom: 1%;font-family: Ford Antenna;color: #000080;">
+                                Features Assigned to the Section
+                            </p>
+                            <div
+                                style="border: 1px solid black;border-radius: 3px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+                                <p-table [value]="sect" selectionMode="single" [(selection)]="selectedSect"
+                                    scrollHeight="200px" scrollDirection="both" [paginator]="false" [rows]="5"
+                                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,25,50,100,500,1000]"
+                                    styleClass="p-datatable-sm p-datatable-gridlines" responsiveLayout="scroll"
+                                    [style]="{'font-size':'12px','margin-top':'0'}"
+                                    (onRowSelect)="clickedRowSect($event)">
+                                    <ng-template pTemplate="header">
+                                        <tr style="position: sticky;top: 0;">
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Type</th>
+                                            <th scope="col">Property</th>
+                                            <th scope="col">Value</th>
+                                            <th scope="col">Src</th>
+                                            <th scope="col">Description</th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                                        <tr [pSelectableRow]="list" [pSelectableRowIndex]="rowIndex">
+                                            <td></td>
+                                            <td>{{list.lexcType}}</td>
+                                            <td>{{list.propCode}}</td>
+                                            <td>{{list.value}}</td>
+                                            <td>{{list.source}}</td>
+                                            <td>{{list.lexcDesc}}</td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                            <!-- <div style="display: flex;justify-content: flex-end;padding-right: 5%;margin-top: 1%;">
+                                <button
+                                    style="background-color: rgb(183, 181, 181)  !important; padding: 2px;margin: 0;"
+                                    (click)="getLexDesc()" class="btn fa"><img src="assets/binocular-solid.png"
+                                        style="margin-left: 2px;width: 30px;"></button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion1 container"   style="margin-bottom:10px;width: 100%;font-family:Ford Antenna !important;">
+        <div class="header" (click)="showCenterParts()" [style.border-radius]="br2"
+            style="width:100%;padding:0 10px; background-color: #102B4E;color:white;display:inline-block;border-radius:5px 5px 0px 0px;">
+            <span style="font-size: 11px;float:left;font-family: Ford Antenna;font-weight: bold !important;">Build Section</span>
+            <i class="fa-solid fa-plus" [style.transform]="rotate1" aria-hidden="true"
+                style="float:right;font-size: 20px;color: red; "></i>
+        </div>
+        <div class="centerpart" [style.display]="display1"
+            style="width:100%;height:100%;background:white;top:65px;z-index: 100;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);margin-top:-5px;border-radius: 0px 0px 5px 5px;">
+            <div class="container"
+                style="width: 100%;padding-bottom: 1%;padding-top: 1%;border-radius: 5px;margin-bottom: 0.5%;font-family:Ford Antenna !important;">
+                <div class="container" style="margin-left: 2%;margin-right: 5%;">
+                    <div class="row">
+                        <div class="col-sm-5" style="margin-left: 2%;">
+                            <p style="font-size: 16px;margin-bottom: 0;">{{section.tempId}} - {{section.lexcDesc}}</p>
+                            <button (click)="buildTab1()" class="btn btn-primary btn-block" id="btn"
+                                style="width: 50%;margin-bottom: 0.5%;margin-left: 0;margin-top: 0%;border-radius: 14px;height:25px !important">Template
+                                Commodities</button>
+                            <button (click)="buildTab2()" class="btn btn-primary btn-block" id="btn"
+                                style="width: 49%;margin-left:1%;margin-bottom: 3%;border-radius: 14px;margin-top: 2.5%;height:25px !important">Template
+                                Sections</button>
+                            <div
+                                style="border: 1px solid black;border-radius: 3px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+                                <p-table [value]="tempTable" selectionMode="multiple" [(selection)]="tempTable1"
+                                    scrollHeight="405px" scrollDirection="both" [paginator]="true" [rows]="10"
+                                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50,100,500,1000]"
+                                    styleClass="p-datatable-sm p-datatable-gridlines" responsiveLayout="scroll"
+                                    [style]="{'font-size':'12px','margin-top':'0'}" (onRowSelect)="clickedRow($event)">
+                                    <ng-template pTemplate="header">
+                                        <tr style="position: sticky;top: 0;">
+                                            <th scope="col">Commodity</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Description</th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                                        <tr [pSelectableRow]="list" [pSelectableRowIndex]="rowIndex">
+                                            <td>{{list.commodity}}</td>
+                                            <td>{{list.status}}</td>
+                                            <td>{{list.lexcDesc}}</td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <button
+                                style="background-color: rgb(183, 181, 181) !important;width: 96%; margin-top:250px ;"
+                                class="btn " (click)="transferSelected();enableSave();"><strong style="font-size:40px">➔
+                                </strong></button>
+                            <button
+                                style="background-color: rgb(183, 181, 181) !important;width: 100%; margin-top:50px ;"
+                                class="btn " (click)="transferAll();enableSave();"><strong style="font-size:40px">➔
+                                </strong><br>
+                                <p style="color: black;">All</p>
+                            </button>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label > Suffix </label>
+                                    <input type="text" name="buildSuffix" id="buildSuffix" style="height:25px;font-size: 11px;"
+                                        [(ngModel)]="section.suffix" readonly>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div *ngIf="vehOrPrefix">
+                                        <label style="margin-top: 1%;margin-bottom: 2.5%;"> Vehicle Line </label>
+                                        <input type="text" name="buildVehLine" id="buildVehLine" style="height:25px;font-size: 11px;"
+                                            [(ngModel)]="section.vehDesc" readonly>
+                                    </div>
+                                    <div *ngIf="vehOrPrefix==false">
+                                        <label style="margin-top: 1%;margin-bottom: 2.5%;"> Prefix </label>
+                                        <input type="text" name="buildVehLine" id="buildVehLine" style="height:25px;font-size: 11px;"
+                                            [(ngModel)]="section.prefixDesc" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                style="border: 1px solid black;border-radius: 3px;margin-top: 3%;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+                                <p-table [value]="tempConfirm" selectionMode="single" [(selection)]="selectDelete"
+                                    scrollHeight="405px" scrollDirection="both" [paginator]="true" [rows]="10"
+                                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50,100,500,1000]"
+                                    styleClass="p-datatable-sm p-datatable-gridlines" responsiveLayout="scroll"
+                                    [style]="{'font-size':'12px','margin-top':'0'}"
+                                    (onRowSelect)="clickedDelete($event)">
+                                    <ng-template pTemplate="header">
+                                        <tr style="position: sticky;top: 0;">
+                                            <th scope="col">Commodity</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Description</th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                                        <tr [pSelectableRow]="list" [pSelectableRowIndex]="rowIndex">
+                                            <td>{{list.commodity}}</td>
+                                            <td>{{list.status}}</td>
+                                            <td>{{list.lexcDesc}}</td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="text-align: center;">
+            <button class="btn btn-primary btn-block" id="btn" (click)="save()" [disabled]=buttonEnable >Save</button>
+            <button class="btn btn-primary btn-block" id="btn" (click)="deleteConfirm()">Delete</button>
+            <button class="btn btn-primary btn-block" id="btn" (click)="getCatalogCommodity()">Cmdty</button>
+            <button class="btn btn-primary btn-block" id="btn" (click)="lex()" style="width: auto;">Lex Mngt</button>
+            <button class="btn btn-primary btn-block" id="btn" (click)="wq()" style="width: auto;">WQ</button>
+            <button class="btn btn-primary btn-block" id="btn" (click)="wbs()">WBS</button>
+            <button class="btn btn-primary btn-block" id="btn" (click)="close()">Close</button>
+        </div>
+    </div>
+    <app-lexicon-search *ngIf="lexiPopup>0"></app-lexicon-search>
+
+    <p-dialog [(visible)]="tempSectionPopup" [style]="{'width':'auto',height:'auto','padding-bottom':'0%'}"
+        position="center" header="Template Section" [focusTrap]="true" [modal]="true">
+        <div class="container" style="background-color:white;padding-bottom: 0%;">
+            <div
+                style="align-items: center;border:1px solid black;margin-top: 1%;border-radius: 3px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+                <p-table [value]="tempSect" selectionMode="single" [(selection)]="sectionSelected" scrollHeight="405px"
+                    scrollDirection="both" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                    [rowsPerPageOptions]="[5,10,25,50]" styleClass="p-datatable-sm p-datatable-gridlines"
+                    responsiveLayout="scroll" [style]="{'font-size':'12px','margin-top':'0'}" scrollHeight="220px"
+                    (onRowSelect)="clickedSection($event)">
+                    <ng-template pTemplate="header">
+                        <tr style="position: sticky;top: 0;">
+                            <th scope="col">Template ID</th>
+                            <th scope="col">Suffix</th>
+                            <th scope="col">Vehicle Line</th>
+                            <th scope="col">Eff In</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                        <tr [pSelectableRow]="list" [pSelectableRowIndex]="rowIndex">
+                            <td> {{list.tempId}}</td>
+                            <td> {{list.sectSuffix}}</td>
+                            <td> {{list.vehLine}}</td>
+                            <td> {{list.effIn}}</td>
+                            <td> {{list.lexcDesc}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+
+            </div>
+            <button class="btn btn-primary btn-block" id="btn"
+                style="width: 15%;margin-left:31%;margin-right:6%;margin-top: 2%;" (click)="selectSection()">OK</button>
+            <button class="btn btn-primary btn-block" id="btn" style="width: 15%;margin-right:20%;margin-top: 2%;"
+                (click)="cancelSection()">Cancel</button>
+        </div>
+    </p-dialog>
+
+    <p-dialog header="Catalog Section Setup" [(visible)]="alert.flag"
+        [style]="{'max-width':'35%', height: 'auto','min-width':'20%'}" [modal]="true">
+        <br>
+        <br>
+        <p style="text-align: center;padding-left:5%;padding-right: 5%;">{{alert.msg}}</p>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block" id="btn"
+                style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 1%;margin-left: -1%;margin-bottom: 1%;"
+                (click)="closeOk()">OK</button>
+        </div>
+    </p-dialog>
+
+    <p-dialog header="Catalog Section Setup" [(visible)]="ill.flag"
+        [style]="{'max-width':'40%', height: 'auto','min-width':'20%'}" [modal]="true">
+        <br>
+        <p style="text-align: center;">{{ill.msg}}</p>
+        <div class="row">
+        <div class="col-sm-3">
+            <label style="text-align: right;">Region :</label>
+        </div>
+        <div class="col-sm-9" style="display: flex;margin-top:-8px" >
+            <input type="radio" style="margin-left:5%;margin-right:2%" value="E" [(ngModel)]="illRegion"> <label style="margin-top: 12px;">Europe</label>
+            <input type="radio" style="margin-left:10%;margin-right:2%" value="N" [(ngModel)]="illRegion"><label style="margin-top: 12px;">NA</label>
+            <input type="radio" style="margin-left:10%;margin-right:2%" value="A" [(ngModel)]="illRegion"><label style="margin-top: 12px;">AP</label> 
+            <input type="radio" style="margin-left:10%;margin-right:2%" value="S" [(ngModel)]="illRegion"><label style="margin-top: 12px;">SA</label> 
+        </div>
+    </div>
+        <div style="margin-top:-1%;margin-bottom: 0;text-align: center;">
+            <button style="width: 20%;" class="btn btn-primary btn-block" id="btn"
+                (click)="illOk()">Yes</button>
+            <button style="width: 20%;margin-left:10%;" class="btn btn-primary btn-block" id="btn"
+                (click)="illClose()">No</button>
+        </div>
+    </p-dialog>
+
+    <p-dialog [(visible)]="savePopup"
+    [style]="{'width':'35%', height: 'auto','border-radius':'10px','padding-bottom':'0','font-size':'11px'}" position="center"
+    [focusTrap]="true" header="Catalog Section Status" (onShow)="setStatus()" [modal]="true">
+    <div class="container" style="background-color:white">
+        <div class="card" style="width: 90%;margin-left: 5% !important;margin-top: 3%;">
+            <div class="card-header"
+                style="font-size: 12px;height:28px; background-color: #000080;color: #ffff;font-family:Ford Antenna">
+                Status
+            </div>
+            <div class="card-body" style="border-radius: 5px;font-family:Ford Antenna">
+                <div class="row1">
+                <input type="radio" name="complete" id="complete" value="C" class="radio-align1"
+                    [(ngModel)]="section.status" (change)="changeStatus($event)">
+                    <div style="font-size:11px;margin-top:-8%;margin-left:17%;">Complete</div>
+                </div>
+                <div class="row2" style="margin-top: -17px;margin-left: 40%;">
+                    <input type="radio" name="incomplete" id="incomplete" value="I" class="radio-align1"
+                    [(ngModel)]="section.status" (change)="changeStatus($event)">
+                    <div style="font-size:11px;margin-top: -13%;margin-left: 23%;">Incomplete</div>
+                </div>
+                
+            </div>
+        </div><br>
+        <div class="card" style="width: 90%;margin-left: 5% !important;font-family:Ford Antenna">
+            <div class="card-header" style="font-size: 12px;height:28px; background-color: #000080;color: #ffff;">
+                Tasks
+            </div>
+            <div class="card-body" style="height: 76px;">
+                <input type="checkbox" name="task1" id="task1" value="Y" (change)="changeTask1();"
+                    class="radio-align1 checkbox-inline">
+                    <div style="font-size:11px;margin-left: 17%;margin-top: -8%;">Assign Property</div><br>
+                <input type="checkbox" name="task2" id="task2" value="Y" (change)="changeTask2();"
+                    class="radio-align1 checkbox-inline">
+                    <div style="font: 11px;margin-left: 17%;margin-top: -8%;">Commodity</div> <br>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-block" id="btn"
+            style="width: 20%;margin-left:27%;height: 27px;margin-top: 2%;font-size:12px" (click)="saveSection()">Save</button>
+        <button class="btn btn-primary btn-block" id="btn"
+            style="width: 20%;margin-left:10%;height: 27px;margin-top: 2%;font-size:12px" (click)="cancelSave()">Cancel</button>
+    </div>
+</p-dialog>
+
+    <p-dialog [(visible)]="sectDetails.flag" [style]="{'max-width':'35%', height: 'auto'}" position="center"
+        header="Catalog Section Details" [focusTrap]="true" [modal]="true">
+        <div class="container" style="background-color:white;border:1px solid grey;">
+            <p style="text-align: center;margin-top:2%">{{sectDetails.message}}</p>
+            <div
+                style="align-items: center;overflow-x: auto;max-height: 180px;border: 1px solid black;border-radius: 3px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+                <p-table [value]="sectDetails.details" styleClass="p-datatable-sm p-datatable-gridlines"
+                    responsiveLayout="scroll" [style]="{'font-size':'12px','margin-top':'0'}">
+                    <ng-template pTemplate="header">
+                        <tr style="position: sticky;top: 0;">
+                            <th scope="col">Section Id</th>
+                            <th scope="col">Eff In</th>
+                            <th scope="col">Suffix</th>
+                            <th scope="col">Eff Out</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                        <tr [pSelectableRow]="list" [pSelectableRowIndex]="rowIndex">
+                            <td> {{list.sectId}}</td>
+                            <td> {{list.effIn}}</td>
+                            <td> {{list.suffix}}</td>
+                            <td> {{list.effOut}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+            <button class="btn btn-primary btn-block" id="btn"
+                style="width: 20%;margin-left:40%;margin-right:43%;margin-top: 2%;" (click)="sectOk()">OK</button>
+        </div>
+    </p-dialog>
+    <p-dialog [(visible)]="this.deleteCommodity.flag" [style]="{'width':'50%','left':'0px', height: 'auto'}" position="center"
+    header="Delete Commodity" [focusTrap]="true" [modal]="true">
+    <div class="container" style="background-color:white;">
+        <div style="text-align:center;font-size: 11px;">{{this.deleteCommodity.message1}}
+            {{this.deleteCommodity.message2}} {{this.deleteCommodity.message3}}
+        </div>            <!-- <p style="text-align:center;font-size: 11px;">{{this.deleteCommodity.message2}}</p>
+        <p style="text-align:center;font-size: 11px;">{{this.deleteCommodity.message3}}</p> -->
+        <div
+            style="align-items: center;overflow-x:auto;max-height: 220px;border:1px solid black;margin-top: 1%;border-radius: 3px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+            <p-table [value]="deleteCommodity.commodity" scrollDirection="both" 
+                styleClass="p-datatable-sm p-datatable-gridlines" responsiveLayout="scroll" 
+                [style]="{'font-size':'11px','margin-top':'0'}">
+                <ng-template pTemplate="header">
+                    <tr style="position: sticky;top: 0;">
+                        <th scope="col" style="text-align:center;font-size: 11px !important;padding: 0px !important;">Engg. Part No</th>
+                        <th scope="col" style="text-align:center;font-size: 11px !important;padding: 0px !important;">Seq No</th>
+                        <th scope="col" style="text-align:center;font-size: 11px !important;padding: 0px !important;">Origin</th>
+                        <th scope="col" style="text-align:center;font-size: 11px !important;padding: 0px !important;">Veh Type</th>
+                        <th scope="col" style="text-align:center;font-size: 11px !important;padding: 0px !important;">PT Origin</th>
+                        <th scope="col" style="text-align:center;font-size: 11px !important;padding: 0px !important;">Veh Line</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                    <tr>
+                        <td style="text-align:center;font-size: 10px !important;padding: 0px !important;"> {{list.engPart}}</td>
+                        <td style="text-align:center;font-size: 10px !important;padding: 0px !important;"> {{list.seq}}</td>
+                        <td style="text-align:center;font-size: 10px !important;padding: 0px !important;"> {{list.origin}}</td>
+                        <td style="text-align:center;font-size: 10px !important;padding: 0px !important;"> {{list.vehType}}</td>
+                        <td style="text-align:center;font-size: 10px !important;padding: 0px !important;"> {{list.ptOrigin}}</td>
+                        <td style="text-align:center;font-size: 10px !important;padding: 0px !important;"> {{list.vehLine}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <button class="btn btn-primary btn-block" id="btn"
+            style="width: 10%;margin-left:47%;margin-right:43%;margin-top: 2%;height: 28px;font-size:11px;text-align: center;" (click)="deleteCommOk()">OK</button>
+    </div>
+</p-dialog>
+<p-dialog header="Catalog Section" [(visible)]="confirm.flag" [style]="{'max-width':'40%', height: 'auto'}"
+        [modal]="true" [closeOnEscape]=true><br>
+        <p style="text-align: center;font-size:12px">{{confirm.msg}}</p>
+        <div style="margin-top:-1%;margin-bottom: 0;">
+            <button style="width: 30%;margin-left:15%;" class="btn" id="btn"
+                (click)="confirmOk()">OK</button>
+            <button style="width: 33%;margin-left:10%;" class="btn" id="btn"
+                (click)="confirmCancel()">Cancel</button>
+        </div>
+    </p-dialog>
+    <br>
+    <br>
+    <br>
+    <br>

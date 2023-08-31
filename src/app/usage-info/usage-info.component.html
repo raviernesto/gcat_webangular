@@ -1,0 +1,1445 @@
+
+<div>
+  <div style="width: 100%;">
+    <div class="accordion1">
+      <div class="header" (click)="showCenterPartPartInfo()" [style.border-radius]="br"
+        style="width:98%;margin-left:1%;;padding:2;padding:0px 10px; background-color: #102B4E;display:inline-block">
+        <span style="font-size: 11px;float:left;color:white">Part Information</span>
+        <i class="fa-solid fa-plus" *ngIf="countPartInfo==0" [style.transform]="rotatePartInfo" aria-hidden="true"
+          style="float:right;font-size: 20px;color: red; "></i>
+          <i class="fa-solid fa-minus" *ngIf="countPartInfo==1" [style.transform]="rotatePartInfo" aria-hidden="true"
+          style="float:right;font-size: 20px;color: red; "></i>
+      </div>
+      <div class="centerpart" [style.display]="displayPartInfo"
+      style="width:98%;height:auto;background:white !important;margin-top:-5px;z-index: 100;margin-left:1%;;border-radius: 0px 0px 5px 5px;">
+      <div class="partcol1"
+        style="width:100%;float: left;background-color: white;padding-top:2%;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius: 0px 0px 5px 5px !important;margin-bottom:0">
+
+        <div class="row pb-3" style=" margin-top: 3%;" style="width:100%;margin-left: -5%;">
+          <div class="col-md-4" style="width:25%; display: flex;">
+            <label
+              style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;width:40%;text-align:right;margin-top:0px;padding-right:10px;float:left">
+              Eng.# :</label>
+            <div style="width: 60%;">
+              <input type="text" disabled
+                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [(ngModel)]="usageFilter.engpEngnrgPartR" />
+            </div>
+          </div>
+          <div class="col-md-4" style="width:25%; display: flex;margin-left: 2%;">
+            <label
+              style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;width:40%;text-align:right;margin-top:0px;padding-right:10px;float:left">
+              Orgin :</label>
+            <div style="width: 60%;">
+              <input type="text" disabled
+                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [(ngModel)]="usageFilter.eioOriginC" />
+            </div>
+          </div>
+          <div class="col-md-4" style="width:10%; display: flex;margin-left: 1%;">
+            <label
+              style="color:#00095B; font-family:Ford Antenna; margin-left:-5%;  font-size :12px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:0px;padding-right:10px;float:left">
+              Seq.# :</label>
+            <div style="width: 30%;">
+              <input type="text" disabled
+                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [(ngModel)]="usageFilter.engpSeqR" />
+            </div>
+          </div>
+
+          <div class="col-md-4" style="width:10%; display: flex;">
+            <label
+              style="color:#00095B; font-family:Ford Antenna; white-space: nowrap;  font-size :12px;font-weight:bold;text-align: right;width:80%;text-align:right;margin-top:0px;padding-right:10px;float:left">
+              Product Type :</label>
+            <div style="width: 30%;">
+              <input type="text" disabled
+                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [(ngModel)]="usageFilter.vehtypeCode" />
+            </div>
+          </div>
+          <div class="col-md-4" style="width:15%; display: flex;">
+            <label
+              style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:0px;padding-right:10px;float:left">
+              PT Orgin :</label>
+            <div style="width: 40%;">
+              <input type="text" disabled
+                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [(ngModel)]="usageFilter.pteioOriginC" />
+            </div>
+          </div>
+          <div class="col-md-4" style="width:15%; display: flex;margin-left:-3%">
+            <label
+              style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;width:70%;text-align:right;margin-top:0px;padding-right:10px;float:left">
+              Vehicle Line : </label>
+            <div style="width: 30%;">
+              <input type="text" disabled
+                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [(ngModel)]="usageFilter.evlVehicleLineC" />
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row pb-3" style="width:100%;margin-left: -5%;">
+         
+          
+         
+          <div class="col-md-4" style="width:25%; display: flex;margin-left:0%">
+            <label
+              style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;width:40%;text-align:right;margin-top:0px;padding-right:10px;float:left">
+              Desc : </label>
+            <div style="width: 60%;">
+              <input type="text" disabled
+                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [(ngModel)]="usageFilter.desc" />
+            </div>
+          </div>
+
+          <div class="col-md-4" style="width:60%; display: flex;margin-left: -7.2%;">
+            <label
+              style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;width:32%;text-align:right;margin-top:0px;padding-right:10px;float:left">
+              Commodity Desc : </label>
+            <div style="width: 65%;">
+              <input type="text" disabled
+              [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+              [(ngModel)]="usageFilter.commodityDesc" />
+            </div>
+          </div>
+          <div style="width: 18.5%;margin-left: 3%;">
+            <button *ngIf="!sFlagUTC"  (click)="this.utilitiesService.fromNewUsg.next(false);usageInfoClick()"  
+            type="button" style="background-color: #215a8f;margin-left:2% !important;float:right !important;margin-top:0px !important" id="btn">Usage Information</button>
+            
+          </div>       
+        </div>
+  </div>
+      
+
+    </div>
+     
+    </div>
+  
+  
+  
+    <div style="clear:both;margin-top: 0%;"></div>
+  
+  
+    <div class="accordion1">
+      <div class="header" (click)="display('0');" [style.border-radius]="br1"
+        style="width:98%;margin-left:1%;;padding:0 10px !important; background-color: #102B4E;display:inline-block">
+        <span style="font-size: 11px;float:left;color:white">Usage List</span>
+        <i class="fa fa-plus" *ngIf="count==0" [style.transform]="rotateUsgList" aria-hidden="true"
+          style="float:right;font-size: 20px;color: red; "></i>
+          <i class="fa-solid fa-minus" *ngIf="count==1" [style.transform]="rotateUsgList" aria-hidden="true"
+          style="float:right;font-size: 20px;color: red; "></i>
+      </div>
+      <div class="centerpart" [style.display]="displayAccUsgList"
+        style="width:98%;height:auto;background:white !important;margin-top:-5px;z-index: 100;margin-left:1%;">
+        <div class="partcol1"
+          style="width:100%;float: left;background-color: white;padding-top:2%;;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius:0px 0px 5px 5px">
+          <!--Usage List div-->
+          <div class="container-fluid">
+            <div class="row" style="margin-top: -25px;margin-bottom: -15px;">
+              <div class="col-md-2" *ngIf="!sFlagUTC" style="margin-left:8%;">
+                <!-- <div class="card border-dark "> -->
+                  <label  style="font-size:13px !important;font-weight:bold !important;color:#00095B; font-family:Ford Antenna;float:left">Selection :</label>
+                  <label for="analystId"
+                    style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: center;width:100%;margin-top:0px;">
+                    <input type="checkbox" style="vertical-align: baseline;" name="vchlno" [(ngModel)]="isVehChecked"
+                      (ngModelChange)="onNgModelVLChange($event)" class="form-check-input" />
+                    Vehicle Line</label>
+                <!-- </div> -->
+              </div>
+              <div class="col-md-2" style="display:flex;float:left;width:20%;margin-left:8%;">
+                <!-- <div class="card border-dark "> -->
+                  <label  style="font-size:13px !important;font-weight:bold !important;color:#00095B;white-space: nowrap;; font-family:Ford Antenna;float:left">Region :</label>
+                  <!-- <div  style="font-size:11px !important">Region</div> -->
+                  <div class="container-fluid" style="display: flex;margin-left: 12%;">
+                    <label for="analystId"
+                      style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;margin-top:0px;width: 80%;">
+                      <input type="checkbox" style="vertical-align: baseline;" name="regionE"
+                        [(ngModel)]="isregionEChecked" (ngModelChange)="pcIICheckBoxChange()"
+                        class="form-check-input" />
+                      E</label>
+                    <label for="analystId"
+                      style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;margin-top:0px;width: 100%;">
+                      <input type="checkbox" style="vertical-align: baseline;" name="regionN"
+                        [(ngModel)]="isregionNChecked" (ngModelChange)="pcIICheckBoxChange()"
+                        class="form-check-input" />
+                      N</label>
+                    <label for="analystId"
+                      style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;margin-top:0px;width: 100%;">
+                      <input type="checkbox" style="vertical-align: baseline;" name="regionA"
+                        [(ngModel)]="isregionAChecked" (ngModelChange)="pcIICheckBoxChange()"
+                        class="form-check-input" />
+                      A</label>
+                    <label for="analystId"
+                      style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;margin-top:0px;width: 100%;">
+                      <input type="checkbox" style="vertical-align: baseline;" name="regionS"
+                        [(ngModel)]="isregionSChecked" (ngModelChange)="pcIICheckBoxChange()"
+                        class="form-check-input" />
+                      S</label>
+                  </div>
+  
+                <!-- </div> -->
+              </div>
+              <div style="width: 30%;float:left;margin-left:5%;">
+                <!-- <div class="card border-dark "> -->
+                  <!-- <div class="card-header" style="font-size:11px !important"></div> -->
+                  <label  style="font-size:13px !important;font-weight:bold !important;color:#00095B; font-family:Ford Antenna;float:left">Catalog Status :</label>
+                  <div class="row" style="display:flex;">
+                    <div style="float:left;width:55%" >
+                      <div class="container-fluid" style="display:flex;">
+                        <label *ngIf="!sFlagUTC"
+                          style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;margin-top:0px;margin-right: 5px">
+                          <input type="checkbox" name="cStatusD" style="vertical-align: baseline;"
+                            [(ngModel)]="iscStatusDChecked"
+                            (ngModelChange)="pcIICheckBoxChange()" class="form-check-input" />
+                          D</label>
+                        <label *ngIf="!sFlagUTC"
+                          style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;margin-top:0px;margin-right: 5px">
+                          <input type="checkbox" name="cStatusI" style="vertical-align: baseline;"
+                            [(ngModel)]="iscStatusIChecked"
+                            (ngModelChange)="pcIICheckBoxChange()" class="form-check-input" />
+                          I</label>
+                        <label
+                          style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;margin-top:0px;margin-right: 5px">
+                          <input type="checkbox" name="cStatusS" style="vertical-align: baseline;"
+                            [(ngModel)]="iscStatusSChecked"
+                            (ngModelChange)="pcIICheckBoxChange()" class="form-check-input" />
+                          S</label>
+                        <label *ngIf="!sFlagUTC"
+                          style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;margin-top:0px;margin-right: 5px">
+                          <input type="checkbox" name="cStatusW" style="vertical-align: baseline;"
+                            [(ngModel)]="iscStatusWChecked"
+                            (ngModelChange)="pcIICheckBoxChange()" class="form-check-input" />
+                          W</label>
+                      </div>
+                    </div>
+                    <div class="col-md-2" style="float:left;width:40%">
+                      <div class="container-fluid" style="display: flex;">
+                        <label for="analystId" *ngIf="!sFlagUTC"
+                          style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;margin-top:0px;margin-right: 5px;">
+                          <input type="checkbox" style="vertical-align: baseline;" name="cStatusH"
+                            [(ngModel)]="iscStatusHChecked"
+                            (ngModelChange)="gcatCheckBoxChange()" class="form-check-input" />
+                          H</label>
+                        <label for="analystId" *ngIf="!sFlagUTC"
+                          style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;margin-top:0px;margin-right: 5px">
+                          <input type="checkbox" style="vertical-align: baseline;" name="cStatusP"
+                            [(ngModel)]="iscStatusPChecked"
+                            (ngModelChange)="gcatCheckBoxChange()" class="form-check-input" />
+                          P</label>
+                        <label for="analystId" *ngIf="!sFlagUTC"
+                          style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;margin-top:0px;margin-right: 5px">
+                          <input type="checkbox" style="vertical-align: baseline;" name="cStatusX"
+                            [(ngModel)]="iscStatusXChecked"
+                            (ngModelChange)="gcatCheckBoxChange()" class="form-check-input" />
+                          X</label>
+                      </div>
+                    </div>
+                  </div>
+                <!-- </div> -->
+              </div>
+            </div>
+  
+            
+            <p-table [value]="usageResponseList"  [rowsPerPageOptions]="[50,100,500]" dataKey="id" scrollDirection="both" [paginator]="true" [rows]="7"
+              [showCurrentPageReport]="true" [totalRecords]="totalRecordsPc" responsiveLayout="scroll" [rowHover]="true" scrollHeight="180px"
+              styleClass="p-datatable-sm  p-datatable-gridlines" [rowHover]="true" [(selection)]="selectedPC"
+              (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" >
+              <ng-template pTemplate="caption">
+                <div class="table-header">
+                  <span style="font-family:Ford Antenna;">
+                    PCII</span>
+  
+                </div>
+              </ng-template>
+              <ng-template pTemplate="header">
+                <tr>
+                  <th scope="col" style="min-width:50px !important;"></th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Reason</th>
+                  <th scope="col">Copy</th>
+                  <th scope="col">Veh.Line</th>
+                  <th scope="col">Commodity</th>
+                  <th scope="col">Region</th>
+                  <th scope="col" style="width: 200px !important;">Primary Feature</th>
+                  <th scope="col">Minor Feature</th>
+                  <th scope="col">Eff In Code</th>
+                  <th scope="col">Eff In Date</th>
+                  <th scope="col">Eff In Source</th>
+                  <th scope="col">Eff Out Code</th>
+                  <th scope="col">Eff Out Date</th>
+                  <th scope="col">Eff Out Source</th>
+                  <th scope="col">UOM</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">PF Code</th>
+                  <th scope="col">MF Code</th>
+                  <th scope="col">Actioned By</th>
+                  <th scope="col">Actioned Date</th>
+                  <th scope="col">PT Origin </th>
+                  <th scope="col">Function</th>
+                  <th scope="col">Last Update Id</th>
+                  <th scope="col">Last Update Date</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-usage_pc>
+                <tr (contextmenu)="onRightClick(usage_pc,'pc')"  [pSelectableRow]="usage_pc">
+                  <td style="padding-left: 16px !important;">
+                    <p-tableCheckbox [value]="usage_pc" ></p-tableCheckbox>
+                  </td>
+                  <td>{{usage_pc.evaCatlgStsC}} / {{ usage_pc.usageSummarizationInd}}</td>
+                  <td>{{usage_pc.reasonCodeC}}</td>
+                  <td>{{usage_pc.origVehtypeC}}</td>
+                  <td>{{usage_pc.origVehtypeC}} {{ usage_pc.evlVehicleLineC}}</td>
+                  <td>{{usage_pc.cmdtyTypeC}} {{ usage_pc.engpCommodityC}}</td>
+                  <td>{{usage_pc.regintC}}</td>
+                  <td style="width: 200px !important; white-space: nowrap;" >{{usage_pc.primaryFtr}}</td>
+                  <td>{{usage_pc.minorFtr}}</td>
+                  <td>{{usage_pc.effiopEffInC}}</td>
+                  <td><span *ngIf="usage_pc.epntsrEffInY">
+                      {{ usage_pc.epntsrEffInY| date: 'dd-MMM-yyyy'}}
+                    </span></td>
+                  <td>{{usage_pc.efiosrcSourcInC}}</td>
+                  <td>{{usage_pc.effiopEffOutC}}</td>
+                  <td>
+                    <span *ngIf="usage_pc.epntsrEffOutY">
+                      {{ usage_pc.epntsrEffOutY| date: 'dd-MMM-yyyy'}}
+                    </span>
+                  </td>
+                  <td>{{usage_pc.efiosrcSouroutC}}</td>
+                  <td>{{usage_pc.unitmsrCode}}</td>
+                  <td>{{usage_pc.evaPerUsageQ}}</td>
+                  <td>{{usage_pc.pftrcCombinatnC}}</td>
+                  <td>{{usage_pc.mftrcCombinatinC}}</td>
+                  <td>{{usage_pc.actionByIdC}}</td>
+                  <td><span *ngIf="usage_pc.actionDtY">
+                      {{ usage_pc.actionDtY| date: 'dd-MMM-yyyy'}}
+                    </span></td>
+                  <td>{{usageFilter.pteioOriginC}}</td>
+                  <td>{{usage_pc.funcKey}}</td>
+                  <td>{{usage_pc.plastIdC}}</td>
+                  <td> <span *ngIf="usage_pc.plastupY">
+                      {{ usage_pc.plastupY| date: 'dd-MMM-yyyy'}}
+                    </span></td>
+                </tr>
+              </ng-template>
+            </p-table>
+           
+            <p-table [value]="gcatUsageResponseList" dataKey="id" [resizableColumns]="true" scrollHeight="180px" 
+              scrollDirection="both" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+              [totalRecords]="totalRecordsGcat" (onRowSelect)="onRowSelectGcat()" responsiveLayout="scroll" 
+              [rowHover]="true" styleClass="p-datatable-sm  p-datatable-gridlines" [rowHover]="true" [(selection)]="selectedGcat">
+              <ng-template pTemplate="caption">
+                <div class="table-header">
+                  <span style="font-family:Ford Antenna;">
+                    GCAT</span>
+                </div>
+              </ng-template>
+              <ng-template pTemplate="header">
+                <tr>
+                  <th scope="col"    ></th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Veh. Line</th>
+                  <th scope="col">Commodity</th>
+                  <th scope="col">GCAT Usage</th>
+                  <th scope="col">Primary Feature</th>
+                  <th scope="col">Minor Feature</th>
+                  <th scope="col">Application</th>
+                  <th class="spectable" scope="col" >Specification</th>
+                  <th scope="col">UOM</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">(E) Eff In Code</th>
+                  <th scope="col">(E) Eff In Date</th>
+                  <th scope="col">(E) Eff In Source</th>
+                  <th scope="col">(E) Eff Out Code</th>
+                  <th scope="col">(E) Eff Out Date</th>
+                  <th scope="col">(E) Eff Out Source</th>
+                  <th scope="col">(N) Eff In Code</th>
+                  <th scope="col">(N) Eff In Date</th>
+                  <th scope="col">(N) Eff In Source</th>
+                  <th scope="col">(N) Eff Out Code</th>
+                  <th scope="col">(N) Eff Out Date</th>
+                  <th scope="col">(N) Eff Out Source</th>
+                  <th scope="col">(A) Eff In Code</th>
+                  <th scope="col">(A) Eff In Date</th>
+                  <th scope="col">(A) Eff In Source</th>
+                  <th scope="col">(A) Eff Out Code</th>
+                  <th scope="col">(A) Eff Out Date</th>
+                  <th scope="col">(A) Eff Out Source</th>
+                  <th scope="col">(S) Eff In Code</th>
+                  <th scope="col">(S) Eff In Date</th>
+                  <th scope="col">(S) Eff In Source</th>
+                  <th scope="col">(S) Eff Out Code</th>
+                  <th scope="col">(S) Eff Out Date</th>
+                  <th scope="col">(S) Eff Out Source</th>
+                  <th scope="col">PType</th>
+                  <th scope="col">PT Origin </th>
+                  <th scope="col">Created By</th>
+                  <th scope="col">Creation Date</th>
+                  <th scope="col">Catalog Id</th>
+                  <th scope="col">Catalog Date</th>
+                  <th scope="col">Last Update Id</th>
+                  <th scope="col">Last Update Date</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-usage_gcat>
+                <tr (contextmenu)="onRightClick(usage_gcat,'gcat')"  [pSelectableRow]="usage_gcat">
+                  <td  style="padding-left: 16px !important;">
+                    <p-tableRadioButton [value]="usage_gcat"></p-tableRadioButton>
+                  </td>
+                  <td>{{usage_gcat.evaCatlgStsC}}</td>
+                  <td>{{usage_gcat.vehtypeCode}} {{ usage_gcat.evlVehiclLineC}}</td>
+                  <td>{{usage_gcat.cmdtyTypeC}} {{ usage_gcat.engpCommodityC}}</td>
+                  <td>{{usage_gcat.nusageC}}</td>
+                  <td>{{usage_gcat.primaryFtr}}</td>
+                  <td>{{usage_gcat.minorFtr}}</td>
+                  <td>{{usage_gcat.application}}</td>
+                  <td class="spectable" >{{usage_gcat.specification}}</td>
+                  <td>{{usage_gcat.unitmsrCode}}</td>
+                  <td>{{usage_gcat.evaPerUsageQ}}</td>
+                  <td>{{usage_gcat.effiopEffInCE}}</td>
+                  <td><span *ngIf="usage_gcat.epntsrEffInYE">
+                      {{ usage_gcat.epntsrEffInYE| date: 'dd-MMM-yyyy'}}
+                    </span></td>
+                  <td>{{usage_gcat.efiosrcSourcInCE}}</td>
+                  <td><span *ngIf="usage_gcat.epntsrEffOutYE">
+                      {{ usage_gcat.epntsrEffOutYE| date: 'dd-MMM-yyyy'}}
+                    </span></td>
+                  <td>{{usage_gcat.efiopEffOutCE}}</td>
+                  <td>{{usage_gcat.efiosrcSourcoutCE}}</td>
+                  <td>{{usage_gcat.effiopEffInCN}}</td>
+                  <td><span *ngIf="usage_gcat.epntsrEffInYN">
+                      {{ usage_gcat.epntsrEffInYN| date: 'dd-MMM-yyyy'}}
+                    </span></td>
+                  <td>{{usage_gcat.efiosrcSourcInCN}}</td>
+                  <td>{{usage_gcat.efiopEffOutCN}}</td>
+                  <td><span *ngIf="usage_gcat.epntsrEffOutYN">
+                      {{ usage_gcat.epntsrEffOutYN| date: 'dd-MMM-yyyy'}}
+                    </span></td>
+                  <td>{{usage_gcat.efiosrcSourcoutCN}}</td>
+                  <td>{{usage_gcat.effiopEffInCA}}</td>
+                  <td><span *ngIf="usage_gcat.epntsrEffInYA">
+                      {{ usage_gcat.epntsrEffInYA| date: 'dd-MMM-yyyy'}}
+                    </span></td>
+                  <td>{{usage_gcat.efiosrcSourcInCA}}</td>
+                  <td><span *ngIf="usage_gcat.epntsrEffOutYA">
+                      {{ usage_gcat.epntsrEffOutYA| date: 'dd-MMM-yyyy'}}
+                    </span></td>
+                  <td>{{usage_gcat.efiopEffOutCA}}</td>
+                  <td>{{usage_gcat.efiosrcSourcoutCA}}</td>
+                  <td>{{usage_gcat.effiopEffInCS}}</td>
+                  <td><span *ngIf="usage_gcat.epntsrEffInYS">
+                      {{ usage_gcat.epntsrEffInYS| date: 'dd-MMM-yyyy'}}
+                    </span></td>
+                  <td>{{usage_gcat.efiosrcSourcInCS}}</td>
+                  <td><span *ngIf="usage_gcat.epntsrEffOutYS">
+                      {{ usage_gcat.epntsrEffOutYS| date: 'dd-MMM-yyyy'}}
+                    </span></td>
+                  <td>{{usage_gcat.efiopEffOutCS}}</td>
+                  <td>{{usage_gcat.efiosrcSourcoutCS}}</td>
+                  <td>{{usage_gcat.vehtypeCode}}</td>
+                  <td>{{usage_gcat.pteioOriginC}}</td>
+                  <td>{{usage_gcat.createByIdC}}</td>
+                  <td><span *ngIf="usage_gcat.createDtY">
+                      {{ usage_gcat.createDtY| date: 'dd-MMM-yyyy'}}
+                    </span></td>
+                  <td>{{usage_gcat.firstCatlgIdC}}</td>
+                  <td><span *ngIf="usage_gcat.pfirstCatlgY">
+                      {{ usage_gcat.pfirstCatlgY| date: 'dd-MMM-yyyy'}}
+                    </span></td>
+                  <td>{{usage_gcat.plastIdC}}</td>
+                  <td><span *ngIf="usage_gcat.plastupY">
+                      {{ usage_gcat.plastupY| date: 'dd-MMM-yyyy'}}
+                    </span></td>
+                </tr>
+              </ng-template>
+            </p-table>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div style="clear: both;"></div>
+  <div className="row" style="display: flex ;
+      justify-content: space-around !important;" >
+      <button type="button" *ngIf="cmdCreateGCATUSGVis"   
+      style="background-color: #215a8f;margin-top: 5px !important;" [disabled]="createGcatDis"
+      (click)="createGcatUsgClick()" id="btn">Create GCAT
+      USG</button>
+    <button type="button" [disabled]="summarizeDis"   *ngIf="summarizeBtnVis"
+    style="background-color: #215a8f;margin-top: 5px !important;"
+      (click)="summarizeClick()" id="btn">Summarize</button>
+    <button type="button"   *ngIf="deSummarizeBtnVis" [disabled]="isDeSummDis"
+    style="background-color: #215a8f;margin-top: 5px !important;"
+      (click)="deSummarizeClick()" id="btn">De-Summarize</button>
+    <button (click)="addUsg()"   type="button" *ngIf="addUsgBtnVis" [disabled]="addUsgDis"
+    style="background-color: #215a8f;margin-top: 5px !important;" id="btn">Add
+      Usage</button>
+    <button type="button"   *ngIf="removeUsgBtnVis" [disabled]="rmvUsgDis" (click)="removeUsg()"
+    style="background-color: #215a8f;margin-top: 5px !important;" id="btn">Remove
+      Usage</button>
+    <button type="button"   *ngIf="activBtnVis" [disabled]="isActDis"
+      (click)="activateClick()"
+      style="background-color: #215a8f;margin-top: 5px !important;" id="btn">Activate</button>
+    <button type="button"   *ngIf="inActiveBtnVis" [disabled]="isInActDis"
+      (click)="inactivateClick()"
+      style="background-color: #215a8f;margin-top: 5px !important;" id="btn">InActivate</button>
+      <button type="button"   *ngIf="supBtnVis" (click)="suppress()" [disabled]="isSupDis"
+      style="background-color: #215a8f;margin-top: 5px !important;" id="btn">{{btnSupressText}}</button>
+      <button (click)="deletWqMsg()"   type="button" *ngIf="cmdDeleteWQMsgVis"
+        [disabled]="isDeleteWqDis"
+        style="background-color: #215a8f;margin-top: 5px !important;" id="btn">Delete
+        WQ Msg</button>
+      
+        
+      
+      
+    </div>
+    <!-- <div style="clear:both;margin-top: 3%;"></div> -->
+  
+    <div class="accordion1" *ngIf="!sFlagUTC">
+      <div class="header" (click)="displayProperties();" [style.border-radius]="br2"
+        style="width:98%;margin-left:1%;;padding:0 10px !important; background-color: #102B4E;display:inline-block">
+        <span style="font-size: 11px;float:left;color:white">Properties</span>
+        <i class="fa fa-plus" *ngIf="countAcc==0" [style.transform]="rotate" aria-hidden="true"
+          style="float:right;font-size: 20px;color: red; "></i>
+          <i class="fa-solid fa-minus" *ngIf="countAcc==1" [style.transform]="rotate" aria-hidden="true"
+          style="float:right;font-size: 20px;color: red; "></i>
+      </div>
+      <div class="centerpart" [style.display]="displayAcc"
+        style="width:98%;height:auto;background:white !important;margin-top:-5px;z-index: 100;margin-left:1%;">
+        <div class="partcol1"
+          style="width:100%;float: left;background-color: white;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius:0px 0px 5px 5px">
+          <div  class="container-fluid">
+            <!-- [(selection)]="selectedProperty" -->
+            <p-table [value]="propertiesList" [metaKeySelection]="false" selectionMode="multiple"   dataKey="lexcC" scrollDirection="both" [paginator]="false" [rows]="500"
+              [showCurrentPageReport]="false" [totalRecords]="totalRecordsProp" responsiveLayout="scroll" [rowHover]="true" scrollHeight="200px"
+              styleClass="p-datatable-sm  p-datatable-gridlines" [rowHover]="true">
+              <ng-template pTemplate="caption">
+                <div class="row table-header">
+                  <div class="col-md-6 text-center">
+                    <span style="font-family:Ford Antenna;"> 
+                      <-------------------- Proposed Properties -------------------->
+                    </span>    
+                  </div>
+                  <div class="col-md-6">
+                    <span style="font-family:Ford Antenna;">
+                      <-------------------- To be Published -------------------->
+                    </span>
+                  </div>
+                </div>
+              </ng-template>
+              <ng-template pTemplate="header">
+                <tr >
+                  <th scope="col" style="display:none"  ></th>
+                  <th scope="col">Qualifier</th>
+                  <th scope="col">Property</th>
+                  <th scope="col">Property Description</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Value</th>
+                  <th scope="col">Approved</th>
+                  <th scope="col">Catalog Description</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-usage_pro>
+                <tr (click)="onPropRowClick(usage_pro)" (click)="selectedValuesForDelete(usage_pro)"
+                 (contextmenu)="onRightClick(usage_pro,'pc')"  [pSelectableRow]="usage_pro">
+                  <td style="padding-left: 16px !important;display:none" >
+                    <!-- <p-tableRadioButton  [value]="usage_pro"></p-tableRadioButton> -->
+                    <p-tableCheckbox (click)="selectedValuesForDelete(usage_pro)" [value]="usage_pro"></p-tableCheckbox>
+                  </td>
+                  <td>
+                    {{usage_pro.qualifier=='A'?'App':usage_pro.qualifier=='S'?'Spec':usage_pro.qualifier=='P'?'Primary':usage_pro.qualifier=='M'?'Minor':''}}
+                  </td>
+                  <td>{{usage_pro.propCodeC}} </td>
+                  <td>{{usage_pro.propDescX}} </td>
+                  <td>{{usage_pro.cmdtpropReqdF}}</td>
+                  <td>{{usage_pro.propCodeValueC}}</td>
+                  <td>{{usage_pro.approvedFlag=="Y"?"YES":"NO"}}</td>
+                  <td>{{usage_pro.lexcDescLongX}}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+            <br>
+            <br>
+            <div class="row pb-3" style="display: flex !important;
+            justify-content: space-around !important;">
+            <div class="col-md-3" style="display: flex;">
+              <label
+                  style="margin-bottom: 0px !important; color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;width:60%;text-align:right;margin-top:0px;padding-right:10px;float:left">
+                  Catalog Qty Per Usage :</label>
+                <div style="width: 10%;">
+                  <input type="text"  id="Qty" (ngModelChange)="qtyChange($event)" [(ngModel)]="selectedGcat.evaPerUsageQ"
+                    [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"/>
+                </div>
+            </div>
+            <div class="col-md-3" style="display: flex;">
+              <label
+              style="margin-bottom: 0px !important; color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:0px;padding-right:10px;float:left">
+              Add Property : </label>
+            <div style="width: 45%;">
+              <input type="text"  id="property" (blur)="onNgModelPropertyChange()" [(ngModel)]="property"
+                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"/>
+            </div>
+            </div>
+            <div class="col-sm-1" style="align-items: center;">
+              <button 
+                  style="background-color: rgb(183, 181, 181)  !important; border:2px solid black;height:30px;margin-top:-3px"
+                  (click)="getLexDesc()" class="btn fa"><img  src="assets/binocular-solid.png" style="width: 42%;margin-top:-13px"></button>
+          </div>
+          <!-- (click)="deleteValue1()" -->
+          <div class="col-md-3" style="display: flex;">
+            <button type="button"   (click)="deleteFunctionProperties()"
+            id="btn" style="background-color: #215a8f;margin-top: 0px;">Delete
+            Value</button>
+          </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- <div style="clear:both;margin-top: 1%;"></div> -->
+  
+    <div class="accordion1">
+      <div class="header" (click)="display('3');" [style.border-radius]="br3"
+      style="width:98%;margin-left:1%;;padding:0 10px !important; background-color: #102B4E;display:inline-block">
+      <span style="font-size: 11px;font-weight: bold !important;float:left;color:white">Timing</span>
+      <i class="fa fa-plus" *ngIf="countTiming==0" [style.transform]="rotateTiming" aria-hidden="true"
+        style="float:right;font-size: 20px;color: red; "></i>
+        <i class="fa-solid fa-minus" *ngIf="countTiming==1" [style.transform]="rotateTiming" aria-hidden="true"
+          style="float:right;font-size: 20px;color: red; "></i>
+    </div>
+    <div class="centerpart" [style.display]="displayAccTiming"
+      style="width:98%;height:auto;background:white !important;margin-top:-5px;z-index: 100;margin-left:1%;">
+      <div class="partcol1"
+        style="width:100%;float: left;background-color: white;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius:0px 0px 5px 5px">
+  
+        <div class="container-fluid" style="width: 95%;">
+         
+          <p-table [value]="timingList" dataKey="regintC" scrollDirection="both"
+            [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [totalRecords]="totalRecordsGcat"
+            responsiveLayout="scroll" [rowHover]="true" styleClass="p-datatable-sm p-datatable-gridlines" [rowHover]="true">
+            <ng-template pTemplate="caption">
+              <div class="table-header" style="border-color: black;">
+                <span style="font-family:Ford Antenna;"> PCII Timing</span>
+              </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+              <tr>
+                <td colspan=""></td>
+                <td colspan="3" style="height: 30px;"> <span style="font-family:Ford Antenna;"><-------------------- Effective In --------------------></span> </td>
+                <td colspan="3"> <span style="font-family:Ford Antenna;"><-------------------- Effective Out --------------------></span></td>
+              </tr>
+              <tr>
+                <!-- <th scope="col"    ></th> -->
+                <th scope="col">Region</th>
+                <th scope="col">Code</th>
+                <th scope="col">Date</th>
+                <th scope="col">Source</th>
+                <th scope="col">Code</th>
+                <th scope="col">Date</th>
+                <th scope="col">Source</th>
+  
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-timing>
+              <tr>
+                <!-- <td  style="padding-left: 16px !important;">
+                  <p-tableRadioButton [value]="timing"></p-tableRadioButton>
+                </td> -->
+                <td>
+                  {{timing.regintC}}.{{timing.regintC=='N'?'America':timing.regintC=='E'?'Europe':'S'?'S.America':'A.Pacific'}}
+                </td>
+                <td>{{timing.effiopEffInC}} </td>
+                <td>{{timing.epntsrEffInY| date: 'dd/MMM/yyyy'}}</td>
+                <td>{{timing.efiosrcSourcInC}}</td>
+                <td>{{timing.effiopEffOutC}}</td>
+                <td>{{timing.epntsrEffOutY| date: 'dd/MMM/yyyy'}}</td>
+                <td>{{timing.efiosrcSouroutC}}</td>
+  
+  
+              </tr>
+            </ng-template>
+          </p-table>
+          </div>
+          <br>
+          <div style="clear:both"></div>
+          <div  style="border:none;display:inline-flex">
+            <div class="row">
+              <div style="float:left;width:95%">
+                <p-table [value]="catalogTiming" dataKey="regintC" styleClass="p-datatable-sm p-datatable-gridlines" editMode="row"
+                  scrollDirection="both" responsiveLayout="scroll" [rowHover]="true" 
+                  [rowHover]="true" [(selection)]="selectedCatalogTiming">
+                  <ng-template pTemplate="caption">
+                    <div class="table-header" >
+                      <span style="font-family:Ford Antenna;">Catalog Timing</span>
+                    </div>
+                  </ng-template>
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <td ></td>
+                      <td colspan="3" style="height: 30px;"> <span style="font-family:Ford Antenna;"><------------ Effective In -----------------></span> </td>
+                      <td colspan="3"> <span style="font-family:Ford Antenna;"><------------ Effective Out ----------></span></td>
+                    </tr>
+                    <tr>
+  
+                      <th scope="col"   > Region</th>
+                      <th scope="col"   >Code</th>
+                      <th scope="col"   >Date</th>
+                      <th scope="col"   >Source</th>
+                      <th scope="col"   >Code</th>
+                      <th scope="col"   >Date</th>
+                      <th scope="col" style="width: 150px !important;">Source</th>
+                      <th scope="col" style="width: 50px !important;"></th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-timing let-editing="editing" let-ri="rowIndex">
+                    <tr [pEditableRow]="timing">
+                      <td  style="padding-left: 16px !important;">{{timing.region}} </td>
+                      <td pEditableColumn>
+                        <p-cellEditor>
+                          <ng-template pTemplate="input">
+                            <input pInputText type="text" (blur)="effiopEffInChange(timing,ri)"
+                              [(ngModel)]="timing.effiopEffInC">
+                          </ng-template>
+                          <ng-template pTemplate="output">
+                            {{timing.effiopEffInC}}
+                          </ng-template>
+                        </p-cellEditor>
+                      </td>
+  
+                      <td pEditableColumn>
+                        <p-cellEditor>
+                          <ng-template pTemplate="input">
+                            <input pInputDate type="date" style="height:38px" class="form-control" id="date"   [(ngModel)]="timing.epntsrEffInY"
+                              (ngModelChange)="epntsrEffInYChange(ri)">
+                          </ng-template>
+                          <ng-template pTemplate="output">
+                            {{timing.epntsrEffInY| date: 'dd/MMM/yyyy'}}
+                          </ng-template>
+                        </p-cellEditor>
+                      </td>
+                      <td>{{timing.efiosrcSourcInC}}</td>
+                      <td pEditableColumn>
+                        <p-cellEditor>
+                          <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="timing.effiopEffOutC"
+                              (blur)="effiopEffOutCChange(timing,ri)">
+                          </ng-template>
+                          <ng-template pTemplate="output">
+                            {{timing.effiopEffOutC}}
+                          </ng-template>
+                        </p-cellEditor>
+                      </td>
+                      <td pEditableColumn>
+                        <p-cellEditor>
+                          <ng-template pTemplate="input">
+                            <input pInputDate type="date" style="height:38px" class="form-control" id="date"  [(ngModel)]="timing.epntsrEffOutY"
+                              (ngModelChange)="epntsrEffOutYChange(ri)">
+                          </ng-template>
+                          <ng-template pTemplate="output">
+                            {{timing.epntsrEffOutY| date: 'dd/MMM/yyyy'}}
+                          </ng-template>
+                        </p-cellEditor>
+                      </td>
+                      <td  style="width: 150px !important;">{{timing.efiosrcSouroutC}}</td>
+  
+                      <td style="text-align:center"  style="width: 50px !important;">
+                        <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"
+                          (click)="onRowEditInit(timing)" class="p-button-rounded p-button-text"></button>
+                        <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"
+                          (click)="onRowEditSave(timing)"
+                          class="p-button-rounded p-button-text p-button-success p-mr-2"></button>
+  
+                      </td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+              <div style="float: left;width:5%;padding-right:4%;padding-top:3%">
+                <div class="btn-group-vertical" style="margin-top: 14% !important;margin-left: 14% !important;">
+                  <button   type="button" *ngIf="CmdNoTimeChangeVis" (click)="noTimeChangeClick()"
+                  style="background-color: #215a8f;" id="btn">No Timing Chg
+                    Required</button>
+                  <button type="button"   [disabled]="isWbsDis" *ngIf="isWbsVis" (click)="wbsClick()"
+                  style="background-color: #215a8f;" id="btn">WBS</button>
+                  <button type="button"   [disabled]="isPicDis" 
+                  *ngIf="isPicVis" (click)="picClick()"
+                  style="background-color: #215a8f;" id="btn">PIC</button>
+  
+                  <button   type="button"
+                  style="background-color: #215a8f;" id="btn"
+                    (click)="saveTimingClick()">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+        <!-- </div> -->
+      </div>
+    </div>
+    </div>
+    <div style="clear:both;margin-top: 0%;"></div>
+    
+    <div className="row" style="text-align:center " >
+      <button   type="button" id="btn" *ngIf="btnInUTCVis" [disabled]="btnInUTCDis"
+            style="background-color: #215a8f;" (click)="usageTimingChg()">Usage Timing Chg
+            </button>
+      
+    <button   type="button" id="btn" *ngIf="!sFlagUTC" [disabled]="inCtxtDis" (click)="inContextClick()"
+    style="background-color: #215a8f;">InContext</button>
+    <button   type="button" id="btn" (click)="usageClick()" *ngIf="sFlagUTC" [disabled]="isUsgDis"
+    style="background-color: #215a8f;">Usage >>
+    </button>
+    <button   type="button" id="btn" (click)="cancelMainClick()"
+    style="background-color: #215a8f;">
+      Cancel
+    </button>
+    <!-- <button   type="button" id="btn" (click)="closeClick()"
+    style="background-color: #215a8f;">
+      Close
+    </button> -->
+    </div>
+    
+  </div>
+  <p-dialog header="Usage" [(visible)]="alertInfo.flag" [style]="{width: '40vW','max-width':'35%', height: 'auto'}" 
+  [modal]="true">
+  <br>
+  <p style="text-align: center;">{{alertInfo.msg}}</p>
+  <div class="text-center">
+  <button style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 1%;margin-left: -1%;margin-bottom: 1%;"
+    id="btn" (click)="alertInfo.flag=false">OK</button>
+  </div>
+  </p-dialog>
+  
+  
+  <p-dialog header="Usage Selection" [(visible)]="isUsageSelectionVis" [modal]="true" [style]="{width: '50vw','height':'500px'}"
+    [baseZIndex]="101111123" [draggable]="false" [resizable]="false">
+    <p class="p-m-0"></p>
+    <div class="table bg-text">
+      <p-table [value]="vehicleLineList" scrollDirection="both" [rows]="5" scrollHeight="350px"
+        responsiveLayout="scroll" styleClass="p-datatable-sm p-datatable-gridlines" [(selection)]="selectedVl" [rowHover]="true">
+        <ng-template pTemplate="header">
+          <tr>
+            <th scope="col" style="width:1rem">
+              <p-tableHeaderCheckbox></p-tableHeaderCheckbox> Select All
+            </th>
+            <th scope="col">Product Type</th>
+            <th scope="col">PT Origin</th>
+            <th scope="col">Vehicle Line</th>
+            <th scope="col">Original</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-vl let-ri="rowIndex">
+          <tr  [pSelectableRow]="vl">
+            <td>
+              <p-tableCheckbox [value]="vl" style="text-align: left !important;"></p-tableCheckbox>
+            </td>
+            <td>
+              {{ vl.vehtypeCode}}
+            </td>
+            <td>
+              {{ vl.pteioOriginC}}
+            </td>
+            <td>
+              {{ vl.evlVehicleLineC}}
+            </td>
+            <td>
+              <span
+                *ngIf="vl.vehtypeCode==usageFilter.vehtypeCode && vl.pteioOriginC==usageFilter.eioOriginC && vl.evlVehicleLineC==usageFilter.evlVehicleLineC">X</span>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <br>
+    <ng-template pTemplate="footer">
+      <p-button (click)="usageSelectionClick()" label="Ok"></p-button>
+      <!-- <p-button (click)="cancelClick()" label="Cancel"></p-button> -->
+    </ng-template>
+  </p-dialog>
+  
+  <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text">
+  </p-confirmDialog>
+  
+  <p-dialog header="{{showUsgHeader}}" [(visible)]="disShowUsg" [modal]="true" [style]="{width: '60vw',height:'500px'}"
+    [baseZIndex]="101111123" [draggable]="false" [resizable]="false">
+    <p class="p-m-0"></p>
+    <!-- <div class="card" style="border: 1px solid black;"> -->
+      <div *ngIf="showUsgHeader=='PCII Usage'" style="max-height: 350px !important;">
+        <div class="row">
+          <div class="col-md-6">
+            <label
+            style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">
+            Status:</label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePc.evaCatlgStsC}}/{{showUsagePc.usageSummarizationInd}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">PT & Veh. Line: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePc.evlVehicleLineC}} {{ usageFilter.pteioOriginC}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">Commodity: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePc.engpCommodityC}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">Function: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePc.funcKey}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">PFC: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePc.pftrcCombinatnC}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">MFC: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePc.mftrcCombinatinC}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">Region: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePc.regintC}}</label>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Effective In: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Code : {{showUsagePc.effiopEffInC}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Date: {{showUsagePc.epntsrEffInY| date: 'dd-MMM-yyyy'}}</label>
+    
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Effective Out: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Code : {{showUsagePc.effiopEffOutC}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Date: {{showUsagePc.epntsrEffOutY| date: 'dd-MMM-yyyy'}}</label>
+    
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Source: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePc.efiosrcSourcInC}}</label>
+    
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Unit of Measure : </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePc.unitmsrCode}}</label>
+    
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Qty Per Usage: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePc.evaPerUsageQ}}</label>
+    
+    
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Actioned By: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePc.actionByIdC}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Actioned Date: </label>
+          </div>
+          <div class="col-md-6">
+    
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> {{ showUsagePc.actionDtY| date: 'dd-MMM-yyyy'}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">Last Update Id: </label>
+          </div>
+          <div class="col-md-6">
+    
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePc.plastIdC}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Last Update Date : </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePc.plastupY| date: 'dd-MMM-yyyy'}}</label>
+    
+          </div>
+        </div>
+      </div>
+    
+      <div *ngIf="showUsgHeader=='GCAT Usage'">
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">Status: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.evaCatlgStsC}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> GCAT Usage: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.nusageC}}</label>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">PT & Veh. Line: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.evlVehiclLineC}} {{ usageFilter.pteioOriginC}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">Commodity: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.cmdtyTypeC}} {{ showUsagePcGcat.engpCommodityC}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">PFC: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.primary}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">MFC: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.minor}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">Application: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.application}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">Specification: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.specification}}</label>
+          </div>
+        </div>
+        <div class="row" *ngIf="showUsagePcGcat.effiopEffInCE">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">European:</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Effective In: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Code : {{showUsagePcGcat.effiopEffInCE}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Date: {{showUsagePcGcat.epntsrEffInYE| date: 'dd-MMM-yyyy'}}</label>
+    
+          </div>
+        </div>
+        <div class="row" *ngIf="showUsagePcGcat.effiopEffInCE">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Effective Out: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Code : {{showUsagePcGcat.efiopEffOutCE}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Date: {{showUsagePcGcat.epntsrEffOutYE| date: 'dd-MMM-yyyy'}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Source: {{showUsagePcGcat.efiosrcSourcInCE}}</label>
+          </div>
+        </div>
+        <div class="row" *ngIf="showUsagePcGcat.effiopEffInCA">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">N.American:</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Effective In: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Code : {{showUsagePcGcat.effiopEffInCN}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Date: {{showUsagePcGcat.epntsrEffInYN| date: 'dd-MMM-yyyy'}}</label>
+    
+          </div>
+        </div>
+        <div class="row" *ngIf="showUsagePcGcat.effiopEffInCA">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Effective Out: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Code : {{showUsagePcGcat.efiopEffOutCN}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Date: {{showUsagePcGcat.epntsrEffOutYN| date: 'dd-MMM-yyyy'}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Source :{{showUsagePcGcat.efiosrcSourcInCN}}</label>
+          </div>
+        </div>
+        <div class="row" *ngIf="showUsagePcGcat.effiopEffInCS">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">S.America:</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Effective In: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Code : {{showUsagePcGcat.effiopEffInCS}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Date: {{showUsagePcGcat.epntsrEffInYS| date: 'dd-MMM-yyyy'}}</label>
+    
+          </div>
+        </div>
+        <div class="row" *ngIf="showUsagePcGcat.effiopEffInCS">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Effective Out: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Code : {{showUsagePcGcat.efiopEffOutCS}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Date: {{showUsagePcGcat.epntsrEffOutYS| date: 'dd-MMM-yyyy'}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Source: {{showUsagePcGcat.efiosrcSourcInCS}}</label>
+          </div>
+        </div>
+        <div class="row" *ngIf="showUsagePcGcat.effiopEffInCA">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">A.Pacific:</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Effective In: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Code : {{showUsagePcGcat.effiopEffInCA}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Date: {{showUsagePcGcat.epntsrEffInYA| date: 'dd-MMM-yyyy'}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Source: {{showUsagePcGcat.efiosrcSourcInCA}}</label>
+          </div>
+        </div>
+        <div class="row" *ngIf="showUsagePcGcat.effiopEffInCA">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Effective Out: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Code : {{showUsagePcGcat.efiopEffOutCA}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Date: {{showUsagePcGcat.epntsrEffOutYA| date: 'dd-MMM-yyyy'}}</label>
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> Source: {{showUsagePcGcat.efiosrcSourcInCA}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Unit of Measure : </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.unitmsrCode}}</label>
+    
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Qty Per Usage: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.evaPerUsageQ}}</label>
+    
+    
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Created By: </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.createByIdC}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Created Date: </label>
+          </div>
+          <div class="col-md-6">
+    
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;"> {{ showUsagePcGcat.createDtY| date: 'dd-MMM-yyyy'}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">Cataloged By: </label>
+          </div>
+          <div class="col-md-6">
+    
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.firstCatlgIdC}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Cataloged Date : </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.pfirstCatlgY| date: 'dd-MMM-yyyy'}}</label>
+    
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;">Last Update Id: </label>
+          </div>
+          <div class="col-md-6">
+    
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.plastIdC}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;text-align: right;
+            margin-top:0px;padding-right:10px;"> Last Update Date : </label>
+          </div>
+          <div class="col-md-6">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            margin-top:0px;padding-right:10px;">{{showUsagePcGcat.plastupY| date: 'dd-MMM-yyyy'}}</label>
+    
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+    
+    <ng-template pTemplate="footer" style="border: 1px solid black !important;">
+      <p-button icon="pi pi-times" (click)="disShowUsg=false" label="Close"></p-button>
+    </ng-template>
+  </p-dialog>
+  
+  
+  <p-dialog header="Usage Information" [(visible)]="isUsgeInfoVis" [modal]="true" 
+  [style]="{width: '70vw', height:'450px'}" [baseZIndex]="101111123" [draggable]="false" [resizable]="false">
+    <!--Usage List div-->
+    <!-- <div class="card" style="border:1px solid black;"> -->
+      <div >
+        <div class="row pb-3" style="margin-top: 1%;margin-left: 1%;">
+          <div class="col-md-4" style="display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;width:45%;
+            text-align:left;margin-top:0px;padding-right:10px;float:left;text-align:right">Function :</label>
+            <input  type="text" style="width: 50%;height:38px" disabled [(ngModel)]="selectedGcat.funcKey">
+          </div>
+          <div class="col-md-4" style="display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;width:45%;
+            text-align:left;margin-top:0px;padding-right:10px;float:left;text-align:right">Service Parts :</label>
+            <input disabled type="text" style="width: 50%;height:38px;" [(ngModel)]="selectedserv">
+          </div>
+          <div class="col-md-4" style="display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;
+            font-weight:bold;width:45%;text-align:left;margin-top:0px;padding-right:10px;float:left;text-align:right">Commodity Type :</label>
+            <input disabled type="text" style="width: 50%;height:38px;" [(ngModel)]="usageFilter.vehtypeCode">
+          </div>
+        </div>
+    
+        <div class="row pb-3" style="margin-top: 1%;margin-left: 1%;">
+          <div class="col-md-4" style="display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;width:45%;
+            text-align:left;margin-top:0px;padding-right:10px;float:left;text-align:right">Commodity Desc :</label>
+            <input disabled type="text" style="width: 50%;height:38px;" [(ngModel)]="usageFilter.commodityDesc">
+          </div>
+          <div class="col-md-4" style="display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            width:45%;text-align:left;margin-top:0px;padding-right:10px;float:left;text-align:right">Commodity :</label>
+            <input disabled type="text"style="width: 50%;height:38px;" [(ngModel)]="selectedGcat.engpCommodityC">
+          </div>
+          <div class="col-md-4" style="display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;width:45%;
+            margin-top:0px;text-align:left;padding-right:10px;float:left;text-align:right">Cmdty Remarks :</label>
+            <input disabled type="text" style="width: 50%;height:38px;" [(ngModel)]="usageFilter.cmdtyRemarks">
+          </div>
+    
+        </div>
+        <div class="row pb-3" style="margin-top: 1%;margin-left: 1%;">
+          <div class="col-md-4" style="display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;
+            width:45%;text-align:left;margin-top:0px;padding-right:10px;float:left;text-align:right">Unit of Measure :</label>
+            <input disabled type="text" style="width: 50%;height:38px;" [(ngModel)]="selectedGcat.unitmsrCode">
+          </div>
+          <div class="col-md-4" style="display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;width:45%;
+            text-align:left;margin-top:0px;padding-right:10px;float:left;text-align:right">Catalog Status :</label>
+            <input disabled type="text" style="width: 50%;height:38px;" [(ngModel)]="selectedGcat.statusCodeDescX">
+          </div>
+          <div class="col-md-4" style="display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;width:45%;
+            text-align:left;margin-top:0px;padding-right:10px;float:left;text-align:right">Created By :</label>
+            <input disabled type="text" style="width: 50%;height:38px;" [(ngModel)]="selectedGcat.createByIdC">
+          </div>
+    
+        </div>
+        <div class="row pb-3" style="margin-top: 1%;margin-left: 1%;">
+          <div class="col-md-4" style="display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;width:45%;
+            text-align:left;margin-top:0px;padding-right:10px;float:left;text-align:right">Creation Date :</label>
+            <input disabled type="text" style="width: 50%;height:38px;" [ngModel]="selectedGcat.createDtY| date: 'dd-MMM-yyyy'">
+          </div>
+          <div class="col-md-4" style="display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;width:45%;
+            text-align:left;margin-top:0px;padding-right:10px;float:left;text-align:right">Cataloged By :</label>
+            <input disabled type="text" style="width: 50%;height:38px;" [(ngModel)]="selectedGcat.firstCatlgIdC">
+          </div>
+          <div class="col-md-4" style="display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;width:45%;
+            text-align:left;margin-top:0px;padding-right:10px;float:left;text-align:right">Cataloged Date :</label>
+            <input disabled type="text" style="width: 50%;height:38px;" [ngModel]="selectedGcat.pfirstCatlgY| date: 'dd-MMM-yyyy'">
+          </div>
+    
+        </div>
+        <div class="row pb-3" style="margin-top: 1%;margin-left: 1%;">
+          <div class="col-md-4" style="display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;width:45%;
+            text-align:left;margin-top:0px;padding-right:10px;float:left;text-align:right">Last Update Id :</label>
+            <input disabled type="text" style="width: 50%;height:38px;" [(ngModel)]="selectedGcat.plastIdC">
+          </div>
+          <div class="col-md-4" style="display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;   font-size :12px;font-weight:bold;width:45%;
+            text-align:left;margin-top:0px;padding-right:10px;float:left;text-align:right">Last Update Date :</label>
+            <input disabled type="text" style="width: 50%;height:38px;" [ngModel]="selectedGcat.plastupY | date: 'dd-MMM-yyyy'">
+          </div>
+    
+        </div>
+      </div>
+    <!-- </div> -->
+    
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-times" (click)="isUsgeInfoVis=false;" label="Close"></p-button>
+    </ng-template>
+  </p-dialog>
+  
+  <app-lexicon-search *ngIf="lexiPopup>0"></app-lexicon-search>
+  <router-outlet></router-outlet>

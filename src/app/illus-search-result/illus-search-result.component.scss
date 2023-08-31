@@ -1,0 +1,51 @@
+#label{
+    color:#00095B;
+     font-family:Ford Antenna;
+     font-size :16px;
+     font-weight:bold;
+     text-align: right;
+     width:50%;
+     text-align:right;
+     margin-top:8px;
+     padding-right:10px;
+     float:left
+}
+div{
+    margin:0;
+    padding:0;
+}
+#btn{
+   
+    height:41px;
+    width:106px;
+    border-radius:20px;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    border:none !important;
+    margin-left:3%;
+}
+
+p{
+    font-size: 16px;
+color:#000080;
+font-family:Ford Antenna;
+}
+
+:host #title {
+    font-size: 0px !important;
+    font-weight: 100;
+    margin-inline-start: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+:host #toolbar {
+    align-items: center;
+    background-color: var(--viewer-pdf-toolbar-background-color);
+    color: #fff;
+    display: flex;
+    padding: 0;
+}

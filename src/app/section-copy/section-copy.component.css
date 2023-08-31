@@ -1,0 +1,291 @@
+label{
+    font-size: 11px;
+    width:53% !important;
+    color:#000080;
+    font-family:Ford Antenna;
+    margin-bottom: 1%;
+    }
+    p{
+        font-size: 16px;
+    color:#000080;
+    font-family:Ford Antenna;
+    }
+    .p-dialog .p-dialog-header .p-dialog-title {
+		font-size: 11px;
+		font-weight: bold;
+        color: white;
+        font-family:Ford Antenna;
+	}
+	
+	.p-dialog .p-dialog-header{
+		height: 30px;
+    }
+    
+    .p-dialog .p-dialog-content{
+		padding:2%;
+    }
+
+    .p-datatable-gridlines{
+        border: 1px solid grey;
+    }
+
+    #btn{
+        height:31px;
+        width:80px;
+        border-radius:20px;
+        background-color:#000080 !important;
+        box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+        font-family:"Ford Antenne Cond" !important;
+        white-space: nowrap;
+        margin-top:20px;
+        /* margin-left: 8%; */
+        margin-left: 1.5%;
+        
+      }
+    
+.tab-align {
+    background-color: #000080;
+    color: white;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 1%;
+    border-radius: 0;
+    font-size: 15px;
+    border-radius: 3px;
+    border: 0.5px solid white;
+}
+
+
+td {
+    margin: 1%;
+    box-sizing: border-box;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    border-radius: 5px;
+    font-family:"Ford Antenna" !important;
+     white-space:normal !important;
+}
+
+#headerFont{
+    font-size: 10px;
+    font-weight: 600;
+    color: white;
+    margin-right: 10%;
+}
+th {
+    background-color: #000080;
+    color: white;
+    margin: 1%;
+    margin-top: 3px;
+    padding-top: 3px !important;
+    box-sizing: border-box;
+    border-right: 1px solid black;
+    font-family:"Ford Antenna" !important;
+    white-space:normal !important;
+}
+
+button {
+    margin-left: 2%;
+    width: 8%;
+    background-color: #000080 !important;
+    color: white !important;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    border-radius: 5px;
+    margin-bottom: 1%;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+button:focus {
+    background-color: #000065;
+}
+
+.radio-align {
+    margin-left: 30%;
+    margin-right: 2%;
+    padding: 1%;
+}
+
+.radio-align1 {
+    margin-left: 10%;
+    margin-right: 2%;
+    padding: 1%;
+}
+
+.tab a {
+    border-color: white;
+    background-color: #000080;
+    color: white;
+    height: 50px;
+    padding-left: 25%;
+    margin-left: 1%;
+    margin-bottom: 1px;
+    border-radius: 5px;
+}
+
+/*Hover tab*/
+.p-tabview li:not(.p-highlight):hover .p-tabview-nav-link {
+    background-color:  #000060;
+    color: white !important;
+    border-color: black;
+}
+
+/* Selected tab */
+.p-tabview .p-highlight .p-tabview-nav-link {
+    background-color: #000060;
+}
+
+.p-dropdown{
+    width: 80%;
+    
+    padding-top: 2%;
+    background-color: white;
+    position : relative;
+}
+
+ .p-dropdown-items{
+    padding-left: 3%;
+    background-color: white !important;
+      color: black;
+      list-style-type: initial;
+} 
+
+.selected{
+    background-color: #000080;
+}
+
+.scrollTable tr:hover {
+    background-color: #000080;
+    color: white;
+  }
+
+.hoverColor:hover{
+    color: white !important;
+}
+
+.highlightRow {
+    background: #e8f2ff !important;
+  }
+
+  .tableContainer{
+    width: 100%;
+    border: 1px solid black;
+    height: 80%;
+    overflow-x:auto;
+    border-radius: 3px;
+  }
+
+  .p-dialog .p-dialog-header{
+    border-bottom: 0 none;
+    background: #1e2271 !important;
+    color: white;
+    padding: 1.5rem;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.p-dialog-header {
+    background: #1e2271 !important;
+    color: white;
+}
+
+.p-dialog-header ng-tns-c96-0 ng-star-inserted{
+    border-bottom: 0 none;
+    background: #1e2271 !important;
+    color: white;
+    padding: 1.5rem;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.required:before {
+    content:" *";
+    color:#e32;
+    font-size: 20px; 
+    font-weight:bolder;
+  }
+
+  a:link a:hover a:visited a:active{
+    text-decoration: none !important;
+    display: inline-block;
+  }
+  .p-dropdown .p-dropdown-panel{
+    font-size: 11px;
+    margin-top: -15px;
+}
+.p-dropdown .p-dropdown-label{
+    font-size: 11px;
+    margin-top: -15px;
+}
+.p-datatable.p-datatable-gridlines .p-paginator-bottom {
+    border-width: 0 1px 1px 1px;
+    display: none;
+}
+:host :ng-deep .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+    font-weight: bold !important;
+    padding-bottom: 0px !important;
+    /* padding: 0.5rem 0.5rem; */
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 0px 9px !important;
+    font-size: 11px !important;
+
+  }
+  :host :ng-deep .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+    /* padding: 0.5rem 0.5rem; */
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    font-size: 9px !important;
+    font-weight: bold !important;
+    border-right: 1px solid #bdbdbd !important;
+}
+
+:host :ng-deep .p-inputwrapperp-dropdown.p-element.ng-tns-c63-5.ng-untouched.ng-star-inserted.ng-dirty.p-inputwrapper-filled {
+    font-size: 11px !important;
+    margin-top: -5px !important;
+}
+
+:host :ng-deep .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+    padding: 0 2px !important;
+}
+:host::ng-deep .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+    /* padding: 0.5rem 0.5rem; */
+    padding: 0px 2px !important;
+}
+:host::ng-deep .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+    /* padding: 0.5rem 0.5rem; */
+    padding: 0px 2px !important;
+    font-size:11px !important;
+}
+tr:nth-child(even){ background-color:#f5f5f5 !important; }
+ tr:nth-child(odd){ background-color:#ffff; }
+
+ :host::ng-deep .p-datatable .p-datatable-thead > tr > th {
+    text-align: left;
+    /* padding: 1rem 1rem; */
+    border: 1px solid #e9ecef;
+    border-width: 0 0 1px 0;
+    font-weight: 600;
+    color: #495057;
+    background: #f8f9fa;
+    transition: box-shadow 0.2s;
+    font-size: 11px !important;
+    padding: 0px 2px !important;
+    border-right: 1px solid white !important;
+}
+:host::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+    text-align: left;
+    border: 1px solid #e9ecef;
+    border-width: 0 0 1px 0;
+    /* padding: 1rem 1rem; */
+    padding: 0px 2px !important;
+    border-right: 1px solid #bdbdbd;
+}

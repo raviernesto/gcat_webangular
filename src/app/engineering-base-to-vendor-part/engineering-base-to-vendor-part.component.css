@@ -1,0 +1,275 @@
+/* tr,
+td {
+    margin: 1%;
+    box-sizing: border-box;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    border-radius: 5px;
+    height:15px;
+} */
+
+th{
+  text-align: center;
+  height: 30px;
+  background-color: #000080;
+  padding-top: 10px;
+}
+.tabledata{
+  height: 30px;
+}
+
+
+:host ::ng-deep .p-dialog-header-icon.p-dialog-header-close.p-link.ng-star-inserted {
+   
+  background-color: #000080 !important;
+}  
+
+
+thead.p-datatable-thead {
+  /* position: fixed; */
+  position: sticky;
+  top: 0;
+  z-index: 100001;
+  /* margin-top:
+  17px
+  ; */
+  }
+
+
+.highlightRow {
+  background-color: #000080;
+  color: white !important;
+}
+
+.scrollTable tr:hover {
+    background-color: #000080;
+    color: white;
+  }
+
+.scrollTable tr.selected td{
+    background-color: #000080;
+    color: white;
+  }
+
+  .tableContainer{
+    width: 100%;
+    border: 1px solid black;
+    height: 80%;
+    overflow-x:auto;
+    border-radius: 3px;
+  }
+
+  .p-dialog .p-dialog-header{
+    border-bottom: 0 none;
+    background:#000080;
+    color: white;
+    padding: 1.5rem;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+  }
+  .p-dialog-header {
+    background: #000080;
+    color: white;
+  }
+  
+
+
+  .required:after {
+    content:" *";
+    color:#e32;
+    font-size: 17px; 
+    font-weight:bolder;
+  }
+
+ 
+
+.btnlast{
+  height:25px;
+        font-size: 13px;
+        width:60px;
+        border-radius:20px;
+        background-color:#000080 !important;
+        color:white;
+        box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+        font-family:"Ford Antenne Cond" !important;
+        white-space: nowrap;
+        /* margin-top:20px; */
+        margin-left: 8%;
+        text-align: center !important;
+        padding-bottom: 24px;
+  /* height:41px;
+  width:106px;
+  border-radius:20px;
+  background-color:#00095B;
+  box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+  font-family:"Ford Antenne Cond" !important;
+  white-space: nowrap; 
+  margin-top:20px;
+  margin-left: 8%; */
+}
+
+.btnlast1{
+  /* height:41px;
+  width:106px;
+  border-radius:20px;
+  background-color:#00095B;
+  box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+  font-family:"Ford Antenne Cond" !important;
+  white-space: nowrap; 
+  margin-left:37%; */
+  height:25px;
+        font-size: 13px;
+        width:60px;
+        border-radius:20px;
+        background-color:#000080 !important;
+        color:white;
+        box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+        font-family:"Ford Antenne Cond" !important;
+        white-space: nowrap;
+        /* margin-top:20px; */
+        margin-left: 37%;
+        text-align: center !important;
+        padding-bottom: 24px;
+  
+}
+
+
+
+
+table,td,tr,th{
+  border:1px solid black;
+}
+
+.btn1{
+   
+  height:35px;
+  width:70px;
+  border-radius:20px;
+  background-color:#00095B;
+  box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+  font-family:"Ford Antenne Cond" !important;
+  white-space: nowrap;
+  margin-top:20px;
+  margin-left: 8%;
+  
+  
+}
+
+/* p-dialog .p-dialog-header .p-dialog-header-icon:last-child {
+  margin-right: -10px;
+  margin-left:20px;
+  background: #102B4E !important;
+} */
+
+:host ::ng-deep thead.p-datatable-thead {
+  
+  position: sticky !important;
+  top: -7px;
+  z-index: 105;
+  
+  }
+ 
+  :host ::ng-deep .p-column-filter-clear-button .p-link{
+  display: none;
+  }
+  :host ::ng-deep .p-column-filter-row .p-column-filter-clear-button {
+  margin-left: 0.5rem;
+  display:none;
+  }
+  :host ::ng-deep .p-datatable-thead > tr > th {
+  /* padding: 0.5rem 0.5rem; */
+  white-space: nowrap;
+  padding: 0%;
+  padding: 5px;
+  border-right: 1px solid white;
+  text-align: center;
+  } 
+
+  .p-column-filter-menu-button, .p-column-filter-clear-button {
+    display: inline-block;
+    /* justify-content: center; */
+    /* align-items: center; */
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+    }
+    td{
+    border-right: 1px solid #bdbdbd !important;
+    white-space: nowrap !important;
+    }
+    th{
+    white-space: nowrap !important;
+    border-right: 1px solid #bdbdbd !important;
+    }
+
+    tr:nth-child(even){ background-color:#f5f5f5 !important; } tr:nth-child(odd){ background-color:#ffff; }
+thead.p-datatable-thead {
+position: sticky;
+top: -7px;
+z-index: 105;
+}
+
+:host ::ng-deep thead.p-datatable-thead {
+  position: sticky !important;
+  top: -7px;
+  z-index: 105;
+  }
+  :host ::ng-deep .p-inputtext {
+    font-size: 11px;
+    margin-top: -7px;
+}
+:host ::ng-deep .p-dropdown-item {
+    font-size: 11px;
+}
+:host ::ng-deep .p-dialog .p-dialog-header .p-dialog-title {
+  font-weight: 600;
+  font-size: 0.90rem !important;
+  /* height: 19px !important; */
+}
+.p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+  font-weight: bold !important;
+  padding-bottom: 0px !important;
+  /* padding: 0.5rem 0.5rem; */
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 0px !important;
+  font-size: 11px !important;
+}
+.p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+  /* padding: 0.5rem 0.5rem; */
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  font-size: 9px !important;
+  font-weight: bold !important;
+}
+.p-datatable.p-datatable-gridlines .p-paginator-bottom {
+  border-width: 0 1px 1px 1px;
+  display: none;
+}
+th {
+  background-color: #000080 !important;
+  color: white;
+  margin: 1%;
+  margin-top: 3px;
+  padding-top: 3px !important;
+  box-sizing: border-box;
+  font-weight: 400;
+  border-right: 1px solid black;
+  font-family:Ford Antenna !important;
+}
+tr,
+    td {
+        margin: 1%;
+        box-sizing: border-box;
+        border-left: 1px solid grey;
+        border-right: 1px solid grey;
+        border-bottom: 1px solid grey;
+        border-radius: 5px;
+        font-family:Ford Antenna;
+    }
+
+
+ 

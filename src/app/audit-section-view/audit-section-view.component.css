@@ -1,0 +1,312 @@
+.description{
+    width: 22%;
+    height: 40px;
+    font-size: 18px;
+   
+   padding:1%;
+    margin-bottom: 1px;
+    font-weight: bold;
+    /* border: none; */
+}
+.val{
+  
+    width:35%;
+    height: 40px;
+    font-size: 18px;
+    /* border: none; */
+    
+   
+    padding:1%;
+   
+    margin-left: 10px;
+
+}
+.rad{
+    margin-left: 30px;
+}
+.dropdown1{
+    width:300px;
+    height: 40px;
+    border-radius: 5px;
+}
+.dropdown3{
+    width:190px;
+    height: 40px;
+    border-radius: 5px;
+}
+/* .btn{
+    background-color:rgb(120, 120, 120);;
+    color:white;
+    margin-left: 0px;
+    height: 40px;
+    margin-top: -5px;
+    border-radius: 5px;
+}
+.btn1{
+    background-color: rgb(120, 120, 120);
+    color:white;
+    border-radius: 5px;
+    width: 200px;
+    border:none;
+    height: 40px;
+    margin-top: 40px;
+    margin-left: 43.8%;
+
+} */
+.p-dropdown-items-wrapper{
+  width:264px;
+}
+.lab{
+    /* width:200px;
+    line-height: 30px; */
+    font-weight: bold;
+    float:left;
+    margin-bottom: 0px;
+    margin-top:0px;
+    width:43%
+}
+.labe{
+    font-weight: bold;
+    float:left;
+    margin-bottom: 0px;
+    margin-top:0px;
+    width:25%
+}
+.labVal{
+    font-weight: normal;
+}
+.lab1{
+    margin-left: 30px;
+    font-weight: bold;
+    float: left;
+}
+table>tbody>tr>th{
+  color:black;
+}
+th{
+    border: 1px solid black;
+    height: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+tr>th{
+    border: 1px solid black;
+    height: 20px;
+}
+td{
+    border: 1px solid black;
+  
+}
+.head{
+    background-color: #000080;
+    color:white;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+}
+.p-dropdown .p-dropdown-label.p-placeholder{
+  font-size:11px;
+}
+.p-dropdown .p-dropdown-panel{
+  font-size: 11px;
+  background: #ffffff;
+    color: #495057;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+}
+.p-dropdown .p-dropdown-label{
+  font-size: 11px;
+  margin-top: -8px;
+}
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter{
+  height:24px;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item{
+  padding-top:0.2rem;
+}
+.p-datatable .p-datatable-thead > tr > th{
+  font-size: 11px !important;
+  padding:0rem;
+  text-align: center;
+  border: 1px solid white;
+    border-width: 1px;
+    font-weight: bold;
+}
+.p-datatable .p-datatable-header{
+  padding:0rem;
+  font-size: 11px !important;
+}
+.p-datatable .p-datatable-tbody > tr > td {
+  font-size: 11px !important;
+  padding:0rem;
+  padding-top: 1px;
+    padding-bottom: 2px;
+    text-align: center;
+    border: 1px solid #e9ecef;
+    border-width: 2px;
+}
+
+/* .btn{
+  border-radius:20px;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+} */
+/* div.tablehover:hover {
+   
+    z-index:1;
+    transform: scale(1.051);
+    
+    box-shadow: 0px 8px 114px 6px rgba(0,0,0,0.71);
+    /* background-color: rgba(118, 151, 184, 0.973); */
+    
+    /* border:1px solid white
+}
+.tablehover{
+    background-color: white;
+}
+div.vehicle:hover{
+    transform: scale(1.3);
+    box-shadow: 0px 8px 114px 6px rgba(0,0,0,0.71);
+} */ 
+.card1{
+    display: block;
+  
+    float: left;
+    width: 100%;
+    height: 290px;
+     padding: 2%;
+     /* background-color: dodgerblue; */
+     border-radius: 10px;
+     border:1px solid black
+}
+.card2{
+    display: block;
+    margin-right: 10%;
+    float:right;
+    width: 100%;
+    height: 290px;
+     padding: 2%;
+     border-radius: 10px;
+     border:1px solid black
+}
+
+/* start */
+.outer{
+    background-color: transparent;
+    width: 32%;
+    height: 290px;
+    perspective: 1000px;
+    margin-left: 10%;
+    float:left
+  }
+  .outer1{
+    background-color: transparent;
+    width: 32%;
+    height: 290px;
+    perspective: 1000px;
+    margin-left: 10%;
+    float:left
+  }
+  .inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+   
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+  .inner1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+   
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+  
+  .outer:hover .inner {
+    transform: rotateY(180deg);
+  }
+  .outer1:hover .inner1 {
+    transform: rotateX(180deg);
+  }
+  
+  .img, .card1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .img, .card2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .img {
+    background-color:white;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+    border:1px solid black;
+  }
+  
+  .card1 {
+    /* background-color: #2980b9;
+    color: white; */
+    transform: rotateY(180deg);
+  }
+  .card2{
+    transform: rotateX(180deg);
+  }
+
+  .vehicle{
+    border-radius: 10px;
+    font-size: 20px;
+    margin-left: 2%;
+    background-color: rgb(230, 227, 227);
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.view{
+    width:50%;
+    border-radius: 10px;
+    font-size: 17px;
+    margin-top: -3%;
+    margin-left: 26%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.report{
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#btn{
+ 
+  height:25px;
+  width:auto;
+  border-radius:20px;
+  background-color:#00095B;
+  box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+  font-family:"Ford Antenne Cond" !important;
+  white-space: nowrap;
+  border:none !important;
+  font-size: 13px;
+  padding-left:15px;
+  padding-right:15px;
+  /* margin-top:20px;
+  margin-left: 8%; */
+  
+}

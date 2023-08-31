@@ -1,0 +1,454 @@
+<!-- Illustration details-->
+
+
+<button style="margin-left: 5%;background-color: rgb(183, 181, 181); width:120px" (click)="IllustrationDetails()"
+    class="btn ">Illustration Details</button>
+
+
+<p-dialog [(visible)]="illustrationDetails" [style]="{'width':'75%', height: '100%'}" [breakpoints]="{'960px': '75vw'}"
+    styleClass="bg-white py-2 w-12rem m-3 border-round px-2 w-12rem m-3 border-round  "><br><br>
+    <div class="container">
+        <div class="card" style="width:95%;">
+            <div class="card-header" style="font-size: 15px; background-color: #000080;color: #ffff;">
+                Illustration Details
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6" style="margin-top:5%;">
+                        <div style="display:flex;">
+                            <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 6%;">
+                                Illustration ID:
+                            </label>
+                            <div style="margin-left:20%">
+                                <input type="text" class="form-control" size="13" id="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" style="margin-top:5%;">
+                        <div style="display:flex;">
+                            <label class="form-check-label" for="gridCheck1" style="  font-size: 14px;margin-left: 6%;">
+                                Art House:
+                            </label>
+                            <div style="margin-left:6%">
+                                <input type="text" class="form-control" size="13" id="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6" style="margin-top:5%;">
+                        <div style="display:flex;">
+                            <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 6%;">
+                                Illustration Type:
+                            </label>
+                            <div style="margin-left:16%">
+                                <input type="text" class="form-control" size="13" id="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" style="margin-top:5%;">
+                        <div style="display:flex;">
+                            <label class="form-check-label" for="gridCheck1" style="  font-size: 14px;margin-left: 6%;">
+                                Creator ID:
+                            </label>
+                            <div style="margin-left:6%">
+                                <input type="text" class="form-control" size="13" id="text">
+                            </div>
+                        </div>
+                    </div>
+                </div><br><br>
+                <div class="row">
+                    <div class="text-center">
+                        <button style="background-color: rgb(183, 181, 181); " class="btn  btn-block">Select</button>
+                    </div>
+                </div>
+            </div>
+        </div><br>
+        <div style="display:flex">
+            <div class="card" style="width:48%;">
+                <div class="card-header" style="font-size: 15px; background-color: #000080;color: #ffff;">
+                    Illustration Details
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div style="margin-top:5%;">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+                                style="width:90%;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="width:47%;">
+                <div class="card-header" style="font-size: 15px; background-color: #000080;color: #ffff;">
+                    Commodity/Suffix
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div style="margin-top:5%;">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+                                style="width:90%;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div><br><br>
+
+
+</p-dialog>
+
+<!-- Region -->
+
+<button style="margin-left: 10%;background-color: rgb(183, 181, 181); width:120px" (click)="Region()"
+    class="btn ">Region</button>
+<p-dialog [(visible)]="region" [style]="{'width':'35%', height: '55%'}" [breakpoints]="{'960px': '75vw'}"
+    styleClass="bg-white py-4 w-12rem m-3 border-round px-4 w-12rem m-3 border-round  "><br><br>
+    <div class="card" style="width:95%;">
+        <div class="card-header" style="font-size: 15px; background-color: #000080;color: #ffff;">
+            Illustration Details
+        </div>
+        <div class="card-body">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                    value="option1">
+                <label class="form-check-label" for="inlineRadio1">Europe</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                <label class="form-check-label" for="inlineRadio2">NA</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                    value="option1">
+                <label class="form-check-label" for="inlineRadio1">AP</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                <label class="form-check-label" for="inlineRadio2">SA</label>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <div class="footer" style="margin-left:37%">
+        <button class="btn btn-raised shadow my-button w-xs " style="background-color:#000080;color: #fff;"
+            icon="pi pi-check" (click)="region=false">✓ Ok</button>
+    </div>
+
+</p-dialog>
+
+
+<!-- Lexicon Code Replacement -->
+
+
+<button style="margin-left: 10%;background-color: rgb(183, 181, 181); width:120px" (click)="LexiconCodeReplacement()"
+    class="btn ">Lexicon Code Replacement</button>
+
+
+<p-dialog header="Lexicon Code Replacement" [(visible)]="lexiconCodeReplacement"
+    [style]="{'width':'85%', height: '95%'}" [breakpoints]="{'960px': '75vw'}"
+    styleClass="bg-white py-2 w-12rem m-3 border-round px-2 w-12rem m-3 border-round  "><br><br>
+    <div class="container">
+        <div class="card" style="width:95%;">
+            <div class="card-header" style="font-size: 15px; background-color: #000080;color: #ffff;">
+                Replace
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-4" style="margin-top:5%;">
+                        <div style="display:flex;">
+                            <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                                Lexicon Code:
+                            </label>
+                            <div style="margin-left:3%">
+                                <input type="text" class="form-control" size="13" id="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" style="margin-top:5%;">
+                        <div style="display:flex;">
+                            <label class="form-check-label" for="gridCheck1" style="  font-size: 14px;margin-left: 3%;">
+                                Type:
+                            </label>
+                            <div style="margin-left:6%">
+                                <input type="text" class="form-control" size="13" id="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" style="margin-top:5%;">
+                        <div style="display:flex;">
+                            <label class="form-check-label" for="gridCheck1" style="  font-size: 14px;margin-left: 3%;">
+                                Desc:
+                            </label>
+                            <div style="margin-left:6%">
+                                <input type="text" class="form-control" size="13" id="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br>
+        <div class="card" style="width:95%;">
+            <div class="card-header" style="font-size: 15px; background-color: #000080;color: #ffff;">
+                Replace With
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-4" style="margin-top:5%;">
+                        <div style="display:flex;">
+                            <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                                Lexicon Code:
+                            </label>
+                            <div style="margin-left:3%">
+                                <input type="text" class="form-control" size="13" id="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" style="margin-top:5%;">
+                        <div style="display:flex;">
+                            <label class="form-check-label" for="gridCheck1" style="  font-size: 14px;margin-left: 3%;">
+                                Type:
+                            </label>
+                            <div style="margin-left:6%">
+                                <input type="text" class="form-control" size="13" id="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" style="margin-top:5%;">
+                        <div style="display:flex;">
+                            <label class="form-check-label" for="gridCheck1" style="  font-size: 14px;margin-left: 3%;">
+                                Desc:
+                            </label>
+                            <div style="margin-left:6%">
+                                <input type="text" class="form-control" size="13" id="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="footer">
+        <button class="btn fa btn-raised shadow my-button w-xs bg-white " style="margin-left:56%" icon="pi pi-check"><b
+                style="font-size:30px;">&#xf1e5;</b></button>
+        <button class="btn btn-raised shadow my-button w-xs bg-white " style="margin-left:10px">Replace</button>
+        <button class="btn btn-raised shadow my-button w-xs bg-white " style="margin-left:10px"
+            (click)="lexiconCodeReplacement=false">Close</button>
+    </div>
+</p-dialog>
+
+
+<!-- Lexicon Search -->
+<button style="margin-left: 10%;background-color: rgb(183, 181, 181); width:120px" (click)="LexiconSearch()"
+    class="btn ">Lexicon Search</button>
+<p-dialog header="Lexicon Search" [(visible)]="lexiconSearch" [style]="{'width':'85%', height: '85%'}"
+    [breakpoints]="{'960px': '75vw'}"
+    styleClass="bg-white py-4 w-12rem m-3 border-round px-4 w-12rem m-3 border-round  "><br><br>
+    <div class="card" style="width:95%;">
+        <div class="card-header" style="font-size: 15px; background-color: #000080;color: #ffff;">
+            Selection Criteria
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:5%;">
+                    <div style="display:flex;">
+                        <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                            Lexicon Code:
+                        </label>
+                        <div style="margin-left:3%">
+                            <input type="text" class="form-control" size="13" id="text">
+                        </div>
+                        <div class="dropdown" style="margin-left:3%;width: 18%;">
+                            <select class="form-select">
+                                <option *ngFor="let list of LexiconCode">{{list.LexiconCode}}</option>
+                            </select>
+                        </div>
+                        <div class="dropdown" style="margin-left:3%;width: 18%;">
+                            <select class="form-select">
+                                <option *ngFor="let list of LexiconCodes">{{list.LexiconCodes}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:5%;">
+                    <div style="display:flex;">
+                        <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                            Minor Feature:
+                        </label>
+                        <div style="margin-left:3%">
+                            <input type="text" class="form-control" size="13" id="text">
+                        </div>
+                        <div class="dropdown" style="margin-left:3%;width: 18%;">
+                            <select class="form-select">
+                                <option *ngFor="let list of MinorFeature">{{list.MinorFeature}}</option>
+                            </select>
+                        </div>
+                        <div class="dropdown" style="margin-left:3%;width: 18%;">
+                            <select class="form-select">
+                                <option *ngFor="let list of MinorFeatures">{{list.MinorFeatures}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:5%;">
+                    <div style="display:flex;">
+                        <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                            Lexicon Type:
+                        </label>
+
+                        <div class="dropdown" style="margin-left:3.5%;width: 18%;">
+                            <select class="form-select">
+                                <option *ngFor="let list of LexiconType">{{list.LexiconType}}</option>
+                            </select>
+                        </div>
+                        <div class="dropdown" style="margin-left:3%;width: 18%;">
+                            <select class="form-select">
+                                <option *ngFor="let list of LexiconTypes">{{list.LexiconTypes}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:5%;">
+                    <div style="display:flex;">
+                        <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                            Property:
+                        </label>
+
+                        <div class="dropdown" style="margin-left:7%;width: 18%;">
+                            <select class="form-select">
+                                <option *ngFor="let list of  Property">{{list. Property}}</option>
+                            </select>
+                        </div>
+                        <label class="form-check-label" for="gridCheck1"
+                            style=" font-size: 14px;margin-left: 10%;margin-top: 1%;">
+                            Key Word(s):
+                        </label>
+
+                        <div style="margin-left:5%">
+                            <input type="text" class="form-control" size="13" id="text">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:5%;">
+                    <div style="display:flex;">
+                        <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                            Search:
+                        </label>
+                        <div class="form-check form-check-inline" style="margin-left:8%">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                value="option1">
+                            <label class="form-check-label" for="inlineRadio1">App-Spec</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Others</label>
+                        </div>
+
+
+                        <div style="margin-left:2.5%">
+                            <input type="text" class="form-control" size="13" id="text">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:5%;">
+
+                    <div style="margin-left:2%">
+
+                        <textarea [rows]="7" [cols]="55" pInputTextarea></textarea>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:5%;display:flex">
+
+
+                    <div class="dropdown" style="margin-left:2%;width: 18%;">
+                        <select class="form-select">
+                            <option *ngFor="let list of  Footer">{{list. Footer}}</option>
+                        </select>
+                    </div>
+                    <div class="dropdown" style="margin-left:7%;width: 18%;">
+                        <select class="form-select">
+                            <option *ngFor="let list of  Footers">{{list. Footers}}</option>
+                        </select>
+                    </div>
+     
+                    <button style="background-color: rgb(183, 181, 181);margin-left:10% " class="btn  btn-block">Copy Lexicon </button>
+                    <button style="background-color: rgb(183, 181, 181);margin-left:10% " 
+                        class="btn  btn-block">Close</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+</p-dialog>
+
+
+<!-- Lexicon Reply -->
+
+<button style="margin-left: 10%;background-color: rgb(183, 181, 181); width:120px" (click)="LexiconReply()"
+    class="btn ">Lexicon Reply</button>
+<p-dialog [(visible)]="lexiconReply" [style]="{'width':'54%', height: '75%'}" [breakpoints]="{'960px': '75vw'}"
+    styleClass="bg-white py-1 w-12rem m-3 border-round px-1 w-12rem m-3 border-round  "><br><br>
+    <div class="card" style="width:100%;">
+        <div class="card-header" style="font-size: 15px; background-color: #000080;color: #ffff;">
+            Lexicon Reply
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                        Reply:
+                    </label>
+                    <div style="margin-left:7%">
+                        <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+                            style="width:100%;margin-left: 15%;"></textarea> -->
+                        <textarea [rows]="5" [cols]="60" pInputTextarea></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                        Lexicon:
+                    </label>
+                    <div style="margin-left:5%">
+
+                        <input type="text" pInputText />
+                    </div>
+                </div>
+            </div>
+
+
+        </div><br>
+        <div class="footer" style="display:flex">
+
+            <button style="background-color: rgb(183, 181, 181);margin-left:8% " class="btn  btn-block">Reply</button>
+            <button style="background-color: rgb(183, 181, 181);margin-left:60% " (click)="lexiconReply=false"
+                class="btn  btn-block">Close</button>
+
+        </div>
+        <br>
+    </div>
+</p-dialog>

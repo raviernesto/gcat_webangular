@@ -1,0 +1,15 @@
+.form{
+    display: flex;
+    flex-direction: column;
+      
+}
+.form > div {
+    margin-bottom: 1rem;
+}
+
+.submitButton{
+    width:fit-content;
+    border: 1px solid black;
+    color: white;
+    background-color: #555555;
+}

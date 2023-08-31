@@ -1,0 +1,54 @@
+
+
+ :host ::ng-deep .p-datatable .p-paginator-bottom {
+    border-width: 0 0 1px 0;
+    border-radius: 0;
+    display: none!important;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+    text-align: left;
+    padding: 1rem 1rem;
+    border: 1px solid #e9ecef;
+    border-width: 0 0 1px 0;
+    font-weight: 600;
+    color: #495057;
+    background: #f8f9fa;
+    transition: box-shadow 0.2s;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+    padding-bottom: 0px;
+    text-align: left;
+    border: 1px solid #e9ecef;
+    border-width: 0 0 1px 0;
+    padding: 1rem 1rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size:11px;
+    font-weight:bold;
+}
+#btn{
+   
+  
+    height:25px;
+    font-size: 13px;
+    width:100px;
+    border-radius:20px;
+    background-color:#000080 !important;
+    color:white;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    /* margin-top:20px; */
+    // margin-left: 0.2%;
+    text-align: center !important;
+  }

@@ -1,0 +1,80 @@
+
+<div class="card" style="margin-top:5%; width:45%;margin-left:27%;padding-bottom:2%">
+    <div class="card-header" style="background-color: #000080;color:white">
+        <span>Please Select a Vehicle Line for the new Section: </span>
+    </div>
+    <div class="card-body">
+        <div style="display: flex;">
+            <label>Vehicle Line:</label>
+            <p-dropdown [options]=" commodityType" optionLabel="name" autoWidth="false"
+                [style]="{'minWidth':'140px', 'width': '140px', 'margin-left':'5%','height':'35px','border':'1px solid black','border-radius':'2px'}"
+                [filter]="true" filterBy="name" [showClear]="true" placeholder="All">
+                <ng-template pTemplate="selectedItem">
+                </ng-template>
+                <ng-template let-CommodityType pTemplate="item">
+                    <div class="CommodityType-item">
+                        <div>{{CommodityType.name}}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+            <div class="card" style="margin-top:5%;width:33%;margin-left:11%">
+                <div class="card-header" style="background-color: #000080;color:white">
+                    Copy Commodities?
+                </div>
+                <div class="card-body" style=" margin-top:-2%;height:10%">
+                    <div style="margin-left:2%;display: flex;">
+                        <div class="form-check" style="display: flex;">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                    value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                    value="option2">
+                                <label class="form-check-label" for="inlineRadio2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="margin-top:-108px;width:33%;margin-left:55%">
+                <div class="card-header" style="background-color: #000080;color:white">
+                    Copy Properties?
+                </div>
+                <div class="card-body" style=" margin-top:-2%;height:10%">
+                    <div style="margin-left:2%;display: flex;">
+                        <div class="form-check" style="display: flex;">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                    value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                    value="option2">
+                                <label class="form-check-label" for="inlineRadio2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <label style="margin-left:25px">Nr of New Sections:</label>
+            <p-dropdown [options]="section" optionLabel="name" autoWidth="false"
+                [style]="{'minWidth':'140px', 'width': '140px', 'margin-left':'10%','height':'35px','border':'1px solid black','border-radius':'2px'}"
+                [filter]="true" filterBy="name" [showClear]="true" placeholder="All">
+                <ng-template pTemplate="selectedItem">
+                </ng-template>
+                <ng-template let-section pTemplate="item">
+                    <div class="section-item">
+                        <div>{{section.name}}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+        </div>
+
+        
+        <button type="button" style="border-radius: 8px;width:120px;margin-left:40%;margin-top: 20px;">OK</button>
+        <button type="button" style="border-radius: 8px;width:120px;margin-left: 40%;margin-top: 15px;">cancel</button>
+    </div>
+</div>

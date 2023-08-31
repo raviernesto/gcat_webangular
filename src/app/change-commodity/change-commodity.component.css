@@ -1,0 +1,29 @@
+input[type=text]{
+    width:125px;
+    height: 30px;
+    margin-top: -38px;
+    margin-left: 140px;
+}
+.card{
+    width:300px;
+    height:202px;
+}
+.card-header{
+    background-color: #000080;
+    color:white;
+}
+label{
+    margin-top: 20px;
+    margin-left:20px;
+}
+button{
+    margin-top: 15px;
+    margin-left: 20px;
+    width:80px;
+    background-color: #000080;
+    color: white;
+}
+.groove {
+    border-style: groove;
+    border-width: 5px;
+}

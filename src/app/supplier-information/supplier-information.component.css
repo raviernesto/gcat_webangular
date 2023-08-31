@@ -1,0 +1,292 @@
+.suppname{
+    margin-top:5px;
+    margin-left: 292px
+}
+.header{
+    background-color: #102B4E !important ;
+    font-weight:bold
+}
+.card{
+    margin-top:55px;
+    width: 1139px;
+    margin-left: 68px;
+    border:2px solid black;
+}
+
+.card-header{
+    background-color: #102B4E;
+    color:white;
+    margin-left: -1px;
+    width: 1139px;
+    border-radius: 5px;
+}
+.dropdown{
+    margin-top: -39px;
+    margin-left: 400px;
+}
+button{
+    /* background-color: #102B4E; */
+    color:white;
+    width:95px;
+    height: 35px;
+    border-radius: 5px;
+    border:2px solid black;
+}
+.new{
+    margin-top: 15px;
+    
+    width:110px;
+    /* float:left */
+}
+.save,.del,.userinfo,.maint,.close{
+    
+    width:110px;
+    /* float:left */
+}
+label{
+    margin-top:15px;
+}
+/* input[type=text]{
+    width: 200px;
+    margin-top: -44px;
+    margin-left:155px;
+    color:black;
+    
+} */
+.dropdown1,.dropdown2{
+    margin-top: -44px;
+    margin-left: 138px;
+    
+}
+.dropdown4{
+    margin-left: 131px;
+    margin-top:-44px;
+}
+.dropdown3{
+    margin-left: 375px;
+    margin-top:-36px;
+}
+.contacts{
+    margin-left: 302px;
+}
+.select{
+    margin-top: -37px;
+    margin-left: 223px;
+}
+.select1{
+    margin-top: -37px;
+    margin-left: 224px;
+}
+
+/*Hover tab*/
+ .p-tabview li:not(.p-highlight):hover .p-tabview-nav-link {
+    background-color:#102B4E;
+    color: white;
+    border-color: black;
+} 
+
+/* Selected tab */
+ .p-tabview .p-highlight .p-tabview-nav-link {
+    background-color: #102B4E;
+    
+}
+.tab a{
+    border-bottom: solid 1px #102B4E !important;
+    color: white !important;
+    background-color: #102B4E !important;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-left:214px;
+}
+.suppprof{
+    color:white;
+}
+
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter {
+    padding-right:0;
+    margin-right:0;
+    /* margin-left: -17px; */
+    margin-top:-30px
+}
+.p-dropdown-panel .p-dropdown-header{
+    margin-top: 30px;
+}
+
+.p-dropdown-items-wrapper {
+    overflow: auto;
+    width: 345px;
+}
+.btnsubmit{
+    margin-top:11px;
+    margin-left:40px
+}
+.p-tabview .p-tabview-nav {
+    background: #ffffff;
+    border:none;
+     /* 1px solid #dee2e6; */
+    border-width: 0 0 2px 0;
+}
+.p-tabview-title {
+    line-height: 1;
+    white-space: nowrap;
+    text-align: center;
+    height: 40px;
+    margin-top: -5px;
+    margin-left: 208px;
+}
+.pi-chevron-down:before {
+    content: "\e902";
+    color: black;
+}
+.p-dropdown .p-dropdown-label.p-placeholder {
+    color: #FFFFFF;
+    color: black;
+}
+.btn{
+   
+        /* height:41px;
+        width:106px;
+        border-radius:20px;
+        background-color:#00095B;
+        box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+        font-family:"Ford Antenne Cond" !important;
+        white-space: nowrap;
+        margin-top:20px;
+        margin-left: 8%; */
+        height:25px;
+        font-size: 13px;
+        width:73px;
+        border-radius:20px;
+        background-color:#000080 !important;
+        color:white;
+        box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+        font-family:"Ford Antenne Cond" !important;
+        white-space: nowrap;
+        /* margin-top:20px; */
+        margin-left: 8%;
+        text-align: center !important;
+        padding-bottom: 24px;
+}
+.btn1{
+   
+    /* height:41px;
+    width:106px;
+    border-radius:20px;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    margin-top:5px;
+    border: none; */
+    height:25px;
+        font-size: 13px;
+        width:85px;
+        border-radius:20px;
+        background-color:#000080 !important;
+        color:white;
+        box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+        font-family:"Ford Antenne Cond" !important;
+        white-space: nowrap;
+        /* margin-top:20px; */
+        margin-left:21%;
+        text-align: center !important;
+        padding-bottom: 24px;
+    
+}
+.header{
+    /* position: fixed; */
+   /* position:relative; */
+    color:white;
+    /* background: #102B4E; */
+   
+    /* z-index: 100; */
+    transition: all 0.9s ease;
+}
+.centerpart{
+    /* position: absolute; */
+    background-color: #eee;
+color: #444;
+cursor: pointer;
+padding: 18px;
+width: 100%;
+border: none;
+text-align: left;
+outline: none;
+font-size: 15px;
+transition: 0.9s;
+}
+
+.p-dialog .p-dialog-header {
+    border-bottom: 0 none;
+   
+    background: #102B4E !important;
+       color: #FFFFFF !important;
+    
+}
+p-dialog .p-dialog-header .p-dialog-header-icon:last-child {
+    margin-right: -10px;
+    margin-left:20px;
+    background: #102B4E !important;
+}
+span.ng-tns-c63-0.p-dropdown-label.p-inputtext.p-placeholder.ng-star-inserted {
+    margin-top: -7px;
+    font-size: 11px;
+}
+span.ng-tns-c63-1.p-dropdown-label.p-inputtext.p-placeholder.ng-star-inserted {
+    margin-top: -7px;
+    font-size: 11px;
+}
+.p-dropdown-item {
+    cursor: pointer;
+    font-weight: 400;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    font-size: 11px;
+}
+span.ng-tns-c63-2.p-dropdown-label.p-inputtext.p-placeholder.ng-star-inserted {
+    margin-top: -7px;
+    font-size: 11;
+    font-size: 11px;
+}
+span.ng-tns-c63-3.p-dropdown-label.p-inputtext.p-placeholder.ng-star-inserted {
+    margin-top: -7px;
+    font-size: 11;
+    font-size: 11px;
+}
+.p-dropdown .p-dropdown-label {
+    background: transparent;
+    border: 0 none;
+    margin-top: -7px;
+    font-size: 11px;
+}
+input[type=text], input[type=password], input[type=email], input[type=tel], input[type=search], input[type=url], select, textarea {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #ffffff;
+    border-radius: 0.375em;
+    border: none;
+    border: solid 1px rgba(210, 215, 217, 0.75);
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0 1em;
+    text-decoration: none;
+    width: 100%;
+    font-size: 11px;
+}
+#btn{
+   
+    height:25px;
+    font-size: 13px;
+    width:80px;
+    border-radius:20px;
+    background-color:#000080 !important;
+    color:white;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    /* margin-top:20px; */
+    margin-left: 6%;
+    
+  }

@@ -1,0 +1,391 @@
+
+
+<p-dialog class="surface-500 text-white font-bold border-round m-2 flex align-items-center justify-content-center" header="Lexicon Search"  [(visible)]="displayMaximizable" styleClass="stylea" [modal]="true" [style]="{width: '50vw'}" 
+[draggable]="false" [draggable]="true" [resizable]="false" [closable]="false">
+
+<div class="row" >
+    <div class="accordion1" style="margin-bottom:10px" class="col-lg-12" style="padding-top: 5%;">
+        <div class="header" (click)="showCenterPart()"  [style.border-radius]="br1"  style="width: 100%;;padding:1%; background-color: #102B4E;display:inline-block;border-radius:5px 5px 0px 0px;">
+             <span style="font-size: 11px;float:left;color: white;">Selection Criteria</span>
+         <i class="fa-solid fa-plus" [style.transform]="rotate" aria-hidden="true" style="float:right;font-size: 20px;color: red; "></i>
+         </div>
+         <div class="col-lg-12" [style.display]="display">
+
+         
+<div class="col-lg-12" style="display: flex;"> 
+
+<div class="col-lg-6" style="display: flex;">
+    <label style="color:#00095B; 
+    font-family:Ford Antenna;font-size :11px;font-weight:bold;
+    width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">Lexicon code: </label>
+
+    <input class="uppercase" type="text"  style="width: 50%;height:25px;margin-top:2%;"   [(ngModel)]="lexiconProCodAndLexCode"[pKeyFilter]="alphanum" (ngModelChange)="lexicodeActive($event)" (ngModelChange)="lexiconProCodAndLexCode = $event.toUpperCase()">
+
+</div>
+<div class="col-lg-6">
+    
+    <div class="dropdownST" style="width:50%;margin:0;padding:0;margin-top:2%;">
+       
+
+
+    <p-dropdown [options]="lexicodeDrop" [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}" [filter]="true" filterBy="value"
+    [virtualScroll]="true" [itemSize]="30" [filterMatchMode]=startsWith [(ngModel)]="lexCodeAndPCode"  placeholder="  "  (click)="getProCodeForLexiCode()"  optionLabel="value" optionValue="key" ></p-dropdown>
+
+    </div>
+</div>
+</div>
+<div class="col-lg-12"  style="display: flex;">
+
+    <div class="col-lg-6" style="display: flex;">
+        <label style="color:#00095B; 
+        font-family:Ford Antenna;font-size :11px;font-weight:bold;
+        width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left"> Minor Feature: </label>
+       
+    
+
+
+    <input type="text" class="uppercase" style="width: 50%;height:25px;margin-top:2%;"  (ngModelChange)="minorFeatureActive($event)" [(ngModel)]="minorFeatureLexSrc" [pKeyFilter]="alphanum" (ngModelChange)="minorFeatureLexSrc = $event.toUpperCase()"/>
+</div>
+<div class="col-lg-6">
+    <div class="dropdownST" style="width:50%;margin:0;padding:0;margin-top:2%;">
+       
+    <p-dropdown [options]="minorFeatureLexSrcDrop" [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}" [filter]="true" filterBy="value"
+    [virtualScroll]="true" [itemSize]="30" [filterMatchMode]=startsWith (click)="searchByMinFea()" lazy=true [(ngModel)]="minorFeatureLexSrcDropValue" placeholder="  " optionLabel="value" optionValue="key"></p-dropdown>
+</div> 
+</div>
+</div>
+<div class="col-lg-12"  style="display: flex;">
+
+    <div class="col-lg-6" style="display: flex;">
+        <label style="color:#00095B; 
+        font-family:Ford Antenna;font-size :11px;font-weight:bold;
+        width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">  Lexicon Type: </label>
+     <div class="dropdownST" style="width:50%;margin:0;padding:0;margin-top:2%;">
+        <p-dropdown autoWidth="false" [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}" [filter]="true" filterBy="value"
+        scrollHeight="200px" [options]="lexiType" [disabled]="lexiTypefield" placeholder="  " [(ngModel)]="lexPropertyLexSrc" (ngModelChange)="getPropertyByLexiType($event)"  optionLabel="value" optionValue="key"></p-dropdown>
+    </div>
+
+  
+</div>
+<!-- <div class="col-lg-4">
+    <div class="card" >
+    <p-dropdown [options]="lexiType" [disabled]="lexiTypefield" [(ngModel)]="lexPropertyLexSrc" (ngModelChange)="getPropertyByLexiType($event)" placeholder="Select a Type" optionLabel="value" optionValue="key"></p-dropdown>
+</div>
+</div> -->
+</div>
+<div class="col-lg-12"  style="display: flex;">
+
+    <div class="col-lg-6" style="display: flex;">
+        <label style="color:#00095B; 
+        font-family:Ford Antenna;font-size :11px;font-weight:bold;
+        width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">  Property: </label>
+     <div class="dropdownST" style="width:50%;margin:0;padding:0;margin-top:2%;">
+      
+        <p-dropdown autoWidth="false" [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}" [filter]="true" filterBy="value" placeholder=" "
+        [virtualScroll]="true" [itemSize]="30" [filterMatchMode]=startsWith [options]="propertyForLexSrcDrop" [disabled]=propTypefield [(ngModel)]="propertyForLexSrc"  optionLabel="value" optionValue="key"></p-dropdown>
+
+</div>
+    </div>
+<!-- <div class="col-lg-4">
+    <div class="card" >
+    <p-dropdown [options]="propertyForLexSrcDrop" [disabled]=propTypefield [(ngModel)]="propertyForLexSrc" placeholder="Select a Type" optionLabel="value" optionValue="key"></p-dropdown>
+</div>
+</div> -->
+<div class="col-lg-4">
+
+</div>
+<div class="col-lg-2">
+
+<button type="button"  label="Select"  icon="pi pi-search"   (click)="checkValid();"
+          id="btn" style="background-color: #215a8f;">Select</button>
+</div>
+</div>
+<div class="col-lg-12"  style="display: flex;">
+
+    <div class="col-lg-6" style="display: flex;">
+        <label style="color:#00095B; 
+        font-family:Ford Antenna;font-size :11px;font-weight:bold;
+        width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">  Keyword(s): </label>
+     
+     <input type="text" style="width: 50%;height:25px;margin-top:2%;"  [disabled]=keyWordfield (ngModelChange)="keywordActive()" [(ngModel)]="keyWordsLexSrc"/></div>
+  
+</div>
+<!-- <div class="col-lg-6">
+    <div class="card" >
+        <input type="text"  [disabled]=keyWordfield (ngModelChange)="keywordActive()" [(ngModel)]="keyWordsLexSrc"/></div>
+</div>
+
+</div> -->
+<div class="col-lg-12"  style="display: flex;">
+
+    <div class="col-lg-6" style="display: flex;">
+        <label style="color:#00095B; 
+        font-family:Ford Antenna;font-size :11px;font-weight:bold;
+        width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left"> 
+       search:
+    </label>
+    <div class="field-radiobutton" style="display: flex;">
+        <p-radioButton name="APP&SCP" value="appScp" [disabled]=APP_SCPfield (click)="radiobutt('app')" [(ngModel)]="appScpmodel" inputId="APP&SCP"></p-radioButton>
+        <label for="APP&SCP" style="margin-top: 9px;font-size:11px;margin-left:4px;">App-Sec</label>
+    </div>
+    <div class="field-radiobutton" style="display: flex;margin-left:2%;">
+        <p-radioButton name="OTHERS" value="others" [disabled]=Othersfield (click)="radiobutt('ort')" [(ngModel)]="othersModel" inputId="OTHERS"></p-radioButton>
+        <label for="OTHERS" style="margin-top: 9px;font-size:11px;margin-left:4px;">Others</label>
+    </div>
+</div>
+<!-- <div class="col-lg-4" style="display: flex;">
+    <div class="col-lg-6">
+
+   
+    <div class="field-radiobutton" style="display: flex;">
+        <p-radioButton name="APP&SCP" value="appScp" [disabled]=APP_SCPfield (click)="radiobutt('app')" [(ngModel)]="appScpmodel" inputId="APP&SCP"></p-radioButton>
+        <label for="APP&SCP" style="margin-top: 9px;">APP&SEC</label>
+    </div>
+</div>
+<div class="=col-lg-6">
+    <div class="field-radiobutton" style="display: flex;">
+        <p-radioButton name="OTHERS" value="others" [disabled]=Othersfield (click)="radiobutt('ort')" [(ngModel)]="othersModel" inputId="OTHERS"></p-radioButton>
+        <label for="OTHERS" style="margin-top: 9px;">OTHERS</label>
+    </div>
+</div>
+    
+</div> -->
+<div class="col-lg-6">
+<input type="text" style="width: 50%;height:25px;margin-top:2%;" [disabled]=otherTesxArea (ngModelChange)="othersFieldActive()" [(ngModel)]="othersLexSrc"/>
+</div>
+
+
+</div>
+    </div>
+</div>
+<div class="col-lg-12">
+    <!-- <div class="card">
+        <h5>Vertical</h5>
+        <p-table [value]="lexiconSearchDetails" [scrollable]="true" scrollHeight="400px">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th >sNo</th>
+                    <th >Type</th>
+                    <th >Flag</th>
+                    <th >Lexicon Discription</th>
+                    <th >LexiCode</th>
+                    <th >PropertyCode</th>
+                    <th >PropertyValue</th>
+                    <th >Prop Discription</th>
+                    <th >LexiconTypeDiscription</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-TableFields>
+                <tr>
+                    <td >{{TableFields.sNo}}</td>
+                    <td >{{TableFields.type}}</td>
+                    <td >{{TableFields.flag}}</td>
+                    <td >{{TableFields.lexiDescription}}</td>
+                    <td >{{TableFields.lexiCode}}</td>
+                    <td >{{TableFields.proCode}}</td>
+                    <td >{{TableFields.proVal}}</td>
+                    <td >{{TableFields.proDiscription}}</td>
+                    <td >{{TableFields.lexiDescription}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div> -->
+<!-- <div class="card">
+    <h5>Vertical</h5>
+    <p-table [value]="lexiconSearchDetails" [scrollable]="true" scrollHeight="400px">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="min-width:150px" id="sno">Sno</th>
+                <th style="min-width:150px">Type</th>
+                <th style="min-width:150px">Flag</th>
+                <th style="min-width:150px">Lexicon Discription</th>
+                <th style="min-width:150px" id="sno">LexiCode</th>
+                <th style="min-width:150px">PropertyCode</th>
+                <th style="min-width:150px">PropertyValue</th>
+                <th style="min-width:150px">LexiconTypeDiscription</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-lexiconSearchDetails>
+            <tr>
+                <td style="min-width:150px">{{lexiconSearchDetails.Sno}}</td>
+                <td style="min-width:150px">{{lexiconSearchDetails.type}}</td>
+                <td style="min-width:150px">{{lexiconSearchDetails.flag}}</td>
+                <td style="min-width:150px">{{lexiconSearchDetails.discription}}</td>
+            </tr>
+        </ng-template>
+    </p-table> -->
+    <div class="card">
+        
+        <p-table [value]="lexiconSearchDetails" [paginator]="true" [rows]="500"    selectionMode="single" [resizableColumns]="true" styleClass="p-datatable-sm"  responsiveLayout="scroll" [(selection)]="selectedProduct1" dataKey="lexiCode" responsiveLayout="scroll" >
+            <ng-template pTemplate="header"> 
+                <tr>
+                    <th style="flex-basis:25%;font-size:11px !important;min-width:20px !important;"  id="sno">S.No</th>
+                   
+                    <th style="font-size:11px !important;width:150px;text-align:center !important;" id="sno">Type</th>
+                    <th  style="font-size:11px !important;width:150px;text-align:center !important;"  id="sno">Flag</th>
+                    <th  style="font-size:11px !important;width:150px;text-align:center !important;" id="sno">Lexicon Description</th>
+                    <th  style="font-size:11px !important;width:150px;text-align:center !important;" id="sno" >LexiCode</th>
+                    <th  style="font-size:11px !important;width:150px;text-align:center !important;" id="sno">PropertyCode</th>
+                    <th  style="font-size:11px !important;width:150px;text-align:center !important;" id="sno">PropertyValue</th>
+                    <th  style="font-size:11px !important;width:150px;text-align:center !important;" id="sno">Prop Description</th>
+                    <th  style="font-size:11px !important;width:150px;text-align:center !important;" >LexiconTypeDescription</th>
+                </tr>
+            </ng-template>
+            <!-- <div  >
+                <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+
+            </div> -->
+            <ng-template pTemplate="body" let-TableFields>
+                <tr [pSelectableRow]="TableFields">
+                    <td class="text-xs w-5"  style="flex-basis:25%;font-weight: bold;font-size:11px !important;">{{TableFields.sno}}</td>
+                    <td class="text-xs w-10" style="font-weight: bold;font-size:11px !important;" >{{TableFields.type}}</td>
+                    <td class="text-xs w-5"  style="font-weight: bold;font-size:11px !important;">{{TableFields.flag}}</td>
+                    <td class="text-xs w-5"  style="font-weight:bold;font-size:11px !important;">{{TableFields.lexiDescription}}</td>
+                    <td class="text-xs w-5"  style="font-weight: bold;font-size:11px !important;" >{{TableFields.lexiCode}}</td>
+                    <td class="text-xs w-5"  style="font-weight: bold;font-size:11px !important;">{{TableFields.proCode}}</td>
+                    <td class="text-xs w-5"  style="font-weight: bold;font-size:11px !important;">{{TableFields.proVal}}</td>
+                    <td class="text-xs w-5"  style="font-weight: bold;font-size:11px !important;">{{TableFields.proDiscription}}</td>
+                    <td class="text-xs w-5"  style="font-weight: bold;font-size:11px !important;">{{TableFields.lexiTypeDiscription}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+
+
+</div>
+
+
+    <ng-template pTemplate="footer">
+
+        <div  style="display: flex;">
+            <button id="btn" label="Copy" style="text-align: center;margin-top:2%;"  (click)="CopyCode()"  iconPos="center" ><span style="margin-bottom:3%;">Copy</span></button>
+        
+          
+        
+        <button id="btn" (click)="CopyClose()" style="text-align: center;margin-top:2%;"  label="Close" iconPos="center"  >Close</button>
+</div>
+    </ng-template>
+</p-dialog>
+<!-- <div class="card">
+    <h5>Session Storage</h5>
+    <p-table #dt1 [value]="lexiconSearchDetails" selectionMode="single" [(selection)]="selectedFields" dataKey="id" styleClass="p-datatable-customers" responsiveLayout="scroll"
+        [rows]="10" [paginator]="true"  stateKey="statedemo-session">
+        <ng-template pTemplate="header">
+            <tr>
+
+                <th pSortableColumn="sNo">Sno <p-sortIcon field="sNo"></p-sortIcon></th>
+                <th pSortableColumn="type">Type <p-sortIcon field="type"></p-sortIcon></th>
+                <th pSortableColumn="flag">Flag <p-sortIcon field="flag"></p-sortIcon></th>
+                <th pSortableColumn="lexiDescription">Lexicon Description  <p-sortIcon field="lexiDescription"></p-sortIcon></th>
+                <th pSortableColumn="lexiCode">Lexi Code <p-sortIcon field="lexiCode"></p-sortIcon></th>
+                <th pSortableColumn="proCode">Prop Code <p-sortIcon field="proCode"></p-sortIcon></th>
+                <th pSortableColumn="proVal">Prop Value <p-sortIcon field="proVal"></p-sortIcon></th>
+                <th pSortableColumn="proDiscription">Prop Desc <p-sortIcon field="proDiscription"></p-sortIcon></th>
+                <th pSortableColumn="lexiTypeDiscription">Lexi Desc <p-sortIcon field="lexiTypeDiscription"></p-sortIcon></th>
+            </tr>
+            <tr >
+                <th>
+                    <input pInputText type="text"  (input)="dt1.filter($event , 'sNo', 'contains')" [value]="dt1.filters['sNo']" placeholder="Search by SNo" class="p-column-filter">
+                </th>
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($event, 'type', 'contains')" [value]="dt1.filters['type']" placeholder="Search by type" class="p-column-filter">
+                </th>
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($event, 'flag', 'contains')" [value]="dt1.filters['flag']" placeholder="Search by Flag" class="p-column-filter">
+                </th>
+                <th>
+                   <input pInputText type="text" (input)="dt1.filter($event, 'lexiDescription', 'contains')" [value]="dt1.filters['lexiDescription']" placeholder="Search by lexiDescription" class="p-column-filter">
+                </th>
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($event, 'lexiCode', 'contains')" [value]="dt1.filters['lexiCode']" placeholder="Search by lexiCode" class="p-column-filter">
+                </th>
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($event, 'proCode', 'contains')" [value]="dt1.filters['proCode']" placeholder="Search by proCode" class="p-column-filter">
+                </th>
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($event, 'proVal', 'contains')" [value]="dt1.filters['proVal']" placeholder="Search by proVal" class="p-column-filter">
+                </th>
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($event, 'proDiscription', 'contains')" [value]="dt1.filters['proDiscription']" placeholder="Search by proDiscription" class="p-column-filter">
+                </th>
+                <th>
+                    <input pInputText type="text" (input)="dt1.filter($event, 'lexiTypeDiscription', 'contains')" [value]="dt1.filters['lexiTypeDiscription']" placeholder="Search by lexiTypeDiscription" class="p-column-filter">
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-TableFields>
+            <tr [pSelectableRow]="TableFields">
+                <td>
+                    <span class="p-column-title">Sno</span>
+                    {{TableFields.sNo}}
+                </td>
+                <td>
+                    <span class="p-column-title">Country</span>
+                   
+                    <span class="image-text">{{TableFields.type}}</span>
+                </td>
+                <td>
+                    <span class="p-column-title">Sno</span>
+                    {{TableFields.flag}}
+                </td>
+                <td>
+                    <span class="p-column-title">Country</span>
+                   
+                    <span class="image-text">{{TableFields.lexiDescription}}</span>
+                </td>
+                <td>
+                    <span class="p-column-title">Sno</span>
+                    {{TableFields.lexiCode}}
+                </td>
+                <td>
+                    <span class="p-column-title">Country</span>
+                   
+                    <span class="image-text">{{TableFields.proCode}}</span>
+                </td>
+                <td>
+                    <span class="p-column-title">Sno</span>
+                    {{TableFields.proVal}}
+                </td>
+                <td>
+                    <span class="p-column-title">Country</span>
+                   
+                    <span class="image-text">{{TableFields.proDiscription}}</span>
+                </td>
+                <td>
+                    <span class="p-column-title">Country</span>
+                   
+                    <span class="image-text">{{TableFields.lexiTypeDiscription}}</span>
+                </td>
+               <td>
+                    <span class="p-column-title">Representative</span>
+                    <img [alt]="customer.representative.name" src="assets/showcase/images/demo/avatar/{{customer.representative.image}}" width="32" style="vertical-align: middle" />
+                    <span class="image-text">{{customer.representative.name}}</span>
+                </td>
+                <td>
+                    <span class="p-column-title">Status</span>
+                    <span [class]="'customer-badge status-' + customer.status">{{customer.status}}</span>
+                </td> 
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="4">No customers found.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div> -->
+
+<p-dialog header="Lexicon Search" [(visible)]="selectionPopup">
+    <br>
+    <p style="text-align: center;color:#00095B; 
+    font-family:Ford Antenna;font-size :11px;font-weight:bold;
+    width:95%;">
+   {{popupMsg}}
+   </p>
+   <ng-template pTemplate="footer">
+        
+    <button  id="btn"  (click)="selectionPopup=false"  >Ok</button>
+    </ng-template>
+</p-dialog>

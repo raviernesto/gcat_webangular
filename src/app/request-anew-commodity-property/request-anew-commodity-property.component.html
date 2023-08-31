@@ -1,0 +1,50 @@
+<div class="card">
+    <p-dialog [(visible)]="display" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}">
+        <div class="card">
+            <div class="card-header">Request a New Commodity Property</div>
+        <label for="commodity">Commodity :</label>
+        <input type="text" style="width: 130px;margin-left: 98px;">
+        <input type="text" style="width: 60px;margin-left: 247px;margin-top: -36px;">
+        <input type="text" style="width: 250px;margin-left: 325px;margin-top: -37px;">
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-sm-4">
+                <label><b>Qualifier :</b></label>
+                <input type="radio" name="qualifier">
+                <div class="spec"><label for="spec">Specification</label></div>
+                <input type="radio" name="qualifier">
+                <div class="app"><label for="app">Application</label></div>
+                <input type="radio" name="qualifier">
+                <div class="primfeat"><label for="primfeat">Primary Feature</label></div>
+                <input type="radio" name="qualifier">
+                <div class="minfeat"><label for="minfeat">Minor Feature</label></div>
+            </div>
+            <div class="col-sm-4">
+                <label><b>Status :</b></label>
+                <input type="radio" name="status">
+                <div class="mand"><label for="mand">Mandatory</label></div>
+                <input type="radio" name="status">
+                <div class="reco"><label for="reco">Recommended</label></div>
+            </div>
+            <div class="col-sm-4">
+                <label><b>Request :</b></label>
+                <input type="radio" name="request">
+                <div class="approv"><label for="approv">Approved</label></div>
+                <input type="radio" name="request">
+                <div class="reject"><label for="reject">Rejected</label></div>
+                <p>(See Remarks)</p>
+            </div>
+        </div>
+        <label for="requestprop">Requesting New Property Code :</label>
+        <input type="text" style="width:182px;margin-left: 225px;">
+        <label for="remarks" style="margin-top: 5px;">Remarks :</label>
+        <textarea></textarea>
+        <label for="requestvalue">Requesting New Commodity Property Value :</label>
+        <input type="text" style="width:110px;margin-left: 298px;">
+        <button class="btn btn-primary" style="margin-left: 15px;">Send to Setup</button>
+        <button class="btn btn-primary" style="margin-left: 112px;margin-top: -42px;">Reply</button>
+        <button class="btn btn-primary" style="margin-left: 210px;margin-top: -42px;">Commodity >></button>
+        <button class="btn btn-primary" style="margin-left: 308px;margin-top: -42px;">Usage Info >></button>
+        <button class="btn btn-primary" style="margin-left: 407px;margin-top: -42px;">Cancel</button>
+    </div>
+    </p-dialog>
+</div>

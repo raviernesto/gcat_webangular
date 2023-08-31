@@ -1,0 +1,267 @@
+<div style="clear:both"></div>
+
+<div class="maincontainer1" style="width:100%;overflow-x: visible;height:100%">
+    <div class="accordion1" style="width:100%;height:auto;">
+        <div class="header" id="head" (click)="showCenterPart()" [style.border-radius]="br1">
+            <span id="headerName">Selection Options</span>
+            <i class="fa-solid fa-plus" aria-hidden="true" style="float:right;font-size: 20px;color: red; "></i>
+        </div>
+
+        <div class="centerpart" id="center" [style.display]="display">
+             <div class="col1" style="width:100%">
+                <div class="radio-container" style="margin-left:20px;display:inline-block">
+                    <div id="rad"> <input name="radio" id="inputradio" type="radio" value="1"
+                            [(ngModel)]="show">Vehicle </div>
+                    <div id="rad"> <input name="radio" id="inputradio" type="radio" value="2" (click)="commOption()"
+                        [(ngModel)]="show" >Commodity</div>
+                    <div id="rad"> <input name="radio" id="inputradio" type="radio" value="3" (click)="tempOption()"
+                        [(ngModel)]="show">Template</div>
+                    <div id="rad"> <input name="radio" id="inputradio" type="radio" value="4" 
+                        [(ngModel)]="show">Illustration With No Section</div>
+                    <div id="rad"> <input name="radio" id="inputradio" type="radio" value="5" (click)="illOption()"
+                        [(ngModel)]="show">Illustration ID</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div style="clear:both"></div>
+
+    <div class="accordion1" style="width:100%;height:auto;;" >
+        <div class="header" id="head" (click)="showCenterParts()" [style.border-radius]="br2">
+            <span id="headerName">Selection Criteria</span>
+            <i class="fa-solid fa-plus" aria-hidden="true" style="float:right;font-size: 20px;color: red; "></i>
+        </div>
+        <div [style.display]="display1">
+            <div *ngIf="!spinner">
+        <div class="centerpart" id="center" style="height:120px" *ngIf="show=='1'">
+            <div class="row1" style="width:100%;float:left">
+                <div class="col1" style="width:32%">
+                    <div style="float:left;width:50%;">
+                        <label id="label" style=" margin-top:8px;float:left">Product Type</label>
+                        <span id="colon" style=" margin-top:8px;float:left">:</span>
+                    </div>
+                    <div style="float:left;width:50%;margin-top: 8px;">
+                        <div id="rad"> <input name="radio1" id="inputradio" type="radio" value="C" (change)="changeProductType()"
+                               [(ngModel)]="vehicle.vehType">Car </div>
+                        <div id="rad"> <input name="radio1" id="inputradio" type="radio" value="T" (change)="changeProductType()"
+                            [(ngModel)]="vehicle.vehType">Truck </div>
+                    </div>
+                </div>
+
+                <div class="col1" style="width:32%">
+                    <div style="float:left;width:50%;">
+                        <div id="rad"> <input name="radio2" id="inputradio" type="radio" value="V"
+                                style="float:left;margin-top: -9px;" [(ngModel)]="this.vehicle.vehPreCheck">
+                            <label id="label" style=" margin-top:8px;float:left">Vehicle Line</label>
+                            <span id="colon" style=" margin-top:8px;float:left">:</span>
+                        </div>
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <p-dropdown [options]="vehicleList" optionLabel="vehLine" autoWidth="false" [filterMatchMode]=startsWith
+                            [(ngModel)]="vehLine" (onChange)="changeVehicleLine();enableVehSelect()" value="vehicle.vehLine" (onClick)="clickVehicleLine()"
+                            [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'38px','color':'black','border':'2px solid black','overflow-x':'visible !important'}"
+                            [filter]="true" filterBy="vehLine" placeholder=" ">
+                        </p-dropdown>
+                    </div>
+                </div>
+                <!-- <div class="col1" style="width:32%">
+                    <div style="float:left;width:50%;">
+                        <div id="rad"
+                            style="text-align: right !important;margin-left: -4%;text-align:right;float: right;margin-right: 8%;">
+                            <input name="radio2" id="inputradio" type="radio" value="P"
+                                style="float:left;margin-top: -9px;" [(ngModel)]="this.vehicle.vehPreCheck">
+                            <label id="label" style=" margin-top:8px;float:left">Prefix</label>
+                            <span id="colon" style=" margin-top:8px;float:left">:</span>
+                        </div>
+                    </div>
+                    <div style="float:right;width:50%;">
+                        <p-dropdown [options]="prefixList" optionLabel="prefixDesc" autoWidth="false" [filterMatchMode]=startsWith
+                        [(ngModel)]="prefix" (onChange)="changePrefix();enableVehSelect()" value="vehicle.prefix" (onClick)="clickPrefix()"
+                            [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'38px','color':'black','border':'2px solid black','overflow-x':'visible !important'}"
+                            [filter]="true" filterBy="prefixDesc" placeholder=" ">
+                        </p-dropdown>
+                    </div>
+                </div> -->
+            </div>
+            <div style="clear:both"></div>
+            <div class="row2" style="width:100%;float:left">
+                <div class="col1" style="width:32%">
+                    <div style="float:left;width:50%;">
+                        <div id="rad"
+                            style="text-align: right !important;margin-left: -4%;text-align:right;float: right;margin-right: 8%;">
+                            <input name="radio2" id="inputradio" type="radio" value="P"
+                                style="float:left;margin-top: -9px;" [(ngModel)]="this.vehicle.vehPreCheck">
+                            <label id="label" style=" margin-top:8px;float:left">Prefix</label>
+                            <span id="colon" style=" margin-top:8px;float:left">:</span>
+                        </div>
+                    </div>
+                    <div style="float:right;width:50%;">
+                        <p-dropdown [options]="prefixList" optionLabel="prefixDesc" autoWidth="false" [filterMatchMode]=startsWith
+                        [(ngModel)]="prefix" (onChange)="changePrefix();enableVehSelect()" value="vehicle.prefix" (onClick)="clickPrefix()"
+                            [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'38px','color':'black','border':'2px solid black','overflow-x':'visible !important'}"
+                            [filter]="true" filterBy="prefixDesc" placeholder=" ">
+                        </p-dropdown>
+                    </div>
+                </div>
+                <div class="col1" style="width:32%">
+                    <div style="float:left;width:50%;">
+                        <div id="rad"
+                            style="text-align: right !important;margin-left: -4%;text-align:right;float: right;margin-right: 8%;">
+                            <input name="radio3" id="inputradio" type="checkbox"
+                                style="float:left;margin-top: -9px;" [(ngModel)]="vehicle.groupCheck">
+                            <label id="label" style=" margin-top:8px;float:left">Group</label>
+                            <span id="colon" style=" margin-top:8px;float:left">:</span>
+                        </div>
+                    </div>
+                    <div style="float:right;width:50%;">
+                        <p-dropdown [options]="groupList" optionLabel="id" autoWidth="false" [disabled]="!vehicle.groupCheck"
+                        [(ngModel)]="group" (onChange)="changeGroup();enableVehSelect()" value="vehicle.group"
+                            [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'38px','color':'black','border':'2px solid black'}"
+                            [filter]="true" filterBy="id" placeholder=" ">
+                        </p-dropdown>
+                    </div>
+                </div>
+                <div class="col1" style="width:32%">
+                </div>
+                <div class="col1" style="width:32%;float:right;text-align: right;margin-right:6%;margin-top:-3%">
+                    <button id="btn" (click)="clickVehSelect()" [disabled]="vehSelect">Select</button>
+                </div>
+            </div>
+        </div>
+        <div class="centerpart" id="center" style="height:120px" *ngIf="show=='2'">
+            <div class="row1" style="width:100%;float:left">
+                <div class="col1" style="width:32%">
+                    <div style="float:left;width:50%;">
+                        <label id="label" style=" margin-top:8px;float:left">Commodity</label>
+                        <span id="colon" style=" margin-top:8px;float:left">:</span>
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <!-- <input type="text" style="width: 100%;height:38px"> -->
+                        <p-dropdown [options]="commodityList" optionLabel="data" autoWidth="false" [filterMatchMode]=startsWith
+                        [(ngModel)]="commoditys" (onChange)="changeCommodity();enableCommSelect();" value="commodity.commodity"
+                            [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'38px','color':'black','border':'2px solid black'}"
+                            [filter]="true" filterBy="data" [virtualScroll]="true" [itemSize]="20" placeholder=" ">
+                        </p-dropdown>
+                    </div>
+                </div>
+                <div class="col1" style="width:40%">
+                    <div style="float:left;width:50%;">
+                        <label id="label" style=" margin-top:8px;float:left">Commodity Type</label>
+                        <span id="colon" style=" margin-top:8px;float:left">:</span>
+                    </div>
+                    <div style="float:left;width:50%;margin-top: 8px;">
+                        <div id="rad"> <input name="radio4" id="inputradio" type="radio" value="C"
+                             [(ngModel)]="commodity.vehType" (change)="enableCommSelect()">Car </div>
+                        <div id="rad"> <input name="radio4" id="inputradio" type="radio" value="T"
+                            [(ngModel)]="commodity.vehType" (change)="enableCommSelect()">Truck </div>
+                    </div>
+                </div>
+                <div class="col1" style="width:20%;float:right;text-align: right;margin-right:4%">
+                    <button id="btn" (click)="clickCommSelect()"  [disabled]="commSelect">Select</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="centerpart" id="center" style="height:120px" *ngIf="show=='3'">
+            <div class="row1" style="width:100%;float:left">
+                <div class="col1" style="width:32%">
+                    <div style="float:left;width:50%;">
+                        <label id="label" style=" margin-top:8px;float:left">Template</label>
+                        <span id="colon" style=" margin-top:8px;float:left">:</span>
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <!-- <input type="text" style="width: 100%;height:38px"> -->
+                        <p-dropdown [options]="templateList" optionLabel="data" autoWidth="false" [filterMatchMode]=startsWith
+                        [(ngModel)]="templates" (onChange)="changeTemplate();enableTempSelect();" value="template.template"
+                            [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'38px','color':'black','border':'2px solid black'}"
+                            [filter]="true" filterBy="data" [virtualScroll]="true" [itemSize]="20" placeholder=" ">
+                        </p-dropdown>
+                    </div>
+                </div>
+                <div class="col1" style="width:40%">
+                    <div style="float:left;width:50%;">
+                        <label id="label" style=" margin-top:8px;float:left">Template Type</label>
+                        <span id="colon" style=" margin-top:8px;float:left">:</span>
+                    </div>
+                    <div style="float:left;width:50%;margin-top: 8px;">
+                        <div id="rad"> <input name="radio5" id="inputradio" type="radio" value="C"
+                            (change)="enableTempSelect()" [(ngModel)]="template.vehType">Car </div>
+                        <div id="rad"> <input name="radio5" id="inputradio" type="radio" value="T"
+                            (change)="enableTempSelect()" [(ngModel)]="template.vehType">Truck </div>
+                    </div>
+                </div>
+                <div class="col1" style="width:20%;float:right;text-align: right;margin-right:4%">
+                    <button id="btn" (click)="clickTempSelect()"  [disabled]="tempSelect">Select</button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="centerpart" id="center" style="height:120px" *ngIf="show=='4'">
+            <div class="row1" style="width:100%;float:left">
+                <div class="col1" style="width:80%;font-family: Ford Antenna;font-size:14px">
+                    <p style="text-align: center;margin-top: 25px">Show all Illustrations not currently attached to any section</p>
+                </div>
+                <div class="col1" style="width:20%;float:right;text-align: right;margin-right:4%">
+                    <button id="btn" (click)="clickNoSecSelect()">Select</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="centerpart" id="center" style="height:120px" *ngIf="show=='5'">
+            <div class="row1" style="width:100%;float:left">
+                <div class="col1" style="width:32%;font-family: Ford Antenna;font-size:14px">
+                    <div style="float:left;width:50%;">
+                        <label id="label" style=" margin-top:8px;float:left">Illustration ID</label>
+                        <span id="colon" style=" margin-top:8px;float:left">:</span>
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <!-- <input type="text" style="width: 100%;height:38px" [(ngModel)]="illId" (change)="enableIllSelect()"> -->
+                        <p-dropdown [options]="illList" optionLabel="data" autoWidth="false" [filterMatchMode]=startsWith
+                        [(ngModel)]="ills" (onChange)="changeIll();enableIllSelect();" value="illId"
+                            [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'38px','color':'black','border':'2px solid black'}"
+                            [filter]="true" filterBy="data" [virtualScroll]="true" [itemSize]="20" placeholder=" ">
+                        </p-dropdown>
+                    </div>
+                </div>
+                <div class="col1" style="width:40%">
+                </div>
+                <div class="col1" style="width:20%;float:right;text-align: right;margin-right:4%">
+                    <button id="btn" (click)="clickIllSelect()" [disabled]="illSelect">Select</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div *ngIf="spinner" class="centerpart" id="center" style="height:120px">
+        <div  class="spinner-border" role="status"
+      style="color: #000080;margin-top: 3%;margin-left: 48%;">
+      <span class="sr-only"></span>
+    </div>     
+        </div>
+    </div>
+    </div>
+</div>
+
+<div style="clear: both;"></div>
+<br>
+<div style="text-align:center">
+    <button type="button" class="btn btn-primary" id="btn" (click)="clear()" style="margin-right: 2%;">Clear</button> 
+    <button type="button" class="btn btn-primary" id="btn" (click)="wbs()" style="margin-right: 2%;">WBS </button> 
+    <button type="button" class="btn btn-primary" id="btn" (click)="irp()" style="margin-right: 2%;">IRP List </button> 
+    <button type="button" class="btn btn-primary" id="btn" (click)="close()">Close</button>
+</div>
+<div style="height: 100px;margin-left: 100px;">
+</div>
+
+
+<p-dialog header="Illustration Search" [(visible)]="alert.flag" [style]="{'max-width':'35%', height: 'auto'}"
+        [modal]="true" [closeOnEscape]=true [focusOnShow]=true [dismissableMask]="true">
+        <br>
+        <p style="text-align: center;padding-left:5%;padding-right: 5%;">{{alert.msg}}</p>
+        <div class="text-center">
+            <button style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 1%;margin-left: -1%;margin-bottom: 1%;"
+                class="btn btn-primary btn-block" id="btn" (click)="popupOk()">OK</button>
+        </div>
+    </p-dialog>

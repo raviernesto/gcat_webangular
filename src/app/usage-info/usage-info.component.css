@@ -1,0 +1,324 @@
+
+
+ .header{
+  background-color: #102B4E !important ;
+  font-weight:bold
+}
+.body {
+  display: flex;
+  margin: 0 auto;
+  /* height: 100vh; */
+}
+.showcase {
+  position: relative;
+}
+
+.bg-image {
+  width:176%;
+  opacity: 0.5;
+}
+
+.bg-img-title {
+  border: solid 1px black;
+  position: absolute;
+  width: 160%;
+  font-weight: bold;
+  top: 1%;
+  left:7%;
+  background-color: white;
+  opacity: 0.7;
+}
+.bg-img-title input{
+  font-weight: bold;
+  border:solid 1px black;
+}
+.bg-img-title label{
+  font-weight: bold;
+}
+.bg-img-title select{
+  font-weight: bold;
+  border:solid 1px black;
+}
+.progress-spinner {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+::ng-deep .ng-trigger .ng-trigger-overlayAnimation {
+  width:auto !important;
+  top:auto !important;
+}
+
+/* Transparent Overlay */
+.progress-spinner:before {
+content: '';
+display: block;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.53);
+}
+
+.p-dialog .p-dialog-header{
+  border-bottom: 0 none;
+  background:#000080;
+  color: white;
+  padding: 1.5rem;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.p-dialog-header {
+  background: #000080;
+  color: white;
+}
+
+.p-dialog-header ng-tns-c96-0 ng-star-inserted{
+  border-bottom: 0 none;
+  background:#000080;
+  color: white;
+  padding: 1.5rem;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.spectable{
+  width:200px !important;
+  /* white-space: pre !important; */
+  /* white-space: pre-wrap !important; */
+}
+tr.spectable{
+  width:200px !important;
+  /* white-space: pre !important; */
+  /* white-space: pre-wrap !important; */
+}
+#btn{
+   
+  height:25px;
+  /* width:150px !important; */
+  width:auto;
+  font-size: 13px;
+  border-radius:20px;
+  background-color:#000080 !important;
+  color:white;
+  box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+  font-family:"Ford Antenne Cond" !important;
+  white-space: nowrap;
+  margin-top:20px;
+  margin-left: 5px !important;
+  
+}
+.p-dropdown-items-wrapper {
+  overflow: auto;
+  width: 166px;
+}
+th{
+  /* min-width:200px !important; */
+  padding: 10px !important;
+  white-space:nowrap;
+  text-align: center !important;
+}
+
+:host ::ng-deep .p-datatable-sm{
+  box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+  /* width:90% !important */
+}
+/* :host ::ng-deep .p-datatable.p-datatable-sm{
+  width:90% !important
+} */
+
+.p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+  /* padding: 0.5rem 0.5rem; */
+ white-space: nowrap;
+  padding: 0%;
+  padding: 5px;
+  border-right: 1px solid white;
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+.p-fluid .p-inputtext {
+  width: 100%;
+  min-width: 100px;
+  color:black !important ;
+  /* padding-left: 26px; */
+  /* padding: 59px; */
+  margin-left: -20px;
+  /* margin-right: 112px; */
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+.p-fluid .p-inputtext {
+  height:38px;
+   color: black;
+}
+
+ 
+.p-column-filter-menu-button, .p-column-filter-clear-button {
+  display: inline-block;
+  /* justify-content: center; */
+  /* align-items: center; */
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+}
+.p-column-filter-menu-button {
+  width: 20px;
+  height: 20px;
+  /* color: #6c757d; */
+  color:white;
+  border: 0 none;
+  background: transparent;
+  border-radius: 0px; 
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.p-column-filter-row {
+  display: block;
+  align-items: center;
+  width: 100%;
+}
+
+p-columnfilterformelement.p-element.p-fluid {
+  display: inline-block;
+  width: 60%;
+  margin-left:20%;
+}
+.p-column-filter-row {
+  display: inline-block !important;
+  align-items: center;
+  width: 100%;
+}
+.p-column-filter-clear-button .p-link{
+  display: none;
+}
+/* .p-link.ng-tns-c94-9.ng-star-inserted */
+/* button>.p-column-filter-clear-button  {
+  color: transparent;
+  display: none;
+} */
+button.p-column-filter-clear-button.p-link {
+  color: transparent;
+  background: transparent;
+  display: none;
+}
+thead.p-datatable-thead {
+  
+  position: sticky;
+  top: 0px !important;
+  z-index: 105;
+  
+  }
+  .p-element.ng-trigger.ng-trigger-animation.ng-tns-c102-9.p-dialog.p-component.ng-star-inserted {
+    
+    width: 39% !important;
+}
+
+td{
+  border-right: 1px solid #bdbdbd !important;
+}
+
+tr:nth-child(even){ background-color:#f5f5f5 !important; } tr:nth-child(odd){ background-color:#ffff; }
+      
+.p-datatable-responsive-scroll>.p-datatable-wrapper>table, .p-datatable-auto-layout>.p-datatable-wrapper>table {
+  table-layout: auto;
+  margin: -1%;
+}
+div{
+  margin: 0;
+  padding: 0;
+}
+/* p-dropdown.p-element.p-inputwrapper.ng-tns-c61-5.p-inputwrapper-filled.ng-untouched.ng-star-inserted.ng-dirty {
+margin-left: 15px !important;
+width: 80px !important;
+} */
+/* .ng-tns-c97-29.p-dialog-mask.p-component-overlay.p-component-overlay-enter.p-dialog-mask-scrollblocker.ng-star-inserted{
+  z-index: 9999999999 !important;
+} */
+
+input.ng-untouched.ng-pristine {
+  font-size: 12px;
+}
+.row.pb-3 {
+  margin-top: -15px;
+}
+:host::ng-deep .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+  /* padding: 0.5rem 0.5rem; */
+  padding: 0px 2px !important;
+  font-size: 12px !important;
+  margin-top: 10px !important;
+}
+:host::ng-deep .p-datatable.p-datatable-gridlines .p-paginator-bottom {
+  /* border-width: 0 1px 1px 1px; */
+  display: none;
+}
+:host ::ng-deep thead.p-datatable-thead {
+  position: sticky;
+  top: -8px !important;
+  z-index: 105;
+}
+:host::ng-deep .p-datatable.p-datatable-sm .p-datatable-header {
+  /* padding: 0.5rem 0.5rem; */
+  padding: 0px;
+  /* margin-bottom: -1px; */
+}
+:host ::ng-deep .p-datatable-responsive-scroll>.p-datatable-wrapper>table, .p-datatable-auto-layout>.p-datatable-wrapper>table {
+  table-layout: auto;
+  /* margin: -1%; */
+  margin: 0 !important;
+}
+:host::ng-deep .p-dialog .p-dialog-header {
+  border-bottom: 0 none;
+  background: #000080;
+  color: white;
+  padding: 0 2px !important;
+  /* padding: 1.5rem; */
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+:host::ng-deep .p-dialog .p-dialog-header .p-dialog-title {
+  font-size: 12px !important;
+  font-weight: bold !important;
+  /* font-weight: 600; */
+  /* font-size: 1.25rem; */
+}
+:host::ng-deep .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+  /* padding: 0.5rem 0.5rem; */
+  text-align: center;
+}
+ 
+:host::ng-deep .p-dialog .p-dialog-footer button {
+  font-weight: bold !important;
+  margin: 0 0.5rem 0 0;
+  width: auto;
+  height: 25px !important;
+  font-size: 13px !important;
+  border-radius: 14px;
+}
+
+:host::ng-deep .pi-pencil:before {
+  content: "\e942";
+  font-size: 12px;
+}
+:host::ng-deep button.p-element.p-button-rounded.p-button-text.p-button.p-component.p-button-icon-only.ng-star-inserted {
+  width: 24px;
+  font-size: 10px !important;
+  padding: 0 !important;
+  height: 24px;
+  margin-top: 0px;
+  padding-bottom: 4px !important;
+}
+td,th{
+  width:200px !important;
+}
+tr{ background-color:#ffff ; } 
+tr{ background-color:#ffff; }
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr.p-highlight {
+    background: #E3F2FD !important;
+    color: #495057;
+}

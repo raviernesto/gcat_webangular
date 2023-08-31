@@ -1,0 +1,200 @@
+/* p-table{
+    border: solid 1px;
+}
+
+.bg-image {
+    position: relative;
+    background: white,0.7;
+    background-image: url("/assets/engineB.jpg");
+
+    height: 100%;
+  
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+  }
+
+  .bg-text{
+      opacity: 0.7;
+      border:1px solid black;
+      background-color: rgb(212, 211, 211);
+      margin-top: 1%;
+  }
+
+  
+  .bg-text input{
+    background-color: #ffffff;
+    border: 1px solid black;
+  }
+  .bg-text select{
+    background-color: #ffffff;
+    border: 1px solid black;
+  }
+
+  .bg-text td{
+    background-color: #ffffff;
+    border: 1px solid black;
+  }
+
+  .bg-text label{
+font-weight: bolder; 
+}
+ */
+
+
+ .body {
+    display: flex;
+    margin: 0 auto;
+    /* height: 100vh; */
+  }
+  .showcase {
+    position: relative;
+  }
+  
+  .bg-image {
+    width:176%;
+    opacity: 0.5;
+  }
+  
+  .bg-img-title {
+    border: solid 1px black;
+    position: absolute;
+    width: 160%;
+    font-weight: bold;
+    top: 1%;
+    left:7%;
+    background-color: white;
+    opacity: 0.7;
+  }
+  .bg-img-title input{
+    font-weight: bold;
+    border:solid 1px black;
+  }
+  .bg-img-title label{
+    font-weight: bold;
+  }
+  .bg-img-title select{
+    font-weight: bold;
+    border:solid 1px black;
+  }
+  .progress-spinner {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  
+  /* Transparent Overlay */
+  .progress-spinner:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.53);
+  }
+  
+  .p-dialog .p-dialog-header{
+    border-bottom: 0 none;
+    background:#000080;
+    color: white;
+    padding: 1.5rem;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+  }
+  .p-dialog-header {
+    background: #000080;
+    color: white;
+  }
+  
+  .p-dialog-header ng-tns-c96-0 ng-star-inserted{
+    border-bottom: 0 none;
+    background:#000080;
+    color: white;
+    padding: 1.5rem;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+  }
+  
+  #btn{
+     
+    height:41px;
+    width:106px;
+    border-radius:20px;
+    background-color:#000080 !important;
+    color:white;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    margin-top:20px;
+    /* margin-left: 8%; */
+    
+  }
+  .p-dropdown-items-wrapper {
+    overflow: auto;
+    width: 166px;
+  }
+  th{
+    width:200px !important;
+    white-space:nowrap
+  }
+  
+  .p-datatable-sm{
+    box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+    border: 1px solid black !important;
+  }
+  .p-datatable-sm p-datatable-gridlines {
+    border: 1px solid black !important;
+  }
+  
+  .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+    /* padding: 0.5rem 0.5rem; */
+    min-width: 150px;
+    padding: 0%;
+    padding: 5px;
+    border-right: 1px solid white;
+    text-align: center !important;
+  }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+  .p-fluid .p-inputtext {
+    width: 100%;
+    min-width: 150px;
+    color:black !important ;
+    /* padding-left: 26px; */
+    /* padding: 59px; */
+    margin-left: -5px;
+    /* margin-right: 112px; */
+  }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+  .p-fluid .p-inputtext {
+     color: black;
+  }
+  
+  .p-column-filter-row .p-column-filter-menu-button, .p-column-filter-row .p-column-filter-clear-button {
+    /* padding-left: 20px; */
+    margin-left: 20px;
+  }    
+  div{
+    margin: 0;
+    padding: 0;
+  } 
+
+  ::ng-deep .ng-trigger .ng-trigger-overlayAnimation {
+    width:auto !important;
+    top:auto !important;
+  }
+  
+  // p-dropdown.p-element.p-inputwrapper.ng-tns-c61-5.p-inputwrapper-filled.ng-untouched.ng-star-inserted.ng-dirty {
+  //   margin-left: 15px !important;
+  //   width: 80px !important;
+  //   }
+  // .ng-tns-c97-29.p-dialog-mask.p-component-overlay.p-component-overlay-enter.p-dialog-mask-scrollblocker.ng-star-inserted{
+  //   z-index: 9999999999 !important;
+  // }
+  

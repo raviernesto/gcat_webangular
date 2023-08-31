@@ -1,0 +1,321 @@
+label{
+    font-size: 16px;
+    
+    color:#000080;
+    font-family:Ford Antenna;
+    margin-bottom: 1%;
+    }
+    p{
+        font-size: 16px;
+    color:#000080;
+    font-family:Ford Antenna;
+    }
+    .p-dialog .p-dialog-header .p-dialog-title {
+		font-size: 16px;
+		font-weight: bold;
+        color: white;
+        font-family:Ford Antenna;
+	}
+	
+	.p-dialog .p-dialog-header{
+		height: 40px;
+    }
+    
+    .p-dialog .p-dialog-content{
+		padding:1%;
+    }
+
+    .p-datatable-gridlines{
+        border: 1px solid grey;
+    }
+
+    .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+        background: #EFF6FF;
+        border-color: #EFF6FF;
+        color:#000000;
+    }
+
+    button {
+        margin-left: 2%;
+        width: 8%;
+        background-color:#000080;
+        color: white !important;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        border-radius: 5px;
+        margin-bottom: 2%;
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    #fonts{
+        font-family:"Ford Antenne Cond" !important;
+    }
+
+    /* #btn{
+        height:41px;
+        width:106px;
+        border-radius:20px;
+        background-color:#000080 !important;
+        box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+        font-family:"Ford Antenne Cond" !important;
+        white-space: nowrap;
+        margin-top:20px; */
+        /* margin-left: 8%; */
+        
+      /* } */
+      #btn{
+   
+        height:28px;
+        font-size: 13px;
+        width:80px;
+        border-radius:20px;
+        background-color:#000080 !important;
+        color:white;
+        box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+        font-family:"Ford Antenne Cond" !important;
+        white-space: nowrap;
+        /* margin-top:20px; */
+        margin-left: 1.5%;
+        text-align:center !important;
+      }
+
+      .p-dropdown .p-dropdown-label{
+        font-size: 11px;
+        margin-top: -8px;
+    }
+
+      .casd .card-header{
+        background-color: #000080 !important;
+      }
+    .tab-align {
+        background-color: #000080;
+        color: white;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 1%;
+        border-radius: 0;
+        font-size: 15px;
+        border-radius: 3px;
+        border: 0.5px solid white;
+    }
+    
+    tr,
+    td {
+        margin: 1%;
+        box-sizing: border-box;
+        border-left: 1px solid grey;
+        border-right: 1px solid grey;
+        border-bottom: 1px solid grey;
+        border-radius: 5px;
+        font-family:Ford Antenna;
+    }
+    
+    #headerFont{
+        font-size: 15px;
+        font-weight: 600;
+        color: white;
+        margin-right: 10%;
+    }
+    th {
+        background-color: #000080 !important;
+        color: white;
+        margin: 1%;
+        margin-top: 3px;
+        padding-top: 3px !important;
+        box-sizing: border-box;
+        font-weight: 400;
+        border-right: 1px solid black;
+        font-family:Ford Antenna !important;
+    }
+    
+    
+    
+    button:active {
+        transform: translateY(1px);
+    }
+
+    
+    .radio-align {
+        margin-left: 30%;
+        margin-right: 2%;
+        padding: 1%;
+    }
+    
+    .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+      margin: 0;
+      padding: 0.5rem 1rem;
+      border: 0 none;
+      color: #495057;
+      background: transparent;
+      transition: box-shadow 0.2s;
+      border-radius: 0;
+      font-size: 11px;
+  }
+    .radio-align1 {
+        margin-left: 10%;
+        margin-right: 2%;
+        padding: 1%;
+    }
+    
+    .tab a {
+        border-color: white;
+        background-color:#000080;
+        color: white;
+        height: 50px;
+        padding-left: 25%;
+        margin-left: 1%;
+        margin-bottom: 1px;
+        border-radius: 5px;
+    }
+    
+    /*Hover tab*/
+    .p-tabview li:not(.p-highlight):hover .p-tabview-nav-link {
+        background-color:  #000080;
+        color: white !important;
+        border-color: black;
+    }
+    
+    /* Selected tab */
+    .p-tabview .p-highlight .p-tabview-nav-link {
+        background-color: #000080;
+    }
+    
+    .p-dropdown{
+        width: 80%;
+        
+        padding-top: 3%;
+        background-color: white;
+        position : relative;
+    }
+    
+     .p-dropdown-items{
+        padding-left: 3%;
+        background-color: white !important;
+          color: black;
+          list-style-type: initial;
+    } 
+    
+    .selected{
+        background-color: #000080;
+    }
+    
+    .scrollTable tr:hover {
+        background-color:#000080;
+        color: white;
+      }
+
+    .hoverColor:hover{
+        color: white !important;
+    }
+    
+    .highlightRow {
+        background-color: #000080;
+        color: white !important;
+      }
+    
+      .tableContainer{
+        width: 100%;
+        border: 1px solid black;
+        height: 80%;
+        overflow-x:auto;
+        border-radius: 3px;
+      }
+
+      .p-dialog .p-dialog-header{
+        border-bottom: 0 none;
+        background: #000080;
+        color: white;
+        padding: 0.5rem;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+    }
+    .p-dialog-header {
+        background:#000080;
+        color: white;
+    }
+    
+    .p-dialog-header ng-tns-c96-0 ng-star-inserted{
+        border-bottom: 0 none;
+        background: #1e2271 !important;
+        color: white;
+        padding: 1.5rem;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+    }
+
+    .required:after {
+        content:" *";
+        color:#e32;
+        font-size: 16px; 
+        font-weight:bolder;
+      }
+    
+      a:link a:hover a:visited a:active{
+        text-decoration: none !important;
+        display: inline-block;
+      }
+      .p-datatable-wrapper {
+        height: 248px;
+    }
+    .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+      font-weight: bold !important;
+      padding-bottom: 0px !important;
+      /* padding: 0.5rem 0.5rem; */
+      padding-left: 2px;
+      padding-right: 2px;
+      padding-top: 0px !important;
+      font-size: 11px !important;
+    }
+    .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+      /* padding: 0.5rem 0.5rem; */
+      padding-left: 2px !important;
+      padding-right: 2px !important;
+      padding-top: 0px !important;
+      padding-bottom: 0px !important;
+      font-size: 9px !important;
+      font-weight: bold !important;
+  }
+  .p-datatable.p-datatable-gridlines .p-paginator-bottom {
+    border-width: 0 1px 1px 1px;
+    display: none;
+}
+.p-dialog .p-dialog-header .p-dialog-title {
+  font-size: 12px !important;
+  color: white;
+  font-family: Ford Antenna;
+}
+      /* span#pr_id_1_label {
+        font-size: 11px;
+        margin-top: -7px;
+      } */
+
+      /* div {
+        font-size: 11px;
+      }
+      input.p-dropdown-filter.p-inputtext.p-component{
+        height:25px;
+      }
+      input.p-dropdown-filter.p-inputtext.p-component {
+        font-size: 11px;
+      }
+      .p-dropdown .p-dropdown-label.p-placeholder {
+        color: #6c757d;
+        font-size: 11px;
+        margin-top: -7px;
+      }
+      .pi-chevron-down:before {
+        content: "\e902";
+        font-size: 11px;
+       
+        margin: 75%; */
+        /* margin-top: -80%; */
+      /* }
+      .p-dropdown-items-wrapper {
+        overflow: auto; */
+        /* width: 100%;;; */
+      /* }
+      .ng-trigger.ng-trigger-overlayAnimation.ng-tns-c61-7.p-dropdown-panel.p-component.ng-star-inserted {
+        width: 100% !important;
+      } */

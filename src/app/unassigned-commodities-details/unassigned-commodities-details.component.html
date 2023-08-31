@@ -1,0 +1,255 @@
+<div style="height: 600px;">
+    <div class="accordion1" style="height:550px;margin-top:-10px">
+        <div class="header" (click)="showCenterPart()" [style.border-radius]="br1"
+            style="width:94%;margin-left:3%;padding:2px;padding-right:10px; background-color: #102B4E;display:inline-block;border-radius: 5px;">
+            <span style="font-size: 11px;float:left;color:white ;">Unassigned
+                Commodities Details Report</span>
+            <i class="fa-solid fa-plus" [style.transform]="rotate" aria-hidden="true"
+                style="float:right;font-size: 20px;color: red; "></i>
+
+        </div>
+        <div class="centerpart" [style.display]="display"
+            style="width:94%;height:90px;background:white !important;margin-top:-5px;z-index: 100;margin-left:3% !important;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75) !important;border-radius:0px 0px 5px 5px">
+            <div class="part123" style="width:100%;height:100%;">
+                <div class="partcol1"
+                    style="width:100%;float: left;padding-left:10px;padding-top:10px;margin-left: 6%;">
+                    <div class="row pb-4" style=" margin-top: 3%;" style="width:100%;">
+                        <div class="col-md-4" style="width:23%; display: flex;margin-left:2%">
+                            <label
+                                style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">Vehicle
+                                type&nbsp;:</label><br>
+                            <div class="dropdownCT"
+                                style="width:50%;margin-left:-14%;padding:0;display: inline-flex; vertical-align: middle;">
+                                <input type="radio" name="vehicletype" style="margin-top:-9px;margin-left:10%"
+                                    (click)="vehitype('C')">
+
+                                <label
+                                    style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">
+                                    &nbsp;Car</label><br>
+                                <input type="radio" name="vehicletype" style="margin-top:-9px;margin-left:10%"
+                                    (click)="vehitype('T')">
+                                <label
+                                    style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">
+                                    &nbsp;Truck</label><br>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4" style="width:23%; display: flex;margin-left:-2%">
+                            <label
+                                style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">&nbsp;Group&nbsp;:</label><br>
+                            <div class="dropdownCT" style="width:50%;margin-left:-23%;padding:0">
+                                <p-dropdown [options]=" groupType" optionLabel="name" autoWidth="false"
+                                    [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                    [filter]="true" filterBy="name" [showClear]="false" placeholder="All"
+                                    [(ngModel)]="groupDrop" value="groupDrop" [virtualScroll]="true" [itemSize]="30"
+                                    [filterMatchMode]=startsWith>
+
+                                </p-dropdown>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="width:23%; display: flex;margin-left:-2%">
+                            <input type="checkbox" style="margin-left: 0px;
+                      margin-top: -13px;" id=vehicleLinecheck ng-Model="checked" (change)="vlcheck($event)"
+                                [checked]="checkvl" />
+
+                            <label
+                                style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">&nbsp;Vehicle
+                                Line&nbsp;:</label><br>
+                            <div class="dropdownCT" style="width:50%;margin-left:-8%;padding:0">
+                                <p-dropdown [options]="vehicleLine" optionLabel="prtpeioDescX" autoWidth="false"
+                                    [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                    [filter]="true" filterBy="prtpeioDescX" placeholder="All" [(ngModel)]="vehicleDrop"
+                                    value="vehicleDrop" [disabled]="butDisabledvl" (click)="changeVehicleLine()"
+                                    [virtualScroll]="true" [itemSize]="30" [filterMatchMode]=startsWith>
+
+                                </p-dropdown>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="width:23%; display: flex;margin-left: -2%;">
+                            <input type="checkbox" style="margin-left:29px;margin-top: -13px;;" id=prefixcheck
+                                ng-Model="checked" (change)="precheck($event)" [checked]="checkpre" />
+                            <label
+                                style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">&nbsp;Prefix
+                                &nbsp;:</label><br>
+                            <div class="dropdownCT" style="width:50%;margin-left:-20%">
+                                <p-dropdown [options]=" prefix" optionLabel="famprfxPrefixC" autoWidth="false"
+                                    [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                    [filter]="true" filterBy="famprfxPrefixC" placeholder="All" [(ngModel)]="prefixDrop"
+                                    value="prefixDrop" (click)="changePrefix()" [disabled]="butDisabledpre"
+                                    [virtualScroll]="true" [itemSize]="30" [filterMatchMode]=startsWith>
+
+                                </p-dropdown>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row pb-4" style=" margin-top: 0%;" style="width:100%;">
+                        <div class="col-md-4" style="width:100%; display: flex;margin-left: 34%;margin-top: -3%;">
+                            <div style="display: inline-block;width: 100%;">
+                                <button class="btn" (click)="submit()">Show
+                                    Report</button>
+                                <button (click)="onRefresh()" class="btn" style="margin-left: 4px;"><em
+                                        class="fa fa-refresh"></em>
+                                    Refresh</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="table1" style="margin-left:10%;margin-top:-33%">
+        <p style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left">Unassigned
+            Commodities
+            Details Report :</p>
+        <p style="color:red;font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left">No Records
+            Available</p>
+    </div>
+
+    <div class="container" style="margin-top: -32%;width:100%;margin-left:3%">
+        <div class="table"
+            Style="width:103%;margin-left: -1%;margin-top:1%;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+            <p-table [value]="showreportvl" *ngIf="showTablevl" styleClass="p-datatable-customers"
+                scrollDirection="both" [paginator]="false" [rows]="500" [showCurrentPageReport]="true"
+                [rowsPerPageOptions]="[500]" responsiveLayout="scroll" [rowHover]="true" scrollHeight="300px">
+                <ng-template pTemplate="header">
+                    <tr style="color:#ffff;background-color: #000080;">
+                        <th scope="col" pSortableColumn="engpCommodityC"
+                            style=" font-family:Ford Antenna;font-size :11px !important;text-align:center;width:25px">
+                            Commodity Code
+                            <p-sortIcon field="Commodity Code">
+                            </p-sortIcon>
+                        </th>
+                        <th style=" font-family:Ford Antenna;font-size :11px !important;text-align:center;">Commodity
+                            Description</th>
+                        <th scope="col" pSortableColumn="concSectionId"
+                            style=" font-family:Ford Antenna;font-size :11px !important;text-align:center;">
+                            Section ID
+                            <p-sortIcon field="Section Id">
+                            </p-sortIcon>
+                        </th>
+                        <th style=" font-family:Ford Antenna;font-size :11px !important;text-align:center;">In WQ</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-d>
+                    <tr>
+                        <td style="text-align:center; font-family:Ford Antenna;font-size :11px ">{{d.engpCommodityC}}
+                        </td>
+                        <td style="text-align:center; font-family:Ford Antenna;font-size :11px ">{{d.engpCommodityX}}
+                        </td>
+                        <td style="text-align:center; font-family:Ford Antenna;font-size :11px ">
+                            {{d.concSectionId}},{{d.sectionIdX}}
+                        </td>
+                        <td style="text-align:center ; font-family:Ford Antenna;font-size :11px">{{d.inWqF}}</td>
+
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <div class="table"
+            Style="width:103%;margin-top:-20%;margin-left: -1%; box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+            <p-table [value]="showreportboth" *ngIf="showTableboth" styleClass="p-datatable-customers"
+                [rowsPerPageOptions]="[50,100,500]" scrollDirection="both" [paginator]="false" [rows]="500"
+                [showCurrentPageReport]="true" responsiveLayout="scroll" [rowHover]="true"scrollHeight="300px">
+                <ng-template pTemplate="header">
+                    <tr style="color:#ffff;background-color: #000080;">
+                        <th scope="col" pSortableColumn="evlVehicleLineC"
+                            style="text-align:center ; font-family:Ford Antenna;font-size :11px !important ;width:25px">
+                            Vehicle Line
+                            <p-sortIcon field="Vehicle line">
+                            </p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="prefix"
+                            style="text-align:center; font-family:Ford Antenna;font-size :11px !important ;width:25px">
+                            Prefix
+                            <p-sortIcon field="Prefix">
+                            </p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="engpCommodityC"
+                            style="text-align:center ; font-family:Ford Antenna;font-size :11px!important ;width:25px">
+                            Commodity Code
+                            <p-sortIcon field="Commodity Code">
+                            </p-sortIcon>
+                        </th>
+                        <th style="text-align:center; font-family:Ford Antenna;font-size :11px !important ;">Commodity
+                            Description</th>
+                        <th scope="col" pSortableColumn="concSectionId"
+                            style="text-align:center; font-family:Ford Antenna;font-size :11px !important ;width:25px">
+                            Section ID
+                            <p-sortIcon field="Section Id"></p-sortIcon>
+                        </th>
+                        <th style="text-align:center; font-family:Ford Antenna;font-size :11px !important ;">In WQ</th>
+                    </tr>
+
+                </ng-template>
+                <ng-template pTemplate="body" let-d>
+                    <tr>
+                        <td style="text-align:center; font-family:Ford Antenna;font-size :11px  ;width:33%;">
+                            {{d.evlVehicleLineC}}-{{d.evlVehicleLineX}}</td>
+                        <td style="text-align:center; font-family:Ford Antenna;font-size :11px  ;width:33%;">
+                            {{d.prefix}}
+                        </td>
+                        <td style="text-align:center; font-family:Ford Antenna;font-size :11px  ;width:33%;">
+                            {{d.engpCommodityC}}</td>
+                        <td style="text-align:center; font-family:Ford Antenna;font-size :11px  ;width:33%;">
+                            {{d.engpCommodityX}}</td>
+                        <td style="text-align:center; font-family:Ford Antenna;font-size :11px  ;width:33%;">
+                            {{d.concSectionId}},{{d.sectionIdX}}</td>
+                        <td style="text-align:center; font-family:Ford Antenna;font-size :11px  ;width:33%;">{{d.inWqF}}
+                        </td>
+
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <div class="table"
+            Style="width:103%;margin-top:-1%;margin-left:-1%;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+            <p-table [value]="showreportpre" *ngIf="showTablepre" styleClass="p-datatable-customers"
+                [rowsPerPageOptions]="[50,100,500]" scrollDirection="both" [paginator]="false" [rows]="500"
+                [showCurrentPageReport]="true" responsiveLayout="scroll" [rowHover]="true"scrollHeight="300px">
+                <ng-template pTemplate="header">
+                    <tr style="color:#ffff;background-color: #000080;">
+                        <th scope="col" pSortableColumn="prefix"
+                            style="text-align:center; font-family:Ford Antenna;font-size :11px !important;width:25px">
+                            Prefix
+                            <p-sortIcon field="Prefix">
+                            </p-sortIcon>
+                        </th>
+                        <th scope="col" pSortableColumn="engpCommodityC"
+                            style="text-align:center; font-family:Ford Antenna;font-size :11px !important ;width:25px">
+                            Commodity Code
+                            <p-sortIcon field="Commodity Code">
+                            </p-sortIcon>
+                        </th>
+                        <th style="text-align:center; font-family:Ford Antenna;font-size :11px !important ;">Commodity
+                            Description</th>
+                        <th scope="col" pSortableColumn="concSectionId"
+                            style="text-align:center; font-family:Ford Antenna;font-size :11px !important ;width:25px">
+                            Section ID
+                            <p-sortIcon field="Section Id"> </p-sortIcon>
+                        </th>
+                        <th style="text-align:center; font-family:Ford Antenna;font-size :11px !important ;">In WQ</th>
+                    </tr>
+
+                </ng-template>
+                <ng-template pTemplate="body" let-d>
+                    <tr>
+                        <td style="text-align:center; font-family:Ford Antenna;font-size :11px  ;width:33%;">
+                            {{d.prefix}}
+                        </td>
+                        <td style="text-align:center; font-family:Ford Antenna;font-size :11px  ;width:33%;">
+                            {{d.engpCommodityC}}</td>
+                        <td style="text-align:center; font-family:Ford Antenna;font-size :11px  ;width:33%;">
+                            {{d.engpCommodityX}}</td>
+                        <td style="text-align:center; font-family:Ford Antenna;font-size :11px  ;width:33%;">
+                            {{d.concSectionId}},{{d.sectionIdX}}</td>
+                        <td style="text-align:center; font-family:Ford Antenna;font-size :11px  ;width:33%;">{{d.inWqF}}
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>

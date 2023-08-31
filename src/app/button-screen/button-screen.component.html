@@ -1,0 +1,374 @@
+<!--Commodity Setup Reply-->
+
+<button style="margin-left: 10%;margin-top:8%;background-color: rgb(183, 181, 181); width:120px"
+    (click)="CommoditySetupReply()" class="btn "> Commodity Setup Reply</button>
+<p-dialog [(visible)]="commoditySetupReply" [style]="{'width':'54%', height: '58%'}" [breakpoints]="{'960px': '75vw'}"
+    styleClass="bg-white py-1 w-12rem m-3 border-round px-1 w-12rem m-3 border-round  "><br><br>
+    <div class="card" style="width:100%;">
+        <div class="card-header" style="font-size: 15px; background-color: #000080;color: #ffff;">
+            Commodity Setup Reply
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                        Reason Code:
+                    </label>
+                    <div style="margin-left:4%">
+                        <div style="margin-top:3%; display:flex">
+                            <select class="form-select">
+                                <option *ngFor="let list of Reason"> {{ list.code}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                        Notes:
+                    </label>
+                    <div style="margin-left:12%">
+                        <textarea [rows]="3" [cols]="60" pInputTextarea></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <div style="margin-left:22%">
+                        <div style="margin-top:3%; display:flex">
+                            <select class="form-select">
+                                <option *ngFor="let list of Reasoncode"> {{ list.reasoncode}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br>
+        <div class="footer" style="display:flex">
+            <button style="background-color: rgb(183, 181, 181);margin-left:35% " class="btn  btn-block">Ok</button>
+            <button style="background-color: rgb(183, 181, 181);margin-left:10% " (click)="commoditySetupReply=false"
+                class="btn  btn-block">Close</button>
+        </div>
+        <br>
+    </div>
+</p-dialog>
+
+<!--Change Publication Date-->
+
+
+<button style="margin-left: 10%;margin-top:8%;background-color: rgb(183, 181, 181); width:120px"
+    (click)="ChangePublicationDate()" class="btn "> Change Publication Date</button>
+<p-dialog [(visible)]="changePublicationDate" [style]="{'width':'54%', height: '58%'}" [breakpoints]="{'960px': '75vw'}"
+    styleClass="bg-white py-1 w-12rem m-3 border-round px-1 w-12rem m-3 border-round  "><br><br>
+    <div class="card" style="width:100%;">
+        <div class="card-header" style="font-size: 15px; background-color: #000080;color: #ffff;">
+            Change Publication Date
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                        Illustration ID:
+                    </label>
+                    <div style="margin-left:15%">
+                        <input type="text" pInputText />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                        Publication Date:
+                    </label>
+                    <div style="margin-left:12%">
+                        <input type="text" pInputText />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                        Future Publication Date:
+                    </label>
+                    <div style="margin-left:5%">
+                        <input type="text" pInputText />
+                    </div>
+                </div>
+            </div>
+        </div><br>
+        <div class="footer" style="display:flex">
+            <button style="background-color: rgb(183, 181, 181);margin-left:8%;margin-left:6% "
+                class="btn  btn-block">Update</button>
+            <button style="background-color: rgb(183, 181, 181);margin-left:60% " (click)="changePublicationDate=false"
+                class="btn  btn-block">Cancel</button>
+        </div>
+        <br>
+    </div>
+</p-dialog>
+
+<!--Engg Base-->
+
+<button style="margin-left: 10%;margin-top:8%;background-color: rgb(183, 181, 181); width:120px" (click)="EnggBase()"
+    class="btn ">Engg Base</button>
+<p-dialog [(visible)]="enggBase" [style]="{'width':'54%', height: '58%'}" [breakpoints]="{'960px': '75vw'}"
+    styleClass="bg-white py-1 w-12rem m-3 border-round px-1 w-12rem m-3 border-round  "><br><br>
+    <div class="card" style="width:100%;">
+        <div class="card-header" style="font-size: 15px; background-color: #000080;color: #ffff;">
+            Engg Base
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 5%;">
+                        Base No:
+                    </label>
+                    <div style="margin-left:9%">
+                        <input type="text" pInputText />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 5%;">
+                        Origin:
+                    </label>
+                    <div style="margin-left:11%">
+                        <input type="text" pInputText />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 5%;">
+                        Flag:
+                    </label>
+                    <div style="margin-left:13%">
+                        <input type="text" pInputText />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 5%;">
+                        Description:
+                    </label>
+                    <div style="margin-left:6%">
+                        <input type="text" pInputText />
+                    </div>
+                </div>
+            </div>
+        </div><br>
+        <div class="footer" style="display:flex">
+            <button style="background-color: rgb(183, 181, 181);margin-left:8% " class="btn  btn-block">New</button>
+            <button style="background-color: rgb(183, 181, 181);margin-left:12% " class="btn  btn-block">Save</button>
+            <button style="background-color: rgb(183, 181, 181);margin-left:18% " (click)="enggBase=false"
+                class="btn  btn-block">Close</button>
+        </div>
+        <br>
+    </div>
+</p-dialog>
+
+
+
+<!--Group Application Vehicle specification(AVS)-->
+
+
+<button style="margin-left: 10%;margin-top:8%;background-color: rgb(183, 181, 181); width:120px" (click)="Avs()"
+    class="btn ">Application Vehicle Specification</button>
+<p-dialog [(visible)]="avs" [style]="{'width':'54%', height: '63%'}" [breakpoints]="{'960px': '75vw'}"
+    styleClass="bg-white py-1 w-12rem m-3 border-round px-1 w-12rem m-3 border-round  "><br><br>
+    <div class="card" style="width:100%;">
+        <div class="card-header" style="font-size: 15px; background-color: #000080;color: #ffff;">
+            Group Application Vehicle Specification(AVS)
+        </div>
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-4" style="margin-left:2%;margin-top:3%; display:flex">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                        Lexicon Code:
+                    </label>
+                    <div class="col-md-5" style="margin-left:5%">
+                        <input type="text" pInputText />
+                    </div>
+                </div>
+                <div class="col-md-6" style="margin-left: 12%;margin-top:3%; display:flex">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                        Lexicon Type:
+                    </label>
+                    <div class="col-md-7" style="margin-left:5%">
+                        <input type="text" pInputText />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                        Description:
+                    </label>
+                    <div style="margin-left:3%">
+                        <input type="text" pInputText />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%;">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 7%;">
+                        Other Applicable Vehicle Specification Lexicons:
+                    </label>
+                    <div style="margin-left:7%">
+                        <textarea [rows]="5" [cols]="60" pInputTextarea></textarea>
+                    </div>
+                </div>
+            </div>
+        </div><br>
+        <div class="footer" style="display:flex">
+            <button style="background-color: rgb(183, 181, 181);margin-left:8% " class="btn fa"><b
+                    style="font-size:25px">&#xf1e5;</b></button>
+            <button style="background-color: rgb(183, 181, 181);margin-left:8% " class="btn  btn-block">Save</button>
+            <button style="background-color: rgb(183, 181, 181);margin-left:8% " class="btn  btn-block">Delete</button>
+            <button style="background-color: rgb(183, 181, 181);margin-left:30% " (click)="avs=false"
+                class="btn  btn-block">Close</button>
+        </div>
+        <br>
+    </div>
+</p-dialog>
+<!--Commodity Status-->
+<button style="margin-left: 10%;margin-top:8%;background-color: rgb(183, 181, 181); width:120px"
+    (click)="CommodityStatus()" class="btn ">Commodity Status</button>
+<p-dialog [(visible)]="commodityStatus" [style]="{'width':'54%', height: '58%'}" [breakpoints]="{'960px': '75vw'}"
+    styleClass="bg-white py-1 w-12rem m-3 border-round px-1 w-12rem m-3 border-round  "><br><br>
+    <div class="card" style="width:100%;">
+        <div class="card-header" style="font-size: 15px; background-color: #000080;color: #ffff;">
+            Commodity Status
+        </div>
+        <div class="card-body">
+            <button style="background-color: rgb(183, 181, 181);margin-left:35% "
+                class="btn  btn-block">TXtStatusCode</button>
+            <!-- <div class="groove" Style="border-style: groove;margin-left: 4%;margin-right:5%;margin-top:1%"> -->
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; ">
+                    <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                        Status
+                    </label>
+                    <div style="margin-left:7%">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="materialInline10"
+                                name="inlineMaterialRadiosButton" mdbInput>
+                            <label class="form-check-label" for="materialInline10">Complete</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="materialInline11"
+                                name="inlineMaterialRadiosButton" mdbInput>
+                            <label class="form-check-label" for="materialInline11">Incomplete</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+            <!-- <div class="groove" Style="border-style: groove;margin-left: 4%;margin-right:5%;margin-top:1%"> -->
+            <div class="col-lg-12" style="margin-top:2%; ">
+                <label class="form-check-label" for="gridCheck1" style=" font-size: 14px;margin-left: 3%;">
+                    Task
+                </label>
+                <div class="form-group row">
+                    <div class="col-md-5" style="margin-left:4%">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck1">
+                            <label class="form-check-label" for="gridCheck1">
+                                Assign Base(s)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div style="margin-left:40%" class="col-md-3">
+                            <input class="form-control" id="ex1" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <div class="col-md-5" style="margin-left:4%">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                            General and Extract/Publish
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div style="margin-left:40%" class="col-md-3">
+                        <input class="form-control" id="ex1" type="text">
+                    </div>
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <div class="col-md-5" style="margin-left:4%">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                            Primary Features
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div style="margin-left:40%" class="col-md-3">
+                        <input class="form-control" id="ex1" type="text">
+                    </div>
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <div class="col-md-5" style="margin-left:4%">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                            Qualifiers
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div style="margin-left:40%" class="col-md-3">
+                        <input class="form-control" id="ex1" type="text">
+                    </div>
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <div class="col-md-5" style="margin-left:4%">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                            Summarization and Simplification
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div style="margin-left:40%" class="col-md-3">
+                        <input class="form-control" id="ex1" type="text">
+                    </div>
+                </div>
+            </div><br>
+            <div class="form-group row">
+                <div class="col-md-5" style="margin-left:4%">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                            Assign CPSC(s)
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div style="margin-left:40%" class="col-md-3">
+                        <input class="form-control" id="ex1" type="text">
+                    </div>
+                </div>
+            </div><br>
+        </div><br>
+        <!-- </div> -->
+        <div class="footer" style="display:flex">
+
+            <button style="background-color: rgb(183, 181, 181);margin-left:8% " class="btn  btn-block">Ok</button>
+            <button style="background-color: rgb(183, 181, 181);margin-left:60% " (click)="commodityStatus=false"
+                class="btn  btn-block">Cancel</button>
+
+        </div>
+        <br>
+    </div>
+</p-dialog>

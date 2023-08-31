@@ -1,0 +1,1137 @@
+<div class="container">
+    <div class="accordion1" style="height:100px;margin-top:-10px;">
+        <div class="header" (click)="showCenterPart()" [style.border-radius]="br1"
+            style="width:100%;padding:2px 10px; background-color: #102B4E;color:white;display:inline-block;border-radius:5px 5px 0px 0px;">
+            <span style="font-size: 11px;float:left;color:white;font-weight:bold;">Commodity Setup</span>
+            <i class="fa-solid fa-plus" [style.transform]="rotate" aria-hidden="true"
+                style="float:right;font-size: 20px;color: red; "></i>
+        </div>
+        <div class="centerpart" [style.display]="display"
+            style="width:100%;height:65px;background:white !important;margin-top:-5px;z-index: 100;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75) !important;border-radius:0px 0px 5px 5px">
+            <div class="part123" style="width:100%;height:100%;">
+                <div class="partcol1"
+                    style="width:100%;float: left;;padding-left:10px;padding-top:10px;margin-left: 6%;">
+                    <div class="row pb-3" style=" margin-top: 3%;" style="width:100%;">
+                        <div class="col-md-4" style="width:23%; display: flex;">
+                            <label
+                                style="color:#00095B; font-family:Ford Antenna;font-size :11px !important ;font-weight:bold !important;text-align: left;width:56% ;margin-top:6px;padding-right:10px;float:left">
+                                Vehicle Type<span
+                                    Style=" color:#e32;font-size: 13px !important; font-weight:bold;">*</span>
+                                :
+                            </label>
+                            <input style="margin-right:1%;vertical-align: 1%;margin-left:-17%;margin-top:-1px"
+                                type="radio" name="vehicle" [(ngModel)]="commodityIntDetails.vehicleType"
+                                (change)="changeVehicle($event)" value="C" checked><span
+                                style="font-size:11px;font-family:Ford Antenna;margin-top:6px">&nbsp;Car</span>
+                            <input style="margin-right:1%;vertical-align: 1%;margin-left:10px;margin-top:0px"
+                                type="radio" name="vehicle" [(ngModel)]="commodityIntDetails.vehicleType"
+                                (change)="changeVehicle($event)" value="T"><span
+                                style="font-size:11px;font-family:Ford Antenna;margin-top:6px">&nbsp;Truck</span>
+                        </div>
+                        <div class="col-md-4" style="display: flex;width:23%;margin-left:-5%">
+                            <label
+                                style="color:#00095B; font-family:Ford Antenna;font-size :11px !important ;margin-left:26px;font-weight:bold !important;text-align: left;width:42% ;margin-top:6px;padding-right:10px;float:left">
+                                Commodity<span
+                                    Style=" color:#e32;font-size: 13px !important; font-weight:bold;">*</span> :
+                            </label>
+                            <div class="dropdown" style="width: 39%;margin-left:-10%">
+                                <p-dropdown #cc [options]="commodityCodeList" optionLabel="commodityCode"
+                                     (onChange)="commodityChange($event)" [(ngModel)]="commoditychange"
+                                    [filterMatchMode]=startsWith 
+                                    [style]="{ 'width': '130%','margin-top':'5px','margin-left':'10px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                    [filter]="true" filterBy="commodityCode"
+                                    scrollHeight="200px" [virtualScroll]="true" [itemSize]="20" placeholder=" ">
+                                </p-dropdown>
+                            </div>
+                        </div>
+                        <div style="display: flex;width:22%;margin-left: -7%;">
+                            <input style="width: 0%;height:25px;margin-top: 5px;font-size :11px;margin-left: 26px;"
+                                type="text" name="commodity" id="commodity" [(ngModel)]="commodityIntDetails.commodity"
+                                readonly>
+                        </div>
+                        <div class="col-md-4" style="display: flex;width:23%;margin-left: -15%;">
+                            <label
+                                style="color:#00095B; font-family:Ford Antenna;font-size :11px;margin-left:5px;font-weight:bold !important;text-align: left;padding-right:10px;margin-top:6px">Work
+                                Queue Commodities : </label>
+                            <div class="dropdown" style="width: 42%;margin-left:-15%">
+                                <p-dropdown [options]="commodityWqList" optionLabel="dropdown"
+                                     [virtualScroll]="true" [itemSize]="20" 
+                                    (onChange)="changeWq($event)" [filterMatchMode]=startsWith
+                                    [style]="{ 'width': '130%','margin-top':'5px','margin-left':'28px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                     #dd [filter]="true" [(ngModel)]="commoditychangewq"
+                                    filterBy="dropdown" scrollHeight="200px" placeholder=" ">
+                                </p-dropdown>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="display: flex;width:23%;margin-left:10px">
+                            <label
+                                style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold !important;text-align: left;margin-top:7px;margin-left:20%">
+                                Commodity Name : </label>
+                            <input style="width: 45%;height:25px;margin-top:5px;margin-left:2px;font-size :11px;margin-right:-30px"
+                                type="text" [(ngModel)]="commodityIntDetails.commodityName" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- This code is commented as this tab is not required as of now
+                <p-tabView>
+                <p-tabPanel header="Build Commodity" headerStyleClass="tab" [headerStyle]="{'width':'20%'}"> -->
+    <!-- <div class="container card"
+            style="width: 100%;border:2px solid black;padding-bottom: 1%;padding-right: 0%;padding-left: 0%;">
+            <div class="card-header" style="font-size: 16px;font-weight: 400;margin: 0%;font-family: Ford Antenna;">
+                Build Commodity
+            </div> -->
+    <div class="accordion1" style="width: 100%;height:80%">
+        <div class="header" (click)="showCenterParts()" [style.border-radius]="br2"
+            style="width:100%;padding:2px 10px; background-color: #102B4E;color:white;display:inline-block;border-radius:5px 5px 0px 0px;">
+            <span style="font-size: 11px;float:left;color:white;font-weight:bold;">Build Commodity</span>
+            <i class="fa-solid fa-plus" [style.transform]="rotate1" aria-hidden="true"
+                style="float:right;font-size: 20px;color: red; "></i>
+        </div>
+        <div class="centerpart" [style.display]="display1"
+            style="width:100%;height:100%;background:white;top:65px;z-index: 100;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);padding-bottom: 1%;margin-top: -15px;border-radius: 0px 0px 5px 5px;">
+            <div class="container" style="margin-left: 2%;margin-right: 5%;margin-top:1%;">
+                <!-- <p style="font-size: large;text-align: center;font-weight: 500;">Build Commodity</p> -->
+
+                <!-- <div class="row">
+                    <div class="col-sm-6"> -->
+                <!-- <div class="card" style="width: 83%;">
+                            <div class="card-header required"
+                                style="font-size: 16px;font-weight: 500;font-family: Ford Antenna;">
+                                Class
+                            </div> -->
+                <div class="row pb-3" style="width:100%;margin-left: 4%">
+                    <div class="col-md-4" style="width:23%; display: flex;margin-top: 7px">
+                        <label
+                            style="color:#00095B;margin-left: 18px; font-family:Ford Antenna;font-size :11px !important ;font-weight:bold !important;text-align: left;width:56% ;padding-right:10px;float:left">
+                            Class<span Style=" color:#e32;font-size: 13px !important; font-weight:bold;">*</span>
+                            :
+                        </label>
+                        <!-- <div class="card-body"
+                                style="height: 30px;margin-bottom: 2%;margin-top: -0.5%;font-family: Ford Antenna;"> -->
+                        <input style="margin-right:1%;vertical-align: 1%;margin-left:-35%;" type="radio"
+                            name="classType" [(ngModel)]="commodityIntDetails.buildCommodity.classType" id="body"
+                            (click)="changeClass($event);saveBC()" value="BODY" class="radio-align1"><span
+                            style="font-size:11px;font-family:Ford Antenna;">&nbsp;Body</span>
+                        <input style="margin-right:1%;vertical-align: 1%;margin-left:10px;" type="radio"
+                            name="classType" [(ngModel)]="commodityIntDetails.buildCommodity.classType" id="chassis"
+                            (click)="changeClass($event);saveBC();" value="CHASSIS" class="radio-align1"><span
+                            style="font-size:11px;font-family:Ford Antenna;">&nbsp;Chassis</span>
+                        <!-- </div> -->
+                    </div>
+                    <div class="col-md-4" style="display: flex;width:23%;margin-left:-3%;margin-top: 6px">
+                        <label
+                            style="color:#00095B;margin-left:-9px;margin-left: 10px;font-family:Ford Antenna;font-size :11px !important ;font-weight:bold !important;text-align: left;width:56% ;padding-right:10px;float:left">
+                            Vehicle Type :
+                        </label>
+                        <input type="radio" name="sVehicleType" (change)="changesVehicle($event)"
+                            [(ngModel)]="commodityIntDetails.buildCommodity.sVehicleType" value="C" id="sVehicleTypeC"
+                            style="margin-right:1%;vertical-align: 1%;margin-left:-49px;" class="radio-align1"><span
+                            style="font-size:11px;font-family:Ford Antenna;">&nbsp;Car</span>
+                        <input type="radio" name="sVehicleType" (change)="changesVehicle($event)"
+                            [(ngModel)]="commodityIntDetails.buildCommodity.sVehicleType" value="T" id="sVehicleTypeT"
+                            style="margin-right:1%;vertical-align: 1%;margin-left:10px;" class="radio-align1"><span
+                            style="font-size:11px;font-family:Ford Antenna;">&nbsp;Truck</span>
+                    </div>
+                    <div class="col-md-4" style="display: flex;width:23%;margin-left:9%;margin-top: 6px">
+                        <label
+                            style="color:#00095B;margin-left: 14px;font-family:Ford Antenna;font-size :11px !important ;font-weight:bold !important;text-align: left;width:56% ;padding-right:10px;float:left">
+                            Commodity<span Style=" color:#e32;font-size: 13px !important; font-weight:bold;">*</span> :
+                        </label>
+                        <input type="text" style="width: 45%;height:25px;font-size :11px;margin-left:-21%;"
+                            name="sCommodity" maxlength="8"
+                            [(ngModel)]="commodityIntDetails.buildCommodity.sCommodityCode" id="sCommodity"
+                            value={{commodityIntDetails.buildCommodity.sCommodityCode}} readonly>
+                    </div>
+                    <div class="row pb-3" style="width:100%;margin-left: 10%">
+                        <div class="col-md-4" style="display: flex;width:23%;margin-top: 6px">
+                            <label
+                                style="color:#00095B;margin-left: -206px; font-family:Ford Antenna;font-size :11px;font-weight:bold !important;text-align: left;padding-right:10px">Base
+                                Selection Criteria<span Style=" color:#e32;font-size: 13px !important; font-weight:bold;">*</span> :</label>
+                            <input type="text" name="baseCriteria" maxlength="8"
+                                [(ngModel)]="commodityIntDetails.buildCommodity.baseCriteria" id="baseCriteria"
+                                value={{commodityIntDetails.buildCommodity.baseCriteria}} (click)="baseCritClick()"
+                                style="width: 45%;height:25px;margin-left: -6px;font-size :11px">
+                        </div>
+                        <div class="col-md-4" style="display: flex;width:23%;margin-top: 6px">
+                            <label
+                                style="color:#00095B;margin-left: -133px; font-family:Ford Antenna;font-size :11px;font-weight:bold !important;text-align: left;padding-right:10px">
+                                Base View<span
+                                    Style=" color:#e32;font-size: 13px !important; font-weight:bold;"></span>:</label>
+                            <input style="margin-right:1%;vertical-align: 1%;margin-left:-5px;" type="radio"
+                                [(ngModel)]="commodityIntDetails.buildCommodity.baseView" name="baseView" id="newBase"
+                                (click)="changeBaseNew()" value="New" class="radio-align1"><span
+                                style="font-size:11px;font-family:Ford Antenna;">&nbsp;New Bases</span>
+                            <input style="margin-right:1%;vertical-align: 1%;margin-left:8px;" type="radio"
+                                [(ngModel)]="commodityIntDetails.buildCommodity.baseView" name="baseView" id="allBase"
+                                (click)="changeBaseAll()" value="All" class="radio-align1"><span
+                                style="font-size:11px;font-family:Ford Antenna;">&nbsp;All Bases</span>
+                        </div>
+                        <div class="col-md-4" style="display: flex;width:23%;margin-top: 6px">
+                            <label
+                                style="color:#00095B;margin-left: -76px; font-family:Ford Antenna;font-size :11px;font-weight:bold !important;text-align: left;padding-right:10px">
+                                Commodity Name<span
+                                    Style=" color:#e32;font-size: 13px !important; font-weight:bold;">*</span> :
+                            </label>
+                            <input type="text" name="sCommodityName"
+                                [(ngModel)]="commodityIntDetails.buildCommodity.sCommodityName" id="sCommodityName"
+                                (click)="commodityNamechange()"
+                                value={{commodityIntDetails.buildCommodity.sCommodityName}}
+                                style="width: 45%;height:25px;margin-left: -7px;font-size :11px" readonly>
+
+                        </div>
+                    </div>
+                    <button
+                        style="background-color: rgb(183, 181, 181)  !important; width: 6%;height: 20%;border:2px solid black;margin-left:900px;margin-top: -68px;"
+                        (click)="saveBC();getLexDesc()" class="btn fa"><img src="assets/binocular-solid.png"
+                            alt="Search" style="width: 45px;margin-bottom: 1%;margin-left: -17px;"></button>
+                    <!-- <label class="required">Base Selection Criteria</label>
+                        <input type="text" name="baseCriteria" maxlength="8"
+                            [(ngModel)]="commodityIntDetails.buildCommodity.baseCriteria" id="baseCriteria"
+                            value={{commodityIntDetails.buildCommodity.baseCriteria}} (click)="baseCritClick()"
+                            style="margin-right:3%;width: 83%;height: 38px;font-family: Ford Antenna;">
+                        <br>
+                        <div class="card" style="width: 83%;">
+                            <div class="card-header"
+                                style="font-size: 16px;font-weight: 400;font-family: Ford Antenna;">
+                                Base View
+                            </div>
+                            <div class="card-body"
+                                style="border-radius: 3px;height: 30px;margin-bottom: 3%;margin-top: -1.5%;font-family: Ford Antenna;">
+                                <input type="radio" [(ngModel)]="commodityIntDetails.buildCommodity.baseView"
+                                    name="baseView" id="newBase" (click)="changeBaseNew()" value="New"
+                                    class="radio-align1">New Bases
+                                <input type="radio" [(ngModel)]="commodityIntDetails.buildCommodity.baseView"
+                                    name="baseView" id="allBase" (click)="changeBaseAll()" value="All"
+                                    class="radio-align1">All Bases
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <br>
+                        <div class="card" style="width: 67%;font-family: Ford Antenna;">
+                            <div class="card-header" style="font-size: 16px;font-weight: 500;">
+                                Vehicle Type
+                            </div>
+                            <div class="card-body"
+                                style="height: 30px;margin-bottom: 3%;margin-top: -1%;font-family: Ford Antenna;">
+                                <input type="radio" name="sVehicleType" (change)="changesVehicle($event)"
+                                    [(ngModel)]="commodityIntDetails.buildCommodity.sVehicleType" value="C"
+                                    id="sVehicleTypeC" style="margin-right:1%;" class="radio-align1">Car
+                                <input type="radio" name="sVehicleType" (change)="changesVehicle($event)"
+                                    [(ngModel)]="commodityIntDetails.buildCommodity.sVehicleType" value="T"
+                                    id="sVehicleTypeT" style="margin-left:15%;margin-right:1%;"
+                                    class="radio-align1">Truck
+                            </div>
+                        </div> -->
+                    <!-- <br>
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <label class="required"> Commodity </label>
+                                <input type="text" name="sCommodity" maxlength="8"
+                                    [(ngModel)]="commodityIntDetails.buildCommodity.sCommodityCode" id="sCommodity"
+                                    value={{commodityIntDetails.buildCommodity.sCommodityCode}}
+                                    style="margin-right:3%;width: 90%;text-transform: uppercase;height:38px;font-family: Ford Antenna;"
+                                    readonly><br>
+
+                                <label class="required"> Commodity Name </label>
+                                <input type="text" name="sCommodityName"
+                                    [(ngModel)]="commodityIntDetails.buildCommodity.sCommodityName" id="sCommodityName"
+                                    (click)="commodityNamechange()"
+                                    value={{commodityIntDetails.buildCommodity.sCommodityName}}
+                                    style="width: 90%;height:38px;font-family: Ford Antenna;" readonly>
+
+                            </div>
+                            <div class="col-sm-3" style="margin-top: 10%;padding: 0;align-items: center;">
+                                <button
+                                    style="background-color: rgb(183, 181, 181)  !important; width: 50%;height: 63%;border:2px solid black;"
+                                    (click)="saveBC();getLexDesc()" class="btn fa"><img src="assets/binocular-solid.png"
+                                        alt="Search" style="width: 45px;margin-bottom: 1%;"></button>
+                            </div>
+                        </div>
+                    </div> -->
+                </div><br>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div
+                            style="border: 1px solid black;border-radius: 5px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);margin-top:-39px">
+                            <p-table [value]="newBaseDetails" selectionMode="multiple" scrollHeight="214px"
+                                [(selection)]="baseSelectedDetails" scrollDirection="both" [paginator]="true"
+                                [rows]="500" [showCurrentPageReport]="true" [rowsPerPageOptions]="[50,100,500,1000]"
+                                styleClass="p-datatable-sm p-datatable-gridlines" responsiveLayout="scroll"
+                                (onRowSelect)="clickedRows($event)" [style]="{'font-size':'10px','margin-top':'0'}">
+                                <ng-template pTemplate="header">
+                                    <tr style="position: sticky !important;top: 0 !important;">
+                                        <th scope="col">Base #</th>
+                                        <th scope="col">New</th>
+                                        <th scope="col">Origin</th>
+                                        <th scope="col">Base Description</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                                    <tr [pSelectableRow]="list" [pSelectableRowIndex]="rowIndex">
+                                        <td>{{list.base}}</td>
+                                        <td>{{list.engbaseNew}}</td>
+                                        <td>{{list.origin}}</td>
+                                        <td>{{list.baseDesc}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                    <div class="col-sm-1">
+                        <button
+                            style="background-color: rgb(183, 181, 181) !important;width: 100%; margin-top:30px ;border:2px solid black"
+                            class="btn " (click)="transferSelectedBase();"><strong
+                                style="font-size:40px">➔</strong></button>
+                    </div>
+                    <div class="col-sm-6" style="padding-right: 2%;">
+                        <div
+                            style="margin-right: 5%;border: 1px solid black;border-radius: 3px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);margin-top:-39px">
+                            <p-table [value]="commodityIntDetails.buildCommodity.existingBaseDetailList"
+                                selectionMode="single" [(selection)]="baseSelectedDetails" scrollDirection="both"
+                                [paginator]="true" [rows]="500" scrollHeight="214px" [showCurrentPageReport]="true"
+                                [rowsPerPageOptions]="[50,100,500,1000]"
+                                styleClass="p-datatable-sm p-datatable-gridlines" responsiveLayout="scroll"
+                                (onRowSelect)="clickedBase($event)" [style]="{'font-size':'10px','margin-top':'0'}">
+                                <ng-template pTemplate="header">
+                                    <tr style="position: sticky !important;top: 0 !important;">
+                                        <th scope="col">Base #</th>
+                                        <th scope="col">Origin</th>
+                                        <th scope="col">Desg</th>
+                                        <th scope="col">Base Description</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                                    <tr [pSelectableRow]="list" [pSelectableRowIndex]="rowIndex"
+                                        (dblclick)="baseDoubleClick(rowIndex)">
+                                        <td>{{list.base}}</td>
+                                        <td>{{list.origin}}</td>
+                                        <td>{{list.desc}}</td>
+                                        <td>{{list.baseDesc}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--This code is commented as this tab is not required as of now
+                 </p-tabPanel>
+                <p-tabPanel header="General and E/P" headerStyleClass="tab" [headerStyle]="{'width':'20%'}">
+                    <div class="container"
+                        style="width: 100%;border:1px solid black; padding-bottom: 1%;padding-top: 1%;border-radius: 5px;">
+                        <div class="container" style="margin-left: 2%;margin-right: 5%;margin-top:1%;">
+                            <div class="row">
+                                <div class="col-sm-5" style="padding-left: 10%;">
+                                    <br>
+                                    <label> Remarks </label>
+                                    <input type="text" name="remarks" id="remarks" (change)="saveGE()"
+                                        [(ngModel)]="commodityIntDetails.generalEP.geRemarks" style="width:75%"><br>
+                                    <label> Status </label>
+                                    <input type="text" name="status" id="status"
+                                        [(ngModel)]="commodityIntDetails.generalEP.geStatus" readonly
+                                        style="width:75%"><br>
+                                    <div class="card" style="width: 75%;">
+                                        <div class="card-header"
+                                            style="font-size: 15px; background-color: #000080;color: #ffff;">
+                                            Indicator
+                                        </div>
+                                        <div class="card-body">
+                                            <input type="checkbox" name="geCalibration" id="geCalibration" value="Y"
+                                                (change)="changeCalibration();saveGE();"
+                                                class="radio-align1 checkbox-inline">Calibration<br>
+                                            <input type="checkbox" name="geKit" id="geKit" value="Y"
+                                                (change)="changeKit();saveGE();"
+                                                class="radio-align1 checkbox-inline">Kit<br>
+                                            <input type="checkbox" name="geIllustrated" id="geIllustrated" value="Y"
+                                                (change)="changeIllustrated();saveGE();" class="radio-align1">Not
+                                            Illustrated<br>
+                                            <input type="checkbox" name="geServiced" id="geServiced" value="Y"
+                                                (change)="changeServiced();saveGE();" class="radio-align1">Not
+                                            Serviced<br>
+                                            <input type="checkbox" name="geVisual" id="geVisual" value="Y"
+                                                (change)="changeVisual();saveGE();" class="radio-align1">Visual Id
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 row">
+                                    <h3 style="text-align:center ;"> Extract/Publish </h3>
+                                    <div class="col-sm-6">
+                                        <div class="card" style="width: 90%;margin-left: 5%;">
+                                            <div class="card-header"
+                                                style="font-size: 15px; background-color: #000080;color: #ffff;">
+                                                Part List
+                                            </div>
+                                            <div class="card-body">
+                                                <input type="radio" name="gePartList"
+                                                    [(ngModel)]="commodityIntDetails.generalEP.gePartList" id="assembly"
+                                                    value="ASSEMBLY" (change)="saveGE();"
+                                                    class="radio-align1">Assembly<br>
+                                                <input type="radio" name="gePartList"
+                                                    [(ngModel)]="commodityIntDetails.generalEP.gePartList" id="detail"
+                                                    value="DETAIL" (change)="saveGE();" class="radio-align1">Detail<br>
+                                                <input type="radio" name="gePartList"
+                                                    [(ngModel)]="commodityIntDetails.generalEP.gePartList" id="naPart"
+                                                    value="N/A" (change)="saveGE();" class="radio-align1" checked>N/A
+                                            </div>
+                                        </div><br>
+                                        <div class="card" style="width: 90%;margin-left: 5%;">
+                                            <div class="card-header"
+                                                style="font-size: 15px; background-color: #000080;color: #ffff;">
+                                                Color
+                                            </div>
+                                            <div class="card-body">
+                                                <input type="radio" name="geColor"
+                                                    [(ngModel)]=" commodityIntDetails.generalEP.geColor" id="bodyColor"
+                                                    value="BODY COLOR" (change)="saveGE();" class="radio-align1">Body
+                                                Color<br>
+                                                <input type="radio" name="geColor"
+                                                    [(ngModel)]=" commodityIntDetails.generalEP.geColor" id="extTrim"
+                                                    value="EXTERIOR TRIM" (change)="saveGE();"
+                                                    class="radio-align1">Exterior Trim<br>
+                                                <input type="radio" name="geColor"
+                                                    [(ngModel)]=" commodityIntDetails.generalEP.geColor" id="fabric"
+                                                    value="FABRIC" (change)="saveGE();" class="radio-align1">Fabric<br>
+                                                <input type="radio" name="geColor"
+                                                    [(ngModel)]=" commodityIntDetails.generalEP.geColor" id="ieColor"
+                                                    value="IE COLOR" (change)="saveGE();" class="radio-align1">IE
+                                                Color<br>
+                                                <input type="radio" name="geColor"
+                                                    [(ngModel)]=" commodityIntDetails.generalEP.geColor" id="primed"
+                                                    value="PRIMED" (change)="saveGE();" class="radio-align1">Primed<br>
+                                                <input type="radio" name="geColor"
+                                                    [(ngModel)]=" commodityIntDetails.generalEP.geColor" id="otherColor"
+                                                    value="OTHER COLOR" (change)="saveGE();" class="radio-align1">Other
+                                                Color<br>
+                                                <input type="radio" name="geColor"
+                                                    [(ngModel)]=" commodityIntDetails.generalEP.geColor" id="naColor"
+                                                    value="N/A" (change)="saveGE();" class="radio-align1"
+                                                    checked>N/A<br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card" style="width: 90%;">
+                                            <div class="card-header"
+                                                style="font-size: 15px; background-color: #000080;color: #ffff;">
+                                                Special Extractions
+                                            </div>
+                                            <div class="card-body">
+                                                <input type="checkbox" name="geAccessory" id="accessory" value="Y"
+                                                    (click)="changeAccessory();saveGE();"
+                                                    class="radio-align1">Accessory<br>
+                                                <input type="checkbox" name="geCrashRepair" id="crashRepair" value="Y"
+                                                    (click)="changeCrashRepair();saveGE();" class="radio-align1">Crash
+                                                Repair<br>
+                                                <input type="checkbox" name="geExchange" id="exchange" value="Y"
+                                                    (click)="changeExchange();saveGE();"
+                                                    class="radio-align1">Exchange<br>
+                                                <input type="checkbox" name="geFastMovingPart" id="fastMovPart"
+                                                    value="Y" (click)="changeFastMovingPart();saveGE();"
+                                                    class="radio-align1">Fast Moving Part<br>
+                                                <input type="checkbox" name="geInitialStock" id="intStock" value="Y"
+                                                    (click)="changeInitialStock();saveGE();"
+                                                    class="radio-align1">Initial Stock<br>
+                                                <input type="checkbox" name="geMotorcraft" id="motorCraft" value="Y"
+                                                    (click)="changeMotorcraft();saveGE();"
+                                                    class="radio-align1">Motorcraft
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Primary Features" headerStyleClass="tab" [headerStyle]="{'width':'20%'}">
+                    <div class="container"
+                        style="width: 100%;border:1px solid black; padding-bottom: 1%;padding-top: 1%;border-radius: 5px;">
+                        <div class="container" style="margin-left: 2%;margin-right: 5%;margin-top:1%;">
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <div
+                                        style="border: 1px solid grey;height: 350px;overflow-x:auto;border-radius: 3px;padding-right: 0 !important;">
+                                        <table class="scrollTable" style="width: 100%;border-right: black;">
+                                            <caption></caption>
+                                            <tr style="position: sticky;top: 0;">
+                                                <th>PFC</th>
+                                                <th>PFC Header</th>
+                                                <th style="text-align: center;">Recommended</th>
+                                                <th style="text-align: center;">Discretionary</th>
+                                            </tr>
+                                            <tr *ngFor="let list of commodityIntDetails.primaryFeatures;let i=index"
+                                                (click)="clickedRowPr(i)"
+                                                [ngClass]="{'highlightRow': prPriority.id==i }">
+                                                <td>{{list.pfc}}</td>
+                                                <td>{{list.pfcDesc}}</td>
+                                                <td>
+                                                    <div *ngIf="list.recommended==true"
+                                                        style="display: flex;justify-content: center;"
+                                                        class="fa center hoverColor"><strong
+                                                            style="font-size:25px;width:15%;">&#10004;</strong></div>
+                                                    <div *ngIf="list.recommended==false" class="fa center"><strong
+                                                            style="font-size:25px;"> </strong></div>
+                                                </td>
+                                                <td>
+                                                    <div *ngIf="list.discretionary==true"
+                                                        style="display: flex;justify-content: center;"
+                                                        class="fa center"><strong
+                                                            style="font-size:25px;width:15%;">&#10004;</strong></div>
+                                                    <div *ngIf="list.discretionary==false" class="fa center"><strong
+                                                            style="font-size:25px;"> </strong></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type="button" class="align"
+                                        style="width:25%;margin-left: 15%;margin-top: 40%;"
+                                        (click)="changePriority()">Change
+                                        Priority</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Qualifiers" headerStyleClass="tab" [headerStyle]="{'width':'18%'}">
+                    <div class="container"
+                        style="width: 100%;border:1px solid black; padding-bottom: 1%;padding-top: 1%;border-radius: 5px;">
+                        <div class="container" style="margin-left: 2%;margin-right: 5%;margin-top:1%;">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div>
+                                        <h3> View </h3>
+                                        <input type="radio" class="radio-align1" name="view" value="All" id="qualAll"
+                                            (change)="changeQualifier($event)" checked>All Qualifiers<br>
+                                        <input type="radio" class="radio-align1" name="view" value="A" id="qualA"
+                                            (change)="changeQualifier($event)">Application Comment<br>
+                                        <input type="radio" class="radio-align1" name="view" value="S" id="qualS"
+                                            (change)="changeQualifier($event)">Specification Comment<br>
+                                        <input type="radio" class="radio-align1" name="view" value="M" id="qualM"
+                                            (change)="changeQualifier($event)">Minor
+                                        Feature
+                                    </div>
+                                    <div>
+                                        <br>
+                                        <button
+                                            style="background-color: rgb(183, 181, 181) !important; width: auto;margin-left: 25%;"
+                                            (click)="searchQualifier()" class="btn fa"><strong
+                                                style="font-size:30px">&#xf1e5;</strong></button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div style="height: 350px;overflow-x:auto;border-radius: 3px;">
+                                        <table class="scrollTable" style="width: 100%;border-right: black;">
+                                            <caption></caption>
+                                            <tr style="position: sticky;top: 0;">
+                                                <th>Type</th>
+                                                <th>Property</th>
+                                                <th>Recommended</th>
+                                            </tr>
+                                            <tr *ngFor="let list of qualifierAll;let i=index" (click)="clickedQual(i)"
+                                                [ngClass]="{'highlightRow': qualDeleteSelected==i }">
+                                                <td>{{list.type}}</td>
+                                                <td>{{list.propDesc}}</td>
+                                                <td>
+                                                    <div *ngIf="list.recommended==true"
+                                                        style="display: flex;justify-content: center;"
+                                                        class="fa center"><strong
+                                                            style="font-size:25px;width:15%;">&#10004;</strong></div>
+                                                    <div *ngIf="list.recommended==false" class="fa center"><strong
+                                                            style="font-size:25px;"> </strong></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Summarization" headerStyleClass="tab" [headerStyle]="{'width':'22%'}">
+                    <div class="container"
+                        style="width: 100%;border:1px solid black; padding-bottom: 1%;padding-top: 1%;border-radius: 5px;">
+                        <div class="container" style="margin-left: 2%;margin-right: 5%;margin-top:1%;">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div
+                                        style="width: 55%;border:1px solid rgb(143, 136, 136) ; padding-bottom: 3%;padding-top: 1%;margin-left: 30%;border-radius: 5px;">
+                                        <h3 style="text-align:center ;"> Simplification Control </h3>
+                                        <div class="card" style="width: 90%;margin-left: 5%;">
+                                            <div class="card-header"
+                                                style="font-size: 15px; background-color: #000080;color: #ffff;">
+                                                When
+                                            </div>
+                                            <div class="card-body">
+                                                <input type="radio" name="simpleWhen" id="simpleWhenNever"
+                                                    [(ngModel)]="commodityIntDetails.summarize.simpleWhen" value="0"
+                                                    (click)="saveSummarize()" class="radio-align">Never<br>
+                                                <input type="radio" name="simpleWhen" id="simpleWhenCodesRadio"
+                                                    (click)="saveSummarize();getsimpleWhen()" class="radio-align"> >
+                                                <input type="number" id="simpleWhenCodes"
+                                                    [(ngModel)]="commodityIntDetails.summarize.simpleWhenCodes"
+                                                    value="commodityIntDetails.summarize.simpleWhenCodes"
+                                                    (change)="saveSummarize();getsimpleWhen()"
+                                                    style="width: 20%;text-align: center;" min="1" max="98">Codes<br>
+                                                <input type="radio" name="simpleWhen" id="simpleWhenAlways"
+                                                    [(ngModel)]="commodityIntDetails.summarize.simpleWhen" value="99"
+                                                    (click)="saveSummarize()" class="radio-align">Always
+
+                                            </div>
+                                        </div><br>
+                                        <div class="card" style="width: 90%;margin-left: 5%;">
+                                            <div class="card-header"
+                                                style="font-size: 15px; background-color: #000080;color: #ffff;">
+                                                How
+                                            </div>
+                                            <div class="card-body">
+                                                <input type="radio" name="simpleHow" id="simpleHowPFC"
+                                                    [(ngModel)]="commodityIntDetails.summarize.simpleHow" value="PFC"
+                                                    (click)="saveSummarize()" class="radio-align">PFC Only<br>
+                                                <input type="radio" name="simpleHow" id="simpleHowMFC"
+                                                    [(ngModel)]="commodityIntDetails.summarize.simpleHow" value="MFC"
+                                                    (click)="saveSummarize()" class="radio-align">MFC Only<br>
+                                                <input type="radio" name="simpleHow" id="simpleHowBoth"
+                                                    [(ngModel)]="commodityIntDetails.summarize.simpleHow" value="BOTH"
+                                                    (click)="saveSummarize()" class="radio-align" checked>Both
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div
+                                        style="width: 55%;border:1px solid rgb(143, 136, 136); padding-bottom: 3%;padding-top: 1%;margin-left: 10%;border-radius: 5px;">
+                                        <h3 style="text-align:center ;"> Summarization Control </h3>
+                                        <div class="card" style="width: 90%;margin-left: 5%;">
+                                            <div class="card-header"
+                                                style="font-size: 15px; background-color: #000080;color: #ffff;">
+                                                When
+                                            </div>
+                                            <div class="card-body">
+                                                <input type="radio" name="sumWhen" id="sumWhenNever"
+                                                    [(ngModel)]="commodityIntDetails.summarize.sumWhen" value="0"
+                                                    (click)="saveSummarize()" class="radio-align">Never<br>
+                                                <input type="radio" name="sumWhen" id="sumWhenLinesRadio"
+                                                    (click)="saveSummarize();getsumWhen()" class="radio-align"> > <input
+                                                    type="number" style="width: 20%;text-align: center;"
+                                                    name="sumWhenLines" id="sumWhenLines"
+                                                    [(ngModel)]="commodityIntDetails.summarize.sumWhenLines"
+                                                    (change)="saveSummarize();getsumWhen()"
+                                                    value={{commodityIntDetails.summarize.sumWhenLines}}>
+                                                Lines<br>
+                                                <input type="radio" name="sumWhen" id="sumWhenAlways"
+                                                    [(ngModel)]="commodityIntDetails.summarize.sumWhen" value="99"
+                                                    (click)="saveSummarize()" class="radio-align">Always
+                                            </div>
+                                        </div><br>
+                                        <div class="card" style="width: 90%;margin-left: 5%;">
+                                            <div class="card-header"
+                                                style="font-size: 15px; background-color: #000080;color: #ffff;">
+                                                How
+                                            </div>
+                                            <div class="card-body">
+                                                <input type="radio" name="sumHow" id="sumHowPFC"
+                                                    [(ngModel)]="commodityIntDetails.summarize.sumHow" value="PFC"
+                                                    (click)="saveSummarize()" class="radio-align">PFC Only<br>
+                                                <input type="radio" name="sumHow" id="sumHowMFC"
+                                                    [(ngModel)]="commodityIntDetails.summarize.sumHow" value="MFC"
+                                                    (click)="saveSummarize()" class="radio-align">MFC Only<br>
+                                                <input type="radio" name="sumHow" id="sumHowBoth"
+                                                    [(ngModel)]="commodityIntDetails.summarize.sumHow" value="BOTH"
+                                                    (click)="saveSummarize()" class="radio-align">Both
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </p-tabPanel> 
+            </p-tabView> -->
+    </div>
+
+    <p-dialog [(visible)]="savePopup" [style]="{'width':'35%', height: 'auto'}" position="center" [focusTrap]="true"
+        header="Commodity Setup - Commodity Status" (onShow)="setStatus()" [modal]="true">
+        <div class="container" style="background-color:white"><br>
+            <div class="card" style="width: 90%;margin-left: 5% !important;">
+                <div class="card-header" style="font-size :12px;font-family: Ford Antenna;height:30px">
+                    Status
+                </div>
+                <div class="card-body" style="font-size :12px;font-family: Ford Antenna;">
+                    <input type="radio" name="complete" id="complete" value="C" class="radio-align1"
+                        [disabled]="isDisabledTask1" [(ngModel)]="commodityIntDetails.status.status"
+                        (change)="changeStatus($event)">Complete
+                    <input type="radio" name="incomplete" id="incomplete" value="I" class="radio-align1"
+                        [(ngModel)]="commodityIntDetails.status.status" (change)="changeStatus($event)">Incomplete
+                </div>
+            </div><br>
+            <div class="card" style="width: 90%;margin-left: 5% !important;">
+                <div class="card-header" style="font-size :12px;font-family: Ford Antenna;height:30px">
+                    Tasks
+                </div>
+                <div class="card-body" style="font-size :12px;font-family: Ford Antenna;">
+                    <input type="checkbox" name="task1" id="task1" value="Y" (change)="changeTask1();changeTask()"
+                        [(ngModel)]="assignBase" class="radio-align1 checkbox-inline"
+                        [disabled]="isDisabledTask1">Assign Bases<br>
+                    <!-- <input type="checkbox" name="task2" id="task2" value="Y" (change)="changeTask2();changeTask()"
+                            class="radio-align1 checkbox-inline">General and Extract/Publish<br>
+                        <input type="checkbox" name="task3" id="task3" value="Y" (change)="changeTask3();changeTask()"
+                            class="radio-align1">Primary Features<br>
+                        <input type="checkbox" name="task4" id="task4" value="Y" (change)="changeTask4();changeTask()"
+                            class="radio-align1">Qualifiers<br>
+                        <input type="checkbox" name="task5" id="task5" value="Y" (change)="changeTask5();changeTask()"
+                            class="radio-align1">Summarization -->
+                </div>
+            </div>
+
+            <button style="margin-left:25%;margin-top: 3%;" class="btn" id="btn"
+                (click)="saveCommodity()">Save</button>
+            <button style="margin-left:10%;margin-top: 3%" class="btn" id="btn"
+                (click)="cancelSave()">Cancel</button>
+
+        </div>
+    </p-dialog>
+
+    <!-- <p-dialog [(visible)]="chgComPopup" [style]="{'width':'30%', height: 'auto'}" position="center"
+        header="Change Commodity" [focusTrap]="true" [modal]="true" [closeOnEscape]=true>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12" style="margin-top:3%; display:flex">
+                        <div style="margin-top:2px;width:40%;text-align:right;">
+                            <p class="required"
+                                style="margin-top:3%; font-size: 16px;font-weight: 700;margin-left:3%;text-align: right;">
+                                Commodity :
+                            </p>
+                        </div>
+                        <div style="width:60%;">
+                            <input type="text" name="chgCommodity" [(ngModel)]="changeCommodity.commodity"
+                                id="chgCommodity" value={{changeCommodity.commodity}} maxlength="8"
+                                style="margin-left:12%;text-transform: uppercase;width:75%;height:38px;font-family:Ford Antenna;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 2%;">
+                    <div class="col-lg-12" style="margin-top:3%; display:flex">
+                        <div style="margin-top:2px;width:40%;text-align:right;">
+                            <p
+                                style="margin-top:3%; font-size: 16px;font-weight: 700;margin-left:3%;text-align: right;">
+                                Vehicle Type :
+                            </p>
+                        </div>
+                        <div style="width:60%;">
+                            <input type="text" name="chgVehicle" [(ngModel)]="changeCommodity.vehicleType"
+                                id="chgVehicle" readonly value={{changeCommodity.vehicleType}}
+                                style="margin-left:12%;width:75%;height:38px;font-family:Ford Antenna;">
+                        </div>
+                    </div>
+                </div>
+                <div style="display:flex;margin-top: -1%;margin-bottom: -2%;">
+                    <button style="width: 24%;margin-left:20%;height: 40px;" class="btn btn-primary btn-block" id="btn"
+                        (click)="saveChgComm()">Save</button>
+                    <button style="width: 24%;margin-left:10%;height: 40px" class="btn btn-primary btn-block" id="btn"
+                        (click)="cancelchgComm()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </p-dialog> -->
+    <p-dialog [(visible)]="chgComPopup" [style]="{'width':'30%', height: 'auto'}" position="center"
+        header="Change Commodity" [focusTrap]="true" [modal]="true" [closeOnEscape]=true>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12" style="margin-top:3%; display:flex">
+                        <div style="margin-top:2px;width:40%;text-align:right;">
+                            <p
+                                style="margin-top:3%; font-size :11px;margin-left:3%;text-align: right;font-weight:bold !important">
+                                Commodity<span
+                                Style=" color:#e32;font-size: 13px !important; font-weight:bold !important;">*</span> :
+                            </p>
+                        </div>
+                        <div style="width:60%;">
+                            <input type="text" name="chgCommodity" [(ngModel)]="changeCommodity.commodity"
+                                id="chgCommodity" value={{changeCommodity.commodity}} maxlength="8"
+                                style="margin-left:12%;text-transform: uppercase;width:75%;height:30px;font-size :11px;font-family:Ford Antenna;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 2%;">
+                    <div class="col-lg-12" style="margin-top:3%; display:flex">
+                        <div style="margin-top:2px;width:40%;text-align:right;">
+                            <p style="margin-top:3%; font-size :11px;margin-left:3%;text-align: right;font-weight:bold !important">
+                                Vehicle Type :
+                            </p>
+                        </div>
+                        <div style="width:60%;">
+                            <input type="text" name="chgVehicle" [(ngModel)]="changeCommodity.vehicleType"
+                                id="chgVehicle" readonly value={{changeCommodity.vehicleType}}
+                                style="margin-left:12%;width:75%;height:30px;font-size :11px;font-family:Ford Antenna;">
+                        </div>
+                    </div>
+                </div>
+                <div style="display:flex;margin-top: 2%;margin-bottom: -2%;">
+                    <button style="margin-left:20%" class="btn" id="btn"
+                        (click)="saveChgComm()">Save</button>
+                    <button style="margin-left:10%" class="btn" id="btn"
+                        (click)="cancelchgComm()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </p-dialog>
+    <p-dialog [(visible)]="this.deleteSection.flag" [style]="{'width':'auto', height: 'auto'}" position="center"
+        header="Commodity Setup Delete" [focusTrap]="true" [modal]="true">
+        <div class="container" style="background-color:white;border:1px solid black;">
+            <p style="text-align: center;margin-top:2%">{{this.deleteSection.message1}}</p>
+            <div
+                style="align-items: center;overflow-x: auto;max-height: 200px;width: 80%;border: 1px solid black;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius: 3px;">
+                <p-table [value]="this.deleteSection.sections" scrollDirection="both"
+                    styleClass="p-datatable-sm p-datatable-gridlines" responsiveLayout="scroll"
+                    [style]="{'font-size':'12px','margin-top':'0','margin-left':'auto','margin-right':'auto'}">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th scope="col">Template ID</th>
+                            <th scope="col">Vehicle</th>
+                            <th scope="col">Prefix</th>
+                            <th scope="col">Suffix</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                        <tr>
+                            <td> {{list.templateId}}</td>
+                            <td> {{list.sectionVehicle}}</td>
+                            <td> {{list.pamPrefix}}</td>
+                            <td> {{list.sectSuffix}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+            <p style="text-align:center">{{this.deleteSection.message2}}</p>
+            <button style="width: 15%;margin-left:42%;margin-right:43%;margin-top: 2%;"
+            class="btn" id="btn" (click)="deleteOk()">OK</button>
+        </div>
+    </p-dialog>
+
+    <p-dialog [(visible)]="this.baseUpdate.flag" [style]="{'width':'31%', height: 'auto'}" position="center"
+        header="Commodity Base Details" [focusTrap]="true" [modal]="true">
+        <div class="container" style="background-color:white;border:1px solid black;">
+            <div class="row" style="margin-top: 2%;">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <div style="margin-top:2px;width:40%;text-align:right;">
+                        <p
+                            style="margin-top:3%; font-family:Ford Antenna;font-size :11px;font-weight:bold;margin-left:3%;text-align: right;">
+                            Commodity :
+                        </p>
+                    </div>
+                    <div style="width:60%;">
+                        <input type="text" name="baseUpdateComm" [(ngModel)]="baseUpdate.commodity"
+                            style="margin-left:12%;width:75%;height:30px;font-size :11px;font-family:Ford Antenna;">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <div class="col-lg-3" style="margin-top:2px;width:40%;text-align:right;">
+                        <p
+                            style="margin-top:3%; font-family:Ford Antenna;font-weight:bold;font-size :11px;margin-left: 3%;text-align: right;">
+                            Vehicle Type :
+                        </p>
+                    </div>
+                    <div class="col-lg-9" style="width:60%;">
+                        <input type="text" name="baseUpdateVeh" [(ngModel)]="baseUpdate.vehicleType"
+                            style="margin-left:12%;width:75%;height:30px;font-size :11px;font-family:Ford Antenna;">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <div class="col-lg-3" style="margin-top:2px;width:40%;text-align:right;">
+                        <p
+                            style="margin-top:3%; font-family:Ford Antenna;font-size :11px;font-weight:bold;margin-left: 3%;text-align: right;">
+                            Designation<span
+                            Style=" color:#e32;font-size: 13px !important; font-weight:bold;">*</span> :
+                        </p>
+                    </div>
+                    <div class="col-lg-9" style="width:60%;">
+                        <p-dropdown [options]="designationDropdown" optionLabel="value" (onChange)="changeDesignation()"
+                            value="updateDesignation.value"
+                            [style]="{height: '30px', 'padding':'0','border-color':'black','border-radius':'5px','margin-left':'12%','width':'75%','border':'2px solid black'}"
+                            [(ngModel)]="baseUpdate1.designation" [itemSize]="3" placeholder=" ">
+                            <ng-template pTemplate="selectedItem">
+                                <div>{{updateDesignation.value}}</div>
+                            </ng-template>
+                        </p-dropdown>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <div class="col-lg-3" style="margin-top:2px;width:40%;text-align:right;">
+                        <p for="gridCheck1"
+                            style="margin-top:3%; font-family:Ford Antenna;font-size :11px;font-weight:bold;margin-left: 3%;text-align: right;">
+                            Base :
+                        </p>
+                    </div>
+                    <div class="col-lg-9" style="width:60%;">
+                        <input type="text" name="baseUpdateBase" [(ngModel)]="baseUpdate.base"
+                            style="margin-left:12%;width:75%;height:30px;font-size :11px;font-family:Ford Antenna;">
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 2%;">
+                <div class="col-lg-12" style="margin-top:3%; display:flex">
+                    <div class="col-lg-3" style="margin-top:2px;width:40%;text-align:right;">
+                        <p
+                            style="margin-top:3%; font-family:Ford Antenna;font-size :11px;font-weight:bold;margin-left: 3%;text-align: right;">
+                            Origin :
+                        </p>
+                    </div>
+                    <div class="col-lg-9" style="width:60%;">
+                        <input type="text" name="baseUpdateOrigin" [(ngModel)]="baseUpdate.origin"
+                            style="margin-left:12%;width:75%;height:30px;font-size :11px;font-family:Ford Antenna;">
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: -1%;margin-bottom: 2%;">
+                <button style="margin-left:25%" class="btn" id="btn"
+                    (click)="saveDesignation()">Save</button>
+                <button style="margin-left:10%" class="btn" id="btn"
+                    (click)="cancelUpdate()">Cancel</button>
+            </div>
+        </div>
+    </p-dialog>
+
+
+    <p-dialog [(visible)]="this.deleteBaseSection.flag" [style]="{'width':'auto', height: 'auto'}" position="center"
+        header="Commodity Setup Delete" [focusTrap]="true" [modal]="true">
+        <div class="container" style="background-color:white;border:1px solid black;">
+            <p style="text-align:center;margin-top:2%">{{this.deleteBaseSection.message1}}</p>
+            <p style="text-align:center">{{this.deleteBaseSection.message2}}</p>
+            <div
+                style="align-content: center;margin-top: 1%;margin-bottom: 2%;overflow-x: auto;max-height: 200px;border: 1px solid black;width: 60%;margin-left: 20%;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius: 3px;">
+                <p-table [value]="this.deleteBaseSection.base" scrollDirection="both"
+                    styleClass="p-datatable-sm p-datatable-gridlines" responsiveLayout="scroll"
+                    [style]="{'font-size':'12px','margin-top':'0','margin-left':'auto','margin-right':'auto'}">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th scope="col">Engg. Part No</th>
+                            <th scope="col">GCAT Usage</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                        <tr>
+                            <td> {{list.engpart}}</td>
+                            <td> {{list.usage}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+            <p style="text-align:center">{{this.deleteBaseSection.message3}}</p>
+            <button style="width: 15%;margin-left:42%;margin-right:43%;margin-top: 2%;"
+            class="btn" id="btn" (click)="deleteOk()">OK</button>
+        </div>
+    </p-dialog>
+
+    <!--<p-dialog [(visible)]="enggBase" [style]="{'width':'37%', height:'auto'}" header="Add Engineering Base"
+        (onShow)="engBaseinit()" [modal]="true">
+        <div class="card" style="width:100%;border-color:black;padding-bottom: 0%;">
+            <form>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-12" style="margin-top:1%; display:flex">
+                            <div class="col-lg-4" style="margin-top:2px;width:28%;text-align:right;">
+                                <p class="required" for="gridCheck1"
+                                    style="margin-top:3%; font-size: 16px;font-weight: 700;margin-left:3%;text-align: right;">
+                                    Base No :
+                                </p>
+                            </div>
+                            <div class="col-lg-8" style="width:60%;">
+                                <input type="text" name="engpBaseR" class="form-control" [(ngModel)]="model.engpBaseR"
+                                    maxlength="8" style="margin-left:12%;height:38px;font-weight: Ford Antenna;"
+                                    pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12" style="margin-top:3%; display:flex">
+                            <div class="col-lg-4" style="margin-top:2px;width:28%;text-align:right;">
+                                <p for="gridCheck1"
+                                    style="margin-top:3%; font-size: 16px;font-weight: 700;margin-left: 3%;text-align: right;">
+                                    Origin :
+                                </p>
+                            </div>
+                            <div class="col-lg-8" style="width:60%;">
+                                <input type="text" name="engBaseEioOrigC" readonly value="WERS" class="form-control"
+                                    [(ngModel)]="model.engBaseEioOrigC"
+                                    style="margin-left:12%;height:38px;font-weight: Ford Antenna;" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12" style="margin-top:3%; display:flex">
+                            <div class="col-lg-4" style="margin-top:2px;width:28%;text-align:right;">
+                                <p for="gridCheck1"
+                                    style="margin-top:3%; font-size: 16px;font-weight: 700;margin-left: 3%;text-align: right;">
+                                    Flag :
+                                </p>
+                            </div>
+                            <div class="col-lg-8" style="width:60%;">
+                                <input type="text" name="engBaseNewF" readonly value="N" class="form-control"
+                                    [(ngModel)]="model.engBaseNewF"
+                                    style="margin-left:12%;height:38px;font-weight: Ford Antenna;" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12" style="margin-top:3%; display:flex">
+                            <div class="col-lg-4" style="margin-top:2px;width:28%;text-align:right;">
+                                <p class="required" for="gridCheck1"
+                                    style="margin-top:3%; font-size: 16px;font-weight: 700;margin-left: 3%;text-align: right;">
+                                    Description :
+                                </p>
+                            </div>
+                            <div class="col-lg-8" style="width:60%;">
+                                <input type="text" placeholder="No Description Available" name="engBaseDescX"
+                                    class="engBaseDescX" [(ngModel)]="model.engBaseDescX"
+                                    style="margin-left:12%;height:38px;font-weight: Ford Antenna;" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: -3%;margin-bottom: -5%;">
+                    <button style="width: 20%;margin-left: 16%;" class="btn btn-primary btn-block" id="btn"
+                        (click)="reset()">New</button>
+                    <button style="width: 20%;margin-left: 3%;" class="btn btn-primary btn-block" id="btn"
+                        (click)="saveEngbase()">Save</button>
+                    <button style="width: 20%;margin-left: 3%;" class="btn btn-primary btn-block" id="btn"
+                        (click)="enggBase=false">Close</button>
+                </div>
+            </form>
+        </div>
+    </p-dialog>-->
+    <p-dialog [(visible)]="enggBase" [style]="{'width':'37%', height:'auto','font-size':'4px !important'}"
+        header="Add Engineering Base" (onShow)="engBaseinit()" [modal]="true">
+        <div class="card" style="width:100%;border-color:black;padding-bottom: 0%;">
+            <form>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-12" style="margin-top:1%; display:flex">
+                            <div class="col-lg-4" style="margin-top:2px;width:28%;text-align:right;">
+                                <p for="gridCheck1"
+                                    style="margin-top:3%;color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold ;margin-left:3%;text-align: right;">
+                                    Base No<span
+                                    Style=" color:#e32;font-size: 13px !important; font-weight:bold;">*</span> :
+                                </p>
+                            </div>
+                            <div class="col-lg-8" style="width:60%;">
+                                <input type="text" name="engpBaseR" class="form-control" [(ngModel)]="model.engpBaseR"
+                                    maxlength="8"
+                                    style="margin-left:12%;height:30px;font-weight: Ford Antenna;font-size :11px"
+                                    pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12" style="margin-top:3%; display:flex">
+                            <div class="col-lg-4" style="margin-top:2px;width:28%;text-align:right;">
+                                <p for="gridCheck1"
+                                    style="margin-top:3%; color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;margin-left: 3%;text-align: right;">
+                                    Origin :
+                                </p>
+                            </div>
+                            <div class="col-lg-8" style="width:60%;">
+                                <input type="text" name="engBaseEioOrigC" readonly value="WERS" class="form-control"
+                                    [(ngModel)]="model.engBaseEioOrigC"
+                                    style="margin-left:12%;height:30px;font-weight: Ford Antenna;font-size :11px"
+                                    pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12" style="margin-top:3%; display:flex">
+                            <div class="col-lg-4" style="margin-top:2px;width:28%;text-align:right;">
+                                <p for="gridCheck1"
+                                    style="margin-top:3%; color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;margin-left: 3%;text-align: right;">
+                                    Flag :
+                                </p>
+                            </div>
+                            <div class="col-lg-8" style="width:60%;">
+                                <input type="text" name="engBaseNewF" readonly value="N" class="form-control"
+                                    [(ngModel)]="model.engBaseNewF"
+                                    style="margin-left:12%;height:30px;font-weight: Ford Antenna;font-size :11px"
+                                    pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12" style="margin-top:3%; display:flex">
+                            <div class="col-lg-4" style="margin-top:2px;width:28%;text-align:right;">
+                                <p for="gridCheck1"
+                                    style="margin-top:3%; color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;margin-left: 3%;text-align: right;">
+                                    Description<span
+                                    Style=" color:#e32;font-size: 13px !important; font-weight:bold;">*</span> :
+                                </p>
+                            </div>
+                            <div class="col-lg-8" style="width:60%;">
+                                <input type="text" placeholder="No Description Available" name="engBaseDescX"
+                                    class="engBaseDescX" [(ngModel)]="model.engBaseDescX"
+                                    style="margin-left:12%;height:30px;font-weight: Ford Antenna;font-size :11px"
+                                    pInputText />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: -1%;margin-bottom: -5%;">
+                    <button style="width: 20%;margin-left: 16%;" class="btn" id="btn"
+                        (click)="reset()">New</button>
+                    <button style="width: 20%;margin-left: 3%;" class="btn" id="btn"
+                        (click)="saveEngbase()">Save</button>
+                    <button style="width: 20%;margin-left: 3%;" class="btn" id="btn"
+                        (click)="enggBase=false">Close</button>
+                </div>
+            </form>
+        </div>
+    </p-dialog>
+
+    <p-dialog header="Commodity Setup" [(visible)]="alert.flag" [style]="{'max-width':'35%', height: 'auto'}"
+        [modal]="true" [closeOnEscape]=true [focusOnShow]=true [dismissableMask]="true">
+        <br>
+        <p style="text-align: center;padding-left:5%;padding-right: 5%;font-size:12px">{{alert.msg}}</p>
+        <div class="text-center">
+            <button style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 1%;margin-left: -1%;margin-bottom: 1%;"
+            class="btn" id="btn" (click)="popupOk()">OK</button>
+        </div>
+    </p-dialog>
+
+    <p-dialog header="Commodity Setup" [(visible)]="confirm.flag" [style]="{'max-width':'40%', height: 'auto'}"
+        [modal]="true" [closeOnEscape]=true><br>
+        <p style="text-align: center;font-size:12px">{{confirm.msg}}</p>
+        <div style="margin-top:-1%;margin-bottom: 0;">
+            <button style="width: 20%;margin-left:25%;" class="btn" id="btn"
+                (click)="confirmOk()">OK</button>
+            <button style="width: 20%;margin-left:10%;" class="btn" id="btn"
+                (click)="confirmCancel()">Cancel</button>
+        </div>
+    </p-dialog>
+
+    <div style="margin-top: 16px;text-align: center;">
+        <button class="btn" id="btn" (click)="newComm()">New</button>
+        <button class="btn" id="btn" [disabled]="!this.commodityIntDetails.enableSave"
+            (click)="save()">Save</button>
+        <button class="btn" id="btn" (click)="deleteRow()">Delete</button>
+        <button class="btn" id="btn" style="width: auto" (click)="isChangesAvailable($event)"
+            value="4">Change Cmdty</button>
+        <button class="btn" id="btn" (click)="wbs()">WBS</button>
+        <button class="btn" id="btn" style="width: auto" (click)="EnggBase()">Add Engg
+            Base</button>
+        <button class="btn" id="btn" (click)="resett()">Reset</button>
+        <button class="btn" id="btn" (click)="changesClose()">Close</button>
+    </div>
+
+    <app-lexicon-search *ngIf="lexiPopup>0"></app-lexicon-search>
+    <router-outlet></router-outlet>

@@ -1,0 +1,330 @@
+
+<div class="container1" style="width:100%;height:480px;">
+    <div class="header" id="head"  (click)="showCenterPart()"  [style.border-radius]="br1" >
+        <span id="headerName">Illustration Commodity Mismatch</span>
+    <i class="fa-solid fa-plus"  aria-hidden="true" style="float:right;font-size: 20px;color: red; "></i>    
+   </div>
+    <div class="centerpart" id="center" [style.display]="display">
+        <div class="row1" style="width:100%">
+                <div class="col1" style="width:20%">
+                            <div style="float:left;width:50%;">
+                                <label id="label"  style="  float:left">Product Type <span class="required"></span></label>
+                                <span id="colon" style="float:left">:</span>
+                               
+                            </div>
+                            <div style="float:left;width:50%;">
+                                <p-dropdown  [options]="productType" optionLabel="value" autoWidth="false"
+                                [style]="{ 'width': '124%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}" [filter]="false"
+                                  [(ngModel)]="vehicleType" (click)="productTypeDrop()">
+                             
+                                </p-dropdown>
+                            
+                            </div>
+                    
+                
+                </div>
+                <div class="col1" style="width:20%">
+                    <div style="float:left;width:50%;">
+                        <label id="label"  style="  float:left">Vehicle Line</label>
+                        <span id="colon"  style="  float:left">:</span>
+
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <p-dropdown  [options]="vehicleLine" optionLabel="prtpeioDescX" autoWidth="false"
+                        [style]="{ 'width': '133%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}" [filter]="true"
+                        filterBy="prtpeioDescX" placeholder="All"[(ngModel)]="vehicledrop" (click)="changeVehicleDrop()">
+                        </p-dropdown>
+                   
+                    </div>
+                   
+                </div>
+                <div class="col1">
+                <p style="color: red;margin-left:38px;">-or-</p>
+                </div>
+
+                <div class="col1" style="width:20%;float:left;">
+                    <div  id="" style="float:left;width:19%;">
+                        <label id="label"  style="float:left;margin-left:-5px">Prefix</label>
+                        <span id="colon"  style="float:left;">:</span>
+
+                    </div>
+                    <div style="float:left;width:50%;">
+                        <p-dropdown  [options]="prefixDropdown" optionLabel="famprfxPrefixC"  autoWidth="false"
+                        [style]="{ 'width': '127%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}" [filter]="true"
+                         [filter]="true" filterBy="famprfxPrefixC"  placeholder="All" [(ngModel)]="prefix" (click)="changePrefix()">
+                                
+                        </p-dropdown>
+                    
+                    </div>
+                </div>
+        <div class="row2" style="width:20%;float:right;display:flex;text-align: right;">
+		 <div *ngIf="show==false" >
+            <button id="btn"   (click)="submit()">
+                Show Report
+            </button>
+			</div>
+			 <div *ngIf="show==true" >
+			<button id="btn"   (click)="submit1()">
+                Show Report
+            </button>
+</div>
+<button id="btn" style="margin-left:10px" (click)="refresh()">
+                Refresh
+            </button>
+            <button id="btn" style="margin-left:10px" (click)="home()">
+                Close
+             </button>
+        </div>
+        
+       
+<div style="clear:both"></div>
+
+</div>
+</div>
+
+<div class="row" style="margin-left:2%">
+    <div *ngIf="showTable">
+        <h2 style="text-align:center;font-weight:bold;color:#00095B;font-size:15px">Illustration MisMatch Report </h2>
+        <div class="row" style="margin-left:5%;margin-top: -10px;">
+            <div class="col lg 3">
+                <h2 style="font-family:Ford Antenna;font-size:14px;margin-left:300px;color:#00095B;font-weight:bold;">
+                     {{vehType}}</h2>
+            </div>
+            <div class="col lg 3" >
+                <h2 style="font-family:Ford Antenna;font-size:14px;margin-left:-1Px;color:#00095B;font-weight:bold;">
+                
+                    {{vehLine}}</h2>
+            </div>
+            
+        </div>
+    </div>
+    <div *ngIf="showTable2">
+        <h2 style="text-align:center;font-weight:bold;color:#00095B;font-size:15px">IIllustration MisMatch Report </h2>
+        <div class="row" style="margin-left:5%;margin-top: -10px;">
+            <div class="col lg 3">
+                <h2 style="font-family:Ford Antenna;font-size:14px;margin-left:300px;color:#00095B;font-weight:bold;">
+                   {{vehType}}</h2>
+            </div>
+         
+            <div class="col lg 3" >
+                <h2 style="font-family:Ford Antenna;font-size:14px;color:#00095B;font-weight:bold;">
+                    {{pre}}</h2>
+                </div>
+        </div>
+    </div>
+</div>
+<br>
+<div  style="margin-top: -20px;width:86%;
+margin-left:7%;">
+    <p-table [value]="parts" *ngIf="showTable" styleClass="p-datatable-customers"
+    responsiveLayout="scroll" scrollDirection="both" scrollHeight="200px" 
+    [paginator]="false" [rows]="7" [showCurrentPageReport]="true" 
+    
+        [rowHover]="true">
+        <ng-template pTemplate="header">
+            <tr style="position: sticky;top:0">
+                <th>Vehicle line</th>
+                <th>IRP Number</th>
+                <th>Illustration</th>
+                <th>Revision</th>
+                <th>Section</th>
+                <th>Suffix</th>
+                <th>Mismatched Commodities</th>
+                <th>Notes</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body"  let-part>
+            <tr>
+                <td>{{ part.vehicleLine}}</td>
+                <td>{{ part.irpNumber }}</td>
+                <td>{{ part.illustration}}</td>
+                <td>{{ part.revision}}</td>
+                <td>{{ part.section}}</td>
+                <td>{{ part.suffix}}</td>
+                   <td  style="text-align:center"><u>
+                <span style="font-size:11px;color:blue">     
+           <a (click)="next(part.vehicleLine,part.irpNumber,part.illustration,part.section)">
+                {{ part.misCommodities}}
+            </a>
+        </span></u>
+      </td>
+                <td style="text-align:center"><u>
+                <span style="font-size:11px;color: blue">
+                    <a (click)="notes(part.irpNumber)">
+                        {{ part.notes}}
+
+                    </a>
+                </span></u>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+<div style="clear:both"></div>
+<br>
+<div   style="margin-top:5px !important;width:86%;
+margin-left:7%;"> 
+  <h3  *ngIf="showTable" style="text-align:center;font-weight:bold;color:#00095B;font-size:15px">Group 3 Mismatch</h3>
+    <p-table [value]="parts1" *ngIf="showTable" styleClass="p-datatable-customers"
+    responsiveLayout="scroll" scrollDirection="both" scrollHeight="200px" [paginator]="false" [rows]="7" [showCurrentPageReport]="true" 
+    
+        [rowHover]="true">
+        <ng-template pTemplate="header">
+            <tr style="position: sticky;top:0">
+                <th>Prefix</th>
+                <th>IRP Number</th>
+                <th>Illustration</th>
+                <th>Revision</th>
+                <th>Section</th>
+                <th>Suffix</th>
+                <th>Mismatched Commodities</th>
+                <th>Notes</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-part1>
+            <tr>
+                <td>{{ part1.prefix}}</td>
+                <td>{{ part1.irpNumber }}</td>
+                <td>{{ part1.illustration}}</td>
+                <td>{{ part1.revision}}</td>
+                <td>{{ part1.section}}</td>
+                <td>{{ part1.suffix}}</td>
+                <td style="text-align:center"><u>
+                    <span style="font-size:11px;color:blue">
+                <a (click)="next1(part1.prefix,part1.irpNumber,part1.illustration,part1.section)">{{ part1.misCommodities}}</a>
+            </span></u>
+                </td>
+                <td style="text-align:center"><u>
+                    <span style="font-size:11px;color:blue">
+                        <a (click)="notes1(part1.irpNumber)"
+                        >{{ part1.notes}}
+                    </a>
+                </span></u>
+                    </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+<br>
+<div style="margin-top: -50px;width:86%;
+margin-left:7%;"> 
+    <p-table [value]="parts2" *ngIf="showTable2" styleClass="p-datatable-customers"
+    responsiveLayout="scroll"  scrollDirection="both"  scrollHeight="300px" [paginator]="false" [rows]="7" [showCurrentPageReport]="true" 
+    
+        [rowHover]="true">
+        <ng-template pTemplate="header">
+            <tr style="position: sticky;top:0">
+                <th>Prefix</th>
+                <th>IRP Number</th>
+                <th>Illustration</th>
+                <th>Revision</th>
+                <th>Section</th>
+                <th>Suffix</th>
+                <th>Mismatched Commodities</th>
+                <th>Notes</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-part2>
+            <tr>
+                <td>{{ part2.prefix}}</td>
+                <td>{{ part2.irpNumber }}</td>
+                <td>{{ part2.illustration}}</td>
+                <td>{{ part2.revision}}</td>
+                <td>{{ part2.section}}</td>
+                <td>{{ part2.suffix}}</td>
+                <td style="text-align:center"><u>
+                    <span style="font-size:11px;color: blue">
+                <a (click)="next2(part2.prefix,part2.irpNumber,part2.illustration,part2.section)">{{ part2.misCommodities}}</a>
+            </span></u>
+                </td>
+                <td style="text-align:center"><u>
+                    <span style="font-size:11px;color: blue">
+                        <a (click)="notes2(part2.irpNumber)">
+                            {{ part2.notes}}
+                        </a>
+                    </span></u>
+                    </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+</div>
+<p-dialog header="Illustration Commodity Mismatch" [(visible)]="alert.flag" [style]="{'max-width':'50%', height: 'auto'}" [modal]="true">
+    <br>
+    <p style="text-align: center;">{{alert.msg}}</p> 
+    <div class="cancelpop" style="margin-left: 34px;"> 
+        <button (click)="cancelpop()" id="btn" style="height:24px;width:18%;margin-left:34%;margin-top:0%">OK</button>
+    </div>
+   
+  </p-dialog>
+  <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10111113" rejectButtonStyleClass="p-button-text">
+</p-confirmDialog>
+<p-dialog header="{{notesHeader}}" [(visible)]="isEditor" [baseZIndex]="10111113" [style]="{'min-width':'50%', height: '500px'}"[closable]="false" [modal]="true">
+    <br>
+    <textarea  *ngIf="isEditor"(change)="notesChanges()" [(ngModel)]="text1" [style]="{'width': '100%;','height':'500px'}">
+    </textarea>
+    <ng-template pTemplate="footer">
+        <p-button (click)="expFile()" label="Save"></p-button>
+        <p-button (click)="confirmalert1(1)" label="close"></p-button>
+      </ng-template>
+  </p-dialog>
+  
+
+
+
+  <p-dialog header="Illustration Commodity Mismatch" [(visible)]="alert.flag" [style]="{'max-width':'50%', height: 'auto'}" [modal]="true">
+    <br>
+    <p style="text-align: center;">{{alert.msg}}</p> 
+    <div class="cancelpop" style="margin-left: 34px;"> 
+        <button (click)="cancelpop()" id="btn" style="height:24px;width:18%;margin-left:34%;margin-top:0%">OK</button>
+    </div>
+  
+  </p-dialog>
+  <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10111113"[closable]="false" rejectButtonStyleClass="p-button-text">
+</p-confirmDialog>
+<p-dialog header="{{notesHeader}}" [closable]="false"[(visible)]="isEditor1" [baseZIndex]="10111113" [style]="{'min-width':'50%', height: '500px'}" [modal]="true">
+    <br>
+    <textarea  *ngIf="isEditor1"(change)="notesChanges()" [(ngModel)]="text2" [style]="{'width': '100%;','height':'500px'}">
+
+    </textarea>
+    <ng-template pTemplate="footer">
+        <p-button (click)="expFile1()"label="Save"></p-button>
+        <p-button (click)="confirmalert2(2)" label="close"></p-button>
+      </ng-template>
+  </p-dialog>
+
+
+
+
+  <p-dialog header="Illustration Commodity Mismatch"[(visible)]="alert.flag" [style]="{'max-width':'50%', height: 'auto'}" [modal]="true">
+    <br>
+   <p style="text-align: center;">{{alert.msg}}</p> 
+    <div class="cancelpop" style="margin-left: 34px;"> 
+        <button (click)="cancelpop()" id="btn" style="height:24px;width:18%;margin-left:34%;margin-top:0%">OK</button>
+    </div>
+  </p-dialog>
+  <p-confirmDialog [style]="{width: '50vw'}"[closable]="false"[baseZIndex]="10111113" rejectButtonStyleClass="p-button-text">
+</p-confirmDialog>
+<p-dialog header="{{notesHeader}}" [(visible)]="isEditor2"[closable]="false" [baseZIndex]="10111113" [style]="{'min-width':'50%', height: '500px'}" [modal]="true">
+    <br>
+    <textarea  *ngIf="isEditor2" (change)="notesChanges()" [(ngModel)]="text3" [style]="{'width': '100%;','height':'500px'}">
+
+    </textarea>
+    <ng-template pTemplate="footer">
+        <p-button (click)="expFile2()" label="Save"></p-button>
+        <p-button (click)="confirmalert3(3)" label="close"></p-button>
+      </ng-template>
+  </p-dialog>
+
+ 
+  <p-dialog header="Illustration Commodity Mismatch"[closable]="false" [(visible)]="alert1.flag" [style]="{'max-width':'50%', height: 'auto'}" [modal]="true">
+    <br>
+    {{alert1.msg}}
+    <div class="partrow2" style="display: inline-block;width: 100%;">
+        <button (click)="sample();cancelpop1()" id="btn" class="bt1" style="margin-left:30%;width:19%;margin-top:7px">Yes</button>
+        <button (click)="cancelpop1()" id="btn" class="bt1"  style="width:19%">No</button>
+    </div>
+  </p-dialog>
+
+  
+  

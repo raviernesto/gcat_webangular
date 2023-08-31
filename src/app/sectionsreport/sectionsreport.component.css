@@ -1,0 +1,199 @@
+.vehicle{
+    border-radius: 10px;
+    font-size: 20px;
+    margin-left: 26%;
+    background-color:#000080;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+  
+#head{
+    width:86%;
+    margin-left:7%;
+    padding:1%;
+     background-color: #102B4E;
+    display:inline-block;
+     border-radius: 5px
+  
+  }
+  #headerName{
+    font-size: 16px;
+    float:left;
+    color:white;
+    font-weight: bold;
+  }
+  #center{
+    width:86%;
+    margin-left:7%;
+    margin-top:-6px;
+    padding:1% 0%;
+    box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+    border-radius: 0px 0px 5px 5px;
+  }
+  
+  #label{
+    color:#00095B;
+     font-family:Ford Antenna;
+     font-size :11px;
+     font-weight:bold;
+     width:90%;
+     text-align: right;
+     padding-right: 20px;
+  
+  }
+  #colon{
+    color:#00095B;
+    font-family:Ford Antenna;
+    font-size :11px;
+    font-weight:bold;
+    width: 2%;
+    text-align: right;
+  }
+ 
+  .col1{
+   float:left;
+  
+  }
+  
+  /* .colpart1{
+    display:flex;
+    float:left;
+    margin-left:10px;
+    margin-top:10px;
+  } */
+  /* #btn{
+   
+    height:41px;
+    width:106px;
+    border-radius:20px;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    border:none !important; */
+    /* margin-top:20px;
+    margin-left: 8%; */
+    
+  /* } */
+  #btn{
+   
+    /* height:35px;
+    font-size: 13px;
+    width:90px;
+    border-radius:20px;
+    background-color:#000080 !important;
+    color:white;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap; */
+    /* margin-top:20px; */
+    /* margin-left: 1.5%;
+    text-align:center !important; */
+    height:25px;
+    font-size: 13px;
+    width:100px;
+    border-radius:20px;
+    background-color:#000080 !important;
+    color:white;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    /* margin-top:20px; */
+    margin-left: 0.2%;
+    text-align: center !important;
+  }
+  #tablepart{
+    width:86%;
+   
+    margin-left:7%;
+    margin-top:-6px;
+    padding:1% 0%;
+  }
+  #th{
+    font-size:15px !important;
+  text-align:center !important;
+  white-space:nowrap;
+  border-right: 1px solid #bdbdbd !important;
+  padding:10px;
+  font-weight:bold !important;
+  
+  }
+  tr:nth-child(even){ background-color:#f5f5f5 !important; } tr:nth-child(odd){ background-color:#ffff; }
+  td{
+    border-right: 1px solid #bdbdbd !important;
+  }
+  :host ::ng-deep .p-datatable-wrapper {
+    margin-top: -13px;
+  }
+  
+  :host ::ng-deep .p-datatable{
+    box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+  }
+  
+  div{
+    margin:0;
+    padding:0;
+  }
+  :host ::ng-deep .p-datatable .p-paginator-bottom {
+    border-width: 0 0 1px 0;
+    border-radius: 0;
+    display: none!important;
+}
+:host ::ng-deep .p-inputtext {
+  font-size: 11px;
+  margin-top: -7px;
+  }
+  :host ::ng-deep .p-dropdown-item {
+  font-size: 11px !important;
+  }
+  input.form-control.ng-untouched.ng-pristine.ng-valid {
+  font-size: 11px !important;
+  }
+  input.form-control.ng-untouched.ng-pristine.ng-valid {
+    font-size: 11px !important;
+    }
+    ::ng-deep .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+      margin: 0;
+      padding: 5px 5px !important;
+      font-weight: 10px !important;
+      border: 0 none;
+      color: #495057;
+      background: transparent;
+      transition: box-shadow 0.2s;
+      border-radius: 0;
+      font-size: 11px !important;
+  }
+   ::ng-deep .p-dropdown-header .p-dropdown-filter {
+    padding-right:0;
+    margin-right: -1.5rem;
+    height: 25px;
+  }
+  ::ng-deep li.p-ripple.p-element.p-dropdown-item {
+    height: 25px;
+  }
+  ::ng-deep .p-dropdown-panel .p-dropdown-header .p-dropdown-filter {
+    padding-right: 1.5rem;
+    margin-right: -1.5rem;
+    height: 25px;
+  }
+  ::ng-deep .p-dropdown-panel .p-dropdown-header .p-dropdown-filter {
+    padding-right: 1.5rem;
+    margin-right: -1.5rem;
+    height: 25px !important;
+  }
+  ::ng-deep .p-dropdown-filter {
+    width: 100%;
+    height: 25px !important;
+  }
+  ::ng-deep .ng-trigger.ng-trigger-overlayAnimation.ng-tns-c63-2.p-dropdown-panel.p-component.ng-star-inserted {
+    width: 150px;
+  }
+  ::ng-deep .ng-trigger.ng-trigger-overlayAnimation.ng-tns-c63-0.p-dropdown-panel.p-component.ng-star-inserted {
+    width: 148px;
+  }
+   ::ng-deep.p-dialog .p-dialog-header .p-dialog-header-icon:last-child {
+    margin-right: 0;
+    display: none !important;
+}
+  

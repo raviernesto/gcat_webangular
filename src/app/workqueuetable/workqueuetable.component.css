@@ -1,0 +1,137 @@
+td{
+    border-right: 1px solid #bdbdbd !important;
+  }
+  tr:nth-child(even){ background-color:#f5f5f5 !important; } tr:nth-child(odd){ background-color:#ffff; }
+
+  :host ::ng-deep .p-datatable-report{
+  box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+}
+
+/* tr:nth-child(even){ background-color:#f5f5f5 !important; } tr:nth-child(odd){ background-color:#ffff; } */
+thead.p-datatable-thead {
+
+position: sticky;
+top: -7px;
+z-index: 105;
+
+}
+:host ::ng-deep .p-element .p-dialog .p-component {
+
+width: 39% !important;
+}
+:host ::ng-deep p-columnfilterformelement.p-element.p-fluid {
+display: inline-block;
+width: 60%;
+margin-left:20%;
+}
+:host ::ng-deep .p-column-filter-row {
+display: inline-block !important;
+align-items: center;
+width: 100%;
+}
+:host ::ng-deep p-columnfilterformelement.p-element.p-fluid {
+display: inline-block;
+width: 60%;
+margin-left:20%;
+}
+:host ::ng-deep .p-column-filter-row {
+display: inline-block !important;
+align-items: center;
+width: 100%;
+}
+.p-fluid .p-inputtext {
+width: 100%;
+min-width: 100px;
+color:black !important ;
+/* padding-left: 26px; */
+/* padding: 59px; */
+margin-left: -5px;
+/* margin-right: 112px; */
+} 
+:host ::ng-deep .p-fluid .p-inputtext {
+height:38px;
+color: black;
+}
+
+:host ::ng-deep .p-column-filter-menu-button, .p-column-filter-clear-button {
+display: inline-block;
+/* justify-content: center; */
+/* align-items: center; */
+cursor: pointer;
+text-decoration: none;
+overflow: hidden;
+position: relative;
+}
+:host ::ng-deep td{
+border-right: 1px solid #bdbdbd !important;
+white-space: nowrap !important;
+}
+:host ::ng-deep th{
+white-space: nowrap !important;
+border-right: 1px solid white !important;
+}
+:host ::ng-deep .p-datatable{
+box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+}
+:host ::ng-deep .p-column-filter-clear-button .p-link{
+display: none;
+}
+:host ::ng-deep .p-fluid .p-inputtext {
+width: 100%;
+min-width: 100px;
+color:black !important ;
+/* padding-left: 26px; */
+/* padding: 59px; */
+margin-left: -20px;
+/* margin-right: 112px; */
+} 
+button{
+    /* background-color: #102B4E; */
+    color:white;
+    width:120px;
+    height: 35px;
+    border-radius: 5px;
+    border:2px solid black;
+}
+.btn{
+   
+    height:41px;
+    width:126px;
+    border-radius:20px;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    margin-top:20px;
+    margin-left: 8%;
+    
+}
+:host ::ng-deep .p-datatable-thead > tr > th {
+    text-align: left;
+    padding: 0px 2px;
+    border: 1px solid #e9ecef;
+    border-width: 0 0 1px 0;
+    font-weight: bold !important;
+    color: #495057;
+    background: #f8f9fa;
+    transition: box-shadow 0.2s;
+    font-size: 11px!important;
+  }
+  :host ::ng-deep .p-datatable-tbody > tr > td {
+    text-align: left;
+    padding: 0px 2px;
+    border: 1px solid #e9ecef;
+    border-width: 0 0 1px 0;
+    font-weight: bold !important;
+    color: #495057;
+    background: #f8f9fa;
+    transition: box-shadow 0.2s;
+    font-size: 9px!important;
+}
+:host ::ng-deep thead.p-datatable-thead {
+  
+  position: sticky !important;
+  top: -7px;
+  z-index: 105;
+  
+}

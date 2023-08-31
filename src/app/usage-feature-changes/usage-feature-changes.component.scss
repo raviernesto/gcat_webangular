@@ -1,0 +1,44 @@
+
+    #btn1{
+ 
+        height:25px;
+        width:auto;
+        border-radius:20px;
+        background-color:#00095B;
+        box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+        font-family:"Ford Antenne Cond" !important;
+        white-space: nowrap;
+        display:flex;
+        justify-content:space-evenly
+        
+        }
+        #btn3{
+ 
+            height:25px;
+            width:auto;
+            border-radius:20px;
+            background-color:#00095B;
+            box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+            font-family:"Ford Antenne Cond" !important;
+            white-space: nowrap;
+            margin-top:20px;
+            margin-left:10px;
+            
+            }
+            // tr:nth-child(even){ background-color:transparent ; }
+             tr:nth-child(odd){ background-color:#ffff; }
+             tr:nth-child(even){ background-color:#ffff; }
+             tr{
+                 background-color:none !important;
+             }
+        input{
+            margin-left:0;
+        }
+        tr{ background-color:#ffff ; } 
+        tr{ background-color:#ffff; }
+        :host ::ng-deep .p-datatable .p-datatable-tbody > tr.p-highlight {
+            background: #E3F2FD !important;
+            color: #495057;
+        }
+
+

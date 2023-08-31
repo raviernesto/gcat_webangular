@@ -1,0 +1,162 @@
+<div style="clear:both"></div>
+<div class="maincontainer" style="width:100%;height:480px" >
+    <div class="accordion1" style="width:100%;height:auto">
+                <div class="header" id="head"  (click)="showCenterPart()"  [style.border-radius]="br1" >
+                    <span id="headerName">Illustration WorkQueue Report</span>
+                    <i class="fa-solid fa-plus"  aria-hidden="true" style="float:right;font-size: 20px;color: red; "></i>
+                
+                
+                </div>
+                <!-- [style.display]="display" -->
+                <div class="centerpart" id="center" [style.display]="display" >
+                    <div class="row1" style="width:100%;">
+                            <div class="col1" style="width:40%">
+                                        <div style="float:left;width:35%;">
+                                            <label id="label"  style="  float:left;width:50%">Region<span Style=" color:#e32;font-size: 20px; font-weight:bolder;">*</span></label>
+                                            <span id="colon"  >:</span>
+
+                                        </div>
+                                        <div style="float:left;width:40%;margin-left: -15%;">
+                                            
+                                            <p-dropdown class="analyst" [options]="region"optionLabel="name" autoWidth="false"  #analystDd 
+                                            [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}" [filter]="true" filterBy=""
+                                          scrollHeight="200px" placeholder="--Select--" (onChange)="mine($event)">
+                                         
+                                        </p-dropdown>
+                                        
+                                        </div>
+                                
+                            
+                            </div>
+                            <div class="col1" style="width:40%">
+                                <div style="float:left;width:35%;">
+                                    <label id="label"  style="  float:left">Group<span Style=" color:#e32;font-size: 20px; font-weight:bolder;">*</span></label>
+                                    <span id="colon"  style="  float:left">:</span>
+
+                                </div>
+                                <div style="float:left;width:40%;margin-left: -15%;">
+                                    
+
+                                    <p-dropdown class="analyst" [options]="group"optionLabel="name" autoWidth="false"  #analystDd 
+                                    [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}" [filter]="true" filterBy=""
+                                  scrollHeight="200px" placeholder="--Select--" (onChange)="mine($event)">
+                                 
+                                </p-dropdown>
+                                
+                                </div>
+                        
+                    
+                            </div>
+                            <div class="col1" style="width:32%" style="float: right;margin-right:5%">
+                                <button id="btn" (click)="showReport()" (click)="showTableBox()">
+                                    Show Report
+                                </button>
+                            
+                            </div>
+
+                    </div>
+
+
+            </div>
+    </div>
+
+<div style="clear:both"></div>
+<br>
+
+<div class="container2" style="width:100%;margin-top: -2%;" *ngIf='show1table' >
+    <div id="tablepart" >
+        <p-table [value]="data" *ngIf="showtable" styleClass="p-datatable" scrollDirection="both" scrollHeight="400px"
+         [paginator]="false" [rows]="500" [showCurrentPageReport]="true"  [rowsPerPageOptions]="[50,100,500]" 
+        [rowHover]="true" responsiveLayout="scroll" >
+        <ng-template pTemplate="caption">
+            <div class="table-header" style="padding-top: 1px;padding-left: 2px;padding-bottom:1px;margin-top: -13px; color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">
+                Region >> {{reg}} &nbsp;&nbsp;  Group >> {{grp}}
+            </div>
+        </ng-template> 
+        <ng-template pTemplate="header">
+            <tr style="position: sticky;top:0">
+                <th pSortableColumn="[0]" id="th" >IRP<p-sortIcon field="[0]"></p-sortIcon></th>
+                 <th pSortableColumn="values" id="th" >PT</th>
+                 <th pSortableColumn="numberOfSection" id="th" >Prefix</th>
+                 <th pSortableColumn="numberOfSection" id="th" >Section</th>
+                 <th pSortableColumn="sectionWithCompletedIllustrations" id="th" >Vehicle Line</th>
+                 <th pSortableColumn="rejectedIRPs" id="th" >Illustration ID</th>
+                 <th pSortableColumn="sectionWithOpenIRPs" id="th" >Revsion</th>
+                 <th pSortableColumn="illustrationWithTheCoordinator" id="th" >Percentage Complete</th>
+                 <th pSortableColumn="illustrationWithTheArtHouses" id="th" >Eff in Date</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-d>
+            <tr>
+                <td>{{d[0]}}</td>
+                <td>{{d[1]}}</td>
+                <td>{{d[6]}}</td>
+                <td>{{d[2]}}</td>
+                <td>{{d[3]}}</td>
+                <td>{{d[4]}}</td>
+                <td></td>
+                <td>{{d[7]}}</td>
+                <td>{{d[5]}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    </div>
+</div>
+
+<div class="container3" style="width:100%;margin-top: -2%;" *ngIf='show2table' >
+    <div id="tablepart" >
+        <p-table [value]="data" *ngIf="showtable" styleClass="p-datatable" scrollDirection="both" scrollHeight="400px"
+         [paginator]="false" [rows]="500" [showCurrentPageReport]="true"  [rowsPerPageOptions]="[50,100,500]" 
+        [rowHover]="true" responsiveLayout="scroll" >
+        <ng-template pTemplate="caption">
+            <div class="table-header" style="padding-top: 1px;padding-left: 2px;padding-bottom:1px;margin-top: -13px; color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">
+                Region >> {{reg}} &nbsp;&nbsp;  Group >> {{grp}}
+            </div>
+        </ng-template> 
+        <ng-template pTemplate="header">
+            <tr style="position: sticky;top:0">
+                <th pSortableColumn="[0]" id="th" >IRP<p-sortIcon field="[0]"></p-sortIcon></th>
+                 <th pSortableColumn="values" id="th" >PT</th>
+                 <!-- <th pSortableColumn="numberOfSection" id="th" >Prefix</th> -->
+                 <th pSortableColumn="numberOfSection" id="th" >Section</th>
+                 <th pSortableColumn="sectionWithCompletedIllustrations" id="th" >Vehicle Line</th>
+                 <th pSortableColumn="rejectedIRPs" id="th" >Illustration ID</th>
+                 <th pSortableColumn="sectionWithOpenIRPs" id="th" >Revsion</th>
+                 <th pSortableColumn="illustrationWithTheCoordinator" id="th" >Percentage Complete</th>
+                 <th pSortableColumn="illustrationWithTheArtHouses" id="th" >Eff in Date</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-d>
+            <tr>
+                <td>{{d[0]}}</td>
+                <td>{{d[1]}}</td>
+                <td>{{d[2]}},{{d[3]}},{{d[4]}}</td>
+                <td>{{d[5]}}</td>
+                <td>{{d[6]}}</td>
+                <td>{{d[7]}}</td>
+                <!-- <td></td> -->
+                <td>{{d[8]}}</td>
+                <td>{{d[9]}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    </div>
+</div>
+
+<!-- (onChange)="onUserIdChange($event)"  -->
+</div>
+  
+
+
+
+<p-dialog header="Illustrator Work Queue Report" [(visible)]="alert.flag" [style]="{'width':'auto', 'height': 'auto','font-weight':'bold'}" [modal]="true" >
+    <label id="label" style="text-align: center;margin-top:15px;width:100% !important">{{alert.msg}}</label>
+    <div class="cancelpop" style="margin-left: 25px;">
+        <button  class="btn" (click)="cancelpop()" style="height: 24px;
+        font-size: 11px;
+        padding: 0px;
+        width: 30%;
+        border-radius: 15px;
+        margin-left: 27%;">OK</button>
+    </div>
+ </p-dialog>

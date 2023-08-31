@@ -1,0 +1,347 @@
+<div style="width: 100%;">
+  <div class="maincontainer" style="width: 100%;margin:0;padding: 0;">
+    <div class="accordion1" style="width:86%;margin-left:7%;">
+      <div class="header" (click)="showCenterPart()" [style.border-radius]="br"
+        style="width:100%;padding:0px 10px; background-color: #000080;display:inline-block">
+        <span style="font-size: 11px;float:left;color:white">WBS View</span>
+        <i class="fa-solid fa-plus" aria-hidden="true" style="float:right;font-size: 20px;color: red;; "></i>
+
+
+      </div>
+      <div style="clear:both"></div>
+      <div class="centerpart" [style.display]="display"
+        style="width:100%;margin-top: -6px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius: 0px 0px 5px 5px;">
+        <div class="colpart1" style="width:40%;display:block;margin-top: -6px;float:left;display:inline-flex">
+          <div class="rowpart1" style="width:50%;margin:1%;">
+            <input type="radio" name="view" id="view1" value="1" (change)="load1()" [(ngModel)]="radioOption"
+              style="margin-right: 1%;margin-bottom: 2px;float: left;margin-top:3px" checked>
+            <label
+              style="color:#00095B; font-family:Ford Antenna;font-size :16px;font-weight:bold;text-align: right;width:100%;text-align:left;margin-left: 20px; ">
+              Templates and Commodities</label>
+          </div>
+          <div class="rowpart1" style="width:50%;margin:1%;">
+            <input type="radio" name="view" id="view2" value="2" (change)="load2()" [(ngModel)]="radioOption"
+              style="margin-right: 1%;margin-bottom: 2px;float: left;margin-top:3px" checked>
+            <label
+              style="color:#00095B; font-family:Ford Antenna;font-size :16px;font-weight:bold;text-align: right;width:100%;text-align:left;margin-left: 20px; ">
+              Section via their Template</label>
+          </div>
+
+        </div>
+
+        <div class="colpart2" style="width:33%;display:inline-block;margin-top: 5px;margin-left: 5%;">
+          <div class="rowpart1" style="width:40%;margin:1%;float:left;">
+            <input type="checkbox" style="float: left;width: 10%;margin-top:3px">
+            <label
+              style="color:#00095B; font-family:Ford Antenna;font-size :16px;font-weight:bold;text-align: right;width:60%;float: left; ">WQ
+              Key Data :</label>
+
+          </div>
+          <div class="rowpart2" style="width:50%;float:left">
+            <input type="text" [(ngModel)]="sample" name="commodity" id="commodity" style="width: 100%;height:25px;"
+              readonly>
+          </div>
+        </div>
+
+      <div class="colpart1"
+        style="width:60%;display:block;margin-top: -22px;float:left;display:inline-flex;margin-left: 4px">
+        <div class="rowpart1" style="width:50%;">
+          <input type="radio" name="view" id="view3" value="3" (change)="load3()" [(ngModel)]="radioOption"
+            style="margin-right: 1%;margin-bottom: 2px;float: left;margin-top:3px" checked>
+          <label
+            style="color:#00095B; font-family:Ford Antenna;font-size :16px;font-weight:bold;text-align: right;width:100%;text-align:left;margin-left: 20px; ">
+            Section and their Commodities</label>
+        </div>
+        <div class="rowpart1" style="width:100%;margin:0%">
+          <input type="radio" name="view" id="view4" value="4" (change)="load4()" [(ngModel)]="radioOption"
+            style="margin-right: 1%;margin-bottom: 2px;float: left;margin-top:3px" checked>
+          <label
+            style="color:#00095B; font-family:Ford Antenna;font-size :16px;font-weight:bold;text-align: right;width:100%;text-align:left;margin-left: 20px; ">
+            Section with Commodities {{section}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div style="clear: both;"></div>
+
+<div class="subcontainer" style="width: 100%;margin:0;padding: 0">
+  <div class="accordion2" style="width:86%;margin-left:6%;">
+    <div class="tree" *ngIf="option1"
+      style="height: 375px;overflow-x:auto ;background-color: white;margin-top: 1%;width:100%">
+      <div *ngIf="spinner==true" class="spinner-border" role="status"
+        style="color: #000080;margin-top: 12%;margin-left: 48%;">
+        <span class="sr-only"></span>
+      </div>
+      <div *ngIf="spinner==false">
+        <p-tree [value]="files1" (onNodeExpand)="nodeExpand($event)" selectionMode="single" [(selection)]="nodes"
+          (onNodeSelect)="nodeSelect($event)" (contextmenu)="nodeMenu1($event,nodes)"
+          [style]="{'font-size':'11px',padding:'0%',height:'25px','font-weight':'bold','backgroundcolor':'green'}">
+        </p-tree>
+      </div>
+    </div>
+
+    <div class="tree" *ngIf="option2"
+      style="height: 375px;overflow-x:auto ;background-color: white;margin-top: 1%;width:100%">
+      <div *ngIf="spinner==true" class="spinner-border" role="status"
+        style="color: #000080;margin-top: 12%;margin-left: 48%;">
+        <span class="sr-only"></span>
+      </div>
+      <div *ngIf="spinner==false">
+        <p-tree [value]="files2" (onNodeExpand)="nodeExpand($event)" selectionMode="single" [(selection)]="nodes"
+          (onNodeSelect)="nodeSelect($event)" (contextmenu)="nodeMenu2($event,nodes)"
+          [style]="{'font-size':'11px',padding:'0%','font-weight':'bold'}">
+        </p-tree>
+      </div>
+    </div>
+
+    <div class="tree" *ngIf="option3"
+      style="height: 375px;overflow-x:auto ;background-color: white;margin-top: 1%;width:100%">
+      <div *ngIf="spinner==true" class="spinner-border" role="status"
+        style="color: #000080;margin-top: 12%;margin-left: 48%;">
+        <span class="sr-only"></span>
+      </div>
+      <div *ngIf="spinner==false">
+        <p-tree [value]="files3" (onNodeExpand)="nodeExpand($event)" selectionMode="single" [(selection)]="nodes"
+          (onNodeSelect)="nodeSelect($event)" (contextmenu)="nodeMenu3($event,nodes)"
+          [style]="{'font-size':'11px',padding:'0%','font-weight':'bold'}">
+
+        </p-tree>
+      </div>
+    </div>
+
+    <div class="tree" *ngIf="option4"
+      style="height: 375px;overflow-x:auto ;background-color: white;margin-top: 1%;width:100%">
+      <div *ngIf="spinner==true" class="spinner-border" role="status"
+        style="color: #000080;margin-top: 12%;margin-left: 48%;">
+        <span class="sr-only"></span>
+      </div>
+      <div *ngIf="spinner==false">
+        <p-tree [value]="files4" selectionMode="single" [(selection)]="nodes" (onNodeSelect)="nodeSelect($event)"
+          (contextmenu)="nodeMenu4($event,nodes)" [style]="{'font-size':'11px',padding:'0%','font-weight':'bold'}">
+        </p-tree>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div style="text-align: right;">
+  <button (click)="close()" id="btn" style="margin-right: 7%;">Close</button>
+</div>
+</div>
+
+<p-contextMenu #opt011 [model]="opt11"></p-contextMenu>
+<p-contextMenu #opt012 [model]="opt12"></p-contextMenu>
+<p-contextMenu #opt013 [model]="opt13"></p-contextMenu>
+<p-contextMenu #opt022 [model]="opt22"></p-contextMenu>
+<p-contextMenu #opt023 [model]="opt23"></p-contextMenu>
+<p-contextMenu #opt031 [model]="opt31"></p-contextMenu>
+<p-contextMenu #opt032 [model]="opt32"></p-contextMenu>
+<p-contextMenu #opt033 [model]="opt33"></p-contextMenu>
+<p-contextMenu #opt041 [model]="opt41"></p-contextMenu>
+
+<p-dialog header="WBS Management" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [(visible)]="wbsCopy"
+  (onShow)="wbsCopyShow()" [modal]="true" [style]="{'width':'50%','font-size':'13px','padding':'0px 10px'}">
+  <div style="width:100%;float:left;height:150px">
+    <div class="row" style="width:100%">
+      <div *ngIf="copyPart==1 && copyPart2==3">
+        <strong style="font-size: 11px !important;">Please Select a Vehicle Line for the new Section:</strong>
+        <div class="row" style="margin-top:2%; ">
+          <div class="col-sm-4 required" style="color:#00095B;font-family:Ford Antenna;font-size :11px;
+         font-weight:bold;width:33%;float:left;">
+            <span style="text-align: left !important;">Vehicle Line</span>
+
+          </div>
+          <p style="width: 7%;color:#00095B;font-family:Ford Antenna;font-size :11px;
+        font-weight:bold;"> :</p>
+          <div class="col-sm-3">
+            <p-dropdown [options]="commodityType" autoWidth="false" scrollHeight="200px"
+              [style]="{ 'width': '260px','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black','margin-right':'0%'}"
+              [filter]="true" filterBy="vehLine" optionLabel="dropdown" (onChange)="wbsdropdown()"
+              [(ngModel)]="selectedParts" placeholder="--Select--">
+            </p-dropdown>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="copyPart==2 && copyPart2==3">
+        <strong>Please Select a Prefix for the new Section:</strong>
+        <div class="row">
+          <div class="col-sm-4 required" style="color:#00095B;font-family:Ford Antenna;font-size :11px;
+            font-weight:bold;width:33%;float:left; ">
+            <span style="text-align: left !important;">Prefix</span>
+
+          </div>
+          <p style="width: 7%; color:#00095B;font-family:Ford Antenna;font-size :11px;
+           font-weight:bold;"> :</p>
+          <div class="col-sm-3">
+            <p-dropdown [options]="prefixList" autoWidth="false" scrollHeight="200px"
+              [style]="{ 'width': '260px','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black','margin-right':'0%'}"
+              [filter]="true" filterBy="famPrefix" optionLabel="dropdown" (onChange)="prefixdropdown()"
+              [(ngModel)]="selectedSection" placeholder="--Select--">
+            </p-dropdown>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+
+
+
+    <div *ngIf="copyPart1!=3" class="row" style="display: flex; margin-top:2%;">
+      <div class="col-sm-5" style="color:#00095B;font-family:Ford Antenna;font-size :11px;
+        font-weight:bold;width:33%;float:left;">
+
+        <span style="text-align: left !important;float:left; ">Copy Commodities?</span>
+      </div>
+      <p style="width: 7%; color:#00095B;font-family:Ford Antenna;font-size :11px;
+      font-weight:bold;"> :</p>
+      <div class="col-sm-7">
+        <input class="form-check-input" type="radio" style="margin-top:5px" name="commRadio"
+          [(ngModel)]="copyWbs.isComm" value="Y">
+
+        <span style="font-size: 11px;margin-left:1%">Yes</span>
+        <input class="form-check-input" style="margin-left: 2%;margin-top:5px" type="radio" name="commRadio"
+          [(ngModel)]="copyWbs.isComm" value="N">
+
+        <span style="font-size: 11px;margin-left:1%">No</span>
+      </div>
+    </div>
+    <div *ngIf="copyPart==1 && copyPart1!=3" class="row">
+      <div class="col-sm-5" style="color:#00095B;font-family:Ford Antenna;font-size :11px;
+        font-weight:bold;width:33%;float:left;">
+
+        <span style="text-align: left !important;float:left; ">Copy Properties?</span>
+
+      </div>
+      <p style="width: 7%; color:#00095B;font-family:Ford Antenna;font-size :11px;
+      font-weight:bold;"> :</p>
+
+      <div class="col-sm-7">
+        <input class="form-check-input" type="radio" style="margin-top:5px" name="propRadio"
+          [(ngModel)]="copyWbs.isPref" value="Y">
+        <span style="font-size: 11px;margin-left:1%">Yes</span>
+        <input class="form-check-input" style="margin-left: 2%;margin-top:5px" type="radio" name="propRadio"
+          [(ngModel)]="copyWbs.isPref" value="N">
+        <span style="font-size: 11px;margin-left:1%">No</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-5 required" style="color:#00095B;font-family:Ford Antenna;font-size :11px;
+        font-weight:bold; float:left;width:33%;">
+
+        <span style="text-align: left !important;float:left;">No of New Sections</span>
+
+      </div>
+      <p style="width: 7%; color:#00095B;font-family:Ford Antenna;font-size :11px;
+      font-weight:bold;"> :</p>
+      <div class="col-sm-7">
+        <p-dropdown [options]="sectionNo" optionLabel="value" optionValue="name" autoWidth="false"
+          [style]="{ 'width': '260px','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+          [filter]="false" filterBy="name" placeholder="--Select--" [(ngModel)]="selectedSectionNo"
+          (onChange)="sectionChange()" value="selectedSectionNo.value">
+          <ng-template let-section pTemplate="item">
+            <div class="section-item">
+              <div>{{section.name}}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div style="clear:both"></div>
+  <div style="width:100%">
+    <div style="text-align:center;margin-top: 3%;">
+      <button type="button" id="btn1" [disabled]="isOkButton" (click)="goToSect()">OK</button>
+      <button type="button" style="margin-left: 2%;" id="btn" (click)="wbsCopyClose()">Cancel</button>
+    </div>
+  </div>
+</p-dialog>
+
+
+<p-dialog header="Work Breakdown Structure" [(visible)]="alert.flag" [style]="{'max-width':'35%', height: 'auto'}"
+  [modal]="true">
+  <br>
+  <p style="text-align: center;padding-right: 5%;padding-left: 5%;">{{alert.msg}}</p>
+  <div class="text-center">
+    <button style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 2%;margin-left: -1%;margin-bottom: 0%;"
+      class="btn btn-primary btn-block" id="btn" (click)="closeOk()">OK</button>
+  </div>
+</p-dialog>
+
+<p-dialog [(visible)]="isProp" [style]="{'width':'auto',height:'auto','padding-bottom':'0%'}" position="center"
+  header="Show Properties" [focusTrap]="true" [modal]="true">
+  <div class="container" style="background-color:white;padding-bottom: 0%;">
+    <p>Illus Id - Rev Num : {{illId}} - {{illRev}}</p>
+    <div
+      style="align-items: center;border:1px solid black;margin-top: 1%;border-radius: 3px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+
+      <p-table [value]="illTable" scrollDirection="both" [rows]="5" [showCurrentPageReport]="true"
+        styleClass="p-datatable-sm p-datatable-gridlines" responsiveLayout="scroll"
+        [style]="{'font-size':'12px','margin-top':'0'}" scrollHeight="225px">
+        <ng-template pTemplate="header">
+          <tr style="position: sticky;top: 0;">
+            <th scope="col">Prop Code</th>
+            <th scope="col">Prop Value</th>
+            <th scope="col">Description</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+          <tr [pSelectableRow]="list" [pSelectableRowIndex]="rowIndex">
+            <td> {{list.propCode}}</td>
+            <td> {{list.value}}</td>
+            <td> {{list.lexcDesc}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary btn-block" id="btn" style="width: 25%;margin-top: 2%;"
+        (click)="closeProp()">Close</button>
+    </div>
+  </div>
+</p-dialog>
+
+<p-dialog header="Region" [(visible)]="ill.flag" [style]="{'max-width':'40%', height: 'auto','min-width':'20%'}"
+  [modal]="true">
+  <br>
+  <div class="row">
+    <div class="col-sm-3" style="display: flex;margin-top:-8px;margin-right: 25%;">
+      <input type="radio" style="margin-left:5%;margin-right:2%" value="E" [(ngModel)]="region"> <label
+        style="margin-top: 12px;">Europe</label>
+    </div>
+    <div class="col-sm-6" style="display: flex;margin-top:-8px">
+      <input type="radio" style="margin-left:10%;margin-right:2%" value="N" [(ngModel)]="region"><label
+        style="margin-top: 12px;">NA</label>
+    </div>
+    <div class="col-sm-3" style="display: flex;margin-top:-8px;margin-right: 25%;">
+      <input type="radio" style="margin-left:10%;margin-right:2%" value="A" [(ngModel)]="region"><label
+        style="margin-top: 12px;">AP</label>
+    </div>
+    <div class="col-sm-6" style="display: flex;margin-top:-8px">
+      <input type="radio" style="margin-left:10%;margin-right:2%" value="S" [(ngModel)]="region"><label
+        style="margin-top: 12px;">SA</label>
+    </div>
+  </div>
+  <div style="margin-top:-1%;margin-bottom: 0;text-align: center;">
+    <button style="width: 20%;" class="btn btn-primary btn-block" id="btn" (click)="illOk()">Ok</button>
+  </div>
+</p-dialog>
+<p-dialog header="Work Breakdown Structure" [(visible)]="confirm.flag" [style]="{'max-width':'40%', height: 'auto'}"
+  [modal]="true" [closeOnEscape]=true><br>
+  <p style="text-align: center;">{{confirm.msg}}</p>
+  <div style="margin-top:-1%;margin-bottom: 0;">
+    <button style="width: 20%;margin-left:25%;" class="btn btn-primary btn-block" id="btn"
+      (click)="confirmOk()">OK</button>
+    <button style="width: 20%;margin-left:10%;" class="btn btn-primary btn-block" id="btn"
+      (click)="confirmCancel()">Cancel</button>
+  </div>
+</p-dialog>
+<app-section-copy *ngIf="copy>0"></app-section-copy>

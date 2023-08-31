@@ -1,0 +1,59 @@
+<p class="h3 text-center">Illustrator Work Queue Reports</p>
+<hr>
+<form class="text-center form" (ngSubmit)="submit()">
+    <div>
+    <label for="region">Region: &nbsp;</label>
+    <select name="region" id="region">
+        <option *ngFor="let region of regions" value={{region}}>{{region}}</option>
+    </select>
+    </div>
+    <div>
+        <label for="group">Group: &nbsp;</label>
+        <select name="group" id="Group">
+            <option *ngFor="let group of groups" value={{group}}>{{group}}</option>
+        </select>
+    </div>
+    <div>
+      <button class="submitButton" type="submit">
+        <style>
+
+        </style>
+        Show Reports</button>
+    </div>
+    <h5 class="text-center" >Region >> North America&emsp;Group >> Group 1</h5>
+    
+</form>
+
+<table *ngIf="showTable" class="table table-bordered">
+    <thead>
+    <tr>
+      <th >IRP</th>
+      <th>PT</th>
+      <th>Section</th>
+      <th>Vehicle Line</th>
+      <th>Illustration ID</th>
+      <th>Revsion</th>
+      <th>Percentage Complete</th>
+      <th>EFF in Date</th>
+    <style> th
+      {
+        background-color:lightblue;
+        color:black;
+      }</style>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let part of parts">
+      <td>{{ part.irp }}</td>
+      <td>{{ part.pt }}</td>
+      <td>{{ part.section}}</td>
+      <td>{{ part.vehicleline}}</td>
+      <td>{{ part.illustrationid}}</td>
+      <td>{{ part.revsion}}</td>
+      <td>{{ part.percentagecomplete}}</td>
+      <td>{{ part.effindate}}</td>
+    </tr>
+    </tbody>
+</table>
+
+

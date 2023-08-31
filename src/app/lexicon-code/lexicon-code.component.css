@@ -1,0 +1,444 @@
+.btn-dark{
+    padding:4px;
+}
+.btn{
+    height:25px;
+    font-size: 13px;
+    width:60px;
+    border-radius:20px;
+    background-color:#000080 !important;
+    color:white;
+    border-color: black;
+    border-width: 15%;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    /* margin-top:20px; */
+    margin-left: 8%;
+    text-align: center !important;
+    padding-bottom: 24px;
+  /* height:41px;
+    /* margin-top:20px;
+    margin-left: 8%; */
+  
+  }
+.heading{
+    font-weight:bold; 
+    font-size:30px;
+    margin-left: 39%;
+}
+.details{
+   
+    font-size:18px;
+}
+
+.end{
+    font-size:14px;
+}
+.date{
+    margin-top: 80px;
+    margin-left: 85%;
+}
+
+/* :host ::ng-deep .p-component {
+    box-sizing: border-box;
+    width: 150px;
+	}
+
+    :host ::ng-deep .p-dropdown-label {
+        /* display: block; */
+        /* white-space: nowrap;
+        overflow: hidden; */
+         /* flex: 0 0 auto; */
+        /* width: 200px; */
+        /* cursor: pointer; */
+        /* border: 1px Solid black;
+        margin: 0px; */
+        /* margin-left: 656px; */
+    /* } */
+
+    /* :host ::ng-deep .p-component * {
+        width: 200px;
+        padding: 4px;
+    } */
+
+    /* :host ::ng-deep .pi-chevron-down:before {
+        content: "\e902";
+        margin-left: 234px;
+    } */
+    .suppname{
+        margin-top:5px;
+        margin-left: 292px
+    }
+    .header{
+        background-color: #102B4E !important ;
+        font-weight:bold
+    }
+    .card{
+        margin-top:55px;
+        width: 1139px;
+        margin-left: 68px;
+        border:2px solid black;
+    }
+    
+    .card-header{
+        background-color: #102B4E;
+        color:white;
+        margin-left: -1px;
+        width: 1139px;
+        border-radius: 5px;
+    }
+    .dropdown{
+        margin-top: -39px;
+        margin-left: 400px;
+    }
+    button{
+        /* background-color: #102B4E; */
+        color:white;
+        width:95px;
+        height: 35px;
+        border-radius: 5px;
+        border:2px solid black;
+    }
+    .new{
+        margin-top: 15px;
+        
+        width:110px;
+        /* float:left */
+    }
+    .save,.del,.userinfo,.maint,.close{
+        
+        width:110px;
+        /* float:left */
+    }
+    label{
+        margin-top:15px;
+    }
+    /* input[type=text]{
+        width: 200px;
+        margin-top: -44px;
+        margin-left:155px;
+        color:black;
+        
+    } */
+    .dropdown1,.dropdown2{
+        margin-top: -44px;
+        margin-left: 138px;
+        
+    }
+    .dropdown4{
+        margin-left: 131px;
+        margin-top:-44px;
+    }
+    .dropdown3{
+        margin-left: 375px;
+        margin-top:-36px;
+    }
+    .contacts{
+        margin-left: 302px;
+    }
+    .select{
+        margin-top: -37px;
+        margin-left: 223px;
+    }
+    .select1{
+        margin-top: -37px;
+        margin-left: 224px;
+    }
+    
+    /*Hover tab*/
+     .p-tabview li:not(.p-highlight):hover .p-tabview-nav-link {
+        background-color:#102B4E;
+        color: white;
+        border-color: black;
+    } 
+    
+    /* Selected tab */
+     .p-tabview .p-highlight .p-tabview-nav-link {
+        background-color: #102B4E;
+        
+    }
+    .tab a{
+        border-bottom: solid 1px #102B4E !important;
+        color: white !important;
+        background-color: #102B4E !important;
+        border-radius: 5px;
+        margin-top: 8px;
+        margin-left:214px;
+    }
+    .suppprof{
+        color:white;
+    }
+    
+    .p-dropdown-panel .p-dropdown-header .p-dropdown-filter {
+        padding-right:0;
+        margin-right:0;
+        /* margin-left: -17px; */
+        margin-top:-30px
+    }
+    .p-dropdown-panel .p-dropdown-header{
+        margin-top: 30px;
+    }
+    
+    .p-dropdown-items-wrapper {
+        overflow: auto;
+        width: 166px;
+    }
+    .btnsubmit{
+        margin-top:11px;
+        margin-left:40px
+    }
+    .p-tabview .p-tabview-nav {
+        background: #ffffff;
+        border:none;
+         /* 1px solid #dee2e6; */
+        border-width: 0 0 2px 0;
+    }
+    .p-tabview-title {
+        line-height: 1;
+        white-space: nowrap;
+        text-align: center;
+        height: 40px;
+        margin-top: -5px;
+        margin-left: 208px;
+    }
+    .pi-chevron-down:before {
+        content: "\e902";
+        color: black;
+    }
+    .p-dropdown .p-dropdown-label.p-placeholder {
+        color: #FFFFFF;
+        color: black;
+    }
+    .btn{
+   
+    height:25px;
+    width:90px;
+    border-radius:20px;
+    background-color:#000080 !important;
+    color:white;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    margin-top:20px;
+   font-size: 13px;  
+   text-align: center;  
+}
+    .btn1{
+       
+        height:41px;
+        width:106px;
+        border-radius:20px;
+        background-color:#00095B;
+        box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+        font-family:"Ford Antenne Cond" !important;
+        white-space: nowrap;
+        margin-top:5px;
+        border: none;
+        
+    }
+    .header{
+        /* position: fixed; */
+       /* position:relative; */
+        color:white;
+        /* background: #102B4E; */
+       
+        /* z-index: 100; */
+        transition: all 0.9s ease;
+    }
+    .centerpart{
+        /* position: absolute; */
+        background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.9s;
+    }
+    
+    .p-dialog .p-dialog-header {
+        border-bottom: 0 none;
+       
+        background: #102B4E !important;
+           color: #FFFFFF !important;
+        
+    }
+    p-dialog .p-dialog-header .p-dialog-header-icon:last-child {
+        margin-right: -10px;
+        margin-left:20px;
+        background: #102B4E !important;
+    }
+
+    .p-fluid .p-inputtext {
+        
+        color: black !important;
+    }
+
+    .table {
+        box-shadow: rgb(0 0 0 / 75%) 0px 13px 27px -5px;
+        padding: 3px
+    }
+    .p-column-filter-row{
+        width: 100px;
+    }
+
+    th{
+        min-width:100px !important;
+      
+        white-space:nowrap
+      }
+      
+      .p-datatable-sm{
+        box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+      }
+      
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+      .p-fluid .p-inputtext {
+        width: 100%;
+        min-width: 100px;
+        color:black !important ;
+        /* padding-left: 26px; */
+        /* padding: 59px; */
+        margin-left: -5px;
+        /* margin-right: 112px; */
+      }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+      .p-fluid .p-inputtext {
+        height:38px;
+         color: black;
+      }
+      
+       
+      .p-column-filter-menu-button, .p-column-filter-clear-button {
+        display: inline-block;
+        /* justify-content: center; */
+        /* align-items: center; */
+        cursor: pointer;
+        text-decoration: none;
+        overflow: hidden;
+        position: relative;
+      }
+      .p-column-filter-menu-button {
+        width: 20px;
+        height: 20px;
+        /* color: #6c757d; */
+        color:white;
+        border: 0 none;
+        background: transparent;
+        border-radius: 0px; 
+        transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+      }
+      
+      .p-column-filter-row {
+        display: block;
+        align-items: center;
+        width: 100%;
+      }
+      
+      p-columnfilterformelement.p-element.p-fluid {
+        display: inline-block;
+        width: 60%;
+        margin-left:20%;
+      }
+      .p-column-filter-row {
+        display: inline-block !important;
+        align-items: center;
+        width: 100%;
+      }
+      .p-column-filter-clear-button .p-link{
+        display: none;
+      }
+      /* .p-link.ng-tns-c94-9.ng-star-inserted */
+      /* button>.p-column-filter-clear-button  {
+        color: transparent;
+        display: none;
+      } */
+      button.p-column-filter-clear-button.p-link {
+        color: transparent;
+        background: transparent;
+        display: none;
+      }
+      thead.p-datatable-thead {
+        
+        position: sticky;
+        top: -7px;
+        z-index: 105;
+        
+        }
+        .p-element.ng-trigger.ng-trigger-animation.ng-tns-c102-9.p-dialog.p-component.ng-star-inserted {
+          
+          width: 39% !important;
+      }
+      
+      td{
+        border-right: 1px solid #bdbdbd !important;
+      }
+      
+      tr:nth-child(even){ background-color:#f5f5f5 !important; } tr:nth-child(odd){ background-color:#ffff; }
+            
+      .p-datatable-responsive-scroll>.p-datatable-wrapper>table, .p-datatable-auto-layout>.p-datatable-wrapper>table {
+        table-layout: auto;
+        margin: -1%;
+      }
+
+      th{
+        /* min-width:200px !important; */
+        position: sticky;
+        top: 0;
+        border-right: 1px solid #bdbdbd !important;
+        
+      }
+      
+      :host ::ng-deep .p-inputtext {
+        font-size: 11px;
+        margin-top: -7px;
+    }
+    :host ::ng-deep .p-dropdown-item {
+        font-size: 11px;
+    }
+    option{
+        font-size: 11px;
+    }
+    :host ::ng-deep .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+        text-align: center;
+        padding: 0px 2px;
+        border: 1px solid #e9ecef;
+        border-width: 0 0 1px 0;
+        font-weight: bold !important;
+        color: #495057;
+        background: #f8f9fa;
+        transition: box-shadow 0.2s;
+        font-size: 11px!important;
+      }
+      :host ::ng-deep .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+        text-align: center;
+        padding: 0px 2px;
+        border: 1px solid #e9ecef;
+        border-width: 0 0 1px 0;
+        font-weight: bold !important;
+        color: #495057;
+        background: #f8f9fa;
+        transition: box-shadow 0.2s;
+        font-size: 9px!important;
+    }
+      
+
+    :host ::ng-deep thead.p-datatable-thead {
+  
+        position: sticky !important;
+        top: -7px;
+        z-index: 105;
+        
+    }
+    th{
+        width:20%;
+        text-align: center;
+    }
+    td{
+        text-align: center;
+    }
+    p-sortIcon
+    {text-align:center;}

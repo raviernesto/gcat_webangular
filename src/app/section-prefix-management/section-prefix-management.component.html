@@ -1,0 +1,207 @@
+<!-- <div style="height:1140px"> -->
+<div style="clear:both;"></div><br>
+<div style="height:auto;overflow: visible;margin-top: -33px;">
+    <div class="accordion1" style="width:99%;">
+        <div class="header" (click)="showCenterPart()" [style.border-radius]="br1"
+            style="width:94%;height:23px;margin-left:3%;padding:1%; background-color:#102B4E;font-weight:bold;display:inline-block">
+            <span style="font-size: 11px;float:left;color:white;margin-top:-1%">Section Prefix Management   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selection Criteria</span>
+            <i class="fa-solid fa-plus" [style.transform]="rotate" aria-hidden="true"
+                style="float:right;font-size: 17px;margin-top:-7px;color: red; "></i>
+        </div>
+        <div class="centerpart" [style.display]="display"
+            style="width:94%;height:auto;background:white !important;margin-top:-5px;z-index: 100;margin-left:3%">
+            <div class="partcol1"
+                style="width:100%;float: left;background-color: white;padding-top:2%;;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius:0px 0px 5px 5px">
+                <div class="row" style="margin-top:0%;display:flex">
+                    <div class="col-lg-3" style="margin-left:3%;width:32% ;display:flex;margin-top: -21px;">
+                        <p
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                            Prefix Code :</p>
+                        <p-dropdown [options]="commodityprefix" [filterMatchMode]=startsWith [virtualScroll]="true"
+                            [itemSize]="30" optionLabel="famprefxPrefixC" autoWidth="false"
+                            (onClick)="changePrefix();selectButton();selectradio()"
+                            [style]="{ 'width': '164px','margin-top':'4px','border-radius':'5px','height':'30px','color':'black','border':'2px solid black'}"
+                            [filter]="true" filterBy="famprefxPrefixC" [(ngModel)]="dropdown" placeholder="All">
+                        </p-dropdown>
+                    </div>
+                    <div class="col-lg-3" style="margin-left:20%;width:32%;display:flex;margin-top:-21px;">
+                        <p
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                            Prefix Description :</p><br>
+                        <p-dropdown [options]="commodityprefix" [filterMatchMode]=startsWith [virtualScroll]="true"
+                            [itemSize]="30" optionLabel="famprefxDescX" autoWidth="false" (onClick)="changePrefix()"
+                            [style]="{ 'width': '164px','margin-top':'3px','border-radius':'5px','height':'30px','color':'black','border':'2px solid black'}"
+                            [filter]="true" filterBy="famprefxDescX" [(ngModel)]="dropdown" placeholder="All">
+                        </p-dropdown>
+                    </div>
+                    <!-- <div class="partrow2"
+                            style="display: inline-block;width: 100%;margin-top:-1%;margin-bottom: 1%;">
+                            <button class="btn" style="margin-left: 43%;"
+                                (click)="selectButton();selectradio()">Select</button>
+                        </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+    <div class='container' style="width: 100%;margin:0;padding: 0;">
+    <div class="accordion2" style="margin-top: 5px;margin-left:3px;">
+        <div class="header" (click)="showCenterPart2()" [style.border-radius]="br2"
+            style="width:100%;height:23px;margin-left:33px;padding:1%; background-color:#102B4E;font-weight:bold;display:inline-block">
+            <span style="font-size: 11px;float:left;color:white;margin-top:-1%"></span>
+            <i class="fa-solid fa-plus" [style.transform]="rotate1" aria-hidden="true"
+                style="float:right;font-size: 17px;margin-top:-7px;color: red; "></i>
+        </div>
+        <div class="centerpart" [style.display]="display1"
+            style="width:100%;height:auto;background:white !important;padding-top:2%;;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius:0px 0px 5px 5px;margin-top:-6px;z-index: 100;margin-left:3%">        
+            <div class="row" style="margin-top:1%;">
+            <div class="col-lg-6" style=" display:flex;margin-left:3%;width:32%;margin-top:-32px; ">
+                <p
+                    style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                    Code :</p>
+                <!-- <input type="text" style="width:47%;height:28px;margin-top:1%" name="prefixCode" id="prefixCode"
+                    [(ngModel)]="prefixCode"> -->
+                    <input type="text" style="width:47%;height:28px;margin-top:1%"[maxlength]="6" name="prefixCode" id="prefixCode"
+                    [(ngModel)]="prefixCode">
+
+            </div>
+            <div class="col-lg-9 " style="margin-left:20%;width:32%;display:flex;margin-top:-32px">
+                <p
+                    style="color:#00095B; font-family:Ford Antenna;font-size :12px;font-weight:bold;text-align: right;width:50%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                    Description :</p>
+                <input type="text" style="width:47%;height:28px;margin-top:1%" name="prefixDescription" id="prefixDescription"
+                    [(ngModel)]="prefixDescription">
+            </div>
+        </div>
+        <div class="row" style="margin-left: 2%;margin-top:-9px">
+            <div class="col-lg-4" style="margin-top:2px;width:52%;margin-left:-36px">
+                <label style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">All
+                    Feature Values :</label>
+                <div class="table" style="margin-top:-2%;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+                    <p-table [value]="prefix" selectionMode="single" [(selection)]="selectedProduct3" dataKey="lexcC"
+                        styleClass="p-datatable-customers" scrollDirection="both" responsiveLayout="scroll"
+                        scrollHeight="300px" 
+                        [showCurrentPageReport]="true" [rowHover]="true">
+
+                        <ng-template pTemplate="header">
+                            <tr style="background-color:#000080;">
+                                <th style="width: 10px !important"></th>
+                                <th style="font-size: 11px !important;">Property</th>
+                                <th scope="col" pSortableColumn="propCodeValueC" style="font-size:11px !important;text-align: center;"
+                                    scope="col">Property Value<p-sortIcon field="propCodeValueC"  style="font-size: 11px !important;"></p-sortIcon>
+                                </th>
+                                <th scope="col" pSortableColumn="lexcDescLongX" style="font-size:11px !important;text-align: center;"
+                                    scope="col">Description<p-sortIcon field="lexcDescLongX"  style="font-size: 11px !important;"></p-sortIcon>
+                                </th>
+                                <th style="font-size:11px !important;text-align: center;">Approval Flag</th>
+                                <th scope="col" pSortableColumn="lexcC" style="font-size:11px !important;text-align: center;" scope="col">
+                                    Lexicon Code
+                                    <p-sortIcon field="lexcC"  style="font-size: 11px !important;"></p-sortIcon>
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-ri="rowIndex" let-prefix>
+                            <tr>
+                                <td style="width:10px !important;">
+                                    <p-tableRadioButton (click)="radioclick(ri);radio()" [value]="prefix" style="height:24px;width:25px;">
+                                    </p-tableRadioButton>
+                                </td>
+                                <td style="font-size:11px !important;text-align: center;">{{prefix.propCodeC}}</td>
+                                <td style="font-size:11px !important;text-align: center;">{{prefix.propCodeValueC}}</td>
+                                <td style="font-size:11px !important;text-align: center;">{{prefix.lexcDescLongX}}</td>
+                                <td style="font-size:11px !important;text-align: center;">{{prefix.approveFlag}}</td>
+                                <td style="font-size:11px !important;text-align: center;">{{prefix.lexcC}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+            <div class="col-lg-2" style="margin-left:-3%;margin-top:-4%">
+                <ng-template [ngIf]="radiobtn==1">
+                    <button style="background-color: #000080 !important;width: 30%;height:36px; margin-top:150px ;"
+                        (click)="clickedRow()" class="btn ">
+                        <i class="fa fa-arrow-right fs-4" aria-hidden="true" style="font-size: 15px !important;"></i></button>
+                </ng-template>
+                <ng-template [ngIf]="radiobtn==0">
+                    <button style="background-color: #000080 !important;width: 28%;height:36px; margin-top:150px ;" class="btn"
+                        disabled>
+                        <i class="fa fa-arrow-right fs-4" aria-hidden="true" style="font-size: 15px !important;"></i></button>
+                </ng-template><br><br><br><br>
+                <ng-template [ngIf]="radiobtn==1">
+                    <button style="background-color: #000080 !important;width: 28%;height:36px;" (click)="Remove()" class="btn">
+                        <i class="fa fa-arrow-left fs-4" aria-hidden="true" style="font-size: 15px !important;"></i></button>
+                </ng-template>
+                <ng-template [ngIf]="radiobtn==0">
+                    <button style="background-color: #000080 !important;width: 30%;height:36px;" class="btn" disabled>
+                        <i class="fa fa-arrow-left fs-4" aria-hidden="true" style="font-size: 15px !important;"></i></button>
+                </ng-template>
+            </div>
+            <div class="col-lg-4" style="margin-top:0%;width:48%;margin-left: -11%;">
+                <label style="csolor:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;">Assigned
+                    Prefix Feature Values :</label>
+                <div class="table" style="margin-top:-8px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+                    <p-table [value]="detail" selectionMode="single" [(selection)]="selectedProduct4" dataKey="lexcC"
+                        styleClass="p-datatable-customers" scrollDirection="both" responsiveLayout="scroll"
+                        scrollHeight="300px"
+                        [rowHover]="true"
+                        >
+
+                        <ng-template pTemplate="header">
+                            <tr style="background-color:#000080;">
+                                <th style="width: 1rem"></th>
+                                <th style="font-size:11px !important;text-align:center !important;">Property</th>
+                                <th scope="col" pSortableColumn="propCodeValueC" style="font-size:11px !important"
+                                    scope="col">Property Value <p-sortIcon field="propCodeValueC" style="font-size: 11px !important;"></p-sortIcon>
+                                </th>
+                                <th scope="col" pSortableColumn="lexcDescLongX" style="font-size:11px !important;text-align:center !important;"
+                                    scope="col">Description<p-sortIcon field="lexcDescLongX" style="font-size: 11px !important;"></p-sortIcon>
+                                </th>
+                                <th style="font-size:11px !important;text-align:center !important;">Approval Flag</th>
+                                <th scope="col" pSortableColumn="lexcC" style="font-size:11px !important;text-align:center !important;" scope="col">
+                                    Lexicon Code<p-sortIcon field="lexcC" style="font-size: 11px !important;"></p-sortIcon>
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-l="rowIndex" let-detail>
+                            <tr>
+                                <td style="width:1rem;">
+                                    <p-tableRadioButton (click)="radioclick(l);radio()" [value]="detail" style="height:24px;width:25px;">
+                                    </p-tableRadioButton>
+                                </td>
+                                <td style="font-size:11px !important;text-align:center !important;">{{detail.propCodeC}}</td>
+                                <td style="font-size:11px !important;text-align:center !important;">{{detail.propCodeValueC}}</td>
+                                <td style="font-size:11px !important;text-align:center !important;">{{detail.lexcDescLongX}}</td>
+                                <td style="font-size:11px !important;text-align:center !important;">{{detail.approveFlag}}</td>
+                                <td style="font-size:11px !important;text-align:center !important;">{{detail.lexcC}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div></div>
+    <div class="partrow2" style="display: inline-block;width: 100%;margin-top:-1%">
+        <button class="btn" style="margin-top: 15px;margin-left: 20%;" (click)="New();selectradio()">New</button>
+        <ng-template [ngIf]="savebtn==1">
+            <button class="btn" (click)="savePrefixCode()">Save</button>
+        </ng-template>
+        <ng-template [ngIf]="savebtn==0">
+            <button class="btn" disabled>Save</button>
+        </ng-template>
+        <button class="btn" (click)="wbs()">WBS</button>
+        <button class="btn btn-primary btn-block" type="button" id="btn" (click)="closeClick()"
+            style="background-color: #215a8f;">
+            Close
+        </button>
+    </div>
+</div>
+<!-- </div> -->
+<p-dialog header="Section Prefix Management" [(visible)]="alert.flag" [style]="{'width':'auto', height: 'auto'}"
+    [modal]="true">
+    <br>
+    <p style="text-align: center;">{{alert.msg}}</p>
+    <div class="partrow2" style="margin-top: 10px;margin-left: 31%;">
+        <button (click)="cancelpop()" class="btn" style="font-size:11px;width:38%;">OK</button>
+    </div>
+</p-dialog>

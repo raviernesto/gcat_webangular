@@ -1,0 +1,917 @@
+<div>
+  <br>
+  <div class="accordion1" style="height:500px;margin-top:-10px">
+    <div class="header" (click)="showCenterPart()" [style.border-radius]="br"
+      style="width:91% !important;margin-left:4.5% !important;padding:2px;padding-left:10px;padding-right:10px; background-color: #102B4E;display:inline-block;border-radius: 5px;">
+      <span style="font-size: 11px;float:left;color:white">Work Queue </span>
+      <i class="fa-solid fa-plus" [style.transform]="rotate" aria-hidden="true"
+        style="float:right;font-size: 20px;color: red; "></i>
+    </div>
+    <div class="centerpart" [style.display]="display"
+      style="width:91% !important;height:auto;padding-bottom: 10px !important;background:white !important;margin-top:-5px;z-index: 100;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75) !important;border-radius:5px 5px 5px 5px;display: block;margin-left:4.5% !important">
+      <form [formGroup]="workQueueForm" (ngSubmit)="onSubmit(0,500)" class="bg-text"
+        style="width:100%;">
+        <div  style="width:100%;margin-left: 5%;">
+
+          <div  style="display: flex;" style="width:22%; display: flex;float: left;">
+            <label for="analystId"
+              style="margin-bottom: 5% !important;color:#00095B; font-family:Ford Antenna;font-size :11px !important ;font-weight:bold;text-align: left;width:42%; ;margin-top:1px;padding-right:10px;float:left">
+              <input type="checkbox" formControlName="analystCheck" id="analystCheck" class="form-check-input" />
+              Analyst ID : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                *ngIf="validFields.analyst"></em></label>
+            <div class="" style="width: 45%;margin-left:-3%">
+              <p-dropdown class="analyst" [options]="workQueueMaster.userList" optionLabel="userIdC" autoWidth="false"
+                #analystDd formControlName="analystId" [filterMatchMode]=startsWith
+                [style]="{ 'width': '100%','margin-top':'0px !important','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [filter]="true" filterBy="userIdC" scrollHeight="200px" placeholder="--Select--"
+                (onChange)="onUserIdChange($event)">
+                <ng-template let-item pTemplate="selectedItem">
+                  {{ item.userIdC}}
+                </ng-template>
+                <ng-template let-user pTemplate="item">
+                  <div class="user-item">
+                    <div>{{ user.userIdC}}</div>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+
+          <div  style="width:22%; display: flex;margin-left:2%;float:left">
+            <label for="template"
+              style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:43%; ;margin-top:1px;padding-right:10px ">
+              <input type="checkbox" formControlName="templateCheck" id="templateCheck" class="form-check-input" />
+              Template : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                *ngIf="validFields.template"></em></label>
+            <div class="dropdown" style="width: 45%;margin-left:-6%">
+              <p-dropdown [options]="templateIdList" [filterMatchMode]=startsWith autoWidth="false"
+                formControlName="template"
+                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [filter]="true" filterBy="templtIdR" scrollHeight="200px" placeholder="--Select--"
+                (onClick)="onTemplateIdClick()">
+                <ng-template let-item pTemplate="selectedItem">
+                  {{ item.templtIdR}}
+                </ng-template>
+                <ng-template let-item pTemplate="item">
+                  <div class="user-item">
+                    <div>{{ item.templtIdR}}</div>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+          <div  style="width:23%; display: flex;float:left">
+            <label for="commodity"
+              style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:50%;padding-right:10px ">
+              <input type="checkbox" formControlName="commodityCheck" id="commodityCheck"
+                [attr.disabled]="isTemplate?'':null" class="form-check-input" />
+              Commodity : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                *ngIf="validFields.commodity"></em></label>
+            <input type="text" (blur)="onBlurCommodity()" style="width: 45%;height:25px;margin-left:-10%;margin-top:0px"
+              class="form-control" id="commodity" formControlName="commodity" [attr.disabled]="isTemplate?'':null">
+          </div>
+
+          <div  style="display: flex;width:23%;float:left">
+            <label for="engBase"
+              style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:50%;padding-right:10px;margin-left:14px ">
+              <input type="checkbox" formControlName="engBaseCheck" id="engBaseCheck"
+                [attr.disabled]="isTemplate?'':null" class="form-check-input" />
+              Eng Base : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                *ngIf="validFields.engBase"></em></label>
+            <input type="text" style="width: 45%;height:25px;margin-left:-16%;margin-top:0px" class="form-control"
+              id="engBase" (blur)="onBlurEngBase()" formControlName="engBase" [attr.disabled]="isTemplate?'':null">
+          </div>
+
+
+
+
+        </div>
+        <div style="clear:both"></div>
+        <div  style="width:100%;margin-left:5%;">
+
+          <div  style="display: flex;width:22%;margin-left:-2%;float: left;">
+            <label for="productType"
+              style="margin-bottom: 5% !important;color:#00095B;width: 43% !important; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;margin-left:3%;  ">
+              <input type="checkbox" formControlName="productTypeCheck" id="productTypeCheck" class="form-check-input"
+                [attr.disabled]="isTemplate?'':null" />
+              Product Type : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                *ngIf="validFields.productType"></em></label>
+            <div class="dropdown" style="width: 45%;margin-left: 2%;">
+              <p-dropdown [options]="workQueueMaster.vehcleTypeCodeList" [filterMatchMode]=startsWith
+                optionLabel="vehtypeCode" autoWidth="false" formControlName="productType"
+                [style]="{ 'width': '100%','margin-top':'0px !important','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [filter]="true" filterBy="vehtypeCode" scrollHeight="200px" placeholder="Select" [disabled]="isTemplate"
+                (onChange)="onProductChange($event)">
+                <ng-template let-item pTemplate="selectedItem">
+                  {{ item.vehtypeCode}}
+                </ng-template>
+                <ng-template let-item pTemplate="item">
+                  <div class="user-item">
+                    <div>{{ item.vehtypeCode}}</div>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+          <div style="display: flex;width:22%;margin-left:1%;float:left">
+            <label for="template"
+              style="color:#00095B; font-family:Ford Antenna;font-size :11px;width: 62% !important;font-weight:bold;text-align: left;padding-right:10px;margin-left: -10%;">
+              <input type="checkbox" formControlName="productTypeOrginCheck" id="productTypeOrginCheck"
+                class="form-check-input" [attr.disabled]="isProdoriginDis?'':null" />
+              Product Type Origin : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                *ngIf="validFields.productTypeOrgin"></em></label>
+            <div class="dropdown"  style="width: 45%;margin-left:-1.5%">
+              <p-dropdown [options]="productTypeOrigin" [filterMatchMode]=startsWith autoWidth="false"
+                formControlName="productTypeOrgin" (onChange)="onProductOriginChange($event)"
+                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [filter]="true" filterBy="pteioOriginC" scrollHeight="200px" placeholder="Select">
+                <ng-template let-item pTemplate="selectedItem">
+                  {{ item.pteioOriginC}}
+                </ng-template>
+                <ng-template let-item pTemplate="item">
+                  <div class="user-item">
+                    <div>{{ item.pteioOriginC}}</div>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+
+          <div style="display: flex;width: 23%;float:left">
+            <label for="vehicleLine"
+              style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:57%; ;margin-top:0px;margin-left: 13%; ">
+              <input type="checkbox" formControlName="vehicleLineCheck" id="vehicleLineCheck"
+                class="form-check-input" />
+              Vehicle Line : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                *ngIf="validFields.vehicleLine"></em></label>
+            <div class="dropdown" style="width: 45%;margin-left: -17%;">
+              <p-dropdown [options]="workQueueMaster.vehcleLineList" optionLabel="evlVehicleLineC" autoWidth="false"
+                formControlName="vehicleLine" [filterMatchMode]=startsWith
+                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [filter]="true" filterBy="evlVehicleLineC" scrollHeight="200px" placeholder="--Select--"
+                (onChange)="onVlChange()">
+                <ng-template let-item pTemplate="selectedItem">
+                  {{ item.evlVehicleLineC}} - {{item.prtpeioDescX}}
+                </ng-template>
+                <ng-template let-item pTemplate="item">
+                  <div class="user-item">
+                    {{ item.evlVehicleLineC}} - {{item.prtpeioDescX}}
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+
+          <div style="display: flex;width:23%;float:left">
+            <label for="SAPCode"
+              style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width: 40% !important; ;margin-top:0px;margin-left:16% ">
+              <input type="checkbox" formControlName="SAPCodeCheck" id="SAPCodeCheck" class="form-check-input"
+                [attr.disabled]="isTemplate?'':null" />
+              S4P Code : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                *ngIf="validFields.SAPCode"></em></label>
+            <div class="dropdown" style="width: 45%;margin-left:-3%">
+              <p-dropdown [options]="workQueueMaster.s4pCodeList" [filterMatchMode]=startsWith autoWidth="false"
+                formControlName="SAPCode" (onChange)="onS4pCodeChange()" [virtualScroll]="true" [itemSize]="30"
+                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [filter]="true" filterBy="effiopEffInC" scrollHeight="200px" placeholder="--Select--"
+                [disabled]="isTemplate">
+                <ng-template let-item pTemplate="selectedItem">
+                  {{ item.effiopEffInC}}
+                </ng-template>
+                <ng-template let-item pTemplate="item">
+                  <div class="user-item">
+                    <div>{{ item.effiopEffInC}}</div>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+
+
+          <!-- <div class="col-md-4" style="display: flex;width:16%;margin-left: -1%">
+              <label for="sourceIn"
+                style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:50%;padding-right:10px ">
+                <input type="checkbox" formControlName="sourceInCheck" id="sourceInCheck" class="form-check-input"
+                  [attr.disabled]="isTemplate?'':null" />
+                Source In : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                  *ngIf="validFields.sourceIn"></em></label>
+              <div class="dropdown" style="width: 40%;">
+                <p-dropdown [options]="workQueueMaster.sourceInList" [filterMatchMode]=startsWith autoWidth="false"
+                  formControlName="sourceIn" [disabled]="isTemplate"
+                  [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                  [filter]="true" (onChange)="onSourceInChange()" filterBy="efiosrcSourceInC" scrollHeight="200px"
+                  placeholder="Select">
+                  <ng-template let-item pTemplate="selectedItem">
+                    {{ item.efiosrcSourceInC}}
+                  </ng-template>
+                  <ng-template let-item pTemplate="item">
+                    <div class="user-item">
+                      <div>{{ item.efiosrcSourceInC}}</div>
+                    </div>
+                  </ng-template>
+                </p-dropdown>
+              </div>
+            </div> -->
+
+
+
+        </div>
+        <!-- <div class="row pb-3" style="width:100%"> -->
+        <!-- <div class="col-md-4" style="display: flex;width: 32%;">
+              <label for="vehicleLine"
+                style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:50%; ;margin-top:8px;padding-right:10px ">
+                <input type="checkbox" formControlName="vehicleLineCheck" id="vehicleLineCheck"
+                  class="form-check-input" />
+                Vehicle Line : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                  *ngIf="validFields.vehicleLine"></em></label>
+              <div class="dropdown" style="width: 50%;">
+                <p-dropdown [options]="workQueueMaster.vehcleLineList" optionLabel="evlVehicleLineC" autoWidth="false"
+                  formControlName="vehicleLine" [filterMatchMode]=startsWith
+                  [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                  [filter]="true" filterBy="evlVehicleLineC" scrollHeight="200px" placeholder="--Select--"
+                  (onChange)="onVlChange()">
+                  <ng-template let-item pTemplate="selectedItem">
+                    {{ item.evlVehicleLineC}} - {{item.prtpeioDescX}}
+                  </ng-template>
+                  <ng-template let-item pTemplate="item">
+                    <div class="user-item">
+                      {{ item.evlVehicleLineC}} - {{item.prtpeioDescX}}
+                    </div>
+                  </ng-template>
+                </p-dropdown>
+              </div>
+            </div> -->
+        <!-- <div class="col-md-4" style="display: flex;width:32%">
+              <label for="SAPCode"
+                style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:50%; ;margin-top:8px;padding-right:10px ">
+                <input type="checkbox" formControlName="SAPCodeCheck" id="SAPCodeCheck" class="form-check-input"
+                  [attr.disabled]="isTemplate?'':null" />
+                S4P Code : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                  *ngIf="validFields.SAPCode"></em></label>
+              <div class="dropdown" style="width: 50%;">
+                <p-dropdown [options]="workQueueMaster.s4pCodeList" [filterMatchMode]=startsWith autoWidth="false"
+                  formControlName="SAPCode" (onChange)="onS4pCodeChange()" [virtualScroll]="true" [itemSize]="30"
+                  [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                  [filter]="true" filterBy="effiopEffInC" scrollHeight="200px" placeholder="--Select--"
+                  [disabled]="isTemplate">
+                  <ng-template let-item pTemplate="selectedItem">
+                    {{ item.effiopEffInC}}
+                  </ng-template>
+                  <ng-template let-item pTemplate="item">
+                    <div class="user-item">
+                      <div>{{ item.effiopEffInC}}</div>
+                    </div>
+                  </ng-template>
+                </p-dropdown>
+              </div>
+            </div> -->
+        <!-- <div class="col-md-4" style="display: flex;width:32%;margin-left:2%">
+              <label for="sourceIn"
+                style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:50%; ;margin-top:8px;padding-right:10px ">
+                <input type="checkbox" formControlName="sourceInCheck" id="sourceInCheck" class="form-check-input"
+                  [attr.disabled]="isTemplate?'':null" />
+                Source In : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                  *ngIf="validFields.sourceIn"></em></label>
+              <div class="dropdown" style="width: 50%;">
+                <p-dropdown [options]="workQueueMaster.sourceInList" [filterMatchMode]=startsWith autoWidth="false"
+                  formControlName="sourceIn" [disabled]="isTemplate"
+                  [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                  [filter]="true" (onChange)="onSourceInChange()" filterBy="efiosrcSourceInC" scrollHeight="200px"
+                  placeholder="--Select--">
+                  <ng-template let-item pTemplate="selectedItem">
+                    {{ item.efiosrcSourceInC}}
+                  </ng-template>
+                  <ng-template let-item pTemplate="item">
+                    <div class="user-item">
+                      <div>{{ item.efiosrcSourceInC}}</div>
+                    </div>
+                  </ng-template>
+                </p-dropdown>
+              </div>
+            </div> -->
+        <!-- </div> -->
+        <div class="rowaljfsc" style="width:100%;;clear:both;margin-left:0%">
+
+
+
+          <div class="coloadsjiwa" style="display:inline-block;width:19%;float:left;margin-left:5%">
+            <label for="sourceIn"
+              style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:40%;float:left;margin-left:1.5% ">
+              <input type="checkbox" formControlName="sourceInCheck" id="sourceInCheck" class="form-check-input"
+                [attr.disabled]="isTemplate?'':null" />
+              Source In : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                *ngIf="validFields.sourceIn"></em></label>
+            <div class="dropdown" style="width: 52%;float:left;margin-left:3%;">
+              <p-dropdown [options]="workQueueMaster.sourceInList" [filterMatchMode]=startsWith autoWidth="false"
+                formControlName="sourceIn" [disabled]="isTemplate"
+                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                [filter]="true" (onChange)="onSourceInChange()" filterBy="efiosrcSourceInC" scrollHeight="200px"
+                placeholder="Select">
+                <ng-template let-item pTemplate="selectedItem">
+                  {{ item.efiosrcSourceInC}}
+                </ng-template>
+                <ng-template let-item pTemplate="item">
+                  <div class="user-item">
+                    <div>{{ item.efiosrcSourceInC}}</div>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+
+
+
+
+
+
+          <div class="coleqa" style="display: block;width:24%;float: left;">
+            <label for="effectiveInDate"
+              style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:47%;float:left;margin-left: 6% !important;">
+              <input type="checkbox" formControlName="effectiveInDateCheck" id="effectiveInDateCheck"
+                class="form-check-input" [attr.disabled]="isTemplate?'':null" />
+              Effective In Date :
+              <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);" *ngIf="validFields.effectiveInDate"></em>
+
+            </label>
+            <p-calendar dateFormat="dd-M-yy" [showIcon]="true" (ngModelChange)="effiveIntDtChange($event)"
+              [disabled]="isTemplate" formControlName="effectiveInDate"
+              style="width: 41%;height:25px;float:left;margin-left:1%" dataType="string"></p-calendar>
+          </div>
+          <div style="clear:right"></div>
+
+
+
+          <div class="yrsdctyhb" style="width:29% !important;clear:right;float: left;">
+            <label for="reasonCode"
+              style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left !important;float: left; width:33%;margin-left:8%; ">
+              <input type="checkbox" formControlName="reasonCodeCheck" id="reasonCodeCheck" class="form-check-input"
+                [attr.disabled]="isTemplate?'':null" />
+              Reason Code : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                *ngIf="validFields.reasonCode"></em></label>
+            <div class="dropdown"
+              style="width: 55% !important;margin: auto;display: inline-block;margin-left: 1%;">
+              <p-dropdown [options]="workQueueMaster.reasonCodeList" [filterMatchMode]=startsWith
+                optionLabel="reasonCode" autoWidth="false" [disabled]="isTemplate" formControlName="reasonCode"
+                [style]="{ 'width': '100%','display':'flex','border-radius':'5px','height':'25px','color':'black','border':'2px solid black','margin':'0 auto','float':'left'}"
+                [filter]="true" filterBy="reasonCode" (onChange)="onReasonCodeChange()" scrollHeight="200px"
+                placeholder="--Select--">
+                <ng-template let-item pTemplate="selectedItem">
+                  {{ item.reasonCode}} - {{item.reasonDescX}}
+                </ng-template>
+                <ng-template let-item pTemplate="item">
+                  <div class="user-item">
+                    {{ item.reasonCode}} - {{item.reasonDescX}}
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+
+          <div style="display: flex;">
+            <button type="submit" id="btnw" [disabled]="isSearchDisabled">
+              <em class="fa fa-search"></em> Search</button>
+            <button type="button" (click)="onRefresh()" id="btnw" style="background-color: #215a8f;margin-left:5%"><em
+                class="fa fa-refresh"></em> Reset</button>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- <div className="row" style="text-align: center;margin-top:-2%;padding:0">
+            <button type="submit"  id="btn" style="background-color: #215a8f;"
+              [disabled]="isSearchDisabled">
+              <em class="fa fa-search"></em> Search</button>
+            <div class="space" style="width: 4px;
+          height: auto;
+          display: inline-block;">
+            </div>
+            <button type="button" (click)="onRefresh()" id="btn" 
+              style="background-color: #215a8f;"><em class="fa fa-refresh"></em> Reset</button>
+          </div> -->
+      </form>
+
+      <!-- </div> -->
+      <!-- </div> -->
+    </div>
+    <!-- <div style="clear:both"></div> -->
+    <!-- <form [formGroup]="workQueueForm" (ngSubmit)="onSubmit(0,500)" class="bg-text">
+   
+    <div class="row pb-3" style=" margin-top: 3%;">
+      <div class="col-md-4" style="display: flex;">
+        <label for="analystId" style="width: 40%;margin-left: 2%;" >
+          <input type="checkbox" formControlName="analystCheck" id="analystCheck" class="form-check-input" />
+          Analyst ID :  <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);" *ngIf="validFields.analyst"></em></label>
+        <div class="" style="width: 75%;" >
+          <p-dropdown class="analyst" [options]="workQueueMaster.userList" optionLabel="userIdC" autoWidth="false"  #analystDd 
+            formControlName="analystId" [style]="{ 'width': '100%'}" [filter]="true" filterBy="userIdC"
+            scrollHeight="200px" placeholder="--Select--" (onChange)="onUserIdChange($event)" >
+            <ng-template let-item pTemplate="selectedItem">
+              {{ item.userIdC}}
+            </ng-template>
+            <ng-template let-user pTemplate="item">
+              <div class="user-item">
+                <div>{{ user.userIdC}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+
+      <div class="col-md-4" style="display: flex;">
+        <label for="template" style="width: 27%;">
+          <input type="checkbox" formControlName="templateCheck" id="templateCheck" class="form-check-input" />
+          Template : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);" *ngIf="validFields.template"></em></label>
+        <div class="dropdown" style="width: 65%;">
+          <p-dropdown [options]="templateIdList" autoWidth="false" formControlName="template" 
+            [style]="{ 'width': '100%'}" [filter]="true" filterBy="templtIdR"
+            scrollHeight="200px" placeholder="--Select--"
+            (onClick)="onTemplateIdClick()" >
+            <ng-template let-item pTemplate="selectedItem">
+              {{ item.templtIdR}}
+            </ng-template>
+            <ng-template let-item pTemplate="item">
+              <div class="user-item">
+                <div>{{ item.templtIdR}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+      <div class="col-md-4" style="display: flex;">
+        <label for="commodity" style="width: 40%;margin-left: -7%;">
+          <input type="checkbox" formControlName="commodityCheck" id="commodityCheck" class="form-check-input" />
+          Commodity : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);" *ngIf="validFields.commodity"></em></label>
+        <input type="text" (blur)="onBlurCommodity()" style="width: 65%;" class="form-control" id="commodity" formControlName="commodity" [attr.disabled]="isTemplate?'':null">
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="row pb-3">
+      <div class="col-md-4" style="display: flex;">
+        <label for="engBase" style="width: 40%;margin-left: 2%;">
+          <input type="checkbox" formControlName="engBaseCheck" id="engBaseCheck" class="form-check-input" />
+          Eng Base : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);" *ngIf="validFields.engBase"></em></label>
+        <input type="text" style="width: 75%;" class="form-control" id="engBase" 
+        (blur)="onBlurEngBase()" formControlName="engBase" [attr.disabled]="isTemplate?'':null">
+      </div>
+      <div class="col-md-4" style="display: flex;">
+        <label for="productType" style="width: 27%;">
+          <input type="checkbox" formControlName="productTypeCheck" id="productTypeCheck" class="form-check-input" />
+          Product Type : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);" *ngIf="validFields.productType"></em></label>
+        <div class="dropdown" style="width: 65%;">
+          <p-dropdown [options]="workQueueMaster.vehcleTypeCodeList" optionLabel="vehtypeCode" autoWidth="false" formControlName="productType" 
+            [style]="{ 'width': '100%'}" [filter]="true" filterBy="vehtypeCode" scrollHeight="200px" placeholder="--Select--" [disabled]="isTemplate"
+            (onChange)="onProductChange($event)">
+            <ng-template let-item pTemplate="selectedItem">
+              {{ item.vehtypeCode}}
+            </ng-template>
+            <ng-template let-item pTemplate="item">
+              <div class="user-item">
+                <div>{{ item.vehtypeCode}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+      <div class="col-md-4" style="display: flex;">
+        <label for="template" style="width: 40%;margin-left: -7%;">
+          <input type="checkbox" formControlName="productTypeOrginCheck" id="productTypeOrginCheck" 
+            class="form-check-input" />
+          Product Type Origin : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);" *ngIf="validFields.productTypeOrgin"></em></label>
+        <div class="dropdown" style="width: 65%;">
+          <p-dropdown [options]="productTypeOrigin" autoWidth="false" formControlName="productTypeOrgin" (onChange)="onProductOriginChange($event)"
+            [style]="{ 'width': '100%'}" [filter]="true" filterBy="pteioOriginC" scrollHeight="200px" placeholder="--Select--">
+            <ng-template let-item pTemplate="selectedItem">
+              {{ item.pteioOriginC}}
+            </ng-template>
+            <ng-template let-item pTemplate="item">
+              <div class="user-item">
+                <div>{{ item.pteioOriginC}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="row pb-3">
+      <div class="col-md-4" style="display: flex;">
+        <label for="vehicleLine" style="width: 40%;margin-left: 2%;">
+          <input type="checkbox" formControlName="vehicleLineCheck" id="vehicleLineCheck" class="form-check-input" />
+          Vehicle Line : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);" *ngIf="validFields.vehicleLine"></em></label>
+        <div class="dropdown" style="width: 75%;">
+          <p-dropdown [options]="workQueueMaster.vehcleLineList" optionLabel="evlVehicleLineC" autoWidth="false"
+            formControlName="vehicleLine" [style]="{ 'width': '100%'}" [filter]="true" filterBy="evlVehicleLineC"
+            scrollHeight="200px" placeholder="--Select--"  (onChange)="onVlChange()">
+            <ng-template let-item pTemplate="selectedItem">
+              {{ item.evlVehicleLineC}} - {{item.prtpeioDescX}}
+            </ng-template>
+            <ng-template let-item pTemplate="item">
+              <div class="user-item">
+                {{ item.evlVehicleLineC}} - {{item.prtpeioDescX}}
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+      <div class="col-md-4" style="display: flex;">
+        <label for="SAPCode" style="width: 27%;">
+          <input type="checkbox" formControlName="SAPCodeCheck" id="SAPCodeCheck" class="form-check-input" />
+          S4P Code : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);" *ngIf="validFields.SAPCode"></em></label>
+        <div class="dropdown" style="width: 65%;">
+          <p-dropdown [options]="workQueueMaster.s4pCodeList" autoWidth="false" formControlName="SAPCode" (onChange)="onS4pCodeChange()"
+            [style]="{ 'width': '100%'}" [filter]="true" filterBy="effiopEffInC" scrollHeight="200px" placeholder="--Select--" [disabled]="isTemplate">
+            <ng-template let-item pTemplate="selectedItem" >
+              {{ item.effiopEffInC}}
+            </ng-template>
+            <ng-template let-item pTemplate="item">
+              <div class="user-item">
+                <div>{{ item.effiopEffInC}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+      <div class="col-md-4" style="display: flex;">
+        <label for="sourceIn" style="width: 40%;margin-left: -7%;">
+          <input type="checkbox" formControlName="sourceInCheck" id="sourceInCheck" class="form-check-input" />
+          Source In : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);" *ngIf="validFields.sourceIn"></em></label>
+        <div class="dropdown" style="width: 65%;">
+          <p-dropdown [options]="workQueueMaster.sourceInList" autoWidth="false" formControlName="sourceIn" [disabled]="isTemplate"
+            [style]="{ 'width': '100%'}" [filter]="true" (onChange)="onSourceInChange()" filterBy="efiosrcSourceInC" scrollHeight="200px" placeholder="--Select--">
+            <ng-template let-item pTemplate="selectedItem">
+              {{ item.efiosrcSourceInC}}
+            </ng-template>
+            <ng-template let-item pTemplate="item">
+              <div class="user-item">
+                <div>{{ item.efiosrcSourceInC}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="row pb-3">
+      <div class="col-md-4" style="display: flex;">
+        <label for="effectiveInDate" class="mb-0" style="width: 40%;margin-left: 2%;">
+          <input type="checkbox" formControlName="effectiveInDateCheck" id="effectiveInDateCheck"
+            class="form-check-input" />
+          Effective In Date : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);" *ngIf="validFields.effectiveInDate"></em></label>
+        <input type="date" style="width: 75%;" class="form-control" id="date"  formControlName="effectiveInDate" [attr.disabled]="isTemplate?'':null">
+      </div>
+      <div class="col-md-4" style="display: flex;">
+        <label for="reasonCode" style="width: 27%;">
+          <input type="checkbox" formControlName="reasonCodeCheck" id="reasonCodeCheck" class="form-check-input" />
+          Reason Code : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);" *ngIf="validFields.reasonCode"></em></label>
+        <div class="dropdown" style="width: 65%;">
+          <p-dropdown [options]="workQueueMaster.reasonCodeList" optionLabel="reasonCode" autoWidth="false" [disabled]="isTemplate"
+            formControlName="reasonCode" [style]="{ 'width': '100%'}" [filter]="true" filterBy="reasonCode" (onChange)="onReasonCodeChange()"
+            scrollHeight="200px" placeholder="--Select--">
+            <ng-template let-item pTemplate="selectedItem">
+              {{ item.reasonCode}} - {{item.reasonDescX}}
+            </ng-template>
+            <ng-template let-item pTemplate="item">
+              <div class="user-item">
+                {{ item.reasonCode}} - {{item.reasonDescX}}
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+    </div>
+
+
+
+    <br>
+
+    <div className="row" style="text-align: center;margin-bottom: 3%;">
+      <button type="submit"   style="background-color: #215a8f;" [disabled]="isSearchDisabled">
+        <em class="fa fa-search"></em> Search</button>
+      <div class="space" style="width: 4px;
+        height: auto;
+        display: inline-block;">
+      </div>
+      <button type="button" (click)="onRefresh()" 
+        style="background-color: #215a8f;"><em class="fa fa-refresh"></em> Refresh</button>
+    </div>
+  </form> -->
+    <!-- <div style="clear: both;"></div> -->
+    <!-- *ngIf="work_queue.length!==0" -->
+
+    <!-- [rowsPerPageOptions]="[500]" -->
+
+    <div class="table bg-text" [style.display]="showRow" style="width:91% !important;margin-left:4.5% !important">
+      <!-- <h5 style="font-size:20px">Spec Comment: (See Comments below)</h5> -->
+      <p-table [value]="work_queue" styleClass="p-datatable-sm" dataKey="gtiwqCreateY" scrollDirection="both"
+        scrollHeight="280px" [paginator]="false" [rows]="500" [showCurrentPageReport]="true" responsiveLayout="scroll"
+        [(selection)]="selectedWQ" [rowHover]="true" (onRowSelect)="onRowSelect()" (onLazyLoad)="loadCustomers($event)">
+
+        <ng-template pTemplate="header" let-work_queue let-ri="rowIndex">
+          <tr style="background-color:#000080;">
+
+            <th scope="col" style="min-width: 20px !important;"></th>
+            <th pSortableColumn="engpDelimitedR"
+              style=" font-size:11px !important;width:150px;text-align:center !important;">Eng Part Nbr<p-sortIcon
+                field="engpDelimitedR">
+              </p-sortIcon>
+            </th>
+
+            <th pSortableColumn="sprfxprtPrefixR"
+              style=" font-size:11px !important;white-space: nowrap;text-align:center !important;">
+              Service/Finish/Partner
+              Part<p-sortIcon field="(sprfxprtPrefixR||sbaseprtNbr||sufxprtSuffixNbr)">
+              </p-sortIcon>
+            </th>
+
+            <th pSortableColumn="engpCommodityC" style="text-align:center !important; font-size:11px !important;">
+              Commodity<p-sortIcon field="engpCommodityC"></p-sortIcon>
+            </th>
+            <th pSortableColumn="reasonCodeC" style="text-align:center !important; font-size:11px !important;">
+              Reas Code<p-sortIcon field="reasonCodeC"></p-sortIcon>
+            </th>
+            <th pSortableColumn="vehtypeCode" style="text-align:center !important; font-size:11px !important;">
+              PT<p-sortIcon field="vehtypeCode"></p-sortIcon>
+            </th>
+            <th pSortableColumn="evlVehicleLineC" style="text-align:center !important; font-size:11px !important;">VL
+              <p-sortIcon field="evlVehicleLineC"></p-sortIcon>
+            </th>
+
+            <th pSortableColumn="epntsrEffInY" style="text-align:center !important; font-size:11px !important;">Eff In
+              <p-sortIcon field="epntsrEffInY"></p-sortIcon>
+            </th>
+            <!-- effiopEffInC reqIdR    -->
+            <th pSortableColumn="efiosrcSourceInC" style="text-align:center !important; font-size:11px !important;">
+              Source<p-sortIcon field="efiosrcSourceInC"></p-sortIcon>
+            </th>
+
+            <th pSortableColumn="code" style="text-align:center !important; font-size:11px !important;">Code<p-sortIcon
+                field="code"></p-sortIcon>
+            </th>
+
+            <th pSortableColumn="irp" style="text-align:center !important; font-size:11px !important;">IRP
+              <!-- <p-sortIcon field="irp"></p-sortIcon> -->
+            </th>
+
+            <th pSortableColumn="funcKey" style="text-align:center !important; font-size:11px !important;">Function Key
+              <p-sortIcon field="funcKey"></p-sortIcon>
+            </th>
+
+            <th pSortableColumn="statusCodeC" style="text-align:center !important; font-size:11px !important;">IRP
+              Status
+              <!-- <p-sortIcon field="statusCodeC"></p-sortIcon> -->
+            </th>
+
+            <th pSortableColumn="userIdC" style="text-align:center !important; font-size:11px !important;">User ID Key
+              <p-sortIcon field="userIdC"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+
+
+        <ng-template pTemplate="body" let-work_queue let-ri="rowIndex">
+          <tr (dblclick)="reasonCodeClick(work_queue)" [pSelectableRow]="work_queue">
+            <td style="min-width: 20px !important;text-align: center !important;padding-left:10px">
+              <p-tableRadioButton [value]="work_queue"></p-tableRadioButton>
+            </td>
+            <td>
+              {{ work_queue.engpDelimitedR}}
+            </td>
+            <td>
+              <span
+                *ngIf="!work_queue.d20PartR&&(work_queue.sprfxprtPrefixR||work_queue.sbaseprtNbr||work_queue.sufxprtSuffixNbr)">
+                {{work_queue.sprfxprtPrefixR}}{{work_queue.sbaseprtNbr}}{{work_queue.sufxprtSuffixNbr}}
+              </span>
+              <span
+                *ngIf="!work_queue.d20PartR&&!work_queue.sprfxprtPrefixR&&!work_queue.sbaseprtNbr&&!work_queue.sufxprtSuffixNbr">
+                {{work_queue.sprfxprtPrefix2X}}{{ work_queue.sbaseprt2X }}{{work_queue.sufxprtSuffix2X}}
+              </span>
+              <span *ngIf="work_queue.d20PartR">
+                {{work_queue.d20PartR}}
+              </span>
+            </td>
+            <td style="text-align: center !important;">
+              {{ work_queue.engpCommodityC}}
+            </td>
+            <td style="text-align: center !important;">
+              <!-- engpCommodityC reasonCodeC vehtypeCode evlVehicleLineC epntsrEffInY efiosrcSourceInC effiopEffInC reqIdR funcKey statusCodeC userIdC -->
+              {{ work_queue.reasonCodeC}}
+            </td>
+            <td style="text-align: center !important;">
+              {{ work_queue.vehtypeCode}}
+            </td>
+            <td (click)="loadNotes(work_queue)" style="text-align: center !important;">
+              {{ work_queue.evlVehicleLineC}}
+            </td>
+            <td style="text-align: center !important;">
+              <span *ngIf="work_queue.epntsrEffInY">
+                {{ work_queue.epntsrEffInY| date: 'dd/MMM/yyyy'}}
+              </span>
+
+            </td>
+            <td style="text-align: center !important;">
+              {{ work_queue.efiosrcSourceInC}}
+            </td>
+            <td>
+              {{ work_queue.effiopEffInC}}
+            </td>
+            <td>
+              {{ work_queue.reqIdR}}
+            </td>
+            <td (click)="loadKeyData(work_queue)">
+              {{ work_queue.funcKey}}
+            </td>
+            <td style="text-align: center !important;">
+              {{ work_queue.statusCodeC}}
+            </td>
+            <td>
+              {{ work_queue.userIdC}}
+            </td>
+          </tr>
+        </ng-template>
+
+
+      </p-table>
+
+
+      <!-- *ngIf="showTable" -->
+      <!-- <button type="button" class="btn btn-primary" style="width:100px" (click)="downloadSpecCommentData()"> download</button> -->
+    </div>
+
+    <div className="row" [style.display]="showRow" *ngIf="showTable" style="width:100%;margin-top: -20px;">
+      <!-- justify-content: space-around !important;"  -->
+      <div style="width:90%;margin-left:8%;padding-left:1%">
+        <label style="margin-left: -6%;font-size: 11px">Total record: {{totalCount}}</label>
+        <button type="button" [disabled]="btnDeleteDisabled" (click)="deleteClick()" id="btnw"
+          style="background-color: #215a8f;">Delete</button>
+        <button type="button" [disabled]="btnKeyDataDisabled" (click)="onKeyDataClick()" id="btnw"
+          style="background-color: #215a8f;">Key Data</button>
+        <button type="button" [disabled]="btnCmdtyDisabled" (click)="commodityClick()" id="btnw"
+          style="background-color: #215a8f;">Cmdty </button>
+        <button type="button" (click)="onResetClick()" style="background-color: #215a8f;" id="btnw">Reset</button>
+        <button type="button" [disabled]="btnCmdtyCheck" (click)="onCommodityCheckClick()" id="btnw"
+          style="background-color: #215a8f; width:115px !important">Cmdty
+          Check</button>
+        <button type="button" style="background-color: #215a8f; width:130px !important" (click)="recoverPart()"
+          id="btnw">Recover Part
+        </button>
+        <button type="button" [disabled]="btnAsgnmntDisabled" (click)="onAssignmentDetailsClick()" id="btnw"
+          style="background-color: #215a8f;width:150px !important">Assignment
+          Detail</button>
+        <button type="button" (click)="saveUTC()" [disabled]="isUtcDis" style="background-color: #215a8f;" id="btnw">Save
+          UTC</button>
+        <button type="button" (click)="closeClick()" style="background-color: #215a8f;" id="btnw">Close </button>
+      </div>
+    </div>
+  </div>
+  <p-dialog header="Work Queue Assignment Data" [(visible)]="displayAssignmentModal" [modal]="true"
+    [style]="{width: '90vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <p class="p-m-0"></p>
+    <div class="table bg-text" *ngIf="showTable">
+      <p-table [value]="assignmentDetails" dataKey="gtiwqCreateY" scrollDirection="both" selectionMode="single"
+        [rows]="5" responsiveLayout="scroll" styleClass="p-datatable-sm" [(selection)]="selectedWQ" [rowHover]="true">
+        <ng-template pTemplate="header">
+          <tr>
+            <th scope="col">User ID</th>
+            <th scope="col">WQ Create Date</th>
+            <th scope="col">Product Type</th>
+            <th scope="col">Vehicle Line</th>
+            <th scope="col">Reason Code</th>
+            <th scope="col">Engineering Part(s)</th>
+            <th scope="col">Service Part(s)</th>
+            <th scope="col">Function Key</th>
+            <th scope="col">Presumed Book</th>
+            <th scope="col">PC II Book</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-assignment let-ri="rowIndex">
+          <tr>
+            <td>
+              {{ assignment.userIdC}}
+            </td>
+            <td>
+              {{ assignment.gtiwqCreateY| date: 'dd/MMM/yyyy'}}
+            </td>
+            <td>
+              {{ assignment.vehtypeCode}}
+            </td>
+            <td>
+              {{ assignment.evlVehicleLineC}}
+            </td>
+            <td>
+              {{ assignment.reasonCodeC}}
+            </td>
+            <td>
+              {{ assignment.engpEngnrgPartR}}
+            </td>
+            <td>
+              <span
+                *ngIf="!assignment.d20PartR&&(assignment.sprfxprtPrefixR||assignment.sbaseprtNbr||assignment.sufxprtSuffixNbr)">
+                {{assignment.sprfxprtPrefixR}};{{ assignment.sbaseprtNbr }};{{assignment.sufxprtSuffixNbr}}
+              </span>
+              <span
+                *ngIf="!assignment.d20PartR&&!assignment.sprfxprtPrefixR&&!assignment.sbaseprtNbr&&!assignment.sufxprtSuffixNbr">
+                {{assignment.sprfxprtPrefix2X}};{{ assignment.sbaseprt2X }};{{assignment.sufxprtSuffix2X}}
+              </span>
+              <span *ngIf="assignment.d20PartR">
+                {{assignment.d20PartR}}
+              </span>
+            </td>
+            <td>
+
+              {{ assignment.funcKey}}
+            </td>
+            <td>
+              {{assignment.userBookR}}
+            </td>
+            <td>
+              {{assignment.userPciiBookR}}
+            </td>
+            <td>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <ng-template pTemplate="footer">
+      <p-button (click)="displayAssignmentModal=false" label="OK"></p-button>
+    </ng-template>
+  </p-dialog>
+
+  <p-dialog header="Key Data" [(visible)]="displayKeyDataModal" [modal]="true" [style]="{width: '50vw'}"
+    [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <p class="p-m-0"></p>
+    <textarea rows="5" cols="30" pInputTextarea
+      [value]="selectedWQ.gtiwqKeyDataX?selectedWQ.gtiwqKeyDataX:''"></textarea>
+    <ng-template pTemplate="footer">
+      <p-button (click)="displayKeyDataModal=false" label="OK"></p-button>
+    </ng-template>
+  </p-dialog>
+
+  <p-dialog header="REQ ID" [(visible)]="displayReqIdModal" [modal]="true" [style]="{width: '40vW'}"
+    [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <p class="p-m-0"></p>
+    <textarea rows="5" cols="30" pInputTextarea [value]="selectedWQ.reqIdR"></textarea>
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-times" (click)="displayReqIdModal=false" label="Close"></p-button>
+    </ng-template>
+  </p-dialog>
+
+  <p-dialog header="Work Queue" [(visible)]="alert.flag" [style]="{'max-width':'50%', height: 'auto'}" [modal]="true">
+    <br>
+    {{alert.msg}}
+  </p-dialog>
+  <p-dialog header="Recover Inactivated Part" [(visible)]="inactivePartVis" [modal]="true" [style]="{width: '40vW'}"
+    [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <div class="row pb-3" style=" margin-top: 3%;width:100%;">
+      <div class="col-md-12" style="display: flex;">
+        <label
+          style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:55%; ;margin-top:8px;padding-right:10px;float:left">
+          Inactived Engineering Part :</label>
+        <div style="width: 50%;">
+          <input type="text"
+            [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+            [(ngModel)]="inactivePart" />
+        </div>
+      </div>
+      <!-- <div class="col-md-12" style="display: flex;">
+      <label style="width: 30%;">
+        Inactived Engineering Part : </label>
+      <div style="width: 60%;">
+        <input type="text" style="border-color: black" [(ngModel)]="inactivePart" />
+      </div>
+    </div> -->
+    </div>
+
+    <ng-template pTemplate="footer">
+      <p-button (click)="inactivePartOk()" label="Submit"></p-button>
+      <p-button (click)="inactivePartVis=false" label="Cancel"></p-button>
+    </ng-template>
+  </p-dialog>
+  <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text">
+  </p-confirmDialog>
+
+
+
+  <p-dialog header="Save UTC - No Time Change Required" [(visible)]="saveUtcConfirmVis" [modal]="true"
+    [style]="{width: '40vW'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <p class="p-m-0"></p>
+    Select YES for 'Save', NO for 'No Timing Chg Required', CANCEL for 'Getting Back to WQ Screen'
+    <ng-template pTemplate="footer">
+      <p-button (click)="saveUtcYes()" label="Yes"></p-button>
+      <p-button (click)="saveUtcNo()" label="No"></p-button>
+      <p-button (click)="saveUtcConfirmVis=false" label="Cancel"></p-button>
+    </ng-template>
+  </p-dialog>

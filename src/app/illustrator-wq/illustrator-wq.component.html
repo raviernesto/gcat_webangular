@@ -1,0 +1,161 @@
+<!-- <p>illustrator-wq works!</p> -->
+<div style="clear:both"></div>
+<div class="maincontainer" style="width:100%;margin-top: -1%;" >
+    <div class="accordion1" style="width:100%;height:auto">
+                <div class="header" id="head"  (click)="showCenterPart()"  [style.border-radius]="br1" style="height:25px;" >
+                    <span id="headerName" style="margin-top: -1%;font-size:11px;">Selection Criteria</span>
+                    <i class="fa-solid fa-plus"  [style.transform]="rotate"  aria-hidden="true" style="float:right;font-size: 20px;color: red;margin-top: -1%; "></i>
+                
+                
+                </div>
+                <div class="centerpart" id="center" [style.display]="display">
+                    <div class="row1" style="width:100%;height:80px;">
+                            <div class="col1" style="width:32%">
+                                        <div style="float:left;width:50%;">
+                                            <!-- <label id="label"  style=" margin-top:8px;float:left">Region</label>
+                                            <span id="colon"  style=" margin-top:8px;float:left">:</span> -->
+                                                <input type="radio"  name="inlineRadioOptions" id="inlineRadio1" class="form-check-input" style=" margin-top:8px;float:left"(click)="allreport()">
+                                                <label id="label"  style=" margin-top:6px;float:left;font-size: 11px;">&nbsp;All IRP</label>
+                                        </div>
+                                        <div style="float:left;width:50%;">
+                                            <!-- <p-dropdown [options]="vehicleLine" optionLabel="name" autoWidth="false"
+                                            [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'38px','color':'black','border':'2px solid black'}" [filter]="true"
+                                            filterBy="name" [showClear]="true" placeholder="All">
+                                                    <ng-template pTemplate="selectedItem">
+                                                    </ng-template>
+                                                    <ng-template let-vehicleLine pTemplate="item">
+                                                        <div class="vehicleLine-item">
+                                                            <div>{{vehicleLine.name}}</div>
+                                                        </div>
+                                                    </ng-template>
+                                            </p-dropdown> -->
+                                            <input type="radio"  name="inlineRadioOptions" id="inlineRadio1" class="form-check-input" style=" margin-top:8px;float:left" (click)="newReport()">
+                                            <label id="label"  style=" margin-top:6px;float:left;font-size:11px;">&nbsp;New Irp</label>
+                                  
+                                        
+                                        </div>
+                                
+                            
+                            </div>
+                            <div class="col1" style="width:32%">
+                                <div style="float:left;width:50%;">
+                                    <!-- <label id="label"  style=" margin-top:8px;float:left">Group</label>
+                                    <span id="colon"  style=" margin-top:8px;float:left">:</span> -->
+                                    <input type="radio"  name="inlineRadioOptions" id="inlineRadio1" class="form-check-input" style=" margin-top:8px;float:left"(click)="updateReport()">
+                                    <label id="label"  style=" margin-top:6px;float:left;font-size:11px;">&nbsp;Updated IRP</label>
+                          
+                                </div>
+                                <!-- <div style="float:left;width:50%;">
+                                    <p-dropdown [options]="vehicleLine" optionLabel="name" autoWidth="false"
+                                    [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'38px','color':'black','border':'2px solid black'}" [filter]="true"
+                                    filterBy="name" [showClear]="true" placeholder="All">
+                                            <ng-template pTemplate="selectedItem">
+                                            </ng-template>
+                                            <ng-template let-vehicleLine pTemplate="item">
+                                                <div class="vehicleLine-item">
+                                                    <div>{{vehicleLine.name}}</div>
+                                                </div>
+                                            </ng-template>
+                                    </p-dropdown>
+                                
+                                </div> -->
+                        
+                    
+                            </div>
+                            <div class="col1" style="width:32%" style="float: right;margin-right:5%">
+                                <button id="btn1" (click)="showReport()">
+                                    Show Report
+                                </button>
+                            
+                            </div>
+
+                    </div>
+
+
+            </div>
+    </div>
+
+<div style="clear:both"></div>
+<br>
+<div class="container2" style="width:100%;  " >
+    <div id="tablepart">
+       
+        <p-table [value]="part"  *ngIf="showData" styleClass="p-datatable-sm" scrollDirection="both" scrollHeight="355px"
+         [paginator]="true" [rows]="50" [showCurrentPageReport]="true"  [rowsPerPageOptions]="[50,100,500]" 
+        [rowHover]="true" responsiveLayout="scroll" > 
+        <ng-template pTemplate="header">
+            <tr style="position: sticky;top:0">
+
+                <th pSortableColumn="reports" id="th" >IRP No
+                    <p-sortIcon field="reports"></p-sortIcon>
+                 </th>
+
+                 <th pSortableColumn="values" id="th" >Illustration Id
+                    <p-sortIcon field="values"></p-sortIcon>
+                 </th>
+
+                 <th pSortableColumn="numberOfSection" id="th" >Req Return Date
+                    <p-sortIcon field="numberOfSection"></p-sortIcon>
+                 </th>
+
+                 <th pSortableColumn="sectionWithCompletedIllustrations" id="th" >Status
+                    <p-sortIcon field="sectionWithCompletedIllustrations"></p-sortIcon>
+                 </th>
+
+                 <th pSortableColumn="rejectedIRPs" id="th" >Current Owner
+                    <p-sortIcon field="rejectedIRPs"></p-sortIcon>
+                 </th>
+
+                 <th pSortableColumn="sectionWithOpenIRPs" id="th" >Downloaded
+                    <p-sortIcon field="sectionWithOpenIRPs"></p-sortIcon>
+                 </th>
+
+                 <th pSortableColumn="illustrationWithTheCoordinator" id="th" >Revision No
+                    <p-sortIcon field="illustrationWithTheCoordinator"></p-sortIcon>
+                 </th>
+
+                 <!-- <th pSortableColumn="illustrationWithTheArtHouses" id="th" >Eff in Date
+                    <p-sortIcon field="illustrationWithTheArtHouses"></p-sortIcon>
+                 </th> -->
+
+                 <!-- <th pSortableColumn="illustrationWithTheAnalyst" id="th" >Illustration With The Art Houses
+                    <p-sortIcon field="illustrationWithTheAnalyst"></p-sortIcon>
+                 </th>
+
+                 <th pSortableColumn="sectionWithoutIllustrations" id="th" >Section Without Illustrations
+                    <p-sortIcon field="sectionWithoutIllustrations"></p-sortIcon>
+                 </th> -->
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-parts>
+            <tr>
+                <td   style="font-size:11px;font-weight:bold;text-align: center;">{{ parts.reqIdR}}</td>
+                <td   style="font-size:11px;font-weight:bold;text-align: center;">{{ parts.illstrIdR}}</td>
+                <td   style="font-size:11px;font-weight:bold;text-align: center;">{{ parts. reqdateY | date:'dd/MMM/yyyy'}}</td>
+                <td   style="font-size:11px;font-weight:bold;text-align: center;">{{ parts.statusCodeC}}</td>
+                <td   style="font-size:11px;font-weight:bold;text-align: center;">{{ parts.reqCurrOwnerC}}</td>
+              <td   style="font-size:11px;font-weight:bold;text-align: center;">{{parts.downstatusC}}</td>
+                <td   style="font-size:11px;font-weight:bold;text-align: center;">{{ parts. illustrRevIdR}}</td> 
+                <!-- <td>{{ parts.illustrationWithTheArtHouses}}</td> -->
+                <!-- <td>{{ parts.illustrationWithTheAnalyst}}</td>
+                <td>{{ parts.sectionWithoutIllustrations}}</td> -->
+            </tr>
+        </ng-template>
+    </p-table>
+
+
+
+    </div>
+
+</div>
+<div class="col1" *ngIf="showData" style="width:100%" style="padding-left:40%;display: flex;">
+    <button id="btn1" style="margin-right:2%;width:60%;" >
+        Download
+    </button>
+    <button id="btn1" style="width:70%;" >
+        Upload
+    </button>
+<br>
+</div>
+</div>

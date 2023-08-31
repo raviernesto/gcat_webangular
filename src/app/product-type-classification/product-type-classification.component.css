@@ -1,0 +1,152 @@
+/* .save{
+    background-color: #000080 ;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .delete{
+    background-color: #000080 ;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .cmdty{
+    background-color: #000080 ;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .wq{
+    background-color: #000080 ;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .close{
+    background-color: #000080 ;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  } */
+  .productsize{
+    height: 300px;
+    width:170px !important;
+   }
+   .carsize{
+     height: 80px;
+   }
+   .trucksize{
+     height: 80px;
+   }
+   .btn{
+    
+     height:41px;
+     width:112px;
+     border-radius:20px;
+     background-color:#00095B;
+     box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+     font-family:"Ford Antenne Cond" !important;
+     white-space: nowrap;
+     margin-top:20px;
+     margin-left: 24%;
+
+     
+     
+   }
+   .dialogbutton{
+    height:41px;
+    width:112px;
+    border-radius:20px;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+   }
+   .btn1{
+    
+     height:41px;
+     width:112px;
+     border-radius:20px;
+     background-color:#00095B;
+     box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+     font-family:"Ford Antenne Cond" !important;
+     white-space: nowrap;
+     margin-top:20px;
+     margin-left: 10px;
+     
+   }
+   .btn2{
+    
+     height:41px;
+     width:112px;
+     border-radius:20px;
+     background-color:#00095B;
+     box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+     font-family:"Ford Antenne Cond" !important;
+     white-space: nowrap;
+     margin-top:20px;
+     margin-left: 10px;
+     
+   }
+   .btn3{
+    
+     height:41px;
+     width:112px;
+     border-radius:20px;
+     background-color:#00095B;
+     box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+     font-family:"Ford Antenne Cond" !important;
+     white-space: nowrap;
+     margin-top:20px;
+     margin-left: 10px;
+     
+   }
+   .btn4{
+    
+     height:41px;
+     width:112px;
+     border-radius:20px;
+     background-color:#00095B;
+     box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+     font-family:"Ford Antenne Cond" !important;
+     white-space: nowrap;
+     margin-top:20px;
+     margin-left: 10px;
+     
+   }
+  

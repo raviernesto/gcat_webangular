@@ -1,0 +1,41 @@
+
+    <body>
+    <div class="table" style="margin-top:2%;height:auto;width: 80%;margin-left:10%;">
+        <p-table [value]="table"  styleClass="p-datatable-customers" scrollDirection="both"
+        scrollDirection="both" [paginator]="true" [rows]="15" [rowsPerPageOptions]="[500]"
+        [showCurrentPageReport]="true" responsiveLayout="scroll"  scrollHeight="300px" [rowHover]="true" style="height: auto;">
+
+            <ng-template pTemplate="header">
+                <tr style="background-color:#000080;">
+                    <th scope="col"style="text-align:center;font-family:Ford Antenna;font-size :11px !important;width:20%">Engineering Parts</th>
+                    <th scope="col"style="text-align:center;font-family:Ford Antenna;font-size :11px !important;width:20%">Service Parts</th>
+                    <th scope="col"style="text-align:center;font-family:Ford Antenna;font-size :11px !important;width:20%">Commodities</th>
+                    <th scope="col"style="text-align:center;font-family:Ford Antenna;font-size :11px !important;width:20%">Reason Code</th>
+                    <th scope="col"style="text-align:center;font-family:Ford Antenna;font-size :11px !important;width:20%">Product Type</th>
+                    <th scope="col"style="text-align:center;font-family:Ford Antenna;font-size :11px !important;width:20%">Vehicle Line</th>
+                    
+                   
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-d>
+                <tr>
+                    <td style="text-align:center;font-family:Ford Antenna;font-size:11px">{{d.engpEngnrgPartR}}</td>
+                    <td style="text-align:center;font-family:Ford Antenna;font-size:11px">{{d.sprfxprtPrefixR}}{{d.sbaseprtNbr}}{{d.sufxprtSuffixNbr}}</td>
+                    <td style="text-align:center;font-family:Ford Antenna;font-size:11px">{{d.engpCommodityC}}</td>
+                    <td style="text-align:center;font-family:Ford Antenna;font-size:11px">{{d.reasonCodeC}}</td>
+                    <td style="text-align:center;font-family:Ford Antenna;font-size:11px">{{d.vehtypeCode}}</td>
+                    <td style="text-align:center;font-family:Ford Antenna;font-size:11px">{{d.evlVehicleLineC}}</td>
+                                    </tr>
+            </ng-template>
+        </p-table>
+        <!-- <button class="btn" type="button" id="btn" (click)="backClick()"
+  style="margin-left: 4px;margin-top: 11px;">
+    Back
+  </button>
+  <button class="btn" type="button" id="btn" (click)="closeClick()"
+  style="margin-left: 4px;margin-top: 11px;">
+    Close
+  </button> -->
+    </div>
+</body>
+

@@ -1,0 +1,32 @@
+<div class="container">
+    <p-dialog  [(visible)]="display" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '35vw'}">
+        <div class="card">
+            <div class="card-header">Commodity Setup</div>
+        <textarea class="text">1stCommBaseUpdateCPSC</textarea>
+        <div class="dropdown1">
+            <p-dropdown [options]="vehicleName" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select">
+                <ng-template pTemplate="selectedItem">
+                </ng-template>
+                <ng-template let-vehicle pTemplate="item">
+                    <div class="vehicle-item">
+                        <div>{{vehicle.name}}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+        </div>
+        <div class="dropdown2">
+            <p-dropdown [options]="vehicleName" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select">
+                <ng-template pTemplate="selectedItem">
+                </ng-template>
+                <ng-template let-vehicle pTemplate="item">
+                    <div class="vehicle-item">
+                        <div>{{vehicle.name}}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+        </div>
+        <button class="btn btn-primary" style="margin-left: 131px;">Ok</button>
+        <button class="btn btn-primary" style="margin-left: 231px;margin-top: -38px;">Cancel</button>
+    </div>
+    </p-dialog>
+</div>

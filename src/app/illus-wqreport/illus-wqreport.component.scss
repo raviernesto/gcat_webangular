@@ -1,0 +1,129 @@
+#head{
+    width:70%;
+    margin-left:15%;
+    padding:0px 10px;
+     background-color: #102B4E;
+    display:inline-block;
+     border-radius: 5px;
+     font-size:11px;
+    font-weight: bold !important;
+    margin-top:-15px;
+
+}
+#headerName{
+    font-size: 11px;
+    float:left;
+    color:white;
+    font-weight: bold;
+}
+#center{
+    width:70%;
+    margin-left:15%;
+    margin-top:-6px;
+    padding: 0;
+    padding-top:5px !important;
+    height:40px;
+    box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+    border-radius: 0px 0px 5px 5px;
+    background-color: white;
+   
+}
+
+#label{
+    color:#00095B;
+     font-family:Ford Antenna;
+     font-size :11px;
+     font-weight:bold;
+     width:90%;
+     text-align: right;
+    //  padding-right: 20px;
+     float:left;width:50%
+
+}
+#colon{
+    color:#00095B;
+    font-family:Ford Antenna;
+    font-size :11px;
+    font-weight:bold;
+    width: 5%;
+    // text-align: right;
+}
+.col1{
+   float:left;
+   margin-left:1%;
+}
+
+#btn{
+   
+    height:25px;
+    width:auto;
+    border-radius:20px;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    font-size: 13px ;
+    border:none !important;
+    /* margin-top:20px;
+    margin-left: 8%; */
+    
+}
+#tablepart{
+    width:70%;
+   
+    margin-left:15%;
+    margin-top:-6px;
+    padding:1% 0%;
+}
+#th{
+    font-size:11px !important;
+text-align:center !important;
+white-space:nowrap;
+border-right: 1px solid #bdbdbd !important;
+padding:0px 20px;
+    font-weight:bold !important;
+
+}
+tr:nth-child(even){ background-color:#f5f5f5 !important; } tr:nth-child(odd){ background-color:#ffff; }
+td{
+    border-right: 1px solid #bdbdbd !important;
+    white-space:nowrap;
+  }
+:host ::ng-deep .p-datatable-wrapper {
+    margin-top: -13px;
+}
+
+:host ::ng-deep .p-datatable{
+    box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+}
+
+div{
+    margin:0;
+    padding:0;
+}
+:host ::ng-deep .p-dropdown .p-dropdown-label.p-placeholder {
+    color: #6c757d;
+    font-size: 11px !important;
+    margin-top: -6px !important;
+}
+:host ::ng-deep .p-dropdown-filter.p-inputtext.p-component {
+    height: 25px !important;
+    font-size: 11px;
+}
+:host ::ng-deep  span.ng-star-inserted {
+    font-size: 11px !important;
+}
+:host ::ng-deep span#pr_id_1_label {
+    margin-top: -6px;
+}
+:host ::ng-deep span#pr_id_2_label {
+    margin-top: -6px;
+}
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+    text-align: left;
+    border: 1px solid #e9ecef;
+    border-width: 0 0 1px 0;
+    /* padding: 1rem 1rem; */
+    padding: 0px 10px;
+    font-size: 10px;
+}

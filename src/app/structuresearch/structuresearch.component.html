@@ -1,0 +1,547 @@
+<div class="container" >
+    <div style="clear:both"></div>
+    <div class="firstcon">
+        <div class="accordion1" style="margin-top:15px">
+            <div class="header" (click)="showCenterPart()" [style.border-radius]="br1" style="width:90%;margin-left:7%;padding:2px;padding-right: 3px;background-color: #102B4E;display:inline-block;color:white">
+                <span style="font-size: 11px;float:left;margin-left:1%;">Structure Search &nbsp; &nbsp; &nbsp;  Base to Commodity</span>
+                <i class="fa-solid fa-plus" [style.transform]="rotate"   aria-hidden="true" style="float:right;font-size: 20px;color: red; "></i>
+                <!-- <i class="fa-solid fa-minus" [style.transform]="rotate" *ngIf="count==1"  aria-hidden="true" style="float:right;font-size: 20px;color: red; "></i> -->
+            </div>
+            <div class="centerpart" [style.display]="display" style="width:90%;background:white;top:65px;z-index: 100;margin-left:7%;margin-top:-5px;height:82px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius: 0px 0px 5px 5px;">
+                <div class="container1" style="width:100%;">
+                    <div class="partcol1" style="width:100%;float: left;margin-top: 1%;">
+                        <div class="row" style="width:32%;float: left;">
+                            <label  style=" color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:50%;text-align: right;margin-top:6px;padding-right:10px;">
+                                <p class="required">Eng.Base<span Style=" color:#e32;font-size: 11px; font-weight:bolder;">*</span> :</p>
+                            </label>
+                            <input type="text" style="height:25px;width: 50%;margin-top:1%;"  [(ngModel)]="engBase" id="engBase"
+                                value={{engBase}} minlength="1" required>
+                        </div>
+                        <div class="row" style="width:32%;float: left;margin-left: -1.5%;margin-top:3px;">
+                            <p-dropdown [options]="dropdownvalue"  [(ngModel)]="SelectedParts" placeholder="Choose" id="selection"
+                                [style]="{ 'width': '60%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}" (click)="engBaseDroplist()" [virtualScroll]="true" [itemSize]="30" [filterMatchMode]=startsWith >
+                            </p-dropdown>
+                        </div>
+                        <div class="lastrow" style="width:32%;float: left;margin-left: 6%;">
+                            <button id="btn" (click)="baseCommodity()" [disabled]="buttonDisabled" style="margin-top: 2px;" >Select</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="partcol1" style="width:100%;float: left;margin-top: 10px;" *ngIf="table1==1">
+            <div class="row" style="width: 100%;float: left;">
+                <div style="width:90%;margin-left: 9%;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);" [style.display]="display">
+                    <p-table [value]="details" scrollDirection="both" [paginator]="false" [rows]="7" [showCurrentPageReport]="true"
+                        responsiveLayout="scroll" [rowHover]="true" [style]="{ 'margin-left':'-2%'}">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th style="font-size:11px !important;">Commodity</th>
+                                <th style="font-size:11px !important;"> Designation</th>
+                                <th style="font-size:11px !important;"> Description</th>
+                                <th style="font-size:11px !important;"> Status</th>
+                                <th style="font-size:11px !important;"> Type</th>
+                            </tr>
+                            <!-- <tr>
+                                <th >
+                                    <p-columnFilter type="text" field="comm" style="color:black"></p-columnFilter>
+                                </th>
+                                <th >
+                                    <p-columnFilter type="text" field="design" style="color:black"></p-columnFilter>
+                                </th>
+                                <th >
+                                    <p-columnFilter type="text" field="desc" style="color:black"></p-columnFilter>
+                                </th>
+                                <th >
+                                    <p-columnFilter type="text" field="type" style="color:black"></p-columnFilter>
+                                </th>
+                                <th >
+                                    <p-columnFilter type="text" field="status" style="color:black"></p-columnFilter>
+                                </th>
+                            </tr> -->
+                        </ng-template>
+                        <ng-template pTemplate="body" let-details>
+                            <tr>
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{details.engpCommodityC}}</td>       
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{details.designationC}}</td>
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{details.lexcDescLongX}}</td>
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{details.statusCodeC}}</td>
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{details.cmdtyTypeC}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table><br>
+                </div>
+            </div>
+            <!-- <div style="clear:both"></div>
+            <div class="lastrow" style="margin-top:10px;width: 100%;padding-left: 6%;">
+                <button class="btnlast" (click)="gowbs()">WBS >></button>
+                <button class="btnlast" (click)="gopic()">PIC </button>
+                <button class="btnlast" (click)="gotowrkque()">WQ </button>
+                <button class="btnlast" (click)="gotocommodity()" style="width:138px">Commodity setup</button>
+                <button class="btnlast" (click)="gotoillustration()" style="width:138px;">Illustration search</button>
+                <button class="btnlast" (click)="resetbase()">Reset</button>
+                <button class="btnlastright"(click)="close()">Close</button>
+            </div><br> -->
+        </div>
+    </div>
+    <div class="secondcon">
+        <div class="accordion2" style="margin-top:18px">
+            <div class="header" (click)="showCenterPart2()" [style.border-radius]="br2" style="width:90%;margin-left:7%;padding:2px;padding-right: 3px; background-color:  #102B4E;display:inline-block;color:white;" >
+                <span style="font-size: 11px;float:left;margin-left:1%;">Commodity to Template</span>
+                <i class="fa-solid fa-plus" [style.transform]="rotate1" aria-hidden="true"  style="float:right;font-size: 20px;color: red; "></i>
+                <!-- <i class="fa-solid fa-minus" [style.transform]="rotate" aria-hidden="true" *ngIf="counts==1"style="float:right;font-size: 20px;color: red; "></i> -->
+            </div>
+            <div class="centerpart" [style.display]="display1" style="width:90%;background:white;top:65px;z-index: 100;margin-left:7%;margin-top:-5px;height:82px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius:0px 0px 5px 5px">
+                <div class="container2" style="width:100%;">
+                    <div class="partcol1" style="width:100%;float: left;margin-top: 1%;margin-left: 0%;">
+                        <div class="row" style="width:32%;float:left;margin-left: 0%;">
+                            <label style=" color:#00095B; font-family:Ford Antenna;margin-left: -7%;font-size :11px;font-weight:bold;width:47%;text-align: right;margin-top:2px;padding-right:-10px;"><p class="required">Commodity<span Style=" color:#e32;font-size: 11px; font-weight:bolder;">*</span> :</p></label>
+                    
+                            <input type="text" style="height:25px;width: 50%;margin-left: 3%;margin-top:1%;" [(ngModel)]="commodity" id="commodity"
+                                value={{commodity}}  minlength="1"  required>
+                        </div>
+                        <div class="row" style="width:32%;float:left;margin-left: -1%;margin-top:3px;">
+                            <p-dropdown [options]="dropdownvalue"   [(ngModel)]="SelectedCommodity" placeholder="Choose"
+                            [style]="{ 'width': '60%','border-radius':'5px','margin-left':'-9%','height':'25px','color':'black','border':'2px solid black'}" (click)="commodityDroplist()" [virtualScroll]="true" [itemSize]="30" [filterMatchMode]=startsWith>
+                            </p-dropdown>
+                            <label style=" color:#00095B;margin-top: -8%;margin-left: 40%; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:60%;text-align: right;padding-right:-10px;"><p class="required">Product Type<span Style=" color:#e32;font-size: 11px; font-weight:bolder;">*</span> :</p></label>
+                        </div>
+                        <div class="row" style="width:32%;float:left;margin-top:3px;">
+                            <p-dropdown [options]="productType" optionLabel="value" optionValue="name" autoWidth="false"
+                            [style]="{ 'width': '57%','margin-left':'3%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}" [filter]="false"
+                                    filterBy="name" scrollHeight="200px" placeholder="--Select--" [(ngModel)]="SelectedProductType" [virtualScroll]="true" [itemSize]="30" [filterMatchMode]=startsWith>
+                                <ng-template let-productType pTemplate="item">
+                                    <div class="productType-item">
+                                        <div>{{productType.name}}</div>
+                                    </div>
+                                </ng-template>
+                            </p-dropdown>
+                           
+                            <button id="btn"  (click)="commodityTemplateData()" style="margin-top:-9%;margin-left:70%;text-align:center !important;padding-right: 20px;" [disabled]="templatedisable">Select</button>
+                       
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="partcol1" style="width:100%;float:left;margin-top: 10px;" *ngIf="table2==1">
+            <div class="row" style="width: 100%;float: left;margin-left: 0;">
+                <div style="margin-left: 0%;width:90%;margin-left: 7%;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75)" [style.display]="display1">
+                    <p-table [value]="commodityTemplate" scrollDirection="both" [paginator]="false" [rows]="7" [showCurrentPageReport]="true"
+                         responsiveLayout="scroll" [rowHover]="true" [style]="{ 'margin-left':'-2%'}">
+                            <!-- <ng-template pTemplate="caption"> -->
+                                <!--<div class="table-header" style="background-color: wheat;border-color: black;">
+                                PCII
+                                </div> -->
+                            <!-- </ng-template> -->
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th style="font-size:11px !important;" > Template</th>
+                                    <th style="font-size:11px !important;"> Description</th>
+                                </tr>
+                                <!-- <tr>
+                                    <th >
+                                        <p-columnFilter type="text" field="temp" style="color:black"></p-columnFilter>
+                                    </th>
+                                    <th >
+                                    <p-columnFilter type="text" field="desc" style="color:black"></p-columnFilter>
+                                        </th> 
+                                </tr> -->
+                            </ng-template>
+                            <ng-template pTemplate="body" let-commodityTemplate>
+                                <tr>
+                                    <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{commodityTemplate.templtId}}</td>
+                                    <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{commodityTemplate.lexcDescLongX}}</td>
+                                </tr>
+                            </ng-template>
+                        </p-table><br>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    
+    <div class="thirdcont">
+        <div class="accordion3" style="margin-top:15px">
+            <div class="header" (click)="showCenterPart3()" [style.border-radius]="br3" style="width:90%;margin-left:7%;padding:2px;padding-right: 3px;background-color:  #102B4E;display:inline-block;color:white">
+                <span style="font-size: 11px;float:left;margin-left:1%">Commodity to Section</span>
+                <i class="fa-solid fa-plus" [style.transform]="rotate2"  aria-hidden="true" style="float:right;font-size: 20px;color: red; "></i>
+                <!-- <i class="fa-solid fa-minus" [style.transform]="rotate"*ngIf="count2==1" aria-hidden="true" style="float:right;font-size: 20px;color: red; "></i> -->
+            </div>
+            <div class="centerpart" [style.display]="display2" style="width:90%;background:white;top:65px;z-index: 100;margin-left:7%;margin-top:-5px;height:82px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius:0px 0px 5px 5px ;">
+                <div class="container2" style="width:100%;">
+                    <div class="partcol1" style="width:100%;float: left;margin-top: 1%;margin-left: 0%;">
+                        <div class="row" style="width:32%;float:left;margin-left: 0%;">
+                            <label style=" color:#00095B; font-family:Ford Antenna;margin-left: -7%;font-size :11px;font-weight:bold;width:47%;text-align: right;margin-top:2px;padding-right:-10px;"><p class="required">Commodity<span Style=" color:#e32;font-size: 11px; font-weight:bolder;">*</span> :</p></label>
+                            <input type="text" style="height:25px;width: 50%;margin-left: 3%;margin-top:1%;" [(ngModel)]="commodity" id="commodity"
+                                value={{commodity}}  minlength="1"  required>
+                            </div>
+                            <div class="row" style="width:32%;float:left;margin-left: -1%;margin-top:3px;">
+                            <p-dropdown [options]="dropdownvalue"   [(ngModel)]="SelectedCommodity" placeholder="Choose"
+                            [style]="{ 'width': '60%','border-radius':'5px','margin-left':'-9%','height':'25px','color':'black','border':'2px solid black'}" (click)="commodityDroplist()" [virtualScroll]="true" [itemSize]="30" [filterMatchMode]=startsWith>
+                            </p-dropdown>
+                            <label style="color:#00095B;margin-top: -8%;margin-left: 40%; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:60%;text-align: right;padding-right:-10px;"><p class="required">Product Type<span Style=" color:#e32;font-size: 11px; font-weight:bolder;">*</span> :</p></label>
+                        </div>
+                        <div class="row" style="width:32%;float:left;margin-top:3px;">
+                            <p-dropdown [options]="productType" optionLabel="value" optionValue="name" autoWidth="false"
+                                [style]="{ 'width': '57%','margin-left':'3%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}" [filter]="false"
+                                filterBy="name" scrollHeight="200px" placeholder="--Select--" [(ngModel)]="SelectedProductType" [virtualScroll]="true" [itemSize]="30" [filterMatchMode]=startsWith>
+                                <ng-template let-productType pTemplate="item">
+                                    <div class="productType-item">
+                                        <div>{{productType.name}}</div>
+                                    </div>
+                                </ng-template>
+                            </p-dropdown>
+                            <button id="btn" (click)="commoditySectionData()" style="margin-top:-9%;margin-left:70%;text-align:center !important;padding-right: 20px;"  [disabled]="templatedisable">Select</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="partcol1" style="width:100%;float:left;margin-top:10px" *ngIf="table3==1">
+            <div class="row" style="width: 100%;float: left;">
+                <div style="width:90%;margin-left: 9%;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75)" [style.display]="display2">
+                    <p-table [value]="commoditySection" scrollDirection="both" [paginator]="false" [rows]="7" [showCurrentPageReport]="true"
+                         responsiveLayout="scroll" [rowHover]="true" [style]="{ 'margin-left':'-2%'}">
+                        <!-- <ng-template pTemplate="caption"> -->
+                                    <!-- <div class="table-header" style="background-color: wheat;border-color: black;">
+                                            PCII
+                                </div> -->
+                        <!-- </ng-template> -->
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th style="font-size:11px !important"> Template</th>
+                                <th  style="font-size:11px !important"> Suffix</th>
+                                <th  style="font-size:11px !important"> Prefix/Vehicle Line</th>
+                                <th  style="font-size:11px !important"> Vehicle Description</th>
+                                <th  style="font-size:11px !important"> Status</th>
+                                <th  style="font-size:11px !important"> S4P Point In</th>
+                                <th  style="font-size:11px !important"> S4P Date In</th>
+                                <th  style="font-size:11px !important"> S4P Point Out</th>
+                                <th  style="font-size:11px !important"> S4P Date Out</th>
+                                <th  style="font-size:11px !important"> Description</th> 
+                            </tr>
+                            <!-- <tr>
+                                <th >
+                                    <p-columnFilter type="text" field="temp" style="color:black"></p-columnFilter>
+                                </th>
+                                <th >
+                                    <p-columnFilter type="text" field="suffix" style="color:black"></p-columnFilter>
+                                </th>
+                                <th >
+                                    <p-columnFilter type="text" field="prefix/vehline" style="color:black"></p-columnFilter>
+                                </th>
+                                <th >
+                                    <p-columnFilter type="text" field="vehdesc" style="color:black"></p-columnFilter>
+                                </th>
+                                <th >
+                                    <p-columnFilter type="text" field="status" style="color:black"></p-columnFilter>
+                                </th>
+                                <th >
+                                    <p-columnFilter type="text" field="s4ppin" style="color:black"></p-columnFilter>
+                                </th>
+                                <th >
+                                    <p-columnFilter type="text" field="s4pdin" style="color:black"></p-columnFilter>
+                                </th>
+                                <th >
+                                    <p-columnFilter type="text" field="s4ppout" style="color:black"></p-columnFilter>
+                                </th>
+                                <th >
+                                    <p-columnFilter type="text" field="s4pdout" style="color:black"></p-columnFilter>
+                                </th>
+                                <th >
+                                    <p-columnFilter type="text" field="desc" style="color:black"></p-columnFilter>
+                                </th>
+                            </tr> -->
+                        </ng-template>
+                        <ng-template pTemplate="body" let-commoditySection>
+                            <tr>
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{commoditySection.templtIdR}}</td>
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{commoditySection.sectSuffixC }}</td>
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{commoditySection.sectVehicleLineC}}</td>
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{commoditySection.sectVehicleDescC}}</td>
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{commoditySection.statusCodeC}}</td>
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{commoditySection.s4pPntIn}}</td>
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{commoditySection.sectS4pIn}}</td>
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{commoditySection.s4pPntOut}}</td>
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{commoditySection.sectS4pOut}}</td>
+                                <td style="min-width: 20px !important;font-weight: bold;font-size:11px !important;">{{commoditySection.lexcDescLongX}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table><br>
+                </div>
+            </div>
+            <!-- <div style="clear:both"></div>
+            <div class="lastrow" style="margin-top:10px;width: 100%;padding-left: 8%;">
+                <button class="btnlast" style="margin-left: 0%;" (click)="gowbs()">WBS </button>
+                <button class="btnlast" (click)="gopic()">PIC </button>
+                <button class="btnlast" (click)="gotowrkque()">WQ </button>
+                <button class="btnlast" (click)="gotocommodity()" style="width:138px">Commodity setup </button>
+                <button class="btnlast" (click)="gotoillustration()" style="width:138px">Illustration search </button>
+                <button class="btnlast"  (click)="resettemplate()"> Reset</button>
+                <button class="btnlastright" (click)="close()">Close</button>
+            </div><br> -->
+        </div>
+    </div>
+    <div style="clear:both"></div>
+                <div class="lastrow" style="margin-top:10px;width: 100%;padding-left: 12%;">
+                    <button id="btn"  style="margin-left: -5%;" (click)="gowbs()">WBS </button>
+                    <button id="btn" (click)="gopic()">PIC </button>
+                    <button id="btn" (click)="gotowrkque()">WQ </button>
+                    <button id="btn" (click)="gotocommodity()" style="width:138px;">Commodity setup </button>
+                    <button id="btn" (click)="gotoillustration()" style="width:138px;">Illustration search </button>
+                    <button id="btn" (click)="resettemplate()"> Reset</button>
+                    <button id="btn" (click)="close()" >Close</button>
+                </div>
+               
+    </div>
+    
+        
+    <p-dialog header="Structure Search" [(visible)]="alert.flag" 
+    [style]="{'max-width':'50%', height: 'auto'}" [modal]="true">
+        <br>
+       
+        <p style="text-align: center;  font-size: 11px;color:#000080;font-family:Ford Antenna;"> {{alert.msg}}</p>
+       
+      </p-dialog>
+    
+    
+    
+    <!-- <div class="partcol1" style="width:100%;float:left;margin-left:20%">
+    <div class="row1" style="width:100%;">
+    <button class="frstrow" (click)="tabChange('base')" id="base" style="float:left;text-align: center;width:20%"  [class.active]="id =='base'">Base to Commodity</button>
+    <button class="frstrow" (click)="tabChange('template')" id="template" style="float:left;text-align: center;width:20%"  [class.active]="id =='template'" >Commodity to Template</button>
+    <button class="frstrow" (click)="tabChange('section')" id="section" style="float:left;text-align: center;width:20%"  [class.active]="id =='section'">Commodity to Section</button>
+    </div>
+    <div class="baseToCommodity" *ngIf="id === 'base'" style="width:100%">
+        <div style="clear:both"></div>
+        <div class="partcol1" style="width:100%;float: left;margin-top: 1%;">
+            <div class="row" style="width:32%;float: left;">
+                <label  style=" color:#00095B; font-family:Ford Antenna;font-size :16px;font-weight:bold;width:60%;text-align: right;margin-top:8px;padding-right:10px;margin-left: -10%;">
+                    <p class="required">Eng.Base :</p>
+                </label>
+                <input type="text" style="height:38px;width: 40%;"  [(ngModel)]="engBase" id="engBase"
+                value={{engBase}} minlength="1" maxlength="7" required>
+            </div>
+            <div class="row" style="width:32%;float: left;">
+                <p-dropdown [options]="dropdownvalue" optionLabel="engpBaseR" [(ngModel)]="SelectedParts" placeholder="Choose" id="selection"
+                [style]="{ 'width': '50%','margin-top':'0px','border-radius':'5px','height':'38px','color':'black','border':'2px solid black'}" (click)="engBaseDroplist()" >
+            </p-dropdown>
+            <button class="btn1" (click)="baseCommodity()" [disabled]="buttonDisabled"  >Select</button>
+            </div>
+            
+           
+                
+            
+            
+            
+        </div>
+        <div class="partcol1" style="width:100%;float: left;">
+        <div class="row" style="width: 60%;float: left;">
+            <div style="width: 80%;margin-left:10%">
+                <p-table [value]="details" scrollDirection="both" [paginator]="true" [rows]="7" [showCurrentPageReport]="true"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" responsiveLayout="scroll" [rowHover]="true">
+            <ng-template pTemplate="caption" style=> -->
+                <!-- <div class="table-header" style="background-color: wheat;margin-top:20%;border-color: black;height: 30px;">
+                    PCII
+                </div> -->
+            <!-- </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width:auto">Commodity</th>
+                    <th> Designation</th>
+                    <th> Description</th>
+                    <th> Type</th>
+                    <th> Status</th>
+                    
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-details>
+                <tr>
+                    <td>{{details.engpCommodityC}}</td>       
+                    <td>{{details.designationC}}</td>
+                    <td>{{details.lexcDescLongX}}</td>
+                    <td>{{details.cmdtyTypeC}}</td>
+                    <td>{{details.statusCodeC}}</td>
+                   
+                   
+                </tr>
+            </ng-template>
+        </p-table> -->
+            <!-- </div> -->
+        <!-- </div>
+        </div>
+        <div style="clear:both"></div>
+    <div class="lastrow" style="margin-top:10px;width: 100%;margin-left: -146px;padding-left: 0px;">
+        <button class="btnlast"  (click)="gowbs()">WBS >></button>
+        <button class="btnlast" (click)="gopic()">PIC >></button>
+        <button class="btnlast" (click)="gotowrkque()">WQ >></button>
+        <button class="btnlast" (click)="gotocommodity()">Commodity setup >></button>
+        <button class="btnlast" (click)="gotoillustration()">Illustration search >></button>
+        <button class="btnlast" (click)="resetbase()"> Reset</button>
+        <button class="btnlastright"(click)="close()">Close</button>
+    </div>
+    </div>
+    <div class="commodityToTemplate" *ngIf="id === 'template'">
+    <div style="clear:both"></div>
+    <div class="row2" style="padding-top: 20px;padding-left:2%;width:100%;margin-top:5px;height: 80px;">
+        <label style="float: left;width: 100px;font-weight: bold;  font-size:14px"><p class="required">Commodity :</p></label>
+        <input type="text" style="float: left;width: 100px;height: 30px; border:2px solid black; margin-left:1%" [(ngModel)]="commodity" id="commodity"
+        value={{commodity}}  minlength="1" maxlength="7" required>
+        <p-dropdown [options]="dropdownvalue"   [(ngModel)]="SelectedCommodity" placeholder="Choose"
+                style="float: left;margin-left:30px;width: 200px;height:30px" (click)="commodityDroplist()">
+            </p-dropdown>
+        <label style="float: left;width: 120px;margin-left: 25%;font-weight: bold ; font-size:14px;"><p class="required">Product Type :</p></label> -->
+        <!-- <select style='float': 'left','width': '200px','height':'30px' [(ngModel)]="vehicleType">
+            <!-- <option selected hidden disabled >Choose</option> -->
+            <!-- <option  value="C">C</option>
+            <option  value="T">T</option>
+            
+        </select>  -->
+        <!-- <p-dropdown [options]="types" optionLabel="name" [(ngModel)]="selectedType" placeholder="Choose"
+            style="float: left;width: 200px;height:30px">
+        </p-dropdown> -->
+        <!-- <p-dropdown [options]="productType" optionLabel="value" optionValue="name" autoWidth="false"
+              [style]="{'float': 'left','width': '200px','height':'30px','border':'2px solid black'}" [filter]="false"
+              filterBy="name" scrollHeight="200px" placeholder="--Select--" [(ngModel)]="SelectedProductType">
+              <ng-template let-productType pTemplate="item">
+                <div class="productType-item">
+                  <div>{{productType.name}}</div>
+                </div>
+              </ng-template>
+            </p-dropdown>
+        <button class="btn1"  (click)="commodityTemplateData()"  [disabled]="templatedisable">Select</button>
+    </div>
+    <div class="row3" style="width: 100%;">
+        <div style="width: 80%;margin-left:10%">
+            <p-table [value]="commodityTemplate" scrollDirection="both" [paginator]="true" [rows]="7" [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" responsiveLayout="scroll" [rowHover]="true">
+        <ng-template pTemplate="caption">
+            <div class="table-header" style="background-color: wheat;border-color: black;">
+                PCII
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width:30%"> Template</th>
+                <th> Description</th>
+                
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-commodityTemplate>
+            <tr>
+                <td>{{commodityTemplate.templtId}}</td>
+                <td>{{commodityTemplate.lexcDescLongX}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+        </div>
+        
+    </div>
+    <div style="clear:both"></div>
+    <div class="lastrow" style="margin-top:10px;width: 100%;padding-left: 0px;">
+        <button class="btnlast" style="margin-left: 10%;" (click)="gowbs()">WBS >></button>
+        <button class="btnlast" (click)="gopic()">PIC >></button>
+        <button class="btnlast" (click)="gotowrkque()">WQ >></button>
+        <button class="btnlast" (click)="gotocommodity()">Commodity setup >></button>
+        <button class="btnlast" (click)="gotoillustration()">Illustration search >></button>
+        <button class="btnlast" (click)="resettemplate()"> Reset</button>
+        <button class="btnlastright"(click)="close()">Close</button>
+    </div>
+    </div>
+    
+    
+    
+    <div class="commodityToSection" *ngIf="id === 'section'">
+        <div style="clear:both"></div>
+        <div class="row2" style="padding-top: 20px;padding-left:2%;width:100%;margin-top:5px;height: 80px;">
+            <label style="float: left;width: 120px;font-weight: bold;  font-size:14px"><p class="required">Commodity :</p></label>
+            <input type="text" style="float: left;width: 100px;height: 30px;border:2px solid black "[(ngModel)]="commodity" id="commodity"
+            value={{commodity}}  minlength="1" maxlength="7" required>
+            <p-dropdown [options]="dropdownvalue"   [(ngModel)]="SelectedCommodity" placeholder="Choose"
+                style="float: left;margin-left:30px;width: 200px;height:30px" (click)="commodityDroplist()">
+                >
+        </p-dropdown>
+    
+            <label style="float: left;width: 120px;margin-left: 25%;font-weight: bold;  font-size:14px"><p class="required">Product Type :</p></label>
+          
+            <p-dropdown [options]="productType" optionLabel="value" optionValue="name" autoWidth="false"
+            [style]="{'float': 'left','width': '200px','height':'30px','border':'2px solid black'}" [filter]="false"
+            filterBy="name" scrollHeight="200px" placeholder="--Select--" [(ngModel)]="SelectedProductType">
+            <ng-template let-productType pTemplate="item">
+              <div class="productType-item">
+                <div>{{productType.name}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        <button class="btn1" (click)="commoditySectionData()"   [disabled]="templatedisable">Select</button>
+        </div>
+    
+    
+    
+        <div class="row3" style="width: 100%;">
+            <div style="width:80%;margin-left:10%">
+            <p-table [value]="commoditySection" scrollDirection="both" [paginator]="true" [rows]="7" [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" responsiveLayout="scroll" [rowHover]="true">
+        <ng-template pTemplate="caption">
+            <div class="table-header" style="background-color: wheat;border-color: black;">
+                PCII
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th> Template</th>
+                <th> Suffix</th>
+                <th> Prefix/Vehicle Line</th>
+                <th> Vehicle Description</th>
+                <th> Status</th>
+                <th> S4P Point In</th>
+                <th> S4P Date In</th>
+                <th> S4P Point Out</th>
+                <th> S4P Date Out</th>
+                <th> Description</th>   
+                     
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-commoditySection>
+            <tr>
+                <td>{{commoditySection.templtIdR}}</td>
+                <td>{{commoditySection.sectSuffixC }}</td>
+                <td>{{commoditySection.sectVehicleLineC}}</td>
+                <td>{{commoditySection.sectVehicleDescC}}</td>
+                <td>{{commoditySection.statusCodeC}}</td>
+                <td>{{commoditySection.s4pPntIn}}</td>
+                <td>{{commoditySection.sectS4pIn}}</td>
+                <td>{{commoditySection.s4pPntOut}}</td>
+                <td>{{commoditySection.sectS4pOut}}</td>
+                <td>{{commoditySection.lexcDescLongX}}</td>
+               
+               
+            </tr>
+        </ng-template>
+    </p-table>
+    </div>
+    </div>
+    
+       
+    
+    <div style="clear:both"></div>
+    <div class="lastrow" style="margin-top:10px;width: 100%;padding-left: 0px;">
+        <button class="btnlast" style="margin-left: 10%;" (click)="gowbs()">WBS >></button>
+        <button class="btnlast" (click)="gopic()">PIC >></button>
+        <button class="btnlast" (click)="gotowrkque()">WQ >></button>
+        <button class="btnlast" (click)="gotocommodity()">Commodity setup >></button>
+        <button class="btnlast" (click)="gotoillustration()">Illustration search >></button>
+        <button class="btnlast"  (click)="resettemplate()"> Reset</button>
+        <button class="btnlastright" (click)="close()">Close</button>
+    </div>
+    </div>
+    <p-dialog header="Structural Search" [(visible)]="alert.flag" 
+     [style]="{'max-width':'60%', height: 'auto','border':'2px solid white','border-top-right-radius': '3px',
+      'border-top-left-radius': '3px', 'background': '#000080','color': 'white', 'padding': '1.5rem'}" [modal]="true">
+        <br>
+        <div style="background: white; color:black; ">
+        {{alert.msg}}
+       </div>
+      </p-dialog>
+        -->

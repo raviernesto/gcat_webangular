@@ -1,0 +1,110 @@
+  <div class="accordion1"style="height:100px;margin-top:-10px">
+    <div class="header" (click)="showCenterPart()" [style.border-radius]="br1"
+    style="width:76%;margin-left:10%;padding:2px;padding-left:10px;padding-right:10px; background-color: #102B4E;display:inline-block;border-radius: 5px;">
+      <span style="font-size: 11px;float:left;color:white;font-family:Ford Antenna">Product Type Classification</span>
+      <i class="fa-solid fa-plus" [style.transform]="rotate" aria-hidden="true"
+        style="float:right;font-size: 20px;color: red; "></i>
+
+    </div>
+    <div class="centerpart" [style.display]="display" style="width:76%;background:white;top:65px;z-index: 100;margin-left:10%;margin-top:-5px;height:82px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius: 0px 0px 5px 5px;">
+      <div class="container1" style="width:100%;">
+          <div class="partcol1"
+          style="width:100%;float: left;height:470px;background-color: white;padding-top:2%;;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius:0px 0px 5px 5px">
+     
+        <div class="row" style="margin-left:10%;margin-top:5%">
+          <div class="col-lg-3" style="margin-left:5%">
+            <div class="card" style="margin-top: -60px;">
+              <div class="card-header" style="background-color:#000080;height:25px">
+                <label for="Region"
+                style="color:#ffffff; font-family:Ford Antenna;font-size :11px !important ;font-weight:bold;text-align:center;width:42%; ;margin-top:-4px;margin-left: 45px;">
+                Types</label>
+              </div>
+              <div class="card-body" style="border: solid 1px black">
+                <p-listbox class="productsize" name="product" id="product" [options]="producttype" [(ngModel)]="selectedProduct"
+                  optionLabel="pteioOrignC" filterBy="pteioOrignC" value="product"
+                  [metaKeySelection]="false" [filter]="false" [checkbox]="false" [listStyle]="{'max-height':'378px'}"
+                  [style]="{'width':'8rem','font-family':'Ford Antenna','font-size' :'11px','margin-left':'10px'}" >
+                  <!-- <option [options]="producttype" optionLabel="pteioOrignC" filterBy="pteioOrignC"
+               (click)="changeproducttype()" value="product">
+              </option> -->
+                </p-listbox>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <button style="margin-left: 67%;margin-top:-20px;height:50px;width: 50px;" (click)="select()"><i class="fa fa-arrow-right fs-4"
+                aria-hidden="true"></i></button><br><br><br><br><br><br>
+            <button style="margin-left: 67%;margin-top:100px;height:50px;width: 50px;" (click)="select()"><i class="fa fa-arrow-right fs-4"
+                aria-hidden="true"></i></button>
+          </div>
+          <div class="col-lg-3" style="margin-left: 10%;">
+            <div class="card" style="border: solid 2px black;margin-top: -62px;">
+              <div class="card-header" style="background-color:#000080;height:25px">
+                <label for="car"
+                style="color:#ffffff; font-family:Ford Antenna;font-size :11px !important ;font-weight:bold;text-align:center;width:42%; ;margin-top:-4px;margin-left: 45px;">
+                Cars</label>
+              </div>
+              <div class="card-body">
+                <p-listbox [options]="producttypeCar" optionLabel="pteioOrignC" filterBy="pteioOrignC"
+                  value="productcar" [multiple]="true" [metaKeySelection]="false" [filter]="false" [checkbox]="false"
+                  [listStyle]="{'max-height':'150px'}" 
+                  [style]="{'width':'8rem','font-family':'Ford Antenna','font-size' :'11px','margin-left':'10px'}" >
+                  <!-- <option [options]="producttype" optionLabel="pteioOrignC" filterBy="pteioOrignC"
+               (click)="changeproducttype()" value="product">
+              </option> -->
+                </p-listbox>
+              </div>
+            </div><br><br><br><br>
+            <div class="card" style="border: solid 2px black;margin-top: -62px;">
+              <div class="card-header" style="background-color:#000080;height:25px">
+                <label for="truck"
+                style="color:#ffffff; font-family:Ford Antenna;font-size :11px !important ;font-weight:bold;text-align:center;width:42%; ;margin-top:-4px;margin-left: 45px;">
+                Truck</label>
+              </div>
+              <div class="card-body">
+                <p-listbox [options]="producttypeTruck" optionLabel="pteioOrignC" filterBy="pteioOrignC"
+                  value="producttruck" [multiple]="true" [metaKeySelection]="false" [filter]="false" [checkbox]="false"
+                  [listStyle]="{'max-height':'150px'}"
+                  [style]="{'width':'8rem','font-family':'Ford Antenna','font-size' :'11px','margin-left':'10px'}" >
+                  <!-- <option [options]="producttype" optionLabel="pteioOrignC" filterBy="pteioOrignC"
+               (click)="changeproducttype()" value="product">
+              </option> -->
+                </p-listbox>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br>
+
+        <div style="display:flex;margin-top:-8%;margin-bottom: 10%;margin-left: 31%;">
+          <!-- <button class="btn">Save</button>
+          <button class="btn1">Delete</button>
+          <button class="btn2">Cmdty >> </button>
+          <button class="btn3">WQ >> </button> -->
+          <button class="btn" type="button" id="btn" (click)="closeClick()"
+  style="background-color: #215a8f;width: 58px;height:30px;">
+  <label for="truck"
+  style="color:#ffffff; font-family:Ford Antenna;font-size :11px !important ;font-weight:bold">
+  Close</label>
+  </button>
+         
+          <br>
+        </div>
+      <!-- </div> -->
+    </div>
+    </div>
+    </div>
+  </div>
+  <!-- <br>
+  <br>
+  <br>
+  <br><br><br><br> -->
+  <p-dialog header="Product type Classification" [(visible)]="alert.flag" [style]="{'width':'auto', height: 'auto'}" [modal]="true" style="text-align: center;">
+    <div style="margin-top: 10%;">{{alert.msg}}</div>
+    <div class="cancelpop" style="margin-top: 18px;"> 
+        <button (click)="cancelpop()" class="dialogbutton">OK</button>
+    </div>
+ </p-dialog>
+<!-- </div> -->

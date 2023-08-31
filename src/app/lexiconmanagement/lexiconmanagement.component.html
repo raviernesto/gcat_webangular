@@ -1,0 +1,1119 @@
+<div>
+    <!-- <div class="card " style="margin-top: 46px;"> -->
+    <!-- <div class="tab" style="margin-top:1% ;background-color: #141984;">
+            <button class="tablinks" style="margin-left: 25%;background: #1f2d88;
+            color: white;" (click)="type('lcode')">Maintain Lexicon Code</button>
+            <button class="tablinks" style="margin-left: 20%;background: #1f2d88;
+            color: white;" (click)="type('pcode')">Maintain Property Code</button>
+             
+        </div> -->
+    <div class="accordion1" style="margin-bottom:10px" class="col-lg-12" style="padding: 20px;margin-top:-25px;">
+        <div class="header" (click)="showCenterPart()" [style.border-radius]="br1"
+            style="width: 100%;padding:2px;padding-right: 3px; background-color: #102B4E;display:inline-block;border-radius:5px 5px 0px 0px;box-shadow: #141984;margin-top:-8%;">
+            <span style="font-size: 11px;float:left;color: white;margin-left:1%;">Maintain Lexicon Codes</span>
+            <i class="fa-solid fa-plus" [style.transform]="rotate" aria-hidden="true"
+                style="float:right;font-size: 20px;color: red; "></i>
+        </div>
+        <div class="card-body" *ngIf="lexiconCode" [style.display]="display">
+            <div class="form-check" style="padding-left: 0px;">
+
+                <div class="card" style="margin-right:0px;margin-top:-1px;">
+                    <div class="col-lg-12">
+                        <h4 class="card-title " style="background-color: #141984;font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                        
+                        color: white;
+    ">&nbsp; Selection Criteria</h4>
+                        <div class="col-lg-12" style="display: flex;">
+
+
+                            <div class="col-lg-3" style="display: flex;">
+
+                                <label style="color:#00095B; 
+                                font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">Lexicon code :
+                                </label>
+                                <input type="text" id="search" maxlength="6" [(ngModel)]="lecionCode"
+                                    [pKeyFilter]="alphanum" (ngModelChange)="lecionCode = $event.toUpperCase()"
+                                    name="search" style="width: 50%; height:25px;margin-top: 1%;">
+
+                            </div>
+                            <!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-top: -20px;"> -->
+
+                            <!-- <label class="form-check-label" for="flexCheckDefault" style="margin-left:15px;margin-top: -18px;">
+                                            Lexicon code:
+                                        </label> -->
+
+                            <!-- <input type="text" id="search" pInputText  maxlength="6" [(ngModel)]="lecionCode" (ngModelChange)="lecionCode = $event.toUpperCase()" name="search" style="width :150px;margin-left: 15px;border: black 1px solid;"> -->
+                            <div class="col-lg-3" style="display: flex;">
+
+                                <label
+                                    style="color:#00095B; 
+                                                font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                                width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                                    Type : </label>
+                                <input type="text" id="search" [(ngModel)]="lecionCodeType" name="search"
+                                    style="width :50%;height:25px;margin-top:1%;">
+
+                            </div>
+                            <!-- <label class="form-check-label" for="flexCheckDefault" style="margin-left:30px;margin-top: -18px;">
+                                            Type:
+                                        </label> -->
+
+                            <!-- <input type="text" id="search" [(ngModel)]="lecionCodeType" name="search" style="width :150px;margin-left: 15px;border: black 1px solid;"> -->
+                            <div class="col-lg-3" style="display: flex;">
+
+                                <label
+                                    style="color:#00095B; 
+                                                font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                                width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                                    Desc : </label>
+                                <input type="text" id="search" [(ngModel)]="lecionCodeDisc"
+                                    (ngModelChange)="checkDisc($event)"
+                                    (ngModelChange)="lecionCodeDisc = $event.toUpperCase()" name="search"
+                                    style="width :50%;height:25px;margin-top:1%;">
+
+                            </div>
+                            <!-- <label class="form-check-label" for="flexCheckDefault" style="margin-left:30px;margin-top: -18px;">
+                                            Desc:
+                                        </label>
+                                     -->
+                            <!-- <input type="text" id="search" pInputText [(ngModel)]="lecionCodeDisc" placeholder={{checkDisc()}}  (ngModelChange)="lecionCodeDisc = $event.toUpperCase()" name="search" style="width :250px;margin-left: 15px;border: black 1px solid;"> -->
+                            <div class="col-lg-3" style="display: flex;">
+                                <button style="margin-top: -8px;margin-left:4px;" class="btn fa"
+                                    (click)="openSearch()"><img src="assets/binocular-solid.png"
+                                        style="margin-left: 2px;width: 40px;margin-top: -5px;"></button>
+
+
+                                <button id="btn" (click)="getByLexiconCode()"
+                                    style="margin-top: 0px;margin-left:8px;">Select</button>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card ">
+
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12" style="display: flex;">
+                                <div class="col-lg-1">
+                                    <div class="field-checkbox" style="background-color: #141984;">
+                                        <p-checkbox [(ngModel)]="checked" style="border: black 2px solid;"
+                                            [disabled]=propertyCheck (ngModelChange)="disableProperty($event)"
+                                            [binary]="true" inputId="binary"></p-checkbox>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-11">
+                                    <h4 class="card-title " style="background-color: #141984;font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                
+        color: white;margin-left: -6%;
+    ">Property Values</h4>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12" style="display: flex;">
+                            <div class="col-lg-12" style="display: flex;">
+                                <div class="col-lg-3" style="display: flex;">
+                                    <label style="color:#00095B; 
+                                font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left"> Type :
+                                    </label>
+                                    <div class="dropdownST" style="width:50%;margin:0;padding:0;margin-top:1%;">
+                                        <p-dropdown [options]="lexiType" autoWidth="false" [disabled]="lexiTypefield"
+                                            [(ngModel)]="lecionType" (ngModelChange)="getPropertyByLexiType($event)"
+                                            [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                            [filter]="true" filterBy="value" scrollHeight="200px" placeholder="  "
+                                            optionLabel="value" optionValue="key"></p-dropdown>
+
+                                    </div>
+                                </div>
+                                <!--                            
+                                        <label class="form-check-label" for="flexCheckDefault" style="margin-left:70px;margin-top: 20px;">
+                                            Type :
+                                        </label>
+                                  
+                                        <p-dropdown style="
+                                       margin-left: 14.5px;
+                                    " [options]="lexiType" [disabled]="lexiTypefield" [(ngModel)]="lecionType" (ngModelChange)="getPropertyByLexiType($event)" placeholder="Select a Type" optionLabel="value" optionValue="key"></p-dropdown>
+                                    -->
+                                <div class="col-lg-12" *ngIf="mfc" style="display: flex;">
+
+                                    <div class="col-lg-3" style="display: flex;" *ngIf="mfc">
+                                        <label style="color:#00095B; 
+                                font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left"> Search:
+                                        </label>
+
+                                        <input type="text" id="search" [(ngModel)]="inptOfMfcSearch"
+                                            (ngModelChange)="inptOfMfcSearch = $event.toUpperCase()" name="search"
+                                            style="width: 50%;height:25px;margin-top:1%;">
+                                    </div>
+                                    <div class="col-lg-3" style="display: flex;" *ngIf="mfc">
+                                        <label style="color:#00095B; 
+                                font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left"> Value:
+                                        </label>
+                                        <div class="dropdownST" style="width:50%;margin:0;padding:0;margin-top:1%;">
+                                            <p-dropdown [options]="valueDrop" [disabled]="valueDropfield"
+                                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                                [filter]="true" filterBy="value" scrollHeight="200px"
+                                                [(ngModel)]="valueDrops" (click)="getvaluesFronsearch()"
+                                                (ngModelChange)="valueDropChange($event)" placeholder="Select a value"
+                                                optionLabel="value" optionValue="key"></p-dropdown>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3" style="display: flex;" *ngIf="mfc">
+                                        <label style="color:#00095B; 
+                                            font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                            width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                                            Source: </label>
+
+                                        <div class="dropdownST" style="width:50%;margin:0;padding:0;margin-top:1%;">
+                                            <p-dropdown [options]="sourceDrop"
+                                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                                [filter]="true" filterBy="value" scrollHeight="200px"
+                                                [disabled]="sourceDropField" [(ngModel)]="sourceDrops"
+                                                (ngModelChange)="sourceDropChange($event)" placeholder="Select a Source"
+                                                optionLabel="value" optionValue="value"></p-dropdown>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" *ngIf="pfc" style="display: flex;">
+                                    <div class="col-lg-3" style="display: flex;" *ngIf="pfc">
+                                        <label style="color:#00095B; 
+                                            font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                            width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                                            Search: </label>
+
+                                        <div class="dropdownST" style="width:50%;margin:0;padding:0;margin-top:1%;">
+                                            <p-dropdown [options]="pfcSerchDrop"
+                                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                                [filter]="true" filterBy="value" scrollHeight="200px"
+                                                [(ngModel)]="pfcSerch" (ngModelChange)="searchForPfc($event)"
+                                                placeholder="Select a Type" optionLabel="key" optionValue="key">
+                                            </p-dropdown>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-3" style="display: flex;" *ngIf="pfc">
+                                        <label style="color:#00095B; 
+                                            font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                            width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                                            Value: </label>
+
+                                        <div class="dropdownST" style="width:50%;margin:0;padding:0;margin-top:1%;">
+
+                                            <p-dropdown [options]="valueDrop"
+                                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                                [filter]="true" filterBy="value" scrollHeight="200px"
+                                                [disabled]="pfcFvalField" (click)="getpfcData()"
+                                                [(ngModel)]="valueDrops" (ngModelChange)="valueDropChange($event)"
+                                                placeholder="Select a Type" optionLabel="value" optionValue="key">
+                                            </p-dropdown>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3" style="display: flex;" *ngIf="pfc">
+                                        <label style="color:#00095B; 
+                                            font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                            width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                                            Source: </label>
+
+                                        <div class="dropdownST" style="width:50%;margin:0;padding:0;margin-top:1%;">
+
+                                            <p-dropdown [options]="sourceDrop"
+                                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                                [filter]="true" filterBy="value" scrollHeight="200px" disable
+                                                [(ngModel)]="sourceDrops" (ngModelChange)="pfcsourceDrop($event)"
+                                                placeholder="Select a Type" optionLabel="value" optionValue="value">
+                                            </p-dropdown>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12" style="display: flex;">
+
+
+                            <div class="col-lg-3" style="display: flex;">
+                                <label
+                                    style="color:#00095B; 
+                                                        font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                                        width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                                    Property : </label>
+                                <div style="width:50%;margin:0;padding:0;margin-top:2%;">
+
+                                    <p-dropdown [options]="propertyForLexSrcDrop" autoWidth="true"
+                                        [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                        [filter]="true" filterBy="value" [filterMatchMode]=startsWith
+                                        [disabled]=propTypefield [(ngModel)]="propertyType" optionLabel="value"
+                                        optionValue="key" [virtualScroll]="true" [itemSize]="30" placeholder=" ">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                            <div class="col-lg-3" style="display: flex;">
+                                <label
+                                    style="color:#00095B; 
+                                                    font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                                    width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                                    code : </label>
+                                <div class="dropdownST" style="width:50%;margin:0;padding:0;margin-top:1%;">
+                                    <input type="text" maxlength="6" [(ngModel)]="propertyLecionCode"
+                                        [pKeyFilter]="alphanum" (keyup)=validCode($event) style="height:25px;"
+                                        (ngModelChange)="propertyLecionCode = $event.toUpperCase()">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12" style="display: flex;">
+                            <div class="col-lg-3" style="display: flex;">
+                                <label
+                                    style="color:#00095B; 
+                                                    font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                                    width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                                    Language : </label>
+                                <div class="dropdownST" style="width:50%;margin:0;padding:0;margin-top:2%;">
+
+
+                                    <p-dropdown
+                                        [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                        scrollHeight="200px" placeholder=" " [options]="languageDrop"
+                                        [disabled]=languagePropfield [(ngModel)]="languageProp" optionLabel="value"
+                                        optionValue="key"></p-dropdown>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3" style="display: flex;">
+
+                                <div class="col-lg-12">
+
+                                    <label
+                                        style="color:#00095B; 
+                                                    font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                                    width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                                        Flag : </label>
+                                    <input type="radio" class="form-check-input" id="radio1"
+                                        style="margin-left:3px;margin-top:12px" [(ngModel)]="approvel" name="optradio"
+                                        value="Y">
+                                    <h6
+                                        style=" font-family:Ford Antenna;font-size :11px;font-weight:bold;margin-top: 8px;margin-right: 2px;">
+                                        Approved</h6>
+                                    <label class="form-check-label" for="radio1"></label>
+                                </div>
+                                <div class="col-lg-3" style="width: 150%;">
+                                    <input type="radio" class="form-check-input" id="radio2"
+                                        style="margin-left: -64px;margin-top:11px" [(ngModel)]="approvel"
+                                        name="optradio" value="N">
+                                    <h6
+                                        style=" font-family:Ford Antenna;font-size :11px;font-weight:bold;margin-left: -48px;margin-top: 7px;">
+                                        Not Approved</h6>
+                                    <label class="form-check-label" for="radio2"></label>
+                                </div>
+                                <div>
+
+                                </div>
+                                <!-- <input type="radio" class="form-check-input" id="radio1" [(ngModel)]="approvel" name="optradio" value="Y"> <h6 style=" font-family:Ford Antenna;font-size :16px;font-weight:bold;">Apporved</h6>
+                                                                <label class="form-check-label" for="radio1"></label> -->
+
+                                <!-- <input type="radio" class="form-check-input" id="radio2" [(ngModel)]="approvel" name="optradio" value="N"><h6 style=" font-family:Ford Antenna;font-size :16px;font-weight:bold;">Not Apporved</h6>
+                                                                <label class="form-check-label" for="radio2"></label> -->
+
+                                <!-- <div class="form-check">
+                                                                <input type="radio" class="form-check-input" disabled>Rejected
+                                                                <label class="form-check-label"></label>
+                                                            </div> -->
+
+
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12" style="display: flex;">
+                            <div class="col-lg-3" style="display: flex;">
+                                <label
+                                    style="color:#00095B; 
+                                                    font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                                    width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                                    Short Desc : </label>
+                                <div class="dropdownST" style="width:50%;margin:0;padding:0;">
+
+
+                                    <input type="text" id="search2" style="height:25px;margin-top:3%;"
+                                        [disabled]=propertyShortDiscField [(ngModel)]="propertyShortDisc" name="search">
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-3" style="display: flex;">
+
+
+                                <label
+                                    style="color:#00095B; 
+                                                font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                                width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                                    Long Desc : </label>
+                                <div class="dropdownST" style="width:50%;margin:0;padding:0">
+
+
+                                    <input type="text" id="search3" [disabled]=propertyLongDiscfield
+                                        [(ngModel)]="propertyLongDisc" name="search"
+                                        style="width: 150%;height:25px;margin-top:2%;">
+
+                                </div>
+                            </div>
+
+                            <!--                       
+                                        <label class="form-check-label" for="flexCheckDefault" style="margin-left:68px;">
+                                            Code :
+                                        </label>
+                                  
+                                            <input  type="text" maxlength="5" [(ngModel)]="propertyLecionCode" (keyup)=validCode($event)   style="margin-left: 14.5px;margin-top: 3%;border: 1px solid black" (ngModelChange)="propertyLecionCode = $event.toUpperCase()"> 
+                                           
+                                       
+                                   
+                                        <label class="form-check-label" for="flexCheckDefault" style="margin-left:48px;margin-top: -15px;">
+                                            Property :
+                                        </label>
+
+                                      
+                                            <p-dropdown style="
+                                            margin-left: 14.5px;
+                                         " [options]="propertyForLexSrcDrop" [disabled]=propTypefield [(ngModel)]="propertyType" placeholder="Select a Type" optionLabel="value" optionValue="key"></p-dropdown>
+
+                                          
+                                       
+                                            
+                                           
+                                        <label class="form-check-label" [(ngModel)]="propertyLang" for="flexCheckDefault" style="margin-left:40px;margin-top: -10%;">
+                                            Language :
+                                        </label>
+                                   
+                                        <p-dropdown style="
+                                        margin-left: 14.5px;
+                                     " [options]="languageDrop" [disabled]=languagePropfield  [(ngModel)]="languageProp" placeholder="Select a Type" optionLabel="value" optionValue="key"></p-dropdown>
+
+                                  
+                                        <label class="form-check-label"  for="flexCheckDefault" style="margin-left:33px;margin-top: -28px;">
+                                            Short Desc :
+                                        </label>
+                                   
+                                        
+                                            <input type="text" id="search2" [disabled]=propertyShortDiscField [(ngModel)]="propertyShortDisc" name="search" style="margin-left: 15px;width: 150%;margin-top: -20%; border: 1px solid black;">
+                                       
+                                    
+                                        <div class="translate card" style="width: 150%;margin-left: 300%;margin-top: -20px;border: black 1px solid;">
+                                            <div class="card ">
+                                                <div class="card-body ">
+                                                    <h5 class="card-title " style="margin-top: -10px;">Flag</h5>
+                                                    <div class="form-check">
+                                                        <input type="radio" class="form-check-input" id="radio1" [(ngModel)]="approvel" name="optradio" value="Y">Apporved
+                                                        <label class="form-check-label" for="radio1"></label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input type="radio" class="form-check-input" id="radio2" [(ngModel)]="approvel" name="optradio" value="N">Not Apporved
+                                                        <label class="form-check-label" for="radio2"></label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input type="radio" class="form-check-input" disabled>Rejected
+                                                        <label class="form-check-label"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                   
+                                        <label class="form-check-label" for="flexCheckDefault" style="margin-left:32px;margin-top: -37px;">
+                                            Long Desc :
+                                        </label>
+                                  
+                                            <input type="text" id="search3" [disabled]=propertyLongDiscfield [(ngModel)]="propertyLongDisc" name="search" style="margin-left: 15px;width: 150%;margin-top: -22%; border: 1px solid black;">
+                                        
+                                   
+                                        <label class="form-check-label" for="flexCheckDefault" style="margin-left:30px;margin-top: -2px;">
+                                            Xlong Desc :
+                                        </label>
+                                  
+                                            <input type="text" id="search4" [disabled]=propertyXLongDiscfield [(ngModel)]="propertyXLongDisc" name="search" style="margin-left: 15px;width: 150%;margin-top: 5%; border: 1px solid black;">
+                                        
+
+                        </div>
+                    </div> -->
+                        </div>
+                        <div class="col-lg-3" style="display: flex;">
+                            <label style="color:#00095B; 
+                    font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                    width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left"> XLong Desc : </label>
+                            <div class="dropdownST" style="width:50%;margin:0;padding:0">
+
+
+                                <input type="text" id="search4" [disabled]=propertyXLongDiscfield
+                                    [(ngModel)]="propertyXLongDisc" name="search"
+                                    style="width: 350%;height:25px;margin-top:3%;">
+                            </div>
+                        </div>
+                        <div class="buttondiv1" style="margin-top:0%;margin-left:22%;">
+                            <button id="btn" type="button" [disabled]=newButtonField (click)="newButton()">New</button>
+                            <button id="btn" type="button" [disabled]=saveButtonField
+                                (click)="checkValid()">Save</button>
+                            <button id="btn" type="button" [disabled]=updateButtonField
+                                (click)="updateLexi()">Update</button>
+                            <button id="btn" type="button" [disabled]=replaceButtonField
+                                (click)="lexiconReplace()">Replace</button>
+                            <button id="btn" type="button" [disabled]=deleteButtonField
+                                (click)="deleteLexiData()">Delete</button>
+                            <!-- <button class="buttons" type="button" disabled class="btn btn-outline-secondary buttons">Translation Request</button> -->
+                            <!-- [disabled]=replaceButtonField -->
+                            <!-- [disabled]=groupAVSButtonField -->
+                            <button id="btn" type="button" [disabled]=groupAVSButtonField
+                                (click)="showGroupAvs();loadGroupAvs()">Group Avs</button>
+
+
+                        </div>
+
+
+                        <br>
+                    </div>
+
+                </div>
+                <div *ngIf="propertycode">
+                    <div class="form-check">
+
+
+
+
+
+                        <h4 class="card-title " style="background-color: #141984;font-size:11px;
+                        
+                            color: white;">&nbsp;Selection Criteria</h4>
+
+
+                        <div class="col-lg-12" style="display: flex;
+                       ">
+                            <div class="col-lg-3">
+                                <label style="color:#00095B; 
+                        font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                        width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left"> Property code
+                                    :</label>
+
+                                <input type="text" id="search" name="search" [(ngModel)]="prcode"
+                                    style="width :50%;height:25px;">
+                            </div>
+
+
+                            <div class="col-lg-3" style="display: flex;">
+                                <button style="margin-top: -5px;" class="btn fa"
+                                    (click)="openlexiSerachforProCode()"><img src="assets/binocular-solid.png"
+                                        style="margin-left: 2px;width: 40px;margin-top: -5px;"></button>
+
+
+                                <button id="btn" (click)="getDatabyPrCode(prcode)"
+                                    style="margin-top: -1px;">Select</button>
+                            </div>
+
+                            <!-- <button style="margin-left: 30%;" class="btn fa"(click)="openlexiSerachforProCode()"  (click)="showMaximizableDialog()" ><img  src="assets/binocular-solid.png" style="margin-left: 2px;width: 50px;"></button>
+
+
+                       
+                            <button class="btn btn-primary" style="margin-left: 5px;height: 20%;
+                            margin-top: 10px;background: #000080;" (click)="getDatabyPrCode(prcode)">Select</button> -->
+                        </div>
+
+
+                    </div>
+                    <div class="buttondiv1" style="margin-left: 10%;margin-top: -2%;">
+                        <button id="btn" type="button" (click)="newpropert()">New</button>
+                        <button id="btn" type="button" (click)="save()">Save</button>
+                        <button id="btn" type="button" (click)="updateProperty()">Update</button>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- <div style="margin-left: 70%;margin-top: 10px;"> -->
+
+            <!-- <button type="button" class="btn btn-secondary" routerLink="devcommmodity">Cmdty>></button> -->
+            <!-- <button type="button"  class="btn btn-secondary">WBS>></button> -->
+            <!-- <button type="button" routerLink="part-work" class="btn btn-secondary">WQ>></button> -->
+            <!-- <button type="button" routerLink="" class="btn btn-secondary">Close</button> -->
+        </div>
+    </div>
+    <div class="col-lg-12" style="padding: 20px;">
+        <div class="container3" style="width: 100%;margin:0;padding: 0;">
+            <div class="accordion2">
+
+                <div class="header" (click)="showCenterPart2()" [style.border-radius]="br2"
+                    style="width:100%;padding:2px;padding-right: 3px; background-color: #102B4E;;display:inline-block;margin-top:-6%;">
+                    <span style="font-size: 11px;float:left;color: white;margin-left:1%;">Maintain Property Code</span>
+                    <i class="fa-solid fa-plus" [style.transform]="rotate1" aria-hidden="true"
+                        style="float:right;font-size: 20px;color: red; "></i>
+
+
+                </div>
+            </div>
+            <div [style.display]="display1">
+                <div class="col-lg-12">
+
+
+
+
+                    <!--                    
+                        <h4 class="card-title "style="background-color: #141984;
+                    
+                        color: white;height: 30px;width;1005
+    ;">Selection Criteria</h4>
+                        -->
+                    <div class="card" style="padding-bottom:1%;margin-top:-1px;">
+                        <div class="col-lg-12">
+                            <h4 class="card-title " style="background-color: #141984;font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                            
+                            color: white;
+        ">&nbsp;Selection Criteria</h4>
+
+                            <div class="col-lg-12" style="display: flex;
+                       ">
+                                <div class="col-lg-3" style="display: flex;">
+                                    <label style="color:#00095B; 
+                        font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                        width:45%;text-align:right;margin-top:0px;padding-right:10px;float:left"> Property code
+                                        :</label>
+
+                                    <input type="text" id="search" name="search" [(ngModel)]="prcode"
+                                        style="width :50%;height:25px;margin-top:-1%;">
+                                </div>
+
+
+                                <div class="col-lg-3" style="display: flex;">
+                                    <button class="btn fa" style="margin-top: -10px;"
+                                        (click)="openlexiSerachforProCode()"><img src="assets/binocular-solid.png"
+                                            style="margin-left: 2px;width: 40px;margin-top: -5px;"></button>
+
+
+                                    <button id="btn" (click)="getDatabyPrCode(prcode)"
+                                        style="margin-left:2%;margin-top: 0px;">Select</button>
+                                </div>
+
+
+                                <!-- <button style="margin-left: 30%;" class="btn fa"(click)="openlexiSerachforProCode()"  (click)="showMaximizableDialog()" ><img  src="assets/binocular-solid.png" style="margin-left: 2px;width: 50px;"></button>
+
+
+                       
+                            <button class="btn btn-primary" style="margin-left: 5px;height: 20%;
+                            margin-top: 10px;background: #000080;" (click)="getDatabyPrCode(prcode)">Select</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h4 class="card-title " style="background-color: #141984;font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                            
+                        color: white;height: 18px;
+    "></h4>
+                        <div class="col-lg-12 ">
+                            <div class="col-lg-3" style="display: flex;">
+                                <label style="color:#00095B; 
+                            font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                            width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left"> Type :</label>
+
+                                <div class="dropdownST" style="width:50%;margin:0;padding:0;margin-top:2%;">
+                                    <p-dropdown [options]="lexiType"
+                                        [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                        [filter]="true" filterBy="value" scrollHeight="200px" [(ngModel)]="lexiTypes"
+                                        placeholder=" " optionLabel="value" optionValue="key"></p-dropdown>
+
+                                </div>
+
+
+
+                            </div>
+                            <!-- <label class="form-check-label" for="flexCheckDefault" style="margin-left:30px;margin-top: 20px;">
+                                                Type :
+                                            </label>
+                                        -->
+                            <!-- <div class="card">
+                                            <p-dropdown [options]="lexiType" [(ngModel)]="lexiTypes" placeholder="Select a Type" optionLabel="value" optionValue="key"></p-dropdown>
+                                            </div> -->
+                            <div class="col-lg-3" style="display: flex;">
+                                <label style="color:#00095B; 
+                                        font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                        width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                                    Property :</label>
+                                <input type="text" [(ngModel)]="propertyc"
+                                    style="width: 50%;height:25px;margin-top:2%;">
+
+                            </div>
+                            <!-- <label class="form-check-label" for="flexCheckDefault" style="margin-left:30px;">
+                                                Property :
+                                            </label>
+    
+                                          
+                                                <input type="text"  [(ngModel)]="propertyc"> 
+                                             -->
+                            <div class="col-lg-3" style="display: flex;">
+                                <label
+                                    style="color:#00095B; 
+                                                font-family:Ford Antenna;font-size :11px;font-weight:bold;
+                                                width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left">
+                                    Desc :</label>
+                                <input type="text" [(ngModel)]="disc" style="width: 50%;height:25px;margin-top:2%;">
+                            </div>
+
+                        </div>
+
+                        <div class="buttondiv1" style="margin-top: 0%;margin-left:33%;">
+                            <button id="btn" type="button" (click)="newpropert()">New</button>
+                            <button id="btn" type="button" (click)="save()">Save</button>
+                            <button id="btn" type="button" (click)="updateProperty()">Update</button>
+                            <button id="btn" type="button" (click)="deleteProperty()">Delete</button>
+
+
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <button style="margin-left:80%;margin-top:2%" type="button" routerLink="" id="btn">Close</button>
+
+        <p-dialog header="Lexicon Management" [(visible)]="lexiManagePopup" [modal]="true">
+            <br>
+            <p style="text-align:center;color:#00095B; 
+    font-family:Ford Antenna;font-size :11px;font-weight:bold;
+    width:85%;margin-left:6%;">
+                {{popupMsg}}
+            </p>
+            <ng-template pTemplate="footer">
+
+                <button id="btn" style="width: 50%;align-items: center;" (click)="showModalDialog()">Ok</button>
+            </ng-template>
+        </p-dialog>
+
+        <p-dialog header="Lexicon Management" [(visible)]="lexiManageDeletePopup" [modal]="true">
+            <br>
+            <p style="text-align: center;color:#00095B; 
+     font-family:Ford Antenna;font-size :11px;font-weight:bold;
+     width:85%;">
+                Are you sure want to delete ?
+            </p>
+            <ng-template pTemplate="footer">
+
+                <button id="btn" (click)="deleteAfterPupup()">Ok</button>
+                <button id="btn" (click)="lexiManageDeletePopup=false">Cancel</button>
+            </ng-template>
+        </p-dialog>
+        <p-dialog header="Lexicon Management" [(visible)]="lexiGroupAvsDeletePopup" [modal]="true">
+            <br>
+            <p style="text-align: center;color:#00095B; 
+    font-family:Ford Antenna;font-size :11px;font-weight:bold;
+    width:85%;">
+                Are you sure want to delete ?
+            </p>
+            <ng-template pTemplate="footer">
+
+                <button id="btn" (click)="deleteGRAvs()">Ok</button>
+                <button id="btn" (click)="lexiGroupAvsDeletePopup=false">Cancel</button>
+            </ng-template>
+        </p-dialog>
+        <p-dialog header="Group AVS" [(visible)]="displayGroupAvs" [modal]="true" [style]="{width: '50vw'}"
+            [draggable]="true" [resizable]="false" [closable]="false">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div style="display: flex;padding-top: 2%;">
+
+
+                        <div class="col-lg-6" style="text-align: center;display: flex;">
+                            <label style="color:#00095B; 
+            font-family:Ford Antenna;font-size :11px;font-weight:bold;
+            ;text-align:right;margin-top:8px;padding-right:10px;float:left"> Lexicon Code :</label>
+                            <input type="text" style="width: 50%;height:25px;margin-top:2%;"
+                                [(ngModel)]="lexiCodeInGropAvs" />
+                        </div>
+                        <!-- <div class="col-lg-3">
+             <input type="text" pInputText [(ngModel)]="lexiCodeInGropAvs"/>
+
+         </div> -->
+                        <div class="col-lg-6" style="text-align: center;display: flex;">
+                            <label style="color:#00095B; 
+            font-family:Ford Antenna;font-size :11px;font-weight:bold;
+            ;text-align:right;margin-top:8px;padding-right:10px;float:left"> Lexicon Type :</label>
+                            <input type="text" style="width: 50%;height:25px;margin-top:1%;"
+                                [(ngModel)]="lexiTypeInGropAvs" />
+                        </div>
+                        <!-- <div class="col-lg-5">
+             <input type="text" style="width: 50%;" [(ngModel)]="lexiTypeInGropAvs"/>
+         </div> -->
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div style="display: flex;padding-top: 2%;">
+
+                        <div style="display: flex;padding-top: 2%;display: flex;">
+
+                            <label style="color:#00095B; 
+            font-family:Ford Antenna;font-size :11px;font-weight:bold;width: 100%
+            ;text-align:right;margin-top:8px;padding-right:10px;float:left;"> Description :</label>
+
+
+
+                            <input type="text" style="width: 200%;height:25px;margin-top:1%;"
+                                [(ngModel)]="lexiDiscInGropAvs" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <p-table [value]="lexiconGroupAvsTableList" [paginator]="true" [rows]="10"
+                            selectionMode="single" [resizableColumns]="true" styleClass="p-datatable-gridlines"
+                            responsiveLayout="scroll" scrollHeight="200px" [(selection)]="selectedAvs"
+                            dataKey="lexiCode" responsiveLayout="scroll">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th pResizableColumn style="flex-basis:25%;font-size:11px !important;"
+                                        id="avsProperty">Database Record</th>
+                                    <th pResizableColumn style="flex-basis:25%;font-size:11px !important;"
+                                        id="avsProperty">Lexc_C</th>
+                                    <th pResizableColumn style="flex-basis:25%;font-size:11px !important;"
+                                        id="avsProperty">Property</th>
+                                    <th pResizableColumn style="flex-basis:25%;font-size:11px !important;"
+                                        id="avsValue">Value</th>
+                                    <th pResizableColumn style="flex-basis:25%;font-size:11px !important;"
+                                        id="avsValue">Source</th>
+                                    <th pResizableColumn style="flex-basis:25%;font-size:11px !important;"
+                                        id="avsDiscription">Description</th>
+
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-AvsTableFields>
+                                <tr [pSelectableRow]="AvsTableFields">
+                                    <td class="text-xs w-5" pResizableColumn
+                                        style="flex-basis:25%;min-width: 20px !important;font-weight: bold;font-size:11px !important;">
+                                        DR</td>
+                                    <td class="text-xs w-5" pResizableColumn
+                                        style="flex-basis:25%;min-width: 20px !important;font-weight: bold;font-size:11px !important;">
+                                        {{AvsTableFields.lexiCode}}</td>
+                                    <td class="text-xs w-5" pResizableColumn
+                                        style="flex-basis:25%;min-width: 20px !important;font-weight: bold;font-size:11px !important;">
+                                        {{AvsTableFields.property}}</td>
+                                    <td class="text-xs w-10" pResizableColumn
+                                        style="flex-basis:25%;min-width: 20px !important;font-weight: bold;font-size:11px !important;">
+                                        {{AvsTableFields.proValue}}</td>
+                                    <td class="text-xs w-5" pResizableColumn
+                                        style="flex-basis:25%;min-width: 20px !important;font-weight: bold;font-size:11px !important;">
+                                        0</td>
+                                    <td class="text-xs w-5" pResizableColumn
+                                        style="flex-basis:25%;min-width: 20px !important;font-weight: bold;font-size:11px !important;">
+                                        {{AvsTableFields.longDisc}}</td>
+
+
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                    <div class="col-lg-12">
+                        <button class="btn fa" (click)="openSearchFromGrpAvs()" (click)="showMaximizableDialog()"><img
+                                src="assets/binocular-solid.png"
+                                style="margin-left: 2px;width: 40px;margin-top: -5px;"></button>
+                        <!-- 
+                         <button  class="btn fa" style="margin-left: 30px;"><strong style="font-size:30px;margin-left: 40px;"
+                             (click)="openSearchFromGrpAvs()" (click)="showMaximizableDialog()"><img  src="assets/binocular-solid.png" style="margin-left: 2px;width: 50px;"></strong></button>         -->
+                        <button id="btn" (click)="saveGroupAvs()" label="Save">Save</button>
+                        <button id="btn" (click)="deleteGroupAvs()" label="Delete">Delete</button>
+                        <button id="btn" (click)="displayGroupAvs=false" label="Close">Close</button>
+                    </div>
+                </div>
+            </div>
+            <!-- <ng-template pTemplate="footer">
+        <button  class="btn fa" (click)="openSearchFromGrpAvs()" (click)="showMaximizableDialog()"><img  src="assets/binocular-solid.png" style="margin-left: 2px;width: 40px;margin-top: -5px;"></button>
+
+         <button  class="btn fa" style="margin-left: 30px;"><strong style="font-size:30px;margin-left: 40px;"
+             (click)="openSearchFromGrpAvs()" (click)="showMaximizableDialog()"><img  src="assets/binocular-solid.png" style="margin-left: 2px;width: 50px;"></strong></button>        
+         <button  (click)="saveGroupAvs()" label="Save" styleClass="p-button-text">Save</button>
+         <button  (click)="deleteGroupAvs()" label="Delete" styleClass="p-button-text">Delete</button>
+     <button icon="pi pi-check" (click)="displayGroupAvs=false" label="Close" styleClass="p-button-text">Close</button>
+     </ng-template> -->
+        </p-dialog>
+
+        <!-- Lexicon Replace -->
+
+        <p-dialog header="Lexicon Code Replacement" [draggable]="true" [modal]="true" [closable]="false"
+            [breakpoints]="{'960px': '75vw'}" [(visible)]="showLexiReplace" [style]="{width: '65vw'}">
+
+            <h5 style="color:#00095B; 
+ font-family:Ford Antenna;font-size :11px;font-weight:bold;">Replace :-</h5>
+
+
+            <div class="row">
+
+                <div class="col-lg-12" style="display: flex;">
+                    <div class="col-lg-3.5" style="display: flex;">
+
+                        <label style="color:#00095B; 
+            font-family:Ford Antenna;font-size :11px;font-weight:bold;
+            ;text-align:right;margin-top:8px;padding-right:10px;float:left"> Lexicon Code :</label>
+
+                        <!-- <span class="input-group-text inputSpan" id="inputGroup-sizing-sm">Lexicon Code :</span> -->
+                        <input type="text" disabled [(ngModel)]="lexiCodeInReplace"
+                            style="width: 50%;height:25px;margin-top:1%;">
+
+                    </div>
+                    <div class="col-lg-3.5" style="display: flex;">
+                        <label style="color:#00095B; 
+            font-family:Ford Antenna;font-size :11px;font-weight:bold;
+            width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left"> Type :</label>
+                        <!-- <span class="input-group-text inputSpan" id="inputGroup-sizing-sm">  Type</span> -->
+                        <input type="text" style="height:25px;margin-top:1%;" disabled [(ngModel)]="lexiTypeInReplace">
+
+
+
+
+
+                    </div>
+                    <div class="col-lg-5" style="display: flex;">
+                        <label style="color:#00095B; 
+            font-family:Ford Antenna;font-size :11px;font-weight:bold;
+            width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left"> Desc :</label>
+                        <!-- <span class="input-group-text inputSpan" id="inputGroup-sizing-sm">  Dese</span> -->
+                        <input type="text" disabled [(ngModel)]="lexiDiscInReplace"
+                            style="width: 50%;height:25px;margin-top:1%;">
+                        <!-- </div> -->
+
+
+
+
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+            <h5 style="color:#00095B; 
+ font-family:Ford Antenna;font-size :11px;font-weight:bold;">Replace With :-</h5>
+
+
+            <div class="row">
+
+                <div class="col-lg-12" style="display: flex;">
+                    <div class="col-lg-3.5" style="display: flex;">
+                        <label style="color:#00095B; 
+            font-family:Ford Antenna;font-size :11px;font-weight:bold;
+           text-align:right;margin-top:8px;padding-right:10px;float:left"> Lexicon Code :</label>
+                        <!-- <span class="input-group-text inputSpan" id="inputGroup-sizing-sm">Lexicon Code :</span> -->
+                        <input type="text" [(ngModel)]="lexiCodeInWReplace" maxlength="6"
+                            (ngModelChange)="lexiCodeInWReplace = $event.toUpperCase()"
+                            style="width: 50%;height:25px;margin-top:1%;">
+
+                    </div>
+                    <div class="col-lg-3.5" style="display: flex;">
+                        <label style="color:#00095B; 
+            font-family:Ford Antenna;font-size :11px;font-weight:bold;
+            width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left"> Type :</label>
+                        <input type="text" (click)="fechDiscType()" [(ngModel)]="lexiTypeInWReplace">
+
+
+
+
+
+                    </div>
+                    <div class="col-lg-5" style="display: flex;">
+                        <label style="color:#00095B; 
+            font-family:Ford Antenna;font-size :11px;font-weight:bold;
+            width:45%;text-align:right;margin-top:8px;padding-right:10px;float:left"> Desc :</label>
+                        <input type="text" (click)="fechDiscType()" [(ngModel)]="lexiDiscInWReplace"
+                            style="width: 50%;">
+
+
+
+
+
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <button class="btn fa" (click)="openSearchFromLexiReply()" (click)="showMaximizableDialog()"><img
+                            src="assets/binocular-solid.png"
+                            style="margin-left: 2px;width: 40px;margin-top: -5px;"></button>
+
+
+                    <button id="btn" [disabled]="lexiReplaceButtun" (click)="replaceCode()"
+                        label="Replace">Replace</button>
+                    <button id="btn" (click)="showLexiReplace=false" label="Close">Close</button>
+                </div>
+                <br>
+            </div>
+
+            <ng-template pTemplate="footer">
+                <!-- <button style="margin-top: -1px;" class="btn fa" (click)="openSearchFromLexiReply()" (click)="showMaximizableDialog()"><img  src="assets/binocular-solid.png" style="margin-left: 2px;width: 40px;margin-top: -5px;"></button>
+
+
+     <button icon="pi pi-check"  class="btn" [disabled]="lexiReplaceButtun" (click)="replaceCode()" label="Replace" styleClass="p-button-text">Replace</button>
+     <button icon="pi pi-check"  class="btn"  (click)="showLexiReplace=false" label="Close" styleClass="p-button-text">Close</button> -->
+            </ng-template>
+        </p-dialog>
+
+        <!-- <p-dialog header="Group AVS" [(visible)]="displayGroupAvs" [modal]="true" [style]="{width: '50vw'}"
+    [draggable]="false" [resizable]="false" [closable]="false">
+    
+    <div class="row">
+        <div class="col-lg-12">
+<div style="display: flex;padding-top: 2%;">
+
+
+            <div class="col-lg-2" style="text-align: center;">
+                <h5>Lexicon Code</h5>
+            </div>
+            <div class="col-lg-3">
+                <input type="text" pInputText [(ngModel)]="lexiCodeInGropAvs"/>
+
+            </div>
+            <div class="col-lg-2" style="text-align: center;">
+                <h5>Lexicon Type</h5>
+            </div>
+            <div class="col-lg-5">
+                <input type="text" pInputText [(ngModel)]="lexiTypeInGropAvs"/>
+            </div>
+        </div>
+        </div>
+        
+        <div class="col-lg-12">
+            <div style="display: flex;padding-top: 2%;">
+            <div class="col-lg-2" style="text-align: center;">
+                <h5>Discription</h5>
+            </div>
+            <div class="col-lg-10">
+                <input type="text" pInputText [(ngModel)]="lexiDiscInGropAvs"/>
+            </div>
+        </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card">
+        
+                    <p-table [value]="lexiconGroupAvsTableList" [paginator]="true" [rows]="10" selectionMode="single" [resizableColumns]="true" styleClass="p-datatable-gridlines" responsiveLayout="scroll" scrollHeight="200px" [(selection)]="selectedAvs" dataKey="lexiCode" responsiveLayout="scroll">
+                        <ng-template pTemplate="header"> 
+                            <tr>
+                               
+                                <th pResizableColumn style="flex-basis:25%" id="avsProperty">Property</th>
+                                <th pResizableColumn style="flex-basis:25%" id="avsValue" >Value</th>
+                                <th pResizableColumn style="flex-basis:25%" id="avsValue">Source</th>
+                                <th pResizableColumn style="flex-basis:25%" id="avsDiscription">Discription</th>
+                                
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-AvsTableFields>
+                            <tr [pSelectableRow]="AvsTableFields">
+                                <td class="text-xs w-5" pResizableColumn style="flex-basis:25%">{{AvsTableFields.property}}</td>
+                                <td class="text-xs w-10" pResizableColumn style="flex-basis:25%">{{AvsTableFields.proValue}}</td>
+                                <td class="text-xs w-5" pResizableColumn style="flex-basis:25%">{{AvsTableFields.source}}</td>
+                                <td class="text-xs w-5" pResizableColumn style="flex-basis:25%">{{AvsTableFields.longDisc}}</td>
+                                
+                               
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+    </div>
+        <ng-template pTemplate="footer">
+            <button  class="btn fa" style="margin-left: 30px;"><strong style="font-size:30px;margin-left: 40px;" (click)="openSearchFromGrpAvs()" (click)="showMaximizableDialog()">&#xf1e5;</strong></button>        
+            <p-button  (click)="saveGroupAvs()" label="Save" styleClass="p-button-text"></p-button>
+            <p-button  (click)="deleteGroupAvs()" label="Delete" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-check" (click)="displayGroupAvs=false" label="Close" styleClass="p-button-text"></p-button>
+        </ng-template>
+</p-dialog> -->
+
+        <!-- Lexicon Replace -->
+
+        <!-- <p-dialog header="Lexicon Code Replacement" [closable]="false" [breakpoints]="{'960px': '75vw'}"  [(visible)]="showLexiReplace" [style]="{width: '65vw'}">
+   
+    <h5>Replace</h5>
+    
+
+    <div class="row">
+
+        <div class="col-lg-12" style="display: flex;">
+            <div class="col-lg-3" style="display: flex;">
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text inputSpan" id="inputGroup-sizing-sm">Lexicon Code :</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+              </div>
+            </div>
+            <div class="col-lg-3" style="display: flex;">
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text inputSpan" id="inputGroup-sizing-sm">  Type</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                     
+                   
+                      
+               
+            </div>
+            <div class="col-lg-6" style="display: flex;">
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text inputSpan" id="inputGroup-sizing-sm">  Disc</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                     
+                   
+                      
+               
+            </div>
+            <div>
+                
+            </div>
+        </div>
+    </div>
+    <h5>Replace With</h5>
+    
+
+    <div class="row">
+
+        <div class="col-lg-12" style="display: flex;">
+            <div class="col-lg-3" style="display: flex;">
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text inputSpan" id="inputGroup-sizing-sm">Lexicon Code :</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+              </div>
+            </div>
+            <div class="col-lg-3" style="display: flex;">
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text inputSpan inputSpan" id="inputGroup-sizing-sm">  Type</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                     
+                   
+                      
+               
+            </div>
+            <div class="col-lg-6" style="display: flex;">
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text inputSpan" id="inputGroup-sizing-sm">  Disc</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                     
+                   
+                      
+               
+            </div>
+            <div>
+                
+            </div>
+        </div>
+    </div>
+
+    <ng-template pTemplate="footer">
+        <button  class="btn fa" style="margin-left: 30px;"><strong style="font-size:30px;margin-left: 40px;"  (click)="showMaximizableDialog()">&#xf1e5;</strong></button>        
+
+        <p-button icon="pi pi-check"  label="Replace" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-check"  label="Close" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog> -->
+
+        <app-lexicon-search *ngIf="lexiSearch > 0"></app-lexicon-search>

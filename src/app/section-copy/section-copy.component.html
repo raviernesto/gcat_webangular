@@ -1,0 +1,159 @@
+<p-dialog  [(visible)]="display"  [baseZIndex]="10111114" [style]="{'width':'90%','max-height':'90%','z-index':'10111113 !important'}" [closable]="false" [modal]="true" >
+    <p-header  [style]="{'margin-left':'10px'}">Section Copy</p-header>
+    <br>
+<div  style="width: 100%;background-color: white;">
+    <div class="row pb-3" style="width:100%;margin-left:2%;">
+        <div class="col-md-4" style="display: flex;" style="width:18%; display: flex;margin-left:-1%;">
+            <label style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:50%;padding-right:10px " > Product Type :</label>
+            <input type="text" style="float: left;width: 45%;height:25px;margin-left:-8;" [(ngModel)]="sectionCopy.cmdty" readonly>
+        </div>
+        <div class="col-md-3" style="display: flex;" style="width:18%; display: flex;" *ngIf="sectionCopy.vehLine!=null">
+            <label style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:50%;padding-right:10px" >Vehicle Line:</label>
+            <input  type="text" style="width: 45%;height:25px;margin-left:0%" [(ngModel)]="sectionCopy.vehLine"
+                readonly>
+        </div>
+            <div class="col-md-3" style="display: flex;" style="width:18%; display: flex;" *ngIf="sectionCopy.vehLine==null">
+                <label style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:45%;padding-right:10px"> Prefix:</label>
+                <input  type="text" style="width:63%;height: 25px;margin-left: -25%;" [(ngModel)]="sectionCopy.cmdty" readonly>
+            </div>
+                <div class="col-md-4" style="display: flex;" style="width:18%; display: flex;">
+                    <label for="Rule"
+                    style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:50%;padding-right:10px">
+                    Section: </label>
+                    <input type="text" style="width:63%;height: 25px;margin-left: -21%" [(ngModel)]="sectionCopy.tempValue"
+                    readonly>
+                  </div>
+    </div>
+    
+   <div class="row" style="display: flex;"  >
+        <div class="col-sm-12">
+            <div *ngIf="section1==true"
+            style="border: 1px solid grey;height: 285px;border-radius: 3px;">
+                <div class="spinner-border" role="status" style="color: #000080;margin-top: auto;margin-bottom: auto;">
+                    <span class="sr-only"></span>
+                </div>
+            </div>
+            <div *ngIf="section1==false" style="width:94% !important;margin-left:3% !important;border: 1px solid grey;border-radius: 3px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75)">
+                <p-table [value]="sectionCopy.table" selectionMode="multiple" [(selection)]="tempTable1" scrollDirection="both"
+                scrollHeight="210px" scrollDirection="both" 
+                 
+                styleClass="p-datatable-sm p-datatable-gridlines" responsiveLayout="scroll" 
+                  (onRowSelect)="copyClicked1($event)"
+                  [style]="{'font-size':'11px','text-align':'center !important','margin-left':'0%','margin-right':'auto','font-family':'Ford Antenna !important'}">
+                    <ng-template pTemplate="header">
+                        <tr style=" background-color:#000080;position: sticky;top:0">
+                            <th scope="col" style="min-width: 20px !important;font-size:11px;">
+                                <p-tableHeaderCheckbox  (click)="copyAll()"></p-tableHeaderCheckbox>                               
+                            </th>
+                            <th scope="col">Engg Part</th>
+                            <th scope="col">Service Part</th>
+                            <th scope="col">Commodity</th>
+                            <th style="width:180px !important;white-space: normal !important;" scope="col">Properties</th>
+                            <th scope="col">Effective Date</th>
+                            <th scope="col">VehLine</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                        <tr [pSelectableRow]="list" [pSelectableRowIndex]="rowIndex" [ngClass]="{'highlightRow': tempTable1.includes(sectionCopy.table[rowIndex])}" style="white-space:nowrap">
+                            <td>
+                                <p-tableCheckbox [value]="list" (click)="copyClicked2(rowIndex)"></p-tableCheckbox>
+                            </td>
+                            <td style=>{{list.engpEngnrgPartR}}</td>
+                            <td >{{list.base}}</td>
+                            <td >{{list.engpCommodityC}}</td>
+                            <td style="width:180px !important;white-space: normal !important;">{{list.property}}</td>
+                            <td >{{list.effDate}}</td>
+                            <td >{{list.evlVehicleLineC}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row pb-3"  style="width:100%;margin-left: 0%;">
+        <div class="col-md-4" style="width:32%; display: flex;margin-left:1%;display: flex;">
+            <label style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:50%;padding-right:10px" > Product Type :</label>
+            <input type="text" style="float: left;width:25%;height: 25px; margin-left: -26%;" [(ngModel)]="sectionCopy.cmdty" readonly>
+        </div>
+        <div class="col-md-3" style="display: flex;" style="width:30%; display: flex;margin-left: -14%;" *ngIf="sectionCopy.vehLine!=null">
+            <label style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:50%;padding-right:10px ">Vehicle Line:</label>
+            <input  type="text" style="width:25%;height: 25px;margin-left:-27%" [(ngModel)]="sectionCopy.vehLine"
+                readonly>
+        </div>
+            <div class="col-md-4" style="display: flex;" style="width:18%; display: flex;" *ngIf="sectionCopy.vehLine==null">
+                <label style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:50%;padding-right:10px "  > Prefix:</label>
+                <input  type="text" style="width:45%;height: 35px;margin-left: -30%;" [(ngModel)]="sectionCopy.cmdty" readonly>
+            </div>
+                <div class="col-md-4" style="display: flex;" style="width:23%; display: flex;margin-left:-14%">
+                    <label for="Rule"
+                    style="color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;text-align: left;width:50%;padding-right:10px;margin-left: 10px;">
+                    Section: </label>
+                    <div class="dropdown" style="width: 57%;margin-left: -33%;font-size: 11px;
+                    margin-top: 0px;text-align: center;">
+                        <p-dropdown [options]="sectionCopy.suffixList" optionLabel="tempValue" autoWidth="false" [filterMatchMode]=startsWith
+                        [disabled]="ddDisable" [style]="{'width': '100%','margin-top':'0px','margin-left':'10%','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                        [filter]="true" filterBy="tempValue" [(ngModel)]="suffix" [virtualScroll]="true" [itemSize]="20"
+                        (onChange)="changeSuffix()" value="suffix" placeholder=" ">
+                    </p-dropdown>
+                  </div>
+                </div>
+    </div>
+    <div>        
+        <div class="col-sm-12">
+            <div *ngIf="section2==true" 
+            style="border: 1px solid grey;height: 285px;border-radius: 3px;">
+                <div class="spinner-border" role="status" style="color: #000080;margin-top: auto;margin-bottom: auto;">
+                    <span class="sr-only"></span>
+                </div>
+            </div>
+            <div *ngIf="section2==false" style="width:94% !important;margin-left:3% !important;border: 1px solid grey;border-radius: 3px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+                <p-table [value]="sectionCopySelect.table" 
+                scrollDirection="both"
+         
+                
+                                [style]="{'font-size':'11px','margin-top':'0','font-family':'Ford Antenna'}"  >
+                                <ng-template pTemplate="header">
+                                    <tr style="position: sticky;top: 0;white-space:nowrap;min-width: 20px !important;">
+                                       
+                                         <th scope="col">Engg Part</th>
+                                         <th  scope="col">Service Part</th>
+                                         <th  scope="col">Commodity</th>
+                                         <th  scope="col">Properties</th>
+                                         <th  scope="col">Effective Date</th>
+                                         <th  scope="col">VehLine</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-list let-rowIndex="rowIndex">
+                                    <tr [pSelectableRow]="list" [pSelectableRowIndex]="rowIndex" style="white-space:nowrap">
+                                        <td >{{list.engpEngnrgPartR}}</td>
+                                        <td >{{list.base}}</td>
+                                        <td >{{list.engpCommodityC}}</td>
+                                        <td >{{list.property}}</td>
+                                        <td >{{list.effDate}}</td>
+                                        <td >{{list.evlVehicleLineC}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+            </div>
+        </div>
+    </div>
+    <div style="width:100%;">
+        <button (click)="copySection()" class="btn btn-primary btn-block" [disabled]="buttonEnable"
+        id="btn" style="margin-left: 38%;">Copy</button>
+            <button (click)="closeSection()" class="btn" class="btn btn-primary btn-block"
+            id="btn" style="margin-left: 3%;">Close</button>
+    </div>
+</div>
+
+</p-dialog>
+
+<p-dialog header="Section Copy" [(visible)]="alert.flag" [style]="{'max-width':'35%', height: 'auto'}"
+        [modal]="true">
+        <br>
+        <p style="text-align: center;padding-right: 5%;padding-left: 5%;">{{alert.msg}}</p>
+        <div class="text-center">
+            <button style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 2%;margin-left: -1%;margin-bottom: 0%;"
+                class="btn btn-primary btn-block" id="btn" (click)="closeOk()">OK</button>
+        </div>
+    </p-dialog>

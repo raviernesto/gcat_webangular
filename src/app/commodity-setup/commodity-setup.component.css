@@ -1,0 +1,29 @@
+textarea{
+    margin-top:20px;
+    height: 160px;
+    width:400px;
+    margin-left: 15px;
+}
+.card-header{
+    background-color: #000080;
+    color:white
+}
+.card{
+    width:433px;
+    height:326px;
+}
+.dropdown1{
+    margin-top:15px;
+    margin-left: 20px;
+}
+.dropdown2{
+    margin-left: 95px;
+    margin-top: -22px;
+}
+button{
+    margin-top:20px;
+    width:78px;
+    background-color: #000080;
+    color: white;
+    border-radius: 10px;
+}

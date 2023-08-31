@@ -1,0 +1,102 @@
+<div style="clear:both;"></div>
+<div class="topcontainer" style="height: 500px;">
+<div style="overflow: visible;">
+<div class="accordion1" style="margin-top: -1%;">
+    <div class="header" (click)="showCenterPart()" [style.border-radius]="br1"  style="height:23px;width:86%;margin-left:7%;padding:1%; background-color: #102B4E;display:inline-block;border-radius:5px 5px 0px 0px;">
+        <span style="font-size: 11px;float:left;margin-top: -1%;color:white">Audit Section View</span>
+        <i class="fa-solid fa-plus" [style.transform]="rotate" aria-hidden="true" style="margin-top: -8px;float:right;font-size: 17px;color: red; "></i>
+    </div>
+    <div class="centerpart" [style.display]="display" style="margin-top:-1%;width:86%;height:83px;background:white;top:65px;z-index: 100;margin-left:7%;margin-top:-5px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);border-radius: 0px 0px 5px 5px;">
+        <div class="partcol1" style="width:100%;float: left;">
+            <div class="row" style="width:24%;float:left;display:flex;margin-left: 3% !important;">
+                <label style=" color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:40%;float: left;
+                text-align: right;margin-top:8px;float: left;"> Vehicle type<span Style=" color:#e32;font-size: 20px; font-weight:bolder;">*</span> : </label>
+                <div class="form-check form-check-inline" style="width:60%;margin:0;margin-top:6px !important">
+                    <p-dropdown [options]="VehicleTypes" optionLabel="type" autoWidth="false"
+                                        [style]="{ 'width': '100%','border-radius':'5px','height':'26px','color':'black','border':'2px solid black','float':'left'}" [filter]="true"
+                                        filterBy="type" [filterMatchMode]=startsWith placeholder="--Select--" [(ngModel)]="vehicleType" (onChange)="getModel()">
+                                                
+                        </p-dropdown>
+                </div>
+            </div>
+            <div class="row" style="width:24%;float:left;">
+                <label style=" color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:40%;
+                text-align: right;margin-top:8px;"> Model<span Style=" color:#e32;font-size: 20px; font-weight:bolder;">*</span> : </label>
+                <div class="form-check form-check-inline" style="width:60%;margin:0;margin-top:6px !important">
+                    <p-dropdown [options]="ModelList" optionLabel="prtpeioDescX" autoWidth="false"
+                [style]="{'width': '100%','border-radius':'5px','height':'26px','color':'black','border':'2px solid black'}" [filter]="true"
+                filterBy="prtpeioDescX" [filterMatchMode]=startsWith placeholder="--Select--" [(ngModel)]="vehicleLine" (onChange)="getSectionIdAndDesc()">
+               
+                    </p-dropdown>
+                </div>
+            </div>
+            <div class="row" style="width:24%;float:left;">
+                <label style=" color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:40%;
+                text-align: right;margin-top:8px;"> Group<span Style=" color:#e32;font-size: 20px; font-weight:bolder;">*</span> : </label>
+                <div class="form-check form-check-inline" style="width:60%;margin:0;margin-top:6px !important">
+                    <p-dropdown [options]="GroupList" optionLabel="groups" autoWidth="false"
+              [style]="{'width': '100%','border-radius':'5px','height':'26px','color':'black','border':'2px solid black'}" [filter]="true"
+              filterBy="groups" [filterMatchMode]=startsWith placeholder="--Select--" [(ngModel)]="group" (onChange)="getSectionIdAndDesc()">
+             
+            </p-dropdown>
+                </div>
+            </div>
+            <div class="row" style="width:24%;float:left;">
+                <label style=" color:#00095B; font-family:Ford Antenna;font-size :11px;font-weight:bold;width:40%;
+                text-align: right;margin-top:8px;"> Section<span Style=" color:#e32;font-size: 20px; font-weight:bolder;">*</span> : </label>
+                <div class="form-check form-check-inline" style="width:60%;margin:0;margin-top:6px !important">
+                    <p-dropdown [options]="SectionList" optionLabel="lexcDescLongX" autoWidth="false"
+              [style]="{'width': '100%','border-radius':'5px','height':'26px','color':'black','border':'2px solid black'}" [filter]="true"
+              filterBy="lexcDescLongX" [filterMatchMode]=startsWith placeholder="--Select--" [(ngModel)]="section">
+             
+            </p-dropdown>
+                </div>
+            </div>
+            
+        </div>
+        <div style="clear:both"></div>
+           
+                <button  (click)="showReport()" style="margin-left: 33%;" id="btn">Show Report</button>
+               <button id="btn" style="margin-left: 1%;">Download Excel Spread Sheet</button> 
+                <button id="btn" style="margin-left: 1%;" (click)="reset()"> Reset</button>
+        
+    </div>
+</div>
+<div *ngIf="showReportStatus" class="report" style="margin-left: 7%;width:86%;margin-top:1%;">
+    <p-table [value]="showReportData" scrollDirection="both"  [showCurrentPageReport]="true"
+     responsiveLayout="scroll" [rowHover]="true">
+      <ng-template pTemplate="caption">
+          <div class="table-header" style="margin-left: 1%;font-size:11px;background-color: rgb(255, 255, 255);border-color: black;">
+            {{tempidanddesc}}
+          </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+          <tr style="background-color: #000080;">
+              <th>Prefix/Suffix</th>
+              <th>Effective In</th>
+              <th>Effective Out</th>
+              <th>Properties</th>
+              <th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-d let-ri="rowIndex">
+          <tr>
+              <td>{{d.sectSuffixC}}</td>
+              <td>{{d.sectS4pEffInY}}</td>
+              <td>{{d.sectS4pEffOutY}}</td>
+              <td>{{d.lexcC}}</td>
+              <td><button (click)="goToLink(ri)" class="btn" style="font-size: 11px;height: 22px;
+              padding: 1px;width: 56%;border-radius: 10px;margin-top: 1px;">Get Section</button></td>
+          </tr>
+        </ng-template>
+    </p-table>      
+    </div>
+</div>
+</div>
+<p-dialog header="Audit Section View" [(visible)]="alert.flag" [style]="{'width':'auto', height: 'auto'}" [modal]="true">
+    <p style="text-align: center;margin-top:15px;font-size:14px;">{{alert.msg}}</p>
+    <div class="cancelpop" style="margin-left: 28px;"> 
+        <button (click)="cancelpop()" id="btn" class="dialogbutton" style="height:24px;font-size:11px;padding:0px;border-radius:15px;width:32%;margin-left:25%">OK</button>
+    </div>
+ </p-dialog>  
+

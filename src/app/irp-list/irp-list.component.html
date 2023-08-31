@@ -1,0 +1,282 @@
+<div style="height:520px">
+<div class="maincontainer1" style="width:100%;">
+    <div class="accordion1">
+        <div class="header" (click)="showCenterPart()" [style.border-radius]="br"
+            style="width:96%;margin-left:2%;padding:0 10px; background-color: #102B4E;display:inline-block;border-radius: 5px;">
+            <span style="font-size: 11px;float:left;color:white">Selection Criteria</span>
+            <i class="fa-solid fa-plus" aria-hidden="true" style="float:right;font-size: 20px;color: red; "></i>
+        </div>
+        <!-- [style.display]="display" -->
+        <div class="centerpart" [style.display]="display"
+            style="width:96%;height:auto;background:white !important;margin-top:-5px;z-index: 100;margin-left:2%;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75); border-radius: 0px 0px 5px 5px;">
+            
+            <form [formGroup]="irpListForm" (ngSubmit)="submit()" class="bg-text" style="width:100%;">
+                <div class="row pb-3" style=" margin-top: 1%;" style="width:100%;margin-bottom: -12px;">
+                    <div class="col-md-4" style="display: flex;" style="width: 22%; display: flex;">
+                        <label for="analystId" id="label">
+                            <input type="checkbox" id="rqstrCheck" formControlName="rqstrCheck" class="form-check-input" />
+                            Requester ID : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                            *ngIf="validFields.rqstrId"></em></label>
+                        <div class="" style="width: 50%;">
+    
+                            <p-dropdown [options]="requesterList" optionLabel="userIdC" autoWidth="false" [filterMatchMode]=startsWith
+                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                [filter]="true" filterBy="userIdC"  [showClear]="clear1" 
+                                formControlName="rqstrId" placeholder="--Select--"
+                                (onChange)="onRqstrIdChange($event)">
+                                <ng-template let-item pTemplate="selectedItem">
+                                    {{ item.userIdC}}
+                                  </ng-template>
+                                  <ng-template let-item pTemplate="item">
+                                    <div class="Id-item">
+                                      <div>{{ item.userIdC}}</div>
+                                    </div>
+                                  </ng-template>
+                            </p-dropdown>
+    
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="display: flex;" style="width: 22%; display: flex;">
+                        <label for="analystId" id="label">
+                            <input type="checkbox" id="currentOwnerCheck" formControlName="currentOwnerCheck" class="form-check-input" />
+                            Current Owner : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                            *ngIf="validFields.currentOwner"></em></label>
+                        <div class="" style="width: 50%;">
+                            <p-dropdown [options]="currentOwnerList" optionLabel="currentOwner" autoWidth="false"
+                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                [filter]="true" filterBy="currentOwner" [showClear]="clear2" 
+                                formControlName="currentOwner" placeholder="--Select--"
+                                (onChange)="onCurrentOwnerChange($event)">
+                                <ng-template let-item pTemplate="selectedItem">
+                                    {{ item.currentOwner}}
+                                </ng-template>
+                                <ng-template let-item pTemplate="item">
+                                    <div class="Id-item">
+                                      <div>{{ item.currentOwner}}</div>
+                                    </div>
+                                  </ng-template> 
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="display: flex;" style="width: 22%; display: flex;">
+                        <label for="analystId" id="label">
+                            <input type="checkbox" id="statusCheck" formControlName="statusCheck" class="form-check-input" />
+                            IRP Status : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                            *ngIf="validFields.irpStatus"></em></label>
+                        <div class="" style="width: 50%;">
+                            <p-dropdown [options]="irpStatusList" optionLabel="irpStatus" autoWidth="false"
+                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                [filter]="true" filterBy="irpStatus" [showClear]="clear3" 
+                                formControlName="irpStatus" placeholder="--Select--"
+                                (onChange)="onIrpStatusChange($event)">
+                                <ng-template let-item  pTemplate="selectedItem">
+                                    {{item.irpStatus}} - {{item.desc}}
+                                </ng-template>
+                                <ng-template let-item pTemplate="item">
+                                    <div class="Id-item">
+                                        <div>{{item.irpStatus}} - {{item.desc}}</div>
+                                    </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="display: flex;" style="width: 26%; display: flex;">
+                        <label for="analystId" id="label">
+                            <input type="checkbox" id="sectionCheck" formControlName="sectionCheck" class="form-check-input" />
+                            Template/Section :<em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                            *ngIf="validFields.section"></em> </label>
+                        <div class="" style="width: 50%;">
+                            <p-dropdown [options]="templateIdList" optionLabel="templateId" autoWidth="false"
+                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                [filter]="true" filterBy="templateId" [showClear]="clear4" placeholder="--Select--"
+                                formControlName="section" (onChange)="onTemplateChange($event)">
+                                <ng-template let-item pTemplate="selectedItem">
+                                    {{item.templateId}}
+                                </ng-template>
+                                <ng-template let-item pTemplate="item">
+                                    <div class="Id-item">
+                                        <div>{{item.templateId}}</div>
+                                    </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                <div class="row pb-3" style="width:100%;">
+                    <div class="col-md-4" style="display: flex;" style="width: 22%; display: flex;">
+                        <label for="analystId" id="label">
+                            <input type="checkbox" id="irpNoCheck" formControlName="irpNoCheck" class="form-check-input" />
+                            IRP No : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                            *ngIf="validFields.irpNo"></em></label>
+                        <div class="" style="width: 50%;">
+                            <input type="text"  style="height:25px"  class="form-control"
+                            id="irpNo" formControlName="irpNo"  (blur)="onBlurIrpNo()" >
+                        </div>
+                    </div>
+    
+                    <div class="col-md-4" style="display: flex;" style="width: 22%; display: flex;">
+                        <label for="analystId" id="label">
+                            <input type="checkbox" id="vehLineCheck" formControlName="vehLineCheck" class="form-check-input" />
+                            Vehicle Line : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                            *ngIf="validFields.vehLine"></em></label>
+                        <div class="" style="width: 50%;">
+                            <p-dropdown [options]="vehList" optionLabel="sectVehicleLineC" autoWidth="false"
+                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                [filter]="true" filterBy="sectVehicleLineC" [showClear]="clear5"  [filterMatchMode]=startsWith  placeholder="--Select--" 
+                                formControlName="vehLine" (onChange)="onVehLineChange($event)">
+                                <ng-template let-item pTemplate="selectedItem">
+                                    {{ item.sectVehicleLineC}} - {{item.sectVehicleDescX}}
+                                  </ng-template>
+                                  <ng-template let-item pTemplate="item">
+                                    <div class="user-item">
+                                      {{ item.sectVehicleLineC}} - {{item.sectVehicleDescX}}
+                                    </div> 
+                                  </ng-template>
+                            </p-dropdown>
+    
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="display: flex;" style="width: 22%; display: flex;">
+                        <label for="analystId" id="label">
+                            <input type="checkbox" id="prefixCheck" formControlName="prefixCheck" class="form-check-input" />
+                            Prefix : <em class="fa fa-asterisk" style="color: rgb(209, 15, 15);"
+                            *ngIf="validFields.prefix"></em></label>
+                        <div class="" style="width: 50%;">
+                            <p-dropdown [options]="prefixList" optionLabel="famprfxPrefixC" autoWidth="false"
+                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                [filter]="true" filterBy="famprfxPrefixC" [showClear]="clear6" placeholder="--Select--"
+                                formControlName="prefix" (onChange)="onPrefixChange($event)">
+                                <ng-template let-item pTemplate="selectedItem">
+                                    {{item.famprfxPrefixC}}-{{item.famprfxDescX}}
+                                </ng-template>
+                                <ng-template let-item pTemplate="item">
+                                    <div class="Id-item">
+                                        <div>{{item.famprfxPrefixC}}-{{item.famprfxDescX}}</div>
+                                    </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="display: flex;" style="width: 25%; display: flex;margin-left:-4%">
+                        <label for="analystId" id="label" style="width:55%">Region : </label>
+                        <div class="" style="width: 100%;">
+                            <div class="card-body" style="display: inline-flex">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="region" id="inlineRadio1"
+                                        value="E" formControlName="region">
+                                    <label class="form-check-label" for="inlineRadio1">Europe</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="region" id="inlineRadio2"
+                                        value="N"  formControlName="region">
+                                    <label class="form-check-label" for="inlineRadio2">NA</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="region" id="inlineRadio1"
+                                        value="A"  formControlName="region">
+                                    <label class="form-check-label" for="inlineRadio1">AP</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="region" id="inlineRadio2"
+                                        value="S"  formControlName="region">
+                                    <label class="form-check-label" for="inlineRadio2">SA</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="display: flex;width:10%" >
+                        <button  type="submit" id="btn" style="margin-left: -4%;">Select</button>
+                        <button id="btn" class="btn " (click)="onReset()">Reset</button>
+                        <button id="btn" class="btn " (click)="onClose()">Close</button>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+    
+    
+                <!-- <div class="row pb-3" style=" margin-top:0;" style="width:100%;display:flex;align-items: center;text-align: center;">
+                   
+                    <div class="col-md-4" style="display: flex;" >
+                        <button  type="submit" id="btn">Select</button>
+    
+                    </div>
+                </div> -->
+            </form>
+            
+        </div>
+    </div>
+</div>
+<div style="clear:both"></div>
+<div class="flex" style="width:100%">
+    <div class="table"
+        style="width:96%;height:auto;background:white !important;margin-top:-5px;z-index: 100;margin-left:2%;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+        <p-table [value]="irpList" *ngIf="showTable" styleClass="p-datatable-customers" scrollDirection="both"
+            [paginator]="false" [rows]="500" [showCurrentPageReport]="true" responsiveLayout="scroll" scrollHeight="350px"
+            [rowHover]="true">
+            <ng-template pTemplate="header">
+                <tr style="background-color:#000080">
+                    <th>IRP No</th>
+                    <th>Vehicle Line</th>
+                    <th style="  width:5%">Prefix</th>
+                    <th style="  width:7%">Section</th>
+                    <th style="  width:8%">Illus ID -Rev No</th>
+                    <th>Cmdty Complete</th>
+                    <th>Status</th>
+                    <th>Current Owner</th>
+                    <th>Current Owner Date</th>
+                    <th style="  width:5%">Effective Date</th>
+                    <th>Close Date</th>
+                    <th>Req Return Date</th>
+                    <th>Returned Date</th>
+                    <th>Requester</th>
+                    <th>Unit Type</th>
+                    <th>Region</th>
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-irp>
+                <tr (dblclick)="ondoubleClik(irp)">
+                    <td>{{ irp.reqIdR }}</td>
+                    <td>{{ irp.sectVehicleLineC}}</td>
+                    <td>{{ irp.famprfxPrefixC}}</td>
+                    <td>{{ irp.templtIdR}} {{irp.sectSuffixC}}</td>
+                    <td>{{ irp.illstrIdR}} - {{irp.illstrRevIdR}}</td>
+                    <td>{{ irp.cmdtyPercentage}}%</td>
+                    <td>{{ irp.statusCodeC}}</td>
+                    <td>{{ irp.reqCurrOwnerC}}</td>
+                    <td>{{ irp.ownerY |date: 'dd/MMM/yyyy'}}</td>
+                    <td>{{ irp.effectDateY | date: 'dd/MMM/yyyy'}}</td>
+                    <td>{{ irp.closeY | date: 'dd/MMM/yyyy'}}</td>
+                    <td>{{ irp.reqdateY | date: 'dd/MMM/yyyy'}}</td>
+                    <td>{{ irp.returnY | date: 'dd/MMM/yyyy'}}</td>
+                    <td>{{ irp.reqCreateIdC}}</td>
+                    <td>{{ irp.unitTypeC}}</td>
+                    <td>{{ irp.irpRegionC}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+    </div>
+
+    <!-- <br> -->
+    <div class="row" *ngIf="showTable">
+
+        <div class="col-lg-6" style="margin-left:35%;margin-top:10px">
+            <button style="width:200px" id="btn" class="btn " disabled>Illustration Detail </button>
+            <!-- <button id="btn" class="btn " (click)="onReset()">Reset</button> -->
+            <button id="btn" class="btn " (click)="onClose()">Close</button>
+        </div>
+
+    </div>
+</div>
+</div>
+<p-dialog header="IRP List" [(visible)]="alert.flag" [style]="{'max-width':'50%', height: 'auto'}" [modal]="true">
+    <br>
+    {{alert.msg}}
+    <div class="text-center">
+        <button style="width: 6%;min-width: 80px;max-width: 80px;margin-top: 8%;margin-left: -1%;"
+        class="btn" id="btn" (click)="popupOk()">OK</button>
+    </div>
+  </p-dialog>
+  <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text">
+</p-confirmDialog>

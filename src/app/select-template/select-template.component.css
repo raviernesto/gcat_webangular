@@ -1,0 +1,11 @@
+.card{
+    width: 50%;margin-top:5%; margin-left:29%; border: 1px solid black;
+}
+.card-header{
+    border:1px solid black; 
+   background-color: #000080;
+   color:white;
+}
+.box{
+    width:450px; margin-left: 75px; padding-bottom:100px; margin-top: 10px; border:1px solid black
+}

@@ -1,0 +1,135 @@
+#head{
+    width:86%;
+    margin-left:7%;
+    padding:1%;
+     background-color: #102B4E;
+    display:inline-block;
+     border-radius: 5px
+
+}
+#headerName{
+    font-size: 16px;
+    float:left;
+    color:white;
+    font-weight: bold;
+}
+#center{
+    width:86%;
+    margin-left:7%;
+    margin-top:-6px;
+    padding:1% 0%;
+    box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+    border-radius: 0px 0px 5px 5px;
+    height:80px
+}
+
+#label{
+    color:#00095B;
+     font-family:Ford Antenna;
+     font-size :16px;
+     font-weight:bold;
+     width:90%;
+     text-align: right;
+     padding-right: 20px;
+
+}
+#colon{
+    color:#00095B;
+    font-family:Ford Antenna;
+    font-size :16px;
+    font-weight:bold;
+    width: 2%;
+    text-align: right;
+}
+.col1{
+   float:left;
+   margin-left:1%;
+}
+
+.btn{
+   
+    height:41px;
+    width:106px;
+    border-radius:20px;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    border:none !important;
+    font-size: 11px;
+    /* margin-top:20px;
+    margin-left: 8%; */
+    
+}
+#tablepart{
+    width:90%;
+   
+    margin-left:11%;
+    margin-top:-6px;
+    padding:1% 0%;
+}
+#tablepart1{
+    width:50%;
+   
+    margin-left:24%;
+    margin-top:-6px;
+    padding:1% 0%;
+}
+#th{
+font-size:11px !important;
+text-align:center !important;
+white-space:nowrap;
+border-right: 1px solid #bdbdbd !important;
+font-weight:bold !important;
+
+
+
+}
+
+#th1{
+font-size: 11px !important;
+text-align:center !important;
+font-weight:bold !important;
+white-space:nowrap;
+border-right: 1px solid #bdbdbd !important;
+width:2%;
+
+}
+tr:nth-child(even){ background-color:#f5f5f5 !important; } tr:nth-child(odd){ background-color:#ffff; }
+td{
+    border-right: 1px solid #bdbdbd !important;
+  }
+:host ::ng-deep .p-datatable-wrapper {
+    margin-top: -13px;
+}
+
+:host ::ng-deep .p-datatable{
+    box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+}
+
+div{
+    margin:0;
+    padding:0;
+}
+
+
+.p-dropdown-items-wrapper {
+    overflow: auto;
+    width: 166px;
+  }
+  .p-dropdown-panel .p-dropdown-header .p-dropdown-filter {
+    padding-right:0;
+    margin-right:0;
+    /* margin-left: -17px; */
+    margin-top:-30px
+  }
+  .p-dropdown-panel .p-dropdown-header{
+    margin-top: 30px;
+  }
+
+  :host ::ng-deep .p-inputtext {
+    font-size: 11px;
+    margin-top: -6px;
+}
+
+

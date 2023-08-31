@@ -1,0 +1,202 @@
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+.btnclour{
+    background: #000080 !important;
+}
+.tab button.active {
+    background-color: #ccc;
+}
+
+.default {
+    border-color: black;
+    color: black;
+    margin-top: -18%;
+}
+
+.default:hover {
+    background: #e7e7e7;
+}
+
+#btn{
+   
+    height:25px;
+    font-size: 13px;
+    width:80px;
+    border-radius:20px;
+    background-color:#000080 !important;
+    color:white;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    /* margin-top:20px; */
+    margin-left: 1.5%;
+    
+  }
+
+  th {
+    background-color: #000080 !important;
+    color: white;
+    margin: 1%;
+    margin-top: 3px;
+    padding-top: 3px !important;
+    box-sizing: border-box;
+    font-weight: 400;
+    border-right: 1px solid black;
+    font-family:Ford Antenna !important;
+  }
+  tr,
+      td {
+          margin: 1%;
+          box-sizing: border-box;
+          border-left: 1px solid grey;
+          border-right: 1px solid grey;
+          border-bottom: 1px solid grey;
+          border-radius: 5px;
+          font-family:Ford Antenna;
+      }
+
+  :host ::ng-deep .p-inputtext {
+    font-size: 11px;
+    margin-top:-7px;
+
+}
+:host ::ng-deep .p-dropdown-item {
+    font-size: 11px;
+}
+
+
+
+/* #search2 {
+    width: 150%;
+}
+
+#search3 {
+    width: 250%;
+}
+
+#search4 {
+    width: 400%;
+} */
+.buttons{
+    background-color: blue;
+    color: white;
+}
+button {
+    margin-left: 1%;
+}
+:host ::ng-deep .p-button {
+    margin: 0 .5rem 0 0;
+    min-width: 10rem;
+}
+
+p {
+    margin: 0;
+}
+
+.confirmation-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+:host ::ng-deep .p-dialog .p-button {
+    min-width: 6rem;
+}
+
+.inputSpan{
+    background: #2c2b75;
+    color: white;
+}
+
+.btn{
+   
+    height:41px;
+    width:106px;
+    border-radius:20px;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    margin-top:20px;
+    /* margin-left: 8%; */
+    
+}
+.btn1{
+
+height:41px;
+width:106px;
+border-radius:20px;
+background-color:#00095B;
+box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+font-family:"Ford Antenne Cond" !important;
+white-space: nowrap;
+margin-top:5px;
+border: none;
+
+}
+::ng-deep .p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {
+	font-family:Ford Antenna;
+	font-size :11px;
+	font-weight:bold;
+}
+::ng-deep .card{
+    box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);
+    border: none;
+}
+::ng-deep .p-element .ng-trigger .ng-trigger-animation .ng-tns-c96-15 .stylea .ng-star-inserted .p-dialog .p-component .p-dialog-maximized{
+    width: 70% !important;
+}
+::ng-deep .p-dialog .p-dialog-footer {
+    border-top: 0 none;
+    background: #ffffff;
+    color: #495057;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    text-align: center;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+element.style {
+    background-color: #141984;
+    font-family: Ford Antenna;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+   
+}
+.p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+    font-weight: bold !important;
+    padding-bottom: 0px !important;
+    /* padding: 0.5rem 0.5rem; */
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 0px !important;
+    font-size: 11px !important;
+  }
+  .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+    /* padding: 0.5rem 0.5rem; */
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    font-size: 9px !important;
+    font-weight: bold !important;
+}
+

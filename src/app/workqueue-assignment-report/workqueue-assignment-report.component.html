@@ -1,0 +1,235 @@
+<div style="clear:both;"></div>
+<div class="accordion1" style="height:550px;margin-top:-10px">
+    <div class="header" (click)="showCenterPart()" [style.border-radius]="br1"
+        style="width:98%;margin-left:1%;padding:2px;padding-right:10px; background-color: #102B4E;display:inline-block;border-radius: 5px;">
+        <span style="font-size: 11px;float:left;color:white ;">Work Queue
+            Assignment Data Report</span>
+        <i class="fa-solid fa-plus" [style.transform]="rotate" aria-hidden="true"
+            style="float:right;font-size: 20px;color: red; "></i>
+
+    </div>
+    <div class="centerpart" [style.display]="display"
+        style="width:98%;height:144px;background:white !important;margin-top:-5px;z-index: 100;margin-left:1% !important;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75) !important;border-radius:0px 0px 5px 5px">
+        <div class="part123" style="width:100%;height:100%;">
+            <div class="partcol1"
+            style="width:100%;float: left;padding-left:10px;padding-top:10px;margin-left: 6%;">
+
+                <div class="row pb-4" style="width:100%;margin-left:1%;">
+                    <div class="col-md-4" style="width:23%; display: flex;margin-left:0%">
+                        <label
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">Analyst:</label>
+                        <div class="dropdownCT" style="width:50%;margin-left:-20%;padding:0">
+                            <p-dropdown [options]="analyst" optionLabel="userLastNameN" [filterMatchMode]=startsWith
+                                autoWidth="false" [virtualScroll]="true" [itemSize]="30"
+                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                [filter]="true" filterBy="userLastNameN" [(ngModel)]="analystDrop"
+                                (onChange)="changeAnalyst()" value="analystDrop" placeholder="All">
+                            </p-dropdown>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4" style="width:23%; display: flex;margin-left:-3%">
+                        <label
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">Commodity:</label>
+                        <input type="text" [(ngModel)]="commodity" class="form-control"
+                            style="width: 50%;height:38px;margin-left:-11%;font-family:Ford Antenna;height:25px;" maxlength="8">
+
+                    </div>
+                    <div class="col-md-4" style="width:23%; display: flex;margin-left:-3%">
+                        <label
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">Eng
+                            Base:</label><br>
+                        <input type="text" [(ngModel)]="engBase" class="form-control"
+                            style="width: 50%;height:38px;margin-left:-16%;font-family:Ford Antenna;height:25px;" maxlength="8">
+                    </div>
+                    <div class="col-md-4" style="width:23%; display: flex;margin-left:-3%">
+                        <label
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">Product
+                            Type:</label><br>
+                        <div class="dropdownCT" style="width:50%;margin-left:-7%;padding:0">
+                            <p-dropdown [options]="productType" optionLabel="vehtypeCode" [filterMatchMode]=startsWith
+                                autoWidth="false" [virtualScroll]="true" [itemSize]="30"
+                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                [filter]="true" filterBy="vehtypeCode" [(ngModel)]="productDrop"
+                                (onChange)="changeproductType()" value="productDrop" placeholder="All">
+
+                            </p-dropdown>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pb-3" style="width:100%;    margin-top: -2%;">
+                                        <div class="col-md-4" style="width:23%; display: flex;margin-left:7px">
+                        <label
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">Vehicle
+                            Line:</label><br>
+                        <div class="dropdownCT" style="width:50%;margin-left: -10%;padding:0">
+                            <p-dropdown [options]="vehicleLine" optionLabel="prtpeioDescX" [filterMatchMode]=startsWith
+                                autoWidth="false" [virtualScroll]="true" [itemSize]="30"
+                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                [filter]="true" filterBy="prtpeioDescX" [(ngModel)]="vehicleDrop"
+                                (onChange)="changeVehicleLine()" value="vehicleDrop" placeholder="All">
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4" style="width:23%; display: flex">
+                        <label
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">S4P
+                            Code:</label><br>
+                        <input type="text" [(ngModel)]="s4pCode" class="form-control"
+                            style=" margin-top: 7px;   width:50%; height:25px;  margin-top: -1%; margin-left:-15%;font-family:Ford Antenna;"
+                            maxlength="16">
+                    </div>
+                    
+                    <div class="col-md-4" style="width:23%; display: flex;margin-left: -46px;">
+                        <label
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">Eff
+                            In Date:</label><br>
+                        <p-calendar dateFormat="dd-M-yy" [(ngModel)]="effInDate" [showIcon]="true"
+                            [style]="{ 'width': '76%','margin-left': '-11%','height': '25px','font-family':'Ford Antenna'}"
+                            dataType="string">
+                        </p-calendar>
+                    </div>
+                    <div class="col-md-4" style="width:23%; display: flex;margin-left:-27px">
+                        <label
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">Reason
+                            Code:</label>
+                        <div class="dropdownCT" style="width:50%;margin-left:-18px;padding:0">
+                            <p-dropdown [options]="reasonCode" optionLabel="reasonDescX" [filterMatchMode]=startsWith
+                                autoWidth="false" [virtualScroll]="true" [itemSize]="30"
+                                [style]="{ 'width': '100%','margin-top':'0px','border-radius':'5px','height':'25px','color':'black','border':'2px solid black'}"
+                                [filter]="true" filterBy="reasonDescX" [(ngModel)]="reasonDrop"
+                                (onChange)="changeReasonCode()" value="reasonDrop" placeholder="All">
+                            </p-dropdown>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row pb-3" style="width:100%;    margin-top: -1%;">
+                    <div class="col-md-4" style="width:23%; display: flex;margin-left:-13px">
+                        <label
+                            style="color:#00095B; font-family:Ford Antenna;font-size :11px !important;font-weight:bold;text-align: left;width:42%;margin-top:1px;padding-right:10px;float:left">Presumed
+                            Book:</label>
+                        <input type="text" [(ngModel)]="presumedBook" class="form-control"
+                            style=" margin-top: 7px;   width:50%; height:25px;  margin-top: -1%; margin-left:-2%;font-family:Ford Antenna;"
+                            maxlength="8">
+
+                    </div>
+                    <div class="col-md-4" style="width:23%; display: flex;margin-left:13%;margin-top:-7px">
+                        <button class="btn" type="submit"  (click)="changeShowReport()"
+                        style="margin-top: 10px;width:100px;">
+                        Show Report
+                    </button>
+                    <button class="btn" type="submit" (click)="onRefresh()"
+                    style="margin-top: 10px;width:100px;margin-left: 2%">
+                        <em class="fa fa-refresh"></em> Refresh </button>
+                    </div>
+                </div>
+
+                <div>
+                    
+                    <p-dialog header="Work Queue Assignment Data Report" [(visible)]="alert.flag"
+                        [style]="{'width':'auto', height: 'auto'}" [modal]="true">
+                        <br>
+                        <p style="text-align: center; font-family:Ford Antenna;font-size :11px !important;">{{alert.msg}}</p>
+                        <div class="partrow2" style="Text-align:center">
+                            <button class="btn" (click)="cancelpop()" >OK</button>
+                        </div>
+                    </p-dialog>
+                    <hr>
+                </div>
+
+           </div>
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf="Table1" style="margin-left:10%;margin-top:-20%">
+    <p style="color:#00095B;text-align:center;font-family:Ford Antenna;font-size :11px;">Work Queue Assignment Data
+        Report :</p>
+    <p style="color:red;text-align:center;font-family:Ford Antenna;font-size :11px;">No Records Available</p>
+</div>
+<div style="clear: both;"></div>
+
+<div  *ngIf="showTable"
+    style="margin-top:-300px;width:94%;margin-left:1%;margin-right: 1%;    padding-left: 2%;">
+    <p-table [value]="details" *ngIf="showTable" styleClass="p-datatable" scrollDirection="both" [paginator]="false"
+        [rows]="50" scrollHeight="250px" [rowsPerPageOptions]="[500]" [showCurrentPageReport]="true"
+        responsiveLayout="scroll" [rowHover]="true" [style]="{'width':'108%','margin-left':'-2%'}">
+
+        <ng-template pTemplate="header">
+            <tr style="background-color:#000080;">
+                <th scope="col" pSortableColumn="userIdC"
+                style="text-align:center;font-family:Ford Antenna;font-size :11px !important;padding-top: 1%;padding-left: 1%;">User ID
+                    <p-sortIcon field="userIdC">
+                    </p-sortIcon>
+                </th>
+                <th scope="col" pSortableColumn="gtiwqCreateY"
+                style="text-align:center;font-family:Ford Antenna;font-size :11px !important;padding-top: 1%;">WQ Create
+                    Date<p-sortIcon field="gtiwqCreateY">
+                    </p-sortIcon>
+                </th>
+                <th scope="col" pSortableColumn="vehtypeCode"
+                style="text-align:center;font-family:Ford Antenna;font-size :11px !important;padding-top: 1%;">Product Type
+                    <p-sortIcon field="vehtypeCode">
+                    </p-sortIcon>
+                </th>
+                <th scope="col" pSortableColumn="evlVehicleLineC"
+                style="text-align:center;font-family:Ford Antenna;font-size :11px !important;padding-top: 1%;">Vehicle Line
+                    <p-sortIcon field="vehicleLine">
+                    </p-sortIcon>
+                </th>
+                <th scope="col" pSortableColumn="reasonCodeC"
+                style="text-align:center;font-family:Ford Antenna;font-size :11px !important;padding-top: 1%;">Reason Code
+                    <p-sortIcon field="reasonCodeC">
+                    </p-sortIcon>
+                </th>
+                <th scope="col" pSortableColumn="engpEngnrgPartR"
+                style="text-align:center;font-family:Ford Antenna;font-size :11px !important;padding-top: 1%;">Engineering
+                    Part<p-sortIcon field="engpEngnrgPartR">
+                    </p-sortIcon>
+                </th>
+                <th scope="col" pSortableColumn="sprfxprtPrefixR"
+                style="text-align:center;font-family:Ford Antenna;font-size :11px !important;padding-top: 1%;">Service Part
+                    <p-sortIcon field="sprfxprtPrefixR">
+                    </p-sortIcon>
+                </th>
+                <th scope="col" pSortableColumn="funcKey"
+                style="text-align:center;font-family:Ford Antenna;font-size :11px !important;padding-top: 1%;">Function Key
+                    <p-sortIcon field="funcKey">
+                    </p-sortIcon>
+                </th>
+                <th scope="col" pSortableColumn="userBookR"
+                style="text-align:center;font-family:Ford Antenna;font-size :11px !important;padding-top: 1%;">Presumed Book
+                    <p-sortIcon field="userBookR">
+                    </p-sortIcon>
+                </th>
+                <th scope="col" pSortableColumn="userPciiBookR"
+                style="text-align:center;font-family:Ford Antenna;font-size :11px !important;padding-top: 1%;">PC II Book
+                    <p-sortIcon field="userPciiBookR">
+                    </p-sortIcon>
+                </th>
+
+            </tr>
+
+        </ng-template>
+        <ng-template pTemplate="body" let-d>
+            <tr>
+                <td style="text-align:center;font-family:Ford Antenna;font-size :11px !important;">{{d.userIdC}}</td>
+                <td style="text-align:center;font-family:Ford Antenna;font-size :11px !important;">{{d.gtiwqCreateY| date: 'dd/MMM/yyyy'}}
+                </td>
+                <td style="text-align:center;font-family:Ford Antenna;font-size :11px !important;">{{d.vehtypeCode}}</td>
+                <td style="text-align:center;font-family:Ford Antenna;font-size :11px !important;">{{d.evlVehicleLineC}}</td>
+                <td style="text-align:center;font-family:Ford Antenna;font-size :11px !important;">{{d.reasonCodeC}}</td>
+                <td style="text-align:center;font-family:Ford Antenna;font-size :11px !important;">{{d.engpEngnrgPartR}}</td>
+                <td style="text-align:center;font-family:Ford Antenna;font-size :11px !important;">
+                    {{d.sprfxprtPrefixR}}{{d.sbaseprtNbr}}{{d.sufxprtSuffixNbr}}</td>
+                <td style="text-align:center;font-family:Ford Antenna;font-size :11px !important;">{{d.funcKey}}</td>
+                <td style="text-align:center;font-family:Ford Antenna;font-size :11px !important;">{{d.userBookR}}</td>
+                <td style="text-align:center;font-family:Ford Antenna;font-size :11px !important;">{{d.userPciiBookR}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+</div><br>

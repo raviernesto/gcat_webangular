@@ -1,0 +1,80 @@
+<div>
+
+    <h3
+        style="text-align:center;font-weight:bold;font-family:Ford Antenna;font-size:16px;color:#00095B;font-weight:bold">
+        Illustrations with the Art Houses</h3>
+
+    <div class="row" style="margin-left:10%">
+        <div class="col lg 3">
+            <h3
+                style="font-family:Ford Antenna;font-size:16px;color:#00095B;font-weight:bold;font-size:16px;margin-left:77px">
+                Commodity Type >>{{cmdtype}}</h3>
+        </div>
+        <div class="col lg 3" *ngIf="show==true">
+            <h3
+                style="font-family:Ford Antenna;font-size:16px;color:#00095B;font-weight:bold;font-size:16px;margin-left:-35px">
+                Vehicle Line >>{{user}}</h3>
+        </div>
+        <div class="col lg 3" *ngIf="show==false">
+            <h3 style="font-family:Ford Antenna;font-size:16px;color:#00095B;font-weight:bold;font-size:16px">Prefix
+                >>{{prefixC}}</h3>
+        </div>
+        <div class="col lg 3" *ngIf="show==true">
+            <h3 style="font-family:Ford Antenna;font-size:16px;color:#00095B;font-weight:bold;font-size:16px">Group
+                >>{{sectgroup}}</h3>
+        </div>
+    </div>
+    <div class="container2"
+        style="width:90%;margin-left:4%;border-radius: 5px;box-shadow: 0px 13px 27px -5px rgba(0,0,0,0.75);">
+
+        <div id="tablepart">
+            <p-table [value]="table" scrollDirection="both" [paginator]="true" [rows]="50" scrollHeight="350px"
+                responsiveLayout="scroll" styleClass="p-datatable-customers" [rowsPerPageOptions]="[500]"
+                [showCurrentPageReport]="true" [rowHover]="true">
+                <ng-template pTemplate="header">
+                    <tr style="position: sticky !important;top: 0 !important;">
+                        <th scope="col">Section</th>
+                        <th scope="col">Suffix</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">IRP</th>
+                        <th scope="col">Illustration</th>
+
+                        <th scope="col">Revision</th>
+                        <th scope="col">Send Date</th>
+                        <th scope="col">Request Return Date</th>
+                        <th scope="col">Current Owner</th>
+
+
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-irps>
+                    <tr>
+
+                        <td>{{irps.templtIdR}}</td>
+                        <td>{{irps.sectSufficC}}</td>
+                        <td>{{irps.lexcDescLongX}}</td>
+                        <td>{{irps.reqIdR}}</td>
+                        <td>{{irps.illstrIdR}}</td>
+
+
+                        <td>{{irps.illstrRevIdR}}</td>
+                        <td>{{irps.roleCodeC}}</td>
+                        <td>{{irps.reqDateY}}</td>
+                        <td>{{irps.reqCurrOwnerC}}</td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="footer">
+                    <tr style="position: sticky !important">
+                        <td scope="col">Total</td>
+                        <td colspan="9" style="text-align: right;">{{table1}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+    <div class="row3" style="width:100%;margin-top:2%;text-align:center;clear:both">
+        <button id="btn" style="width:8%">
+            Print Report
+        </button>
+    </div>
+</div>

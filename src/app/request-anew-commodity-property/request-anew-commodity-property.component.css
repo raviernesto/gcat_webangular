@@ -1,0 +1,44 @@
+label{
+    margin-top: 15px;
+    margin-left: 15px;
+}
+input[type=text]{
+    margin-top: -40px;
+}
+.card-header{
+    background-color: #000080;
+    color:white;
+}
+.card{
+    width:594px;
+    height: 582px;
+}
+h4{
+    margin-top:5px;
+}
+input[type=radio]{
+    margin-left: 25px;
+    margin-top:-2px;
+}
+.spec,.app,.primfeat,.minfeat,.mand,.reco,.approv,.reject{
+    margin-top: -38px;
+    margin-left: 36px;
+}
+p{
+    margin-left: 16px;
+    margin-top: -11px;
+}
+textarea{
+    width:393px;
+    height: 100px;
+    margin-top:5px;
+    margin-left: 15px;
+}
+button{
+    font-size: 13px;
+    width:84px;
+    height:42px;
+    margin-top:15px;
+    background-color: #000080;
+    color:white;
+}

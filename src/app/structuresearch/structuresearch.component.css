@@ -1,0 +1,130 @@
+.frstrow{
+    float: left;
+    text-align: center;
+    width: 300px;
+    margin-top: 20px;
+    /* margin-left: 2%; */
+    height: 30px;
+    border: none;
+    height: 50px;
+    font-weight: bold;
+    background-color:  rgb(183, 181, 181) ;
+    border-right: 1px slid white;
+    /* border-radius: 5px; */
+    
+}
+#btn{
+   
+    height:25px;
+    font-size: 13px;
+    width:80px;
+    border-radius:20px;
+    background-color:#000080 !important;
+    color:white;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    /* margin-top:20px; */
+    margin-left: 1.5%;
+    
+  }
+  :host ::ng-deep .p-inputtext {
+    font-size: 11px;
+    margin-top: -7px;
+}
+
+.btn1{
+    background-color: rgb(120, 120, 120);
+    color:white;
+    border-radius: 5px;
+    width: 120px;
+    border:none;
+    height: 40px;
+    float: right;
+    margin-right: 2%;
+    /* margin-top: 40px;
+    margin-left: %; */
+
+}
+table,td,tr,th{
+    border:1px solid black
+}
+.tabl{
+    width:80%;
+    height: 100px;
+    overflow: auto;
+    margin-top: 5px;
+    margin-left: 10%;
+}
+.temp{
+    width:20%;
+    height: 30px;
+}
+.desc{
+    width:80%;
+    height: 30px;
+}
+
+.btnlast{
+    /* width: 128px;
+    margin-left: 20px;
+    float: left;
+    background-color: rgb(120, 120, 120);
+    color:white;
+    border-radius: 5px;
+    border:none;
+    height: 40px;
+    font-size: 12px;
+    padding: 8px; */
+    height:41px;
+    width:106px;
+    border-radius:20px;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap; 
+    margin-top:20px;
+    margin-left: 5%;
+    text-align: center;
+}
+.btnlastright{
+    /* float: right;
+    margin-right: 10%;
+    width: 120px;
+    background-color: rgb(120, 120, 120);
+    color:white;
+    border-radius: 5px;
+    border:none;
+    height: 40px; */
+    height:41px;
+    width:106px;
+    border-radius:20px;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap;
+    margin-top:20px;
+    margin-left: 8%;
+}
+th{
+    text-align: center;
+    height: 30px;
+    background-color: #000080;
+    padding-top: 10px;
+}
+.tabledata{
+    height: 30px;
+}
+
+.btnlast1{
+    height:41px;
+    width:106px;
+    border-radius:20px;
+    background-color:#00095B;
+    box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+    font-family:"Ford Antenne Cond" !important;
+    white-space: nowrap; 
+    margin-left:37%;
+    text-align: center;
+    
+  }

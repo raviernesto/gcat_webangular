@@ -1,0 +1,56 @@
+<div class=container>
+    <p-dialog  [(visible)]="display" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}">
+        <div class="card">
+            <div class="card-header">Commodity Base Details</div>
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="commodity">Commodity :</label>
+                <input type="text">
+                <div class="radiobutton">
+                    <label for="vehtype">Vehicle Type :</label>
+                    <div class="radio1" >
+                        <input type="radio" value="car">
+                        <label for="Car" class="car">Car</label>
+                    </div>
+                    <div class=radio2>
+                        <input type="radio" value="truck">
+                        <label for="truck" class="truck">Truck</label>
+                    </div>
+                </div>
+                <div class="engContainer">
+                    <label for="engbase" class="enbase">Eng.Base :</label>
+                    <input type="text" class="entext">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="origin">
+                    <label for="origin">Origin :</label>
+                    <input type="text">
+                </div>
+                <div class="designcontainer">
+                    <label for="design">Designation :</label>
+                    <div class="dropdown">
+                        <p-dropdown [options]="vehicleName" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select">
+                            <ng-template pTemplate="selectedItem">
+                            </ng-template>
+                            <ng-template let-vehicle pTemplate="item">
+                                <div class="vehicle-item">
+                                    <div>{{vehicle.name}}</div>
+                                </div>
+                            </ng-template>
+                        </p-dropdown>
+                    </div>
+                </div>
+                <div class="textboxes">
+                    <input type="text" class="text1">
+                    <input type="text" class="text2">
+                    <input type="text" class="text3">
+                    <input type="text" class="text4">
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" style="margin-left: 213px;">Save</button>
+        <button class="btn btn-primary" style="margin-left:308px;margin-top: -38px;">Close</button>
+    </div>
+    </p-dialog>
+</div>

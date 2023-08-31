@@ -1,0 +1,71 @@
+.btn{
+    border-radius:20px;
+      background-color:#00095B;
+      box-shadow:0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+      font-family:"Ford Antenne Cond" !important;
+      white-space: nowrap;
+  }
+  // .p-datatable .p-datatable-thead > tr > th{
+  //   font-size: 11px !important;
+  //   padding:0rem;
+  //   text-align: center;
+  //   border: 1px solid white;
+  //     border-width: 1px;
+  //     font-weight: bold;
+  // }
+  .p-datatable .p-datatable-thead > tr{
+    margin-top:-10px !important;
+  }
+  .p-datatable .p-datatable-thead > tr > th {
+    /* padding: 0.5rem 0.5rem; */
+   white-space: nowrap;
+   font-size: 11px !important;
+    padding: 0%;
+    padding: 0px 5px;
+    height:25px !important;
+    text-align:center;
+    border-right: 1px solid white;
+    font-weight:bold;
+  } 
+  .p-datatable .p-datatable-header{
+    padding:0rem;
+    font-size: 11px !important;
+  }
+  .p-datatable .p-datatable-tbody > tr > td {
+    text-align: left;
+    border: 1px solid #e9ecef;
+    border-width: 0 0 1px 0;
+    /* padding: 1rem 1rem; */
+    padding: 0;
+    padding-left: 1px !important;
+    padding-right: 1px !important;
+    padding-top:0px !important;
+    padding-bottom:0px !important;
+    height: 20px !important;
+    //font-weight: bold !important;
+    font-size: 10px !important;
+  }
+  // .p-datatable .p-datatable-tbody > tr > td { 
+  //   font-size: 11px !important;
+  //   padding:0rem;
+  //   padding-top: 1px;
+  //     padding-bottom: 2px;
+  //     text-align: center;
+  //     border: 1px solid #e9ecef;
+  //     border-width: 2px;
+  // }
+  .p-datatable-wrapper .p-datatable-wrapper{
+    padding-top:0rem !important;
+  }
+  .p-datatable-wrapper{
+    margin-top:-1%;
+  }
+  tr:nth-child(even){ background-color:#f5f5f5 !important; } tr:nth-child(odd){ background-color:#ffff; }
+td{
+    border-right: 1px solid #bdbdbd !important;
+  }
+  :host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
